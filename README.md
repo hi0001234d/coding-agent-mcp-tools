@@ -64,61 +64,25 @@ Tools that help identify vulnerabilities and improve secure development practice
 
 ---
 
-## Creating Your Own Server
-
-Instructions and resources for creating your own MCP server will be added here.
-
----
 
 ## Contributing
 
-Contributions are welcome.
-
-If you know tools related to:
-
-- MCP servers  
-- coding agents  
-- debugging tools  
-- codebase understanding  
-- documentation automation  
-- maintenance workflows  
-- testing or DevOps automation  
-
-please open a pull request and add the tool to the appropriate category.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for information about contributing to this repository.
 
 ---
 
 ## Security
 
-Security issues should be reported responsibly.
-
-If you discover a vulnerability related to any tool listed in this repository or its integrations, please report it through the appropriate channels defined in the project's Security Policy.
-
-A dedicated **SECURITY.md** file will describe the reporting process and responsible disclosure guidelines.
-
----
-
-## Community
-
-This repository is part of a broader effort to explore agent-assisted development workflows for real-world software systems.
-
-We welcome participation from developers interested in:
-
-- AI coding agents  
-- MCP tooling  
-- debugging and maintenance workflows  
-- developer productivity tooling  
-- large codebase analysis  
-
-You can participate by:
-
-- contributing tools  
-- improving documentation  
-- suggesting new categories  
-- sharing workflows and ideas  
+See [SECURITY.md](SECURITY.md) for reporting security vulnerabilities.
 
 ---
 
 ## License
 
-This repository is released under the **MIT License**.
+This project is licensed under the **Apache License, Version 2.0** for new contributions, with existing code under **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Community
+
+### GitHub Discussions
