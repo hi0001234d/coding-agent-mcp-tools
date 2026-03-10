@@ -210,7 +210,7 @@ Tools that help track, analyze, and optimize development and infrastructure cost
 
 ---
 
-### AI & Agent Workflow Tools
+### AI Agent Infrastructure
 
 Tools that help connect AI models, agents, and developer tooling for faster workflows.
 
