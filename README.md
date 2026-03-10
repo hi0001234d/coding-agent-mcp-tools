@@ -27,9 +27,9 @@ Tools in this repository are organized by common development workflows. Many of 
 Tools that help investigate failures, analyze logs, trace issues, and understand runtime behavior.
 
 - [Sentry MCP](https://github.com/modelcontextprotocol/servers/tree/main/src/sentry) – Crash reporting and monitoring for MCP-based applications  
-- [DuckDuckGo MCP Server](https://github.com/nickclyde/duckduckgo-mcp-server) – Private search engine integration for MCP workflows    
 - [Sentry](https://github.com/getsentry/sentry) (MCP) – Real-time error tracking and performance monitoring  
 - [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector) (MCP) – Observability and telemetry data collection for MCP  
+- [DuckDuckGo MCP Server](https://github.com/nickclyde/duckduckgo-mcp-server) – MCP search integration for private workflows    
 - [Grafana](https://github.com/grafana/grafana) (MCP) – Analytics and visualization platform for MCP observability data 
 - [AgentOps](https://github.com/AgentOps-AI/agentops) – Monitor, trace, and debug AI agent executions with observability tools  
 - [Debugg.AI](https://debugg.ai) – AI-powered debugging and testing platform for analyzing application failures 
@@ -129,6 +129,17 @@ Tools that help manage environments, deployments, and infrastructure operations.
 - [Redis](https://github.com/redis/mcp-redis/) – The Redis official MCP Server offers an interface to manage and search data in Redis  
 - [Redis Cloud API](https://github.com/redis/mcp-redis-cloud/) – The Redis Cloud API MCP Server allows you to manage your Redis Cloud resources using natural language  
 - [PostIdentity](https://github.com/PostIdentity/mcp-server) – Generate AI-powered social media posts from any AI assistant. Manage identities, create posts, track referrals, and browse marketplace templates   
+- [Airflow](https://github.com/yangkyeongmo/mcp-server-apache-airflow) – MCP Server that connects to Apache Airflow using official Python client  
+- [AWS](https://github.com/rishikavikondala/mcp-server-aws) – Perform operations on AWS resources using an LLM  
+- [AWS Athena](https://github.com/lishenxydlgzs/aws-athena-mcp) – MCP server for AWS Athena to run SQL queries on Glue Catalog  
+- [Azure DevOps](https://github.com/Vortiago/mcp-azure-devops) – MCP server bridging AI assistants to Azure DevOps services 
+- [Bsc-mcp](https://github.com/TermiX-official/bsc-mcp) – MCP server that serves as the bridge between AI and BNB Chain, enabling AI agents to execute complex on-chain operations  
+- [CockroachDB](https://github.com/amineelkouhen/mcp-cockroachdb) – MCP server enabling AI agents and LLMs to manage, monitor, and query CockroachDB using natural language  
+- [CockroachDB MCP Server](https://github.com/viragtripathi/cockroachdb-mcp-server) – Full-featured MCP implementation built with FastAPI and CockroachDB; supports schema bootstrapping, JSONB storage, LLM-ready CLI, and optional /debug endpoints  
+- [consul-mcp](https://github.com/kocierik/consul-mcp-server) – A consul MCP server for service management, health check, and Key-Value Store  
+- [deploy-mcp](https://github.com/alexpota/deploy-mcp) – Universal deployment tracker for AI assistants with live status badges and deployment monitoring  
+- [DevOps-MCP](https://github.com/wangkanai/devops-mcp) – Dynamic Azure DevOps MCP server supporting work items, repositories, builds, pipelines, and multi-project management  
+- [DevOps AI Toolkit](https://github.com/vfarcic/dot-ai) – AI-powered development productivity platform enhancing software development workflows   
 
 ---
 
@@ -145,7 +156,13 @@ Tools that help identify vulnerabilities and improve secure development practice
 - [IPLocate MCP](https://github.com/iplocate/mcp-server-iplocate) – Lookup IP geolocation, detect proxies and VPNs  
 - [IP2Location MCP](https://github.com/ip2location/mcp-ip2location-io) – Retrieve geolocation information for an IP address
 - [SafeDep](https://github.com/safedep/vet/blob/main/docs/mcp.md) – Vet open source packages for security risks—such as vulnerabilities and malicious code—before they're used in your project, especially with AI-generated code suggestions  
-- [SafeLine](https://github.com/chaitin/SafeLine/tree/main/mcp_server) – Self-hosted WAF (Web Application Firewall) to protect your web apps from attacks and exploits  
+- [SafeLine](https://github.com/chaitin/SafeLine/tree/main/mcp_server) – Self-hosted WAF (Web Application Firewall) to protect your web apps from attacks and exploits 
+- [CVE Intelligence Server](https://github.com/gnlds/mcp-cve-intelligence-server-lite) – Provides vulnerability intelligence via multi-source CVE data, essential exploit discovery, and EPSS risk scoring through the MCP  
+- [Bybit MCP Server](https://github.com/ethancod1ng/bybit-mcp-server) – Integrates AI assistants with Bybit cryptocurrency exchange APIs, enabling automated trading, market data access, and account management  
+- [crypto-feargreed-mcp](https://github.com/kukapay/crypto-feargreed-mcp) – Provides real-time and historical Crypto Fear & Greed Index data  
+- [crypto-indicators-mcp](https://github.com/kukapay/crypto-indicators-mcp) – Provides a range of cryptocurrency technical analysis indicators and strategies  
+- [crypto-sentiment-mcp](https://github.com/kukapay/crypto-sentiment-mcp) – Delivers cryptocurrency sentiment analysis to AI agents  
+- [cryptopanic-mcp-server](https://github.com/kukapay/cryptopanic-mcp-server) – Provides latest cryptocurrency news to AI agents, powered by CryptoPanic  
 
 ---
 
@@ -169,7 +186,16 @@ Tools that help query and manage backend databases during development and debugg
 - [Pinecone Assistant](https://github.com/pinecone-io/assistant-mcp) – Retrieves context from your Pinecone Assistant knowledge base  
 - [Qdrant](https://github.com/qdrant/mcp-server-qdrant/) – Implement semantic memory layer on top of the Qdrant vector search engine  
 - [Rill Data](https://docs.rilldata.com/explore/mcp) – Interact with Rill Data to query and analyze your data  
-- [Prisma](https://www.prisma.io/docs/postgres/integrations/mcp-server) – Create and manage Prisma Postgres databases  
+- [Prisma](https://www.prisma.io/docs/postgres/integrations/mcp-server) – Create and manage Prisma Postgres databases 
+- [Airtable](https://github.com/domdomegg/airtable-mcp-server) – Read and write access to Airtable databases with schema inspection  
+- [ArangoDB](https://github.com/ravenwits/mcp-server-arangodb) – MCP server providing database interaction capabilities  
+- [ArangoDB Graph](https://github.com/PCfVW/mcp-arangodb-async) – Async-first Python architecture for ArangoDB graphs and analytics  
+- [BigQuery](https://github.com/LucasHild/mcp-server-bigquery) – Enables LLMs to inspect database schemas and execute queries  
+- [Databricks MCP](https://github.com/JordiNeil/mcp-databricks-server) – Allows LLMs to run SQL queries, list and get details of job executions in a Databricks account  
+- [Databricks Genie MCP](https://github.com/yashshingvi/databricks-genie-MCP) – Connects to Databricks Genie, enabling natural language queries, SQL execution, and interactions with Databricks agents  
+- [Databricks Smart SQL MCP](https://github.com/RafaelCartenet/mcp-databricks-server) – Perform smart and efficient SQL queries using Databricks Unity Catalog metadata  
+- [DBHub MCP](https://github.com/bytebase/dbhub/) – Universal database MCP server connecting to MySQL, MariaDB, PostgreSQL, and SQL Server  
+- [DataWorks MCP](https://github.com/aliyun/alibabacloud-dataworks-mcp-server) – Allows AI to interact with Alibaba Cloud DataWorks Open API 
 
 ---
 
@@ -184,7 +210,7 @@ Tools that help track, analyze, and optimize development and infrastructure cost
 
 ---
 
-### AI / Tooling
+### AI & Agent Workflow Tools
 
 Tools that help connect AI models, agents, and developer tooling for faster workflows.
 
@@ -202,6 +228,22 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [Riza](https://github.com/riza-io/riza-mcp) – Arbitrary code execution and tool-use platform for LLMs  
 - [Quickchat AI](https://github.com/incentivai/quickchat-ai-mcp) – Launch your conversational Quickchat AI agent as an MCP to give AI apps real-time access to its Knowledge Base and conversational capabilities  
 - [Ragie](https://github.com/ragieai/ragie-mcp-server/) – Retrieve context from your Ragie (RAG) knowledge base connected to integrations like Google Drive, Notion, JIRA and more  
+- [1mcpserver](https://github.com/particlefuture/1mcpserver) – MCP of MCPs. Automatically discover, configure, and add MCP servers on your local machine  
+- [1Panel](https://github.com/1Panel-dev/mcp-1panel) – MCP server implementation that provides 1Panel interaction  
+- [A2A](https://github.com/GongRzhe/A2A-MCP-Server) – Bridges MCP with Agent-to-Agent protocol for AI assistant interaction  
+- [Ableton Live](https://github.com/Simon-Kansara/ableton-live-mcp-server) – MCP server to control Ableton Live  
+- [Ableton Live](https://github.com/ahujasid/ableton-mcp) – Ableton integration allowing prompt-enabled music creation  
+- [Actor Critic Thinking](https://github.com/aquarius-wing/actor-critic-thinking-mcp) – Actor-critic thinking for performance evaluation  
+- [ADR Analysis](https://github.com/tosin2013/mcp-adr-analysis-server) – AI-powered Architectural Decision Records analysis  
+- [Agentic Framework](https://github.com/Piotr1215/mcp-agentic-framework) – Multi-agent collaboration framework enabling agents to work together on complex tasks  
+- [AI Tasks](https://github.com/jbrinkman/valkey-ai-tasks) – Let the AI manage complex plans with integrated task management tools
+- [Chroma MCP](https://github.com/privetin/chroma) – Vector database server for semantic document search and metadata filtering  
+- [ChatMCP](https://github.com/AI-QL/chat-mcp) – Cross-platform GUI for interacting with MCP servers across multiple LLMs  
+- [ChatSum MCP](https://github.com/mcpso/mcp-server-chatsum) – Summarize and query chat messages using LLMs  
+- [Context Processor MCP](https://github.com/mschultheiss83/context-processor) – Preprocess and structure context for AI consumption, search, and metadata extraction  
+- [Context Crystallizer MCP](https://github.com/hubertciebiada/context-crystallizer) – Transform large repositories into AI-consumable knowledge  
+- [Context-portal MCP](https://github.com/GreatScottyMac/context-portal) – Build project-specific memory graphs for RAG applications  
+- [Cognee MCP](https://github.com/topoteretes/cognee/tree/main/cognee-mcp) – GraphRAG memory server with ingestion, processing, and search capabilities    
 
 ---
 
@@ -218,6 +260,18 @@ Tools that help track application performance, logs, and system activity.
 - [PagerDuty](https://github.com/PagerDuty/pagerduty-mcp-server) – Interact with your PagerDuty account, manage incidents, services, schedules, and more directly from your MCP-enabled client  
 - [Powerdrill](https://github.com/powerdrillai/powerdrill-mcp) – MCP server providing smart AI data analysis and insights  
 - [Parallel Task MCP](https://github.com/parallel-web/task-mcp) – Initiate Deep Research and Batch Tasks 
+- [ActivityPub MCP](https://github.com/cameronrye/activitypub-mcp) – Enables LLMs to interact with Fediverse via ActivityPub protocol  
+- [AWS Cost Explorer](https://github.com/aarora79/aws-cost-explorer-mcp-server) – Optimize your AWS spend using an MCP server  
+
+---
+
+### Utility
+
+Tools that help simplify and automate utility tasks in development workflows.
+
+- [Calculator MCP](https://github.com/githejie/mcp-server-calculator) – Enables LLMs to perform precise numerical calculations.
+- [AntV Chart MCP](https://github.com/antvis/mcp-server-chart) – MCP server for generating and interacting with charts using AntV visualization tools  
+- [eBook MCP](https://github.com/onebirdrocks/ebook-mcp) – MCP server for accessing and generating eBook content  
 
 ---
 
