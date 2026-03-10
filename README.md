@@ -209,7 +209,7 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 
 Tools that help track application performance, logs, and system activity.
 
- [PostHog MCP](https://github.com/PostHog/mcp) – MCP server for accessing PostHog analytics, feature flags, and error tracking through AI tools :contentReference[oaicite:0]{index=0}  
+- [PostHog MCP](https://github.com/PostHog/mcp) – MCP server for accessing PostHog analytics, feature flags, and error tracking through AI tools :contentReference[oaicite:0]{index=0}  
 - [Axiom MCP Server](https://github.com/axiomhq/mcp-server-axiom) – Query and analyze logs, traces, and observability data using MCP
 - [Langfuse MCP](https://github.com/langfuse/mcp-server-langfuse) – Monitor and debug LLM applications with observability tools  
 - [Logfire MCP](https://github.com/pydantic/logfire-mcp) – Access OpenTelemetry traces and metrics  
