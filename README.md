@@ -178,7 +178,6 @@ Tools that help manage environments, deployments, and infrastructure operations.
 - [Azure DevOps](https://github.com/Vortiago/mcp-azure-devops) – MCP server bridging AI assistants to Azure DevOps services 
 - [AWS Cognito](https://github.com/gitCarrot/mcp-server-aws-cognito) – Manage authentication and user management with AWS Cognito.
 - [AWS Resources Operations](https://github.com/baryhuang/mcp-server-aws-resources-python) – Query and manage AWS resources using secure generated Python code.
-
 - [Bsc-mcp](https://github.com/TermiX-official/bsc-mcp) – MCP server that serves as the bridge between AI and BNB Chain, enabling AI agents to execute complex on-chain operations  
 - [consul-mcp](https://github.com/kocierik/consul-mcp-server) – A consul MCP server for service management, health check, and Key-Value Store  
 - [deploy-mcp](https://github.com/alexpota/deploy-mcp) – Universal deployment tracker for AI assistants with live status badges and deployment monitoring  
@@ -262,7 +261,6 @@ Tools that help query and manage backend databases during development and debugg
 - [BigQuery](https://github.com/LucasHild/mcp-server-bigquery) – Enables LLMs to inspect database schemas and execute queries  
 - [Databricks MCP](https://github.com/JordiNeil/mcp-databricks-server) – Allows LLMs to run SQL queries, list and get details of job executions in a Databricks account  
 - [CockroachDB](https://github.com/amineelkouhen/mcp-cockroachdb) – MCP server enabling AI agents and LLMs to manage, monitor, and query CockroachDB using natural language  
-
 - [Databricks Genie MCP](https://github.com/yashshingvi/databricks-genie-MCP) – Connects to Databricks Genie, enabling natural language queries, SQL execution, and interactions with Databricks agents  
 - [Databricks Smart SQL MCP](https://github.com/RafaelCartenet/mcp-databricks-server) – Perform smart and efficient SQL queries using Databricks Unity Catalog metadata  
 - [DBHub MCP](https://github.com/bytebase/dbhub/) – Universal database MCP server connecting to MySQL, MariaDB, PostgreSQL, and SQL Server  
@@ -314,7 +312,7 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [1Panel](https://github.com/1Panel-dev/mcp-1panel) – MCP server implementation that provides 1Panel interaction  
 - [A2A](https://github.com/GongRzhe/A2A-MCP-Server) – Bridges MCP with Agent-to-Agent protocol for AI assistant interaction  
 - [Ableton Live](https://github.com/Simon-Kansara/ableton-live-mcp-server) – MCP server to control Ableton Live  
-- [Actor Critic Thinking](https://github.com/aquarius-wing/actor-critic-thinking-mcp) – Actor-critic thinking for performance evaluation  
+- [Actor Critic Thinking](https://github.com/aquarius-wing/actor-critic-thinking-mcp) – Actor-critic thinking for performance evaluation
 - [Agentic Framework](https://github.com/Piotr1215/mcp-agentic-framework) – Multi-agent collaboration framework enabling agents to work together on complex tasks  
 - [AI Tasks](https://github.com/jbrinkman/valkey-ai-tasks) – Let the AI manage complex plans with integrated task management tools
 - [Chroma MCP](https://github.com/privetin/chroma) – Vector database server for semantic document search and metadata filtering  
