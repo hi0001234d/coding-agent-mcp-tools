@@ -1,18 +1,18 @@
 # Coding Agents & MCP Tools for Maintenance and Debugging
 
-This repository focuses on tools that support real-world software development workflows, particularly when working with existing projects, large codebases, and complex architectures. The goal is to highlight tools that help developers and AI coding agents understand, debug, maintain, and extend software systems effectively.
+As vibe-coded projects grow larger, they often evolve into large codebases with increasingly complex architectures that require better tooling for understanding, debugging, and maintenance. These same challenges also exist in existing large codebases and complex systems. This repository focuses on tools that support real-world software development workflows in such environments. The goal is to highlight tools that help developers and AI coding agents understand, debug, maintain, and extend software systems effectively.
 
 ---
 
 ## Vision
 
-Modern AI coding agents are becoming powerful at generating new code, but real software development rarely starts from scratch. Most development happens inside existing systems with large codebases, complex environments, and evolving architectures.
+Modern AI coding agents are becoming powerful at generating new code, but real software development rarely starts from scratch. Most development happens inside large codebases and complex systems, and increasingly also within vibe-coded projects as they grow and evolve.
 
 Developers working in these environments often need to understand the codebase, reason about system behavior, debug issues, and safely introduce changes. Because of this, effective AI tooling must support the same workflows developers already rely on.
 
 This repository focuses on how coding agents and MCP-based tools can assist developers in these real-world scenarios. The curated tools help support workflows such as debugging, codebase understanding, documentation, maintenance, testing, and security.
 
-The goal is to highlight tools that enable agent-assisted development for existing and long-lived software systems.
+The goal is to highlight tools that enable agent-assisted development for vibe-coded systems and large, long-lived software systems.
 
 ---
 
