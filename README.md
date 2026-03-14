@@ -96,6 +96,14 @@ Tools that help developers and AI agents analyze large repositories and understa
 - [Chisel](https://github.com/ckanthony/Chisel) — Enables efficient code inspection in large codebases by sharing optimized unified diffs instead of full files, allowing targeted file reading and analysis.  
 - [smart-tree](https://github.com/8b-is/smart-tree) — AI-native directory visualization tool that presents project structures in a compact format using semantic analysis.  
 - [large-file-mcp](https://github.com/willianpinho/large-file-mcp) — Provides a server for efficiently exploring large files with smart chunking, navigation, and regex-based search capabilities.
+- [GhidraMCP](https://github.com/13bm/GhidraMCP) | [GhidrAssistMCP](https://github.com/jtang613/GhidrAssistMCP) — Integrates Ghidra with AI assistants to inspect binaries, explore decompiled code, and understand program structure.  
+- [ida-pro-mcp](https://github.com/mrexodia/ida-pro-mcp) | [ida-headless-mcp](https://github.com/zboralski/ida-headless-mcp) — Provides automation interfaces for analyzing compiled programs and inspecting program logic using IDA Pro.  
+- [binary_ninja_mcp](https://github.com/fosdickio/binary_ninja_mcp) — MCP bridge for automating Binary Ninja analysis to explore compiled software components.  
+- [r2mcp](https://github.com/radareorg/r2mcp) — Integrates with the Radare2 disassembler to analyze binary files and inspect program structure.  
+- [jadx-ai-mcp](https://github.com/zinja-coder/jadx-ai-mcp) — Integration with the JADX decompiler to inspect the source structure of compiled Android applications.
+- [git-context-mcp](https://github.com/TamiShaks-2/git-context-mcp) — Analyzes local Git repositories to generate a structured code map and identify risk hotspots.
+- [mcp-git-ingest](https://github.com/adhikasp/mcp-git-ingest) — Reads and analyzes GitHub repositories to provide full context for AI agents.
+- [github-graphql-mcp-server](https://github.com/QuentinCody/github-graphql-mcp-server) — Provides access to GitHub’s GraphQL API for complex repository queries.
 
 ---
 
@@ -170,6 +178,7 @@ Tools that help capture screenshots, generate visuals, and analyze images or vid
 - [Memviz MCP](https://github.com/pfillion42/memviz) — Provides MCP tools for visual exploration of memory service databases, helping developers and coding agents understand stored memory structures.
 - [Manim MCP](https://github.com/abhiemj/manim-mcp-server) — Provides MCP integration with the Manim library to generate mathematical and educational animations for visualization and documentation purposes.
 - [excalidraw-architect-mcp](https://github.com/BV-Venky/excalidraw-architect-mcp) — Tool for generating software architecture diagrams with auto-layout and 50+ technology mappings.
+- [Webpage Screenshot MCP](https://github.com/ananddtyagi/webpage-screenshot-mcp) — MCP server for capturing webpage screenshots during UI development or documentation review.
 
 ---
 
@@ -228,6 +237,7 @@ Tools that assist with automated testing, validation, and QA workflows.
 - [atest-mcp-server](https://github.com/LinuxSuRen/atest-mcp-server) — Server for managing test suites and cases (Postman alternative).  
 - [octomind-mcp](https://github.com/OctoMind-dev/octomind-mcp) — Enables AI agents to create and run end-to-end tests.  
 - [currents-mcp](https://github.com/currents-dev/currents-mcp) — Allows AI agents to detect and fix Playwright test failures.  
+- [xcomet-mcp-server](https://github.com/shuji-bonji/xcomet-mcp-server)s — Uses xCOMET models to evaluate translation quality by providing scoring and error detection capabilities.
 
 ---
 
@@ -374,6 +384,14 @@ Tools that help manage environments, deployments, and infrastructure operations.
 - [wemo-mcp-server](https://github.com/apiarya/wemo-mcp-server) — Enables local control of WeMo smart home devices, allowing management of device settings and automation workflows.
 - [trackmage-mcp-server](https://github.com/trackmage/trackmage-mcp-server) — Provides infrastructure integration for managing logistics and shipment tracking workflows.
 - [ig-mcp-server (Inspektor Gadget)](https://github.com/inspektor-gadget/ig-mcp-server) — MCP interface for inspecting and debugging container and Kubernetes workloads using eBPF-based tools.
+- [Clojars MCP](https://github.com/Bigsy/Clojars-MCP-Server) — Provides tools to access dependency information and package data for libraries in the Clojure ecosystem.
+- [zitadel-mcp](https://github.com/takleb3rry/zitadel-mcp) — Integrates with the Zitadel identity management platform to manage users, roles, and authentication systems.
+- [mcp-server-bitbucket](https://github.com/JaviMaligno/mcp-server-bitbucket) — Server with 58 specialized tools for managing pipelines, branch restrictions, and webhooks on Bitbucket.
+- [mcp-server-azure-devops](https://github.com/Tiberriver256/mcp-server-azure-devops) — Integrates with Azure DevOps to manage work items, pipelines, and repositories.
+- [tod](https://github.com/theonedev/tod) — CI/CD pipeline editing and pull request review automation for OneDev.
+- [gitea-mcp](https://gitea.com/gitea/gitea-mcp) — Interacts with Gitea instances to manage repositories.  
+- [forgejo-mcp](https://github.com/raohwork/forgejo-mcp) — Interacts with Forgejo instances for repository management.
+- [github-enterprise-mcp](https://github.com/ddukbg/github-enterprise-mcp) — Integrates with GitHub Enterprise API for large-scale enterprise repository management.
 
 ---
 
@@ -419,6 +437,15 @@ Tools that help identify vulnerabilities and improve secure development practice
 - [bicscan-mcp](https://github.com/ahnlabio/bicscan-mcp) — Provides analysis tools to evaluate blockchain addresses and domains for asset holdings and network activity insights.  
 - [heurist-mesh-mcp-server](https://github.com/heurist-network/heurist-mesh-mcp-server) — Integrates with AI agents to analyze smart contract infrastructure and provide security insights within decentralized finance ecosystems.
 - [gleif-mcp-server](https://github.com/olgasafonova/gleif-mcp-server) — Provides tools to access the Global Legal Entity Identifier (LEI) database for organization verification and entity identification.
+- [ZoomEye MCP](https://github.com/zoomeye-ai/mcp_zoomeye) — Enables querying network assets and internet infrastructure data for security and infrastructure analysis.
+- [gia-mcp-server](https://github.com/knowledgepa3/gia-mcp-server) — Provides compliance validation tools aligned with enterprise AI governance frameworks.  
+- [agent-bom](https://github.com/msaad00/agent-bom) — Analyzes software dependencies and generates a Software Bill of Materials (SBOM).  
+- [mcp-shodan](https://github.com/BurtTheCoder/mcp-shodan) — Queries internet-connected infrastructure data for security and infrastructure analysis.  
+- [mcp-virustotal](https://github.com/BurtTheCoder/mcp-virustotal) — Integrates with the VirusTotal API to scan and analyze files and URLs for threats.  
+- [vuln-nist-mcp-server](https://github.com/HaroldFinchIFT/vuln-nist-mcp-server) — Interface for retrieving software vulnerability information from the NIST vulnerability database.  
+- [mcp-recon](https://github.com/nickpending/mcp-recon) — Provides technical analysis tools for domains, certificates, and network infrastructure.
+- [secretctl](https://github.com/forest6511/secretctl) — Secure secrets management system that injects credentials as protected environment variables.  
+- [onepassword-mcp-server](https://github.com/dkvdm/onepassword-mcp-server) — MCP interface for securely retrieving credentials from 1Password vaults.
 
 ---
 
@@ -771,6 +798,15 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [NotebookLM MCP Secure](https://github.com/Pantheon-Security/notebooklm-mcp-secure) — Secure integration with Google NotebookLM for retrieving structured information from documents and knowledge sources.  
 - [Vectara MCP](https://github.com/vectara/vectara-mcp) — Enables trusted knowledge search and retrieval workflows using Vectara’s retrieval-augmented generation APIs.  
 - [CustomGPT MCP](https://github.com/poll-the-people/customgpt-mcp) — Integrates with the CustomGPT knowledge platform to support document-based question answering and retrieval workflows.
+- [Nexus](https://github.com/adawalli/nexus) — AI-powered search server that uses Perplexity Sonar models to return search results with source citations.  
+- [Octagon Deep Research](https://github.com/OctagonAI/octagon-deep-research-mcp) — Enables deep research workflows for AI agents to generate structured reports on complex topics.  
+- [Exa AI Search](https://github.com/exa-labs/exa-mcp-server) — Provides real-time web search capabilities for AI assistants using the Exa AI Search API.  
+- [Google Researcher MCP](https://github.com/zoharbabin/google-researcher-mcp) — Comprehensive toolkit that collects research information from Google Search, web scraping, and academic sources such as arXiv, PubMed, and IEEE.  
+- [ArXiv MCP (blazickjp)](https://github.com/blazickjp/arxiv-mcp-server) — MCP interface for searching and reading research papers from arXiv.  
+- [PubMed MCP (andybrandt)](https://github.com/andybrandt/mcp-simple-pubmed) — Provides tools to search and read medical and life sciences research papers from PubMed.  
+- [PapersWithCode MCP](https://github.com/hbg/mcp-paperswithcode) — Enables searching machine learning research papers and associated code implementations through the PapersWithCode API.
+- [git-context-mcp](https://github.com/TamiShaks-2/git-context-mcp) — Supplies structured codebase knowledge and risk hotspot information for retrieval-augmented generation workflows.
+- [mcp-git-ingest](https://github.com/adhikasp/mcp-git-ingest) — Provides repository context to AI agents for RAG-style code analysis and knowledge retrieval.
 
 ---
 
@@ -901,6 +937,8 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [mcp-server-iplocate](https://github.com/iplocate/mcp-server-iplocate) — Interface for retrieving IP address geolocation and network information.  
 - [mcp-server-ipinfo](https://github.com/briandconnelly/mcp-server-ipinfo) — Integrates with the IPInfo API to access geolocation and network metadata.
 - [citedy-seo-agent](https://github.com/Citedy/citedy-seo-agent) — Offers tools for SEO content generation, competitor analysis, and online trend discovery.
+- [AEO CLI](https://github.com/hanselhansel/aeo-cli) — Audits URLs to check AI crawler readiness (e.g., robots.txt, llms.txt) and provides a structured evaluation score.
+- [lara-mcp](https://github.com/translated/lara-mcp) — Integrates with the Lara Translate API to provide context-aware translations and automatic language detection.
 
 ---
 
@@ -957,6 +995,13 @@ Tools that help AI agents search the web, crawl websites, and extract structured
 - [apollo-io-mcp](https://github.com/louis030195/apollo-io-mcp) — Provides tools to search and enrich prospects from large B2B contact datasets for sales intelligence workflows.
 - [Idea Reality MCP](https://github.com/mnemox-ai/idea-reality-mcp) — Scans platforms like GitHub, npm, and Product Hunt to provide ecosystem insights and validate new project ideas.  
 - [BrowserAI-Dev](https://github.com/BrowseAI-HQ/BrowserAI-Dev) — Provides research-focused browsing tools to gather structured research results and referenced information from web sources.
+- [Read Website Fast](https://github.com/just-every/mcp-read-website-fast) — Converts web pages into clean Markdown format for efficient content analysis by AI agents.  
+- [MinerU MCP](https://github.com/linxule/mineru-mcp) — Converts PDFs, images, and PPTX files into structured text output using OCR for AI processing.  
+- [StripFeed](https://github.com/StripFeed/mcp-server) — Extracts content from URLs and converts it into token-efficient Markdown format.
+- [reddit-research-mcp](https://github.com/king-of-the-grackles/reddit-research-mcp) — Provides tools to analyze discussions and trends from Reddit communities using semantic search.  
+- [reddit-mcp-buddy](https://github.com/karanb192/reddit-mcp-buddy) — Simple interface for browsing Reddit posts, performing searches, and analyzing community activity.  
+- [macrocosmos-mcp](https://github.com/macrocosm-os/macrocosmos-mcp) — Provides access to real-time social content search and filtering across platforms such as X, Reddit, and YouTube.  
+- [scrapebadger-mcp](https://github.com/scrape-badger/scrapebadger-mcp) — API integration for accessing profiles, posts, and trend-related data from social platforms.
 
 ---
 
@@ -1012,6 +1057,13 @@ Tools that integrate with development environments to support coding workflows a
 - [Saga MCP](https://github.com/spranab/saga-mcp) — Project tracking system for AI agents supporting a Projects → Epics → Tasks hierarchy, task dependencies, and activity logging.  
 - [PM Copilot](https://github.com/dkships/pm-copilot) — Generates prioritized product plans from support tickets and feature requests, helping with business metric–driven planning workflows.
 - [Deep Research MCP](https://github.com/pminervini/deep-research-mcp) — MCP interface for executing detailed technical research tasks with web search, research workflows, and code interpreter integration.
+- [SemanticAPI](https://github.com/peter-j-thompson/semanticapi-mcp) — Provides discovery tools to search capabilities across 700+ APIs, find endpoints, and set up integrations using natural language.
+- [jira-mcp](https://github.com/nguyenvanduocit/jira-mcp) — A Go-based connector that helps agents interact with Jira for issue management, sprint planning, and workflow transitions.
+- [mcp-atlassian](https://github.com/sooperset/mcp-atlassian) — Integrates with Atlassian platforms such as Confluence and Jira (Cloud/Server) to manage documentation, content creation, and issue workflows.
+- [mcp-jira-server](https://github.com/tom28881/mcp-jira-server) — A feature-rich MCP server with 20+ specialized tools for Jira, including batch operations, attachment handling, and sprint management.
+- [bugherd-mcp](https://github.com/Berckan/bugherd-mcp) — Provides integration with the BugHerd platform to track bugs, filter tasks, and access comments within development workflows.
+- [yandex-tracker-mcp](https://github.com/aikts/yandex-tracker-mcp) — Integration for retrieving issues, queues, and user information from Yandex Tracker.
+- [weblate-mcp](https://github.com/mmntm/weblate-mcp) — Integrates with the Weblate translation management system to manage projects, translation workflows, and format transformations.
 
 ---
 
@@ -1045,6 +1097,11 @@ Tools that deal specifically with email, messaging, or communication platforms.
 - [X (Twitter)](https://github.com/vidhupv/x-mcp) — Manage and publish Twitter posts via AI chat.
 - [WayStation MCP](https://github.com/waystation-ai/mcp) — Connect AI agents to productivity platforms such as Notion, Slack, and Airtable.
 - [mailchimp-mcp-server](https://github.com/damientilman/mailchimp-mcp-server) — Integrates with the Mailchimp Marketing API to manage campaigns, audiences, and marketing reports.
+- [insta-mcp](https://github.com/arjun1194/insta-mcp) — Provides tools to interact with Instagram accounts, including accessing posts, user profiles, and engagement insights.  
+- [facebook-mcp-server](https://github.com/HagaiHen/facebook-mcp-server) — Integrates with Facebook Pages to manage posts, comments, and engagement data.  
+- [twitter-mcp](https://github.com/kunallunia/twitter-mcp) — Provides tools to access Twitter timelines, hashtags, and conversation streams.  
+- [bluesky-social-mcp](https://github.com/gwbischof/bluesky-social-mcp) — MCP server for interacting with the Bluesky social network to access posts and activity streams.
+- [freshdesk-mcp](https://github.com/effytech/freshdesk-mcp) — Connects with the Freshdesk support platform to automate ticket management, support workflows, and service operations.
 
 ---
 
@@ -1087,6 +1144,11 @@ Tools focused on image, video, or media processing and generation.
 - [exif-mcp](https://github.com/stass/exif-mcp) — Provides tools to inspect image metadata (EXIF, GPS, XMP) and organize or search image collections.  
 - [topaz-mcp](https://github.com/TopazLabs/topaz-mcp) — MCP integration using the Topaz Labs API for AI image enhancement such as denoising and sharpening.  
 - [sonos-ts-mcp](https://github.com/Tommertom/sonos-ts-mcp) — TypeScript MCP server for controlling Sonos audio systems, device discovery, and event subscriptions.
+- [youtube-uploader-mcp](https://github.com/anwerj/youtube-uploader-mcp) — Automates YouTube video upload workflows directly from MCP clients.  
+- [fitness-influencer-mcp](https://github.com/MarceauSolutions/fitness-influencer-mcp) — Provides tools for video editing automation and media publishing workflows.
+- [mcp-transcribe](https://github.com/transcribe-app/mcp-transcribe) — Provides fast transcription for audio and video files, enabling AI agents to interact with voice content.
+- [voice-mcp](https://github.com/mbailey/voice-mcp) — Supports real-time voice conversations with speech-to-text and text-to-speech capabilities using OpenAI and LiveKit integrations.
+- [kokoro-tts-mcp](https://github.com/mberg/kokoro-tts-mcp) — Converts text into audio (MP3) using Kokoro text-to-speech models, with support for local processing and cloud storage uploads.
 
 ---
 
