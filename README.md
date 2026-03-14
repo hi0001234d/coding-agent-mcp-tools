@@ -1152,6 +1152,118 @@ Tools focused on image, video, or media processing and generation.
 
 ---
 
+### Infrastructure & Environment Understanding
+
+Tools focused on analyzing and understanding existing infrastructure environments, including cloud resources, clusters, and Infrastructure-as-Code systems.
+
+- [terraform-mcp-server](https://github.com/hashicorp/terraform-mcp-server) — Official MCP server for Terraform that analyzes Infrastructure-as-Code modules, plans, and configurations.
+- [k8s-mcp-server](https://github.com/alexei-led/k8s-mcp-server) — Enables secure analysis of Kubernetes clusters using kubectl and Helm within a Docker environment.
+- [portainer-mcp](https://github.com/portainer/portainer-mcp) — Provides natural language access to monitor and manage running containers and infrastructure through Portainer.
+- [azure-resource-graph-mcp-server](https://github.com/hardik-id/azure-resource-graph-mcp-server) — Allows querying and exploring large-scale Azure infrastructure using Azure Resource Graph.
+
+---
+
+### API Integration & System Interoperability
+
+Tools that enable AI agents to integrate with existing APIs and external systems.
+
+- [openapi-mcp](https://github.com/ckanthony/openapi-mcp) — Generates MCP tools directly from existing OpenAPI documentation, allowing agents to interact with APIs automatically.
+- [openapi-to-mcp](https://github.com/ouvreboite/openapi-to-mcp) — Converts APIs into MCP tools with support for OAuth2 authentication and secure integrations.
+- [netskope-mcp](https://github.com/johnneerdael/netskope-mcp) — Provides access to information about private access environments and security components managed by Netskope.
+
+---
+
+
+### Multi-Agent Coordination & Delegation
+
+Tools that enable multiple AI agents to collaborate, delegate tasks, and coordinate workflows.
+
+- [outsource-mcp](https://github.com/gwbischof/outsource-mcp) — Allows one AI agent to delegate specific tasks to other specialized AI models such as OpenAI or Gemini.
+- [agent-deploy-dashboard-mcp](https://github.com/aparajithn/agent-deploy-dashboard-mcp) — Provides a dashboard to monitor agent deployments and logs across platforms such as Vercel, Render, and Fly.io.
+
+---
+
+### System Administration
+
+Tools designed for Linux and server administration tasks.
+
+- [webmin-mcp-server](https://github.com/gjenkins20/webmin-mcp-server) — Integrates with Webmin to manage Linux server services, users, storage, and system configurations.
+
+---
+
+### Task & Project Management Systems
+
+Tools that integrate with task management and project workflow platforms.
+
+- [kanboard-mcp](https://github.com/bivex/kanboard-mcp) — A Go-based server that converts natural language commands into Kanboard API actions.
+- [better-notion-mcp](https://github.com/n24q02m/better-notion-mcp) — Markdown-first Notion integration with tiered documentation, designed to reduce token usage by up to ~77%.
+- [mcp-orchestro](https://github.com/khaoss85/mcp-orchestro) — A Trello-like visual Kanban board for Claude Code with over 60 MCP tools for workflow management.
+- [claudia](https://github.com/yuvalsuede/claudia) — AI-native task management system supporting hierarchical tasks, dependencies, and multi-agent coordination.
+- [huly-mcp](https://github.com/dearlordylord/huly-mcp) — Integration for the Huly project management platform to query issues and update tasks.
+
+---
+
+### Workspace & Productivity Suite
+
+Tools designed to improve everyday productivity by integrating with document systems, collaboration tools, and time tracking platforms.
+
+- [Google-Workspace-MCP-Server](https://github.com/giuseppe-coco/Google-Workspace-MCP-Server) — Provides seamless interaction with Google Workspace services including Gmail, Google Drive, and Google Calendar.
+- [quip-mcp](https://github.com/bug-breeder/quip-mcp) — Enables lifecycle management of Quip documents with features such as smart search and comment management.
+- [UnMarkdown](https://github.com/UnMarkdown/mcp-server) — Converts Markdown content into professional formats suitable for platforms like Google Docs, Microsoft Word, and Slack.
+- [toggl-mcp](https://github.com/louis030195/toggl-mcp) — Integrates with Toggl Track to provide time tracking capabilities for project billing and productivity monitoring.
+
+---
+
+### Scheduling & Calendar Integration
+
+Tools that help manage scheduling, calendar events, and time-based workflows across different platforms.
+
+- [temporal-cortex/mcp](https://github.com/temporal-cortex/mcp) — Middleware for scheduling and booking that integrates with Google Calendar, Outlook, and CalDAV, featuring two-phase commit booking and deterministic datetime resolution.
+- [reclaim-mcp-server](https://github.com/universalamateur/reclaim-mcp-server) — Integrates with Reclaim.ai and provides 40 tools for managing tasks, habits, and focus time.
+- [calendar-mcp](https://github.com/wyattjoh/calendar-mcp) — A specialized server for accessing and managing macOS Calendar events.
+
+---
+
+### Career & CRM Tools
+
+Tools focused on career management, job search automation, and personal relationship management.
+
+- [jobgpt-mcp-server](https://github.com/6figr-com/jobgpt-mcp-server) — Provides 34 tools for job search workflows, including tailored resume generation and job application tracking.
+- [keepsake-mcp](https://github.com/nicolascroce/keepsake-mcp) — Personal CRM system with 42 tools for managing contacts, tracking interactions, and organizing notes.
+
+---
+
+### System Analysis & Diagramming
+
+Tools for visualizing existing system logic, architecture, and workflows to improve understanding and documentation.
+
+- [plantuml_web](https://github.com/2niuhe/plantuml_web) — Provides PlantUML syntax validation and diagram generation to visualize complex system architectures and workflows.
+- [ai-vision-mcp](https://github.com/tan-yong-sheng/ai-vision-mcp) — Multimodal AI vision server that supports UI/UX evaluation, visual regression testing, and interface understanding.
+- [screenpipe](https://github.com/mediar-ai/screenpipe) — Local-first system for capturing screen and audio data with semantic search and historical analysis capabilities.
+
+---
+
+### Developer Productivity & Automation
+
+Tools designed to streamline developer workflows and expose automation tools that AI agents can interact with.
+
+- [make-mcp-server](https://github.com/integromat/make-mcp-server) — Converts Make (Integromat) automation scenarios into AI agent-callable tools.
+- [mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge) — Exposes curated GraphQL queries as modular MCP tools for structured data access.
+- [mcp-server-calculator](https://github.com/githejie/mcp-server-calculator) — Provides numerical calculation utilities useful for analyzing math-heavy code and workflows.
+
+---
+
+### Project & Knowledge Management
+
+Tools that support team collaboration, project coordination, and integration with documentation or knowledge base systems.
+
+- [huly-mcp](https://github.com/dearlordylord/huly-mcp) — Integration with the Huly platform for project management, issue queries, and task updates.
+- [plane-mcp-server](https://github.com/kelvin6365/plane-mcp-server) — Enables AI agents to manage projects and issues within the Plane project management platform.
+- [Yuque-MCP-Server](https://github.com/HenryHaoson/Yuque-MCP-Server) — Integrates with Yuque to manage documentation and interact with knowledge bases.
+- [mcp-linear](https://github.com/tacticlaunch/mcp-linear) — Provides integration with the Linear project management system for managing issues and workflows.
+
+---
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for information about contributing to this repository.
