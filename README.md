@@ -26,7 +26,6 @@ Tools in this repository are organized by common development workflows. Many of 
 
 Tools that help investigate failures, analyze logs, trace issues, and understand runtime behavior.
 
-- [Sentry MCP](https://github.com/modelcontextprotocol/servers/tree/main/src/sentry) – Crash reporting and monitoring for MCP-based applications  
 - [Sentry](https://github.com/getsentry/sentry) (MCP) – Real-time error tracking and performance monitoring  
 - [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector) (MCP) – Observability and telemetry data collection for MCP  
 - [Inspector](https://github.com/modelcontextprotocol/inspector) – Debugging and observability tool for MCP servers
