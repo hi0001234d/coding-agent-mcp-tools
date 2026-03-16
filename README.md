@@ -275,9 +275,7 @@ Tools that help manage environments, deployments, and infrastructure operations.
 - [Pulumi MCP](https://github.com/dogukanakkaya/pulumi-mcp-server) — Manage Pulumi infrastructure stacks.
 - [OpenStack MCP](https://github.com/wangsqly0407/openstack-mcp-server) — MCP server for managing OpenStack cloud resources.
 - [Oracle Cloud Infrastructure MCP](https://github.com/karthiksuku/oci-mcp) — Access and manage OCI cloud services.
-- [SSH](https://github.com/AiondaDotCom/mcp-ssh) — Manage and control remote SSH connections.
 - [SSH MCP Server](https://github.com/classfang/ssh-mcp-server) — Execute remote SSH commands and automate server management.
-- [SSH MCP Server](https://github.com/sinjab/mcp_ssh) — Production-ready SSH automation server with monitoring.
 - [Terraform Cloud](https://github.com/severity1/terraform-cloud-mcp) — Manage infrastructure via Terraform Cloud APIs.
 - [VMware Fusion](https://github.com/yeahdongcn/vmware-fusion-mcp-server) — Manage VMware VMs through Fusion REST API.
 - [TrueNAS Core MCP](https://github.com/vespo92/TrueNasCoreMCP) — Interact with TrueNAS storage servers.
