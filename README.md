@@ -979,9 +979,7 @@ Tools that integrate with development environments to support coding workflows a
 Tools that deal specifically with email, messaging, or communication platforms.
 
 - [Gmail MCP](https://github.com/GongRzhe/Gmail-MCP-Server) — A Model Context Protocol (MCP) server for Gmail integration in Claude Desktop with auto authentication support.
-- [Gmail MCP (Simple)](https://github.com/Ayush-k-Shukla/gmail-mcp-server) — Simple MCP server for Gmail with basic operations via OAuth2.0.
 - [Gmail Headless MCP](https://github.com/baryhuang/mcp-headless-gmail) — Remote hostable MCP server for sending/receiving Gmail messages without local credentials.
-- [Gmail MCP (Google Email API)](https://github.com/gangradeamitesh/mcp-google-email) — Gmail service implementation providing full sending, receiving, and management via Gmail API.
 - [Instagram DM MCP](https://github.com/trypeggy/instagram_dm_mcp) — Send direct messages on Instagram through LLMs.
 - [iMCP](https://github.com/loopwork-ai/iMCP) — macOS app MCP server for iMessage, Reminders, and other Apple services.
 - [Intercom MCP](https://github.com/raoulbia-ai/mcp-server-for-intercom) — Retrieve and analyze customer support tickets from Intercom.
