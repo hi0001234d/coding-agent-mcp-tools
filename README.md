@@ -36,7 +36,6 @@ Tools that help investigate failures, analyze logs, trace issues, and understand
 - [SqlAugur MCP](https://github.com/mbentham/SqlAugur) — Provides AST-based SQL query validation and analysis to help review and understand SQL Server queries during development and debugging workflows.
 - [Multiplayer MCP](https://www.multiplayer.app/docs/ai/mcp-server) – Analyze full-stack session recordings to reproduce and debug bugs
 - [Memalot MCP](https://github.com/nfergu/memalot) – Finds memory leaks in Python programs via MCP  
-- [DuckDuckGo MCP Server](https://github.com/nickclyde/duckduckgo-mcp-server) – MCP search integration for private workflows    
 
 ---
 
@@ -121,6 +120,7 @@ Tools that help generate, maintain, or improve project documentation.
 - [mermaid-mcp](https://github.com/Narasimhaponnada/mermaid-mcp) — AI-based tool that generates 22+ diagram types (flowcharts, state machines, etc.). 
 - [plsreadme](https://github.com/FacundoLucci/plsreadme) — Transforms Markdown and text content into clean, shareable web links.
 - [gibs-mcp](https://github.com/buildsyncinc/gibs-mcp) — Provides structured documentation and article-level citations for regulatory frameworks such as AI governance and compliance standards.
+- [DuckDuckGo MCP Server](https://github.com/nickclyde/duckduckgo-mcp-server) – MCP search integration for private workflows    
 
 ---
 
