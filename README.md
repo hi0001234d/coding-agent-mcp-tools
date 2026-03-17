@@ -27,15 +27,14 @@ Tools in this repository are organized by common development workflows. Many of 
 Tools that help investigate failures, analyze logs, trace issues, and understand runtime behavior.
 
 - [Sentry](https://github.com/getsentry/sentry) (MCP) – Real-time error tracking and performance monitoring   
-- [Debugg.AI](https://github.com/debugg-ai/debugg-ai-mcp) – AI-powered debugging and testing platform for analyzing application failures 
-- [Multiplayer MCP](https://www.multiplayer.app/docs/ai/mcp-server) – Analyze full-stack session recordings to reproduce and debug bugs
 - [Last9 MCP](https://github.com/last9/last9-mcp-server) – Bring logs, metrics, and traces from production into the local debugging environment  
-- [Netdata MCP](https://github.com/netdata/netdata/blob/master/src/web/mcp/README.md) – Discovery, exploration, reporting and root cause analysis using observability data 
 - [Raygun](https://github.com/MindscapeHQ/mcp-server-raygun) – Interact with your crash reporting and real-user monitoring data on your Raygun account  
 - [proxymock](https://docs.speedscale.com/proxymock/reference/mcp/) – An MCP server that automatically generates tests and mocks by recording a live app  
 - [ReportPortal](https://github.com/reportportal/reportportal-mcp-server) – Explore and analyze automated test results from ReportPortal using your favourite LLM 
+- [Debugg.AI](https://github.com/debugg-ai/debugg-ai-mcp) – AI-powered debugging and testing platform for analyzing application failures 
 - [lldb-mcp](https://github.com/stass/lldb-mcp) — MCP server that enables AI‑driven debugging using the LLDB debugger.
 - [SqlAugur MCP](https://github.com/mbentham/SqlAugur) — Provides AST-based SQL query validation and analysis to help review and understand SQL Server queries during development and debugging workflows.
+- [Multiplayer MCP](https://www.multiplayer.app/docs/ai/mcp-server) – Analyze full-stack session recordings to reproduce and debug bugs
 - [Memalot MCP](https://github.com/nfergu/memalot) – Finds memory leaks in Python programs via MCP  
 - [DuckDuckGo MCP Server](https://github.com/nickclyde/duckduckgo-mcp-server) – MCP search integration for private workflows    
 
@@ -1161,6 +1160,7 @@ Tools that help monitor, trace, and analyze MCP servers and AI agent behavior fo
 - [Inspector](https://github.com/modelcontextprotocol/inspector) – Debugging and observability tool for MCP servers
 - [Grafana](https://github.com/grafana/grafana) (MCP) – Analytics and visualization platform for MCP observability data 
 - [AgentOps](https://github.com/AgentOps-AI/agentops) – Monitor, trace, and debug AI agent executions with observability tools  
+- [Netdata MCP](https://github.com/netdata/netdata/blob/master/src/web/mcp/README.md) – Discovery, exploration, reporting and root cause analysis using observability data 
 - [langfuse-mcp (avivsinai)](https://github.com/avivsinai/langfuse-mcp) — Provides debugging tools for querying LLM application traces, analyzing exceptions, and inspecting sessions.
 
 ---
