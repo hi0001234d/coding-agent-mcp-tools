@@ -45,7 +45,7 @@ Tools that help investigate failures, analyze logs, trace issues, and understand
 
 Tools that help developers and AI agents analyze large repositories and understand complex systems.
  
-- [Sourcegraph Cody MCP](https://github.com/sourcegraph/cody) – AI-powered code search and codebase understanding tool  
+- [Sourcegraph Cody MCP](https://sourcegraph.com/docs/api/mcp) – AI-powered code search and codebase understanding tool  
 - [Continue MCP](https://github.com/continuedev/continue) – Open-source AI coding assistant that understands large codebases
 - [Nx MCP](https://github.com/nrwl/nx-console/blob/master/apps/nx-mcp) – Exposes Nx project graph and architecture insights to AI tools  
 - [JetBrains MCP](https://www.jetbrains.com/help/idea/mcp-server.html) – Work on your code with JetBrains IDEs such as IntelliJ IDEA and PhpStorm  
