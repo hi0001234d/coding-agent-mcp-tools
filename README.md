@@ -16,6 +16,46 @@ The goal is to highlight tools that enable agent-assisted development for vibe-c
 
 ---
 
+## 🧩 Agent Environment Profiles
+
+As modern development shifts towards working in large and evolving codebases, setting up the right tooling environment becomes time-consuming and complex.
+
+Instead of installing tools one by one, this repository introduces a simpler approach:
+
+👉 **Agent Environment Profiles**
+
+Predefined combinations of:
+- Coding agents  
+- MCP tools  
+- Development workflows  
+
+These profiles are designed to help you quickly set up an environment tailored to a specific use case — without unnecessary setup overhead.
+
+---
+
+## ⚡ How It Works
+
+Follow a simple step-by-step selection:
+
+1. Select a profile based on your use case  
+2. Choose your operating system  
+3. Choose your coding agent  
+4. Get a ready-to-use environment setup  
+
+Each step is designed to be simple and navigable directly within GitHub.
+
+---
+
+## 🚀 Choose Your Profile
+
+- [🧑‍💻 Full Stack Dev Stack](./profiles/fullstack/README.md)  
+- [🎨 Designer Stack](./profiles/designer/README.md)  
+- [🔍 Codebase Navigation Stack](./profiles/navigation/README.md)  
+- [🧠 Large Codebase Memory Stack](./profiles/memory/README.md)  
+- [🐞 Cost Optimized Debugging Stack](./profiles/debugging/README.md)  
+
+---
+
 ## Curated Tools
 
 Tools in this repository are organized by common development workflows. Many of these tools can be combined to support complete development workflows, and the descriptions under each category briefly explain how they can be used together in practical scenarios.
