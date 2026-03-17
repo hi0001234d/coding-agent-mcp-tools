@@ -96,7 +96,6 @@ Tools that help generate, maintain, or improve project documentation.
 - [Context7 MCP](https://github.com/upstash/context7) – Provides structured documentation context for AI agents 
 - [Microsoft Learn Docs MCP](https://github.com/microsoftdocs/mcp) – Structured access to Microsoft documentation for code generation and Q&A  
 - [Notifly MCP](https://github.com/notifly-tech/notifly-mcp-server) – Provides trusted documentation and SDK examples for integrations 
-- [PrestaShop.com](https://docs.mcp.prestashop.com/) – Manage your PrestaShop store with AI Assistant by using the official PrestaShop MCP server  
 - [ADR Analysis](https://github.com/tosin2013/mcp-adr-analysis-server) – AI-powered Architectural Decision Records analysis  
 - [Apple Docs](https://github.com/kimsungwhee/apple-docs-mcp) – Provides natural language access to Apple Developer documentation, frameworks, and APIs.
 - [Docs MCP](https://github.com/da1z/docsmcp) – Provides documentation access to local and remote files including llms.txt resources.
@@ -719,8 +718,8 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 
 Tools that help simplify and automate utility tasks in development workflows.
 
-- [Calculator MCP](https://github.com/githejie/mcp-server-calculator) – Enables LLMs to perform precise numerical calculations.
-- [Code Interpreter](https://github.com/e2b-dev/code-interpreter) – Execute and analyze code in secure environments 
+- [Code Interpreter](https://github.com/e2b-dev/code-interpreter) – Execute and analyze code in secure environments
+- [PrestaShop.com](https://docs.mcp.prestashop.com/) – Manage your PrestaShop store with AI Assistant by using the official PrestaShop MCP server  
 - [eBook MCP](https://github.com/onebirdrocks/ebook-mcp) – MCP server for accessing and generating eBook content  
 - [Any Chat Completions](https://github.com/pyroprompts/any-chat-completions-mcp) – Connect to OpenAI compatible chat completion APIs such as OpenAI, Groq, Perplexity, and others.
 - [Commands MCP](https://github.com/g0t4/mcp-server-commands) – Run system commands and scripts similar to a terminal environment.
