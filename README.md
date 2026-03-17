@@ -72,7 +72,7 @@ Tools that help developers and AI agents analyze large repositories and understa
 - [Code-to-Tree MCP](https://github.com/micl2e2/code-to-tree) — Converts source code from multiple languages into Abstract Syntax Trees (AST) to help analyze and understand code structure.
 - [Cicada MCP](https://github.com/wende/cicada) — Provides module search and function tracking for Elixir projects to help explore and understand large codebases.
 - [CodeGraphContext](https://github.com/Shashankss1205/CodeGraphContext) — Index local code into a graph database to help AI assistants understand the codebase through graphical visualizations.  
-- [RepoMapper](https://github.com/pdavis68/RepoMapper) — Generates a dynamic repository map including function prototypes and relevant file information (similar to Aider.chat functionality).  
+- [RepoMapper](https://github.com/pdavis68/RepoMapper) — Generates a dynamic repository map including function prototypes and relevant file information.  
 - [FileScopeMCP](https://github.com/admica/FileScopeMCP) — Analyzes the codebase based on dependency relationships and assigns importance scores to files.  
 - [callout](https://github.com/fantasieleven-code/callout) — Performs architecture reviews using nine expert viewpoints (CTO, Security, DevOps, etc.).  
 - [CodeLogic](https://github.com/CodeLogicIncEngineering/codelogic-mcp-server) — Provides code dependency analytics and architectural risk analysis.  
