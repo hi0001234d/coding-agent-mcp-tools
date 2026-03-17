@@ -48,7 +48,6 @@ Tools that help developers and AI agents analyze large repositories and understa
 - [Continue MCP](https://github.com/continuedev/continue) – Open-source AI coding assistant that understands large codebases
 - [Nx MCP](https://github.com/nrwl/nx-console/blob/master/apps/nx-mcp) – Exposes Nx project graph and architecture insights to AI tools  
 - [JetBrains MCP](https://www.jetbrains.com/help/idea/mcp-server.html) – Work on your code with JetBrains IDEs such as IntelliJ IDEA and PhpStorm  
-- [Jellyfish MCP](https://github.com/Jellyfish-AI/jellyfish-mcp) – Gives AI agents context about engineering workflows and team allocations 
 - [Rember](https://github.com/rember/rember-mcp) – Create spaced repetition flashcards in Rember to remember anything you learn in your chats  
 - [ProdE](https://github.com/CuriousBox-AI/ProdE-mcp) – Your 24/7 production engineer that preserves context across multiple codebases  
 - [code-assistant](https://github.com/stippi/code-assistant) – MCP coding assistant for exploring and editing code repositories with AI assistance.
