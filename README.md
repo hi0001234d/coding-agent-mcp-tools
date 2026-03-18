@@ -18,7 +18,7 @@ The goal is to highlight tools that enable agent-assisted development for vibe-c
 
 ## 🧩 The Solution
 
-As modern development requires setting up many tools, instead of installing them one by one, Agent Environment Profiles provide a simpler approach.
+As modern development workflow requires setting up many tools, instead of installing them one by one, Agent Environment Profiles provide a simpler approach.
 
 **Agent Environment Profiles**
 
