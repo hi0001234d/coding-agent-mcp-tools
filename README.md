@@ -4,7 +4,7 @@ As vibe-coded projects grow larger, they often evolve into large codebases with 
 
 ---
 
-## Vision
+## The Problem
 
 Modern AI coding agents are becoming powerful at generating new code, but real software development rarely starts from scratch. Most development happens inside large codebases and complex systems, and increasingly also within vibe-coded projects as they grow and evolve.
 
@@ -16,13 +16,11 @@ The goal is to highlight tools that enable agent-assisted development for vibe-c
 
 ---
 
-## 🧩 Agent Environment Profiles
+## 🧩 The Solution
 
-As modern development shifts towards working in large and evolving codebases, setting up the right tooling environment becomes time-consuming and complex.
+As modern development requires setting up many tools, instead of installing them one by one, Agent Environment Profiles provide a simpler approach.
 
-Instead of installing tools one by one, this repository introduces a simpler approach:
-
-👉 **Agent Environment Profiles**
+**Agent Environment Profiles**
 
 Predefined combinations of:
 - Coding agents  
@@ -35,14 +33,16 @@ These profiles are designed to help you quickly set up an environment tailored t
 
 ## ⚡ How It Works
 
-Follow a simple step-by-step selection:
+Instead of manually installing and configuring tools, just pick a profile from the table below and get started instantly.
 
-1. Select a profile based on your use case  
-2. Choose your operating system  
-3. Choose your coding agent  
-4. Get a ready-to-use environment setup  
+Each profile gives a ready-to-use setup, which may include:
 
-Each step is designed to be simple and navigable directly within GitHub.
+- MCP configuration file
+- Optional Docker setup (for isolated environments)
+- Environment configuration
+- Optional setup scripts
+
+The idea is to make trying different stacks fast, simple, and disposable — so you can experiment without affecting your main setup.
 
 ---
 
