@@ -1,4 +1,4 @@
-<h2 align="center">Mac Setup</h2>
+<h2 align="center">Ubuntu Setup</h2>
 
 <h3 align="center">Select Coding Agent</h3>
 
