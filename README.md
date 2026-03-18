@@ -59,32 +59,9 @@ Each step is designed to be simple and navigable directly within GitHub.
 | Roo Code           | [Ubuntu](./profiles/fullstack/ubuntu/roo/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/roo/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/roo/agent-environment-profiles.md) | - | - | - | - |
 | Kilo Code          | [Ubuntu](./profiles/fullstack/ubuntu/kilo/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/kilo/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/kilo/agent-environment-profiles.md) | - | - | - | - |
 
-
 <p align="center">
 
-<a href="./profiles/fullstack/README.md">
-  <img src="https://img.shields.io/badge/🧑‍💻%20Fullstack%20Dev%20Stack-4F46E5?style=for-the-badge&logoColor=white">
-</a>
-
-<a href="./profiles/designer/README.md">
-  <img src="https://img.shields.io/badge/🎨%20Designer%20Stack-DB2777?style=for-the-badge&logoColor=white">
-</a>
-
-<a href="./profiles/navigation/README.md">
-  <img src="https://img.shields.io/badge/🔍%20Codebase%20Navigation-059669?style=for-the-badge&logoColor=white">
-</a>
-
-</p>
-
-<p align="center">
-
-<a href="./profiles/memory/README.md">
-  <img src="https://img.shields.io/badge/🧠%20Large%20Codebase%20Memory-EA580C?style=for-the-badge&logoColor=white">
-</a>
-
-<a href="./profiles/debugging/README.md">
-  <img src="https://img.shields.io/badge/🐞%20Cost%20Optimized%20Debugging-DC2626?style=for-the-badge&logoColor=white">
-</a>
+### ❓ [I don’t understand what profile I need?](./navigation.md)
 
 </p>
 
