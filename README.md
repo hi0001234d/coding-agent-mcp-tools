@@ -57,11 +57,11 @@ Each step is designed to be simple and navigable directly within GitHub.
 | OpenCode           | [Ubuntu](./profiles/fullstack/ubuntu/opencode/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/opencode/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/opencode/agent-environment-profiles.md) | - | - | - | - |
 | Cline              | [Ubuntu](./profiles/fullstack/ubuntu/cline/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/cline/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/cline/agent-environment-profiles.md) | - | - | - | - |
 | Roo Code           | [Ubuntu](./profiles/fullstack/ubuntu/roo/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/roo/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/roo/agent-environment-profiles.md) | - | - | - | - |
-| Kilo Code          | [Ubuntu](./profiles/fullstack/ubuntu/kilo/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/kilo/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/kilo/agent-environment-profiles.md) | - | - | - | - |
+| Kilo Code          | [Ubuntu](./profiles/fullstack/ubuntu/kilocode/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/kilocode/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/kilocode/agent-environment-profiles.md) | - | - | - | - |
 
 <p align="center">
 
-### ❓ [I don’t understand what profile I need?](./navigation.md)
+<sub>❓ <a href="./navigation.md"><b>I don’t understand what profile I need?</b></a></sub>
 
 </p>
 
