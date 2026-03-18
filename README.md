@@ -226,7 +226,6 @@ Tools designed to support long-lived projects and ongoing software maintenance.
 - [mcp-shell](https://github.com/sonirico/mcp-shell) — Securely runs shell commands in isolated environments (e.g., Docker) with auditing support.  
 - [fastmcp-sonarqube-metrics](https://github.com/ArchAI-Labs/fastmcp-sonarqube-metrics) — Retrieves historical metrics, issues, and health status from SonarQube. 
 - [mcp_safe_local_python_executor](https://github.com/maxim-saplin/mcp_safe_local_python_executor) — Safe Python interpreter based on HF Smolagents’ LocalPythonExecutor.  
-- [blind-auditor](https://github.com/sim-xia/blind-auditor) — Forces AI to self-correct messages while protecting against context leakage and prompt injection.  
 - [code-guardian](https://github.com/phuongrealmax/code-guardian) — AI-powered maintenance tools for analyzing codebase complexity, detecting hotspots, and generating automated refactoring plans.  
 - [bundler_mcp](https://github.com/subelsky/bundler_mcp) — Utilities for inspecting Gemfile dependencies and package relationships in Ruby projects.
 
@@ -249,7 +248,6 @@ Tools that assist with automated testing, validation, and QA workflows.
 - [atest-mcp-server](https://github.com/LinuxSuRen/atest-mcp-server) — Server for managing test suites and cases (Postman alternative).
 - [octomind-mcp](https://github.com/OctoMind-dev/octomind-mcp) — Enables AI agents to create and run end-to-end tests.  
 - [currents-mcp](https://github.com/currents-dev/currents-mcp) — Allows AI agents to detect and fix Playwright test failures.  
-- [xcomet-mcp-server](https://github.com/shuji-bonji/xcomet-mcp-server)s — Uses xCOMET models to evaluate translation quality by providing scoring and error detection capabilities.
 
 ---
 
@@ -271,7 +269,6 @@ Tools that help manage environments, deployments, and infrastructure operations.
 - [Red Hat Insights](https://github.com/RedHatInsights/insights-mcp) – Interact with Red Hat Insights - build images, manage vulnerabilities, or view targeted recommendations  
 - [Redis](https://github.com/redis/mcp-redis/) – The Redis official MCP Server offers an interface to manage and search data in Redis  
 - [Redis Cloud API](https://github.com/redis/mcp-redis-cloud/) – The Redis Cloud API MCP Server allows you to manage your Redis Cloud resources using natural language  
-- [PostIdentity](https://github.com/PostIdentity/mcp-server) – Generate AI-powered social media posts from any AI assistant. Manage identities, create posts, track referrals, and browse marketplace templates   
 - [Airflow](https://github.com/yangkyeongmo/mcp-server-apache-airflow) – MCP Server that connects to Apache Airflow using official Python client  
 - [AWS](https://github.com/rishikavikondala/mcp-server-aws) – Perform operations on AWS resources using an LLM  
 - [AWS Athena](https://github.com/lishenxydlgzs/aws-athena-mcp) – MCP server for AWS Athena to run SQL queries on Glue Catalog  
@@ -364,7 +361,6 @@ Tools that help manage environments, deployments, and infrastructure operations.
 - [kubefwd](https://github.com/txn2/kubefwd) — Bulk port forwarding with service discovery and traffic monitoring.  
 - [k8m / kom](https://github.com/weibaohui/k8m) — 50+ built-in tools for multi-cluster Kubernetes management and operations.  
 - [mcp-k8s-eye](https://github.com/wenhuwang/mcp-k8s-eye) — Analyze Kubernetes management and cluster/application health.    
-- [liveblocks-mcp-server](https://github.com/liveblocks/liveblocks-mcp-server) — Create and modify rooms, threads, and comments in Liveblocks.  
 - [nebulablock-mcp-server](https://github.com/Nebula-Block-Data/nebulablock-mcp-server) — Expose NebulaBlock API functionalities as tools.  
 - [sitelauncher-mcp-server](https://github.com/trackerfitness729-jpg/sitelauncher-mcp-server) — Deploy instant HTTPS websites on Base chain using USDC.  
 - [spaceship-mcp](https://github.com/bartwaardenburg/spaceship-mcp) — Manage domains, DNS records, and marketplace listings.
@@ -693,6 +689,14 @@ Tools that help track application performance, logs, and system activity.
 
 ---
 
+### SEO & SMM 
+
+Tools that provide persistent memory and knowledge storage capabilities for AI agents.
+
+- [PostIdentity](https://github.com/PostIdentity/mcp-server) – Generate AI-powered social media posts from any AI assistant. Manage identities, create posts, track referrals, and browse marketplace templates
+
+---
+
 ### Knowledge Retrieval (RAG)
 
 Tools that provide persistent memory and knowledge storage capabilities for AI agents.
@@ -887,6 +891,7 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [citedy-seo-agent](https://github.com/Citedy/citedy-seo-agent) — Offers tools for SEO content generation, competitor analysis, and online trend discovery.
 - [AEO CLI](https://github.com/hanselhansel/aeo-cli) — Audits URLs to check AI crawler readiness (e.g., robots.txt, llms.txt) and provides a structured evaluation score.
 - [lara-mcp](https://github.com/translated/lara-mcp) — Integrates with the Lara Translate API to provide context-aware translations and automatic language detection.
+- [liveblocks-mcp-server](https://github.com/liveblocks/liveblocks-mcp-server) — Create and modify rooms, threads, and comments in Liveblocks.  
 
 ---
 
