@@ -1,4 +1,6 @@
-<h2 align="center">💻 Select OS</h2>
+<h2 align="center">Full-stack Dev Stack</h2>
+
+<h3 align="center">💻 Select OS</h3>
 
 <p align="center">
 
