@@ -61,15 +61,15 @@ Each step is designed to be simple and navigable directly within GitHub.
 <p align="center">
 
 <a href="./profiles/fullstack/README.md">
-  <img src="https://img.shields.io/badge/🚀%20Fullstack-Dev%20Stack-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/🚀%20Fullstack%20Dev%20Stack-blue?style=for-the-badge">
 </a>
 
 <a href="./profiles/designer/README.md">
-  <img src="https://img.shields.io/badge/🎨%20Designer-Stack-purple?style=for-the-badge">
+  <img src="https://img.shields.io/badge/🎨%20Designer%20Stack-purple?style=for-the-badge">
 </a>
 
 <a href="./profiles/navigation/README.md">
-  <img src="https://img.shields.io/badge/🧭%20Codebase-Navigation-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/🧭%20Codebase%20Navigation-green?style=for-the-badge">
 </a>
 
 </p>
@@ -77,11 +77,11 @@ Each step is designed to be simple and navigable directly within GitHub.
 <p align="center">
 
 <a href="./profiles/memory/README.md">
-  <img src="https://img.shields.io/badge/🧠%20Large%20Codebase-Memory-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/🧠%20Large%20Codebase%20Memory-orange?style=for-the-badge">
 </a>
 
 <a href="./profiles/debugging/README.md">
-  <img src="https://img.shields.io/badge/🐞%20Cost%20Optimized-Debugging-red?style=for-the-badge">
+  <img src="https://img.shields.io/badge/🐞%20Cost%20Optimized%20Debugging-red?style=for-the-badge">
 </a>
 
 </p>
