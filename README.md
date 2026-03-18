@@ -48,7 +48,7 @@ Each step is designed to be simple and navigable directly within GitHub.
 
 ## 🚀 Choose Your Profile
 
-| Agent ↓ / Profile → | Full Stack Dev Stack | Designer Stack | Codebase Navigation | Large Codebase Memory | Cost Optimized Debugging |
+| Profile → Agent ↓  | Full Stack Dev Stack | Designer Stack | Codebase Navigation | Large Codebase Memory | Cost Optimized Debugging |
 |--------------------|-------------|------------|--------------|----------|-------------|
 | Claude             | [Ubuntu](./profiles/fullstack/ubuntu/claude/agent-environment-profiles.md) \| [Windows](./profiles/fullstack/windows/claude/agent-environment-profiles.md) \| [Mac](./profiles/fullstack/mac/claude/agent-environment-profiles.md) | - | - | - | - |
 | Codex              | [Ubuntu](./profiles/fullstack/ubuntu/codex/agent-environment-profiles.md) \| [Windows](./profiles/fullstack/windows/codex/agent-environment-profiles.md) \| [Mac](./profiles/fullstack/mac/codex/agent-environment-profiles.md) | - | - | - | - |
