@@ -61,7 +61,7 @@ Each step is designed to be simple and navigable directly within GitHub.
 <p align="center">
 
 <a href="./profiles/fullstack/README.md">
-  <img src="https://img.shields.io/badge/🚀%20Fullstack%20Dev%20Stack-4F46E5?style=for-the-badge&logoColor=white">
+  <img src="https://img.shields.io/badge/🧑‍💻%20Fullstack%20Dev%20Stack-4F46E5?style=for-the-badge&logoColor=white">
 </a>
 
 <a href="./profiles/designer/README.md">
@@ -69,7 +69,7 @@ Each step is designed to be simple and navigable directly within GitHub.
 </a>
 
 <a href="./profiles/navigation/README.md">
-  <img src="https://img.shields.io/badge/🧭%20Codebase%20Navigation-059669?style=for-the-badge&logoColor=white">
+  <img src="https://img.shields.io/badge/🔍%20Codebase%20Navigation-059669?style=for-the-badge&logoColor=white">
 </a>
 
 </p>
