@@ -48,15 +48,17 @@ Each step is designed to be simple and navigable directly within GitHub.
 
 ## 🚀 Choose Your Profile
 
-- [🧑‍💻 Full Stack Dev Stack](./profiles/fullstack/README.md)  
-- [🎨 Designer Stack](./profiles/designer/README.md)  
-- [🔍 Codebase Navigation Stack](./profiles/navigation/README.md)  
-- [🧠 Large Codebase Memory Stack](./profiles/memory/README.md)  
-- [🐞 Cost Optimized Debugging Stack](./profiles/debugging/README.md)  
+| Agent ↓ / Profile → | 🚀 Fullstack | 🎨 Designer | 🧭 Navigation | 🧠 Memory | 🐞 Debugging |
+|--------------------|-------------|------------|--------------|----------|-------------|
+| Claude             | [Ubuntu](./profiles/fullstack/ubuntu/claude/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/claude/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/claude/agent-environment-profiles.md) | - | - | - | - |
+| Codex              | [Ubuntu](./profiles/fullstack/ubuntu/codex/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/codex/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/codex/agent-environment-profiles.md) | - | - | - | - |
+| Cursor             | [Ubuntu](./profiles/fullstack/ubuntu/cursor/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/cursor/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/cursor/agent-environment-profiles.md) | - | - | - | - |
+| Windsor            | [Ubuntu](./profiles/fullstack/ubuntu/windsor/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/windsor/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/windsor/agent-environment-profiles.md) | - | - | - | - |
+| OpenCode           | [Ubuntu](./profiles/fullstack/ubuntu/opencode/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/opencode/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/opencode/agent-environment-profiles.md) | - | - | - | - |
+| Cline              | [Ubuntu](./profiles/fullstack/ubuntu/cline/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/cline/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/cline/agent-environment-profiles.md) | - | - | - | - |
+| Roo Code           | [Ubuntu](./profiles/fullstack/ubuntu/roo/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/roo/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/roo/agent-environment-profiles.md) | - | - | - | - |
+| Kilo Code          | [Ubuntu](./profiles/fullstack/ubuntu/kilo/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/kilo/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/kilo/agent-environment-profiles.md) | - | - | - | - |
 
----
-
-## 🚀 Choose Your Profile
 
 <p align="center">
 
