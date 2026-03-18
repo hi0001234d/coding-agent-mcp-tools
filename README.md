@@ -56,6 +56,38 @@ Each step is designed to be simple and navigable directly within GitHub.
 
 ---
 
+## 🚀 Choose Your Profile
+
+<p align="center">
+
+<a href="./profiles/fullstack/README.md">
+  <img src="https://img.shields.io/badge/🚀%20Fullstack-Dev%20Stack-blue?style=for-the-badge">
+</a>
+
+<a href="./profiles/designer/README.md">
+  <img src="https://img.shields.io/badge/🎨%20Designer-Stack-purple?style=for-the-badge">
+</a>
+
+<a href="./profiles/navigation/README.md">
+  <img src="https://img.shields.io/badge/🧭%20Codebase-Navigation-green?style=for-the-badge">
+</a>
+
+</p>
+
+<p align="center">
+
+<a href="./profiles/memory/README.md">
+  <img src="https://img.shields.io/badge/🧠%20Large%20Codebase-Memory-orange?style=for-the-badge">
+</a>
+
+<a href="./profiles/debugging/README.md">
+  <img src="https://img.shields.io/badge/🐞%20Cost%20Optimized-Debugging-red?style=for-the-badge">
+</a>
+
+</p>
+
+---
+
 ## Curated Tools
 
 Tools in this repository are organized by common development workflows. Many of these tools can be combined to support complete development workflows, and the descriptions under each category briefly explain how they can be used together in practical scenarios.
