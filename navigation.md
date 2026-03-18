@@ -1,4 +1,4 @@
-## 🚀 Choose Your Profile
+<h2 align="center">🚀 Choose Your Profile</h2>
 
 <p align="center">
 

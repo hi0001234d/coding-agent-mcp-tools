@@ -48,7 +48,7 @@ Each step is designed to be simple and navigable directly within GitHub.
 
 ## 🚀 Choose Your Profile
 
-| Agent ↓ / Profile → | 🚀 Fullstack | 🎨 Designer | 🧭 Navigation | 🧠 Memory | 🐞 Debugging |
+| Agent ↓ / Profile → | 🧑‍💻 Full Stack Dev Stack | 🎨 Designer Stack | 🧭 Codebase Navigation Stack | 🧠 Large Codebase Memory | 🐞 Cost Optimized Debugging |
 |--------------------|-------------|------------|--------------|----------|-------------|
 | Claude             | [Ubuntu](./profiles/fullstack/ubuntu/claude/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/claude/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/claude/agent-environment-profiles.md) | - | - | - | - |
 | Codex              | [Ubuntu](./profiles/fullstack/ubuntu/codex/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/codex/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/codex/agent-environment-profiles.md) | - | - | - | - |
@@ -59,7 +59,7 @@ Each step is designed to be simple and navigable directly within GitHub.
 | Roo Code           | [Ubuntu](./profiles/fullstack/ubuntu/roo/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/roo/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/roo/agent-environment-profiles.md) | - | - | - | - |
 | Kilo Code          | [Ubuntu](./profiles/fullstack/ubuntu/kilocode/agent-environment-profiles.md) / [Windows](./profiles/fullstack/windows/kilocode/agent-environment-profiles.md) / [Mac](./profiles/fullstack/mac/kilocode/agent-environment-profiles.md) | - | - | - | - |
 <div align="center">
-  <a href="./navigation.md"><b>❓ I don’t understand what profile I need?</b></a>
+  <a href="./navigation.md"><b>I don’t understand what profile I need?</b></a>
 </div>
 
 ---
