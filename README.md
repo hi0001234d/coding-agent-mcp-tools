@@ -545,10 +545,6 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [Human Use MCP](https://github.com/RapidataAI/human-use) — Connects AI workflows with real human input for real-time feedback and decision support.
 - [Hypertool MCP](https://github.com/toolprint/hypertool-mcp) — Framework that allows AI assistants to dynamically switch between multiple toolsets from different MCP servers.
 - [Inner Monologue MCP](https://github.com/abhinav-mangla/inner-monologue-mcp) — Structured reasoning tool that allows AI agents to perform internal reflection before generating responses.
-
-
-
-
 - [interactive-mcp](https://github.com/ttommyth/interactive-mcp) — Adds interactive prompts and conversational workflows inside MCP-based AI pipelines.
 - [Magg: The MCP Aggregator](https://github.com/sitbon/magg) — Meta MCP server for orchestration.
 - [MCP Bundles Hub](https://github.com/thinkchainai/mcpbundles) — Discover and install MCP integrations.
@@ -618,7 +614,6 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [mcp-run-python (Pydantic AI)](https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python) — Run Python code in a secure sandbox to safely test system behavior.
 - [claude-concilium](https://github.com/spyrae/claude-concilium) — Multi-agent framework for Claude Code with parallel code review and fallback chains.  
 - [llm-council](https://github.com/elhamid/llm-council) — Three-stage council based on Andrej Karpathy’s concept: parallel responses, anonymous ranking, and synthesis.
-- [label-studio-mcp-server](https://github.com/HumanSignal/label-studio-mcp-server) — Provides an AI-friendly interface to manage and automate Label Studio projects and data labeling tasks.  
 - [clawpay-mcp](https://github.com/up2itnow0822/clawpay-mcp) — Provides an interface for autonomous systems to manage payment transactions and implement on-chain spending policies.  
 - [payclaw-mcp](https://github.com/payclaw/mcp-server) — System for issuing virtual payment cards and managing automated payment workflows.  
 - [lightning-enable-mcp](https://github.com/refined-element/lightning-enable-mcp) — Integration for creating invoices and processing payments on the Bitcoin Lightning Network.  
@@ -772,10 +767,11 @@ Tools that provide ways to optimize your retrieval layers or memory layers.
 
 ### ML datasets
 
-Tools that provide ML datasets and capabilities to analyze them.
+Tools that provide ML datasets and capabilities to work with them.
 
 - [kaggle-mcp](https://github.com/arrismo/kaggle-mcp) — Provides tools to download and analyze datasets from the Kaggle platform.  
 - [kaggle-mcp-server](https://github.com/KrishnaPramodParupudi/kaggle-mcp-server) — MCP server implementation for browsing Kaggle competitions, leaderboards, models, and kernels.
+- [label-studio-mcp-server](https://github.com/HumanSignal/label-studio-mcp-server) — Provides an AI-friendly interface to manage and automate Label Studio projects and data labeling tasks.  
 
 ---
 
