@@ -520,43 +520,35 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 
 - [Hugging Face MCP](https://huggingface.co/settings/mcp) – Access Hugging Face models, datasets, and tools programmatically  
 - [kluster.ai MCP](https://docs.kluster.ai/get-started/mcp/overview/) – Provides AI services and guardrails like hallucination detection
-- [Plus AI](https://plusai.com/features/mcp) – MCP server for automatically generating professional PowerPoint and Google Slides presentations using the Plus AI presentation API  
 - [PAIML MCP Agent Toolkit](https://github.com/paiml/paiml-mcp-agent-toolkit) – Professional project scaffolding toolkit with zero-configuration AI context generation, template generation for Rust/Deno/Python projects, and hybrid neuro-symbolic code analysis  
-- [Patronus AI](https://github.com/patronus-ai/patronus-mcp-server) – Test, evaluate, and optimize AI agents and RAG apps  
 - [Prode.ai (ProdE)](https://github.com/CuriousBox-AI/ProdE-mcp) – Your 24/7 production engineer that preserves context across multiple codebases  
 - [Riza](https://github.com/riza-io/riza-mcp) – Arbitrary code execution and tool-use platform for LLMs  
-- [Quickchat AI](https://github.com/incentivai/quickchat-ai-mcp) – Launch your conversational Quickchat AI agent as an MCP to give AI apps real-time access to its Knowledge Base and conversational capabilities  
-- [Ragie](https://github.com/ragieai/ragie-mcp-server/) – Retrieve context from your Ragie (RAG) knowledge base connected to integrations like Google Drive, Notion, JIRA and more  
 - [1mcpserver](https://github.com/particlefuture/1mcpserver) – MCP of MCPs. Automatically discover, configure, and add MCP servers on your local machine  
 - [1Panel](https://github.com/1Panel-dev/mcp-1panel) – MCP server implementation that provides 1Panel interaction  
 - [A2A](https://github.com/GongRzhe/A2A-MCP-Server) – Bridges MCP with Agent-to-Agent protocol for AI assistant interaction  
 - [Actor Critic Thinking](https://github.com/aquarius-wing/actor-critic-thinking-mcp) – Actor-critic thinking for performance evaluation
-- [Agentic Framework](https://github.com/Piotr1215/mcp-agentic-framework) – Multi-agent collaboration framework enabling agents to work together on complex tasks  
-- [AI Tasks](https://github.com/jbrinkman/valkey-ai-tasks) – Let the AI manage complex plans with integrated task management tools
-- [Chroma MCP](https://github.com/privetin/chroma) – Vector database server for semantic document search and metadata filtering  
-- [ChatMCP](https://github.com/AI-QL/chat-mcp) – Cross-platform GUI for interacting with MCP servers across multiple LLMs   
-- [Context Processor MCP](https://github.com/mschultheiss83/context-processor) – Preprocess and structure context for AI consumption, search, and metadata extraction  
-- [Ableton Live](https://github.com/ahujasid/ableton-mcp) – Ableton integration allowing prompt-enabled music creation  
-- [Context-portal MCP](https://github.com/GreatScottyMac/context-portal) – Build project-specific memory graphs for RAG applications   
 - [Archestra.AI](https://github.com/archestra-ai/archestra) – Enterprise MCP gateway, registry, orchestration, credential management, and agent management platform.
 - [AX-Platform](https://github.com/AX-MCP/PaxAI?tab=readme-ov-file#mcp-setup-guides) – AI agent collaboration platform to coordinate tasks and share context across agents. 
 - [CRASH MCP](https://github.com/nikkoxgonzales/crash-mcp) – Structured reasoning and iterative thinking framework designed for AI agents.
 - [CreateveAI Nexus](https://github.com/spgoodman/createveai-nexus-server) – Enterprise integration layer connecting AI agents with enterprise systems and APIs.
 - [Dispatch Agent](https://github.com/abhinav-mangla/dispatch-agent) – Intelligent MCP server that coordinates sub-agents to perform advanced file and system operations.
+- [Gemini Bridge](https://github.com/eLyiN/gemini-bridge) – Lightweight MCP bridge enabling interaction with Google Gemini models via CLI.
 - [DeepSeek MCP](https://github.com/DMontgomery40/deepseek-mcp-server) – Integration server enabling AI assistants to interact with DeepSeek language models.
 - [DeepSeek Thinker MCP](https://github.com/ruixingshi/deepseek-thinker-mcp) – Provides reasoning outputs from DeepSeek models for enhanced agent decision workflows.
 - [DeepSeek R1 MCP](https://github.com/66julienmartin/MCP-server-Deepseek_R1) – MCP server connecting Claude Desktop to DeepSeek language models.
-- [Gemini Bridge](https://github.com/eLyiN/gemini-bridge) – Lightweight MCP bridge enabling interaction with Google Gemini models via CLI.
 - [fastn.ai Unified API MCP](https://github.com/fastnai/mcp-fastn) – Unified API server connecting AI agents to thousands of tools and workflows.
 - [Depyler](https://github.com/paiml/depyler/blob/main/docs/mcp-integration.md) – Python-to-Rust transpiler designed for efficient and secure code transformation workflows.
 - [Dify MCP](https://github.com/YanxingLiu/dify-mcp-server) – MCP integration for running Dify AI workflows and automations.
 - [ggRMCP](https://github.com/aalobaidi/ggRMCP) – Gateway that converts gRPC services into MCP-compatible tools.
 - [Eunomia MCP](https://github.com/whataboutyou-ai/eunomia-MCP-server) – Framework extension that connects Eunomia instruments with MCP servers.
-- [FoundationModels MCP](https://github.com/phimage/mcp-foundation-models) – Integrates Apple FoundationModels for AI text generation workflows.
 - [Human-In-the-Loop MCP Server](https://github.com/GongRzhe/Human-In-the-Loop-MCP-Server) — Enables AI assistants to request user feedback and confirmations through interactive GUI dialogs.
 - [Human Use MCP](https://github.com/RapidataAI/human-use) — Connects AI workflows with real human input for real-time feedback and decision support.
 - [Hypertool MCP](https://github.com/toolprint/hypertool-mcp) — Framework that allows AI assistants to dynamically switch between multiple toolsets from different MCP servers.
 - [Inner Monologue MCP](https://github.com/abhinav-mangla/inner-monologue-mcp) — Structured reasoning tool that allows AI agents to perform internal reflection before generating responses.
+
+
+
+
 - [interactive-mcp](https://github.com/ttommyth/interactive-mcp) — Adds interactive prompts and conversational workflows inside MCP-based AI pipelines.
 - [Magg: The MCP Aggregator](https://github.com/sitbon/magg) — Meta MCP server for orchestration.
 - [MCP Bundles Hub](https://github.com/thinkchainai/mcpbundles) — Discover and install MCP integrations.
@@ -760,7 +752,10 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database
 - [Solr MCP](https://github.com/mjochum64/mcp-solr-search) — Perform search queries on Apache Solr servers.
 - [Needle MCP](https://github.com/needle-ai/needle-mcp) – Production-ready RAG system for retrieving information from documents  
-- [Moorcheh MCP](https://github.com/moorcheh-ai/moorcheh-mcp) – Embedding, vector store, and AI answer services integration  
+- [Moorcheh MCP](https://github.com/moorcheh-ai/moorcheh-mcp) – Embedding, vector store, and AI answer services integration
+- [Ragie](https://github.com/ragieai/ragie-mcp-server/) – Retrieve context from your Ragie (RAG) knowledge base connected to integrations like Google Drive, Notion, JIRA and more
+- [Chroma MCP](https://github.com/privetin/chroma) – Vector database server for semantic document search and metadata filtering
+- [Context-portal MCP](https://github.com/GreatScottyMac/context-portal) – Build project-specific memory graphs for RAG applications   
 
 ---
 
@@ -922,7 +917,8 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [citedy-seo-agent](https://github.com/Citedy/citedy-seo-agent) — Offers tools for SEO content generation, competitor analysis, and online trend discovery.
 - [AEO CLI](https://github.com/hanselhansel/aeo-cli) — Audits URLs to check AI crawler readiness (e.g., robots.txt, llms.txt) and provides a structured evaluation score.
 - [lara-mcp](https://github.com/translated/lara-mcp) — Integrates with the Lara Translate API to provide context-aware translations and automatic language detection.
-- [liveblocks-mcp-server](https://github.com/liveblocks/liveblocks-mcp-server) — Create and modify rooms, threads, and comments in Liveblocks.  
+- [liveblocks-mcp-server](https://github.com/liveblocks/liveblocks-mcp-server) — Create and modify rooms, threads, and comments in Liveblocks.
+- [Plus AI](https://plusai.com/features/mcp) – MCP server for automatically generating professional PowerPoint and Google Slides presentations using the Plus AI presentation API  
 
 ---
 
