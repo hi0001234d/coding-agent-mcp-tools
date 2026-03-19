@@ -455,7 +455,6 @@ Tools that help query and manage backend databases during development and debugg
 
 - [Supabase MCP](https://github.com/supabase-community/supabase-mcp) – Supabase database and backend MCP integration
 - [MongoDB Chatbot (MCP)](https://github.com/mongodb/chatbot) – Build AI chatbots that interact with MongoDB databases  
-- [LlamaIndex (MCP)](https://github.com/run-llama/llama_index) – Data framework for connecting LLMs with external data sources
 - [PostgreSQL MCP](https://github.com/modelcontextprotocol/servers) – Execute database queries and manage PostgreSQL through MCP tools 
 - [Neo4j MCP](https://github.com/neo4j-contrib/mcp-neo4j) – Interact with Neo4j graph database via Cypher queries  
 - [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database  
@@ -713,6 +712,7 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 
 Tools that provide persistent memory and knowledge storage capabilities for AI agents.
 
+- [LlamaIndex (MCP)](https://github.com/run-llama/llama_index) – Data framework for connecting LLMs with external data sources
 - [Basic Memory](https://github.com/basicmachines-co/basic-memory) – Local knowledge system that builds a semantic graph from markdown files for persistent AI memory.
 - [Cognee MCP](https://github.com/topoteretes/cognee/tree/main/cognee-mcp) – GraphRAG memory server with ingestion, processing, and search capabilities  
 - [Context Portal](https://github.com/GreatScottyMac/context-portal) – Project knowledge graph and memory database for AI assistants, designed for Retrieval Augmented Generation with structured project data.
