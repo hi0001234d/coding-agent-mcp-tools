@@ -457,7 +457,6 @@ Tools that help query and manage backend databases during development and debugg
 - [MongoDB Chatbot (MCP)](https://github.com/mongodb/chatbot) – Build AI chatbots that interact with MongoDB databases  
 - [PostgreSQL MCP](https://github.com/modelcontextprotocol/servers) – Execute database queries and manage PostgreSQL through MCP tools 
 - [Neo4j MCP](https://github.com/neo4j-contrib/mcp-neo4j) – Interact with Neo4j graph database via Cypher queries  
-- [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database  
 - [Neon MCP](https://github.com/neondatabase/mcp-server-neon) – Interact with the Neon serverless Postgres platform  
 - [MotherDuck MCP](https://github.com/motherduckdb/mcp-server-motherduck) – Query and analyze data using MotherDuck and DuckDB  
 - [Memgraph MCP](https://github.com/memgraph/ai-toolkit/tree/main/integrations/mcp-memgraph) – Query graph data stored in Memgraph database  
@@ -775,6 +774,7 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [ArXiv MCP (blazickjp)](https://github.com/blazickjp/arxiv-mcp-server) — MCP interface for searching and reading research papers from arXiv.  
 - [PubMed MCP (andybrandt)](https://github.com/andybrandt/mcp-simple-pubmed) — Provides tools to search and read medical and life sciences research papers from PubMed.  
 - [PapersWithCode MCP](https://github.com/hbg/mcp-paperswithcode) — Enables searching machine learning research papers and associated code implementations through the PapersWithCode API.
+- [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database  
 
 ---
 
