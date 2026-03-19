@@ -31,6 +31,18 @@ These profiles are designed to help you quickly set up an environment tailored t
 
 ---
 
+## 👥 Who Is This For
+
+Agent Environment Profiles are designed for different types of users, whether you're just getting started or already working with advanced setups.
+
+- **Explorers / Early-stage users**  
+  Developers who are new to coding agents or MCP tools, and want a simple way to try, learn, and experiment without complex setup.
+
+- **Advanced / Power users**  
+  Developers who already use coding agents and want to quickly test new environments, try different MCP configurations, or switch setups without affecting their main workflow.
+
+---
+
 ## ⚡ How It Works
 
 Instead of manually installing and configuring tools, just pick a profile from the table below and get started instantly.
