@@ -75,9 +75,9 @@ Copy and paste the following configuration:
 
 **For Beginner Only**
 
-- Open the `mcp.json` file in VS Code  
+- Open the **`mcp.json`** file in VS Code  
 - Paste the above code inside it  
-- Press `Ctrl + S` to save  
+- Press **`Ctrl + S`** to save  
 - Ensure the file is inside your project folder  
 
 ---
