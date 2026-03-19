@@ -25,9 +25,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
 ### Step 2: Add MCP Configuration
 
-#### 2.1 Create MCP File
-
-Create a file in your project:
+#### 2.1 Create MCP File (Create a file in your project)
 
 ```
 mcp.json
@@ -42,9 +40,7 @@ mcp.json
 
 ---
 
-#### 2.2 Copy MCP Configuration
-
-Copy and paste the following configuration:
+#### 2.2 Copy MCP Configuration (Copy and paste the following configuration)
 
 ```json
 {
