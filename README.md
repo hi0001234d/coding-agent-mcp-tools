@@ -701,7 +701,7 @@ Tools that help track application performance, logs, and system activity.
 
 ### SEO & SMM 
 
-Tools that provide persistent memory and knowledge storage capabilities for AI agents.
+Tools that provide helpful actions or utilities for the SEO, SMM etc.
 
 - [PostIdentity](https://github.com/PostIdentity/mcp-server) – Generate AI-powered social media posts from any AI assistant. Manage identities, create posts, track referrals, and browse marketplace templates
 
@@ -774,6 +774,14 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [ArXiv MCP (blazickjp)](https://github.com/blazickjp/arxiv-mcp-server) — MCP interface for searching and reading research papers from arXiv.  
 - [PubMed MCP (andybrandt)](https://github.com/andybrandt/mcp-simple-pubmed) — Provides tools to search and read medical and life sciences research papers from PubMed.  
 - [PapersWithCode MCP](https://github.com/hbg/mcp-paperswithcode) — Enables searching machine learning research papers and associated code implementations through the PapersWithCode API.
+- [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database  
+
+---
+
+### Optimize RAG/memory layer
+
+Tools that provide persistent memory and knowledge storage capabilities for AI agents.
+
 - [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database  
 
 ---
