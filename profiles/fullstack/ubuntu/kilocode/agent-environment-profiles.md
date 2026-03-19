@@ -38,7 +38,7 @@ mcp.json
 - Open your project folder in VS Code  
 - In the file explorer, click **New File**  
 - Name the file exactly: `mcp.json`  
-- Make sure it is created in the root of your project  
+- Make sure it is created in the **root of your project**  
 
 ---
 
