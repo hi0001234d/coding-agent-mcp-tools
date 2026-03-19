@@ -1,6 +1,6 @@
 # 🚀 Full-stack Dev Stack (Ubuntu + VS Code + KiloCode)
 
-This profile provides a ready-to-use full-stack development environment for coding agents using MCP tools.
+This profile provides a ready-to-use **full-stack development environment** for coding agents using MCP tools.
 
 Instead of installing tools one by one, just copy the MCP configuration and start working.
 
@@ -8,10 +8,10 @@ Instead of installing tools one by one, just copy the MCP configuration and star
 
 ## ⚡ What You Get
 
-- Pre-configured MCP tools for full-stack workflows  
-- Works seamlessly with VS Code + KiloCode extension  
-- Quick setup — copy, paste, and start  
-- Optional: You can also run this setup inside Docker for a clean and isolated environment  
+- **Pre-configured MCP tools** for full-stack workflows  
+- **Works seamlessly with VS Code + KiloCode extension**  
+- **Quick setup** — copy, paste, and start  
+- **Optional:** You can also run this setup inside Docker for a clean and isolated environment  
 
 ---
 
@@ -19,7 +19,7 @@ Instead of installing tools one by one, just copy the MCP configuration and star
 
 ### Step 1: Install Coding Agent
 
-Install KiloCode extension for Visual Studio Code.
+Install **KiloCode extension for Visual Studio Code.**
 
 ---
 
