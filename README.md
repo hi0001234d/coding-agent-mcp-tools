@@ -518,11 +518,7 @@ Tools that help track, analyze, and optimize development and infrastructure cost
 
 Tools that help connect AI models, agents, and developer tooling for faster workflows.
 
-- [MCP Memory Service](https://github.com/doobidoo/mcp-memory-service) – Persistent memory service for MCP-based AI agents  
 - [Hugging Face MCP](https://huggingface.co/settings/mcp) – Access Hugging Face models, datasets, and tools programmatically  
-- [Kiln MCP](https://github.com/Kiln-AI/Kiln) – Open-source platform for building production-ready AI systems with RAG and agents  
-- [Needle MCP](https://github.com/needle-ai/needle-mcp) – Production-ready RAG system for retrieving information from documents  
-- [Moorcheh MCP](https://github.com/moorcheh-ai/moorcheh-mcp) – Embedding, vector store, and AI answer services integration  
 - [kluster.ai MCP](https://docs.kluster.ai/get-started/mcp/overview/) – Provides AI services and guardrails like hallucination detection
 - [Plus AI](https://plusai.com/features/mcp) – MCP server for automatically generating professional PowerPoint and Google Slides presentations using the Plus AI presentation API  
 - [PAIML MCP Agent Toolkit](https://github.com/paiml/paiml-mcp-agent-toolkit) – Professional project scaffolding toolkit with zero-configuration AI context generation, template generation for Rust/Deno/Python projects, and hybrid neuro-symbolic code analysis  
@@ -763,6 +759,8 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [PapersWithCode MCP](https://github.com/hbg/mcp-paperswithcode) — Enables searching machine learning research papers and associated code implementations through the PapersWithCode API.
 - [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database
 - [Solr MCP](https://github.com/mjochum64/mcp-solr-search) — Perform search queries on Apache Solr servers.
+- [Needle MCP](https://github.com/needle-ai/needle-mcp) – Production-ready RAG system for retrieving information from documents  
+- [Moorcheh MCP](https://github.com/moorcheh-ai/moorcheh-mcp) – Embedding, vector store, and AI answer services integration  
 
 ---
 
