@@ -112,6 +112,7 @@ Tools that help developers and AI agents analyze large repositories and understa
 - [code-context-provider-mcp](https://github.com/AB498/code-context-provider-mcp) – Extracts directory structures and code symbols using Tree-sitter for AI code analysis.
 - [consult7](https://github.com/szeider/consult7) – Tool for analyzing large codebases and document collections using high-context AI models.
 - [cplusplus-mcp](https://github.com/kandrwmrtn/cplusplus_mcp) – Semantic C++ code analysis using libclang AST parsing for better code navigation and understanding.
+- [Code Interpreter](https://github.com/e2b-dev/code-interpreter) – Execute and analyze code in secure environments
 - [Files MCP](https://github.com/flesler/mcp-files) – Enables AI agents to search, locate, and modify code symbols across large codebases.
 - [Git MCP](https://github.com/geropl/git-mcp-go) – Provides AI assistants access to local Git repositories for version control operations.
 - [GitHub MCP Server](https://github.com/0xshariq/github-mcp-server) – Provides comprehensive Git repository management including commit history, branches, and repository operations.
@@ -506,8 +507,6 @@ Tools that help query and manage backend databases during development and debugg
 
 Tools that help track, analyze, and optimize development and infrastructure costs.
 
-- [AWS Billing & Cost Management MCP](https://github.com/awslabs/mcp) – Manage AWS billing, cost insights, and resources via MCP
-- [Momento MCP](https://github.com/momentohq/mcp-momento) – High-performance caching to improve performance and reduce infrastructure cost
 - [Ramp](https://github.com/ramp-public/ramp-mcp) – Interact with Ramp's Developer API to run analysis on your spend and gain insights leveraging LLMs 
 - [Cloud Cost MCP](https://github.com/jasonwilbur/cloud-cost-mcp) — Provides MCP tools to compare real-time pricing across major cloud providers such as AWS, Azure, GCP, and OCI to support infrastructure cost planning.
 - [OCI Pricing MCP](https://github.com/jasonwilbur/oci-pricing-mcp) — Provides MCP tools to access and analyze Oracle Cloud Infrastructure pricing data for infrastructure planning and cost evaluation.
@@ -804,7 +803,7 @@ Tools that provide capabilities for data analysis.
 
 Tools that help simplify and automate utility tasks in development workflows.
 
-- [Code Interpreter](https://github.com/e2b-dev/code-interpreter) – Execute and analyze code in secure environments
+- [AWS Billing & Cost Management MCP](https://github.com/awslabs/mcp) – Manage AWS billing, cost insights, and resources via MCP
 - [PrestaShop.com](https://docs.mcp.prestashop.com/) – Manage your PrestaShop store with AI Assistant by using the official PrestaShop MCP server  
 - [eBook MCP](https://github.com/onebirdrocks/ebook-mcp) – MCP server for accessing and generating eBook content  
 - [Any Chat Completions](https://github.com/pyroprompts/any-chat-completions-mcp) – Connect to OpenAI compatible chat completion APIs such as OpenAI, Groq, Perplexity, and others.
