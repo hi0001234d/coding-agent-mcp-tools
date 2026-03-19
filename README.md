@@ -456,25 +456,19 @@ Tools that help query and manage backend databases during development and debugg
 - [Supabase MCP](https://github.com/supabase-community/supabase-mcp) – Supabase database and backend MCP integration
 - [MongoDB Chatbot (MCP)](https://github.com/mongodb/chatbot) – Build AI chatbots that interact with MongoDB databases  
 - [PostgreSQL MCP](https://github.com/modelcontextprotocol/servers) – Execute database queries and manage PostgreSQL through MCP tools 
-- [Neo4j MCP](https://github.com/neo4j-contrib/mcp-neo4j) – Interact with Neo4j graph database via Cypher queries  
 - [Neon MCP](https://github.com/neondatabase/mcp-server-neon) – Interact with the Neon serverless Postgres platform  
 - [MotherDuck MCP](https://github.com/motherduckdb/mcp-server-motherduck) – Query and analyze data using MotherDuck and DuckDB  
-- [Memgraph MCP](https://github.com/memgraph/ai-toolkit/tree/main/integrations/mcp-memgraph) – Query graph data stored in Memgraph database  
 - [Kuzu MCP](https://github.com/kuzudb/kuzu-mcp-server) – Inspect schema and execute queries on Kuzu graph database  
 - [OceanBase MCP](https://github.com/oceanbase/mcp-oceanbase) – Manage and interact with OceanBase database  
 - [KWDB MCP](https://github.com/KWDB/kwdb-mcp-server) – Perform DDL and data operations on KWDB database  
-- [Qdrant](https://github.com/qdrant/mcp-server-qdrant/) – Implement semantic memory layer on top of the Qdrant vector search engine  
-- [Rill Data](https://docs.rilldata.com/explore/mcp) – Interact with Rill Data to query and analyze your data  
 - [Prisma](https://www.prisma.io/docs/postgres/integrations/mcp-server) – Create and manage Prisma Postgres databases 
 - [Airtable](https://github.com/domdomegg/airtable-mcp-server) – Read and write access to Airtable databases with schema inspection  
 - [ArangoDB](https://github.com/ravenwits/mcp-server-arangodb) – MCP server providing database interaction capabilities  
 - [ArangoDB Graph](https://github.com/PCfVW/mcp-arangodb-async) – Async-first Python architecture for ArangoDB graphs and analytics  
-- [BigQuery](https://github.com/LucasHild/mcp-server-bigquery) – Enables LLMs to inspect database schemas and execute queries  
 - [Databricks MCP](https://github.com/JordiNeil/mcp-databricks-server) – Allows LLMs to run SQL queries, list and get details of job executions in a Databricks account  
 - [CockroachDB](https://github.com/amineelkouhen/mcp-cockroachdb) – MCP server enabling AI agents and LLMs to manage, monitor, and query CockroachDB using natural language  
 - [DBHub MCP](https://github.com/bytebase/dbhub/) – Universal database MCP server connecting to MySQL, MariaDB, PostgreSQL, and SQL Server  
 - [DevDb](https://github.com/damms005/devdb-vscode) – IDE-based MCP server allowing direct connection to multiple relational databases for querying and management.
-- [Druid MCP](https://github.com/iunera/druid-mcp-server) – MCP server for Apache Druid clusters providing data analytics tools and cluster management features.
 - [DynamoDB Toolbox MCP](https://www.dynamodbtoolbox.com/docs/databases/actions/mcp-toolkit) – Natural language interaction layer for DynamoDB using defined schemas and access patterns.  
 - [Elasticsearch MCP](https://github.com/cr7258/elasticsearch-mcp-server) – Enables AI assistants to interact with Elasticsearch clusters for search and analytics.
 - [D365FO MCP](https://github.com/mafzaal/d365fo-client) – Connects to Microsoft Dynamics 365 Finance & Operations APIs for data access and management.
@@ -780,9 +774,22 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 
 ### Optimize RAG/memory layer
 
-Tools that provide persistent memory and knowledge storage capabilities for AI agents.
+Tools that provide ways to optimize your retrieval layers or memory layers.
 
+- [Neo4j MCP](https://github.com/neo4j-contrib/mcp-neo4j) – Interact with Neo4j graph database via Cypher queries  
+- [Memgraph MCP](https://github.com/memgraph/ai-toolkit/tree/main/integrations/mcp-memgraph) – Query graph data stored in Memgraph database  
+- [Qdrant](https://github.com/qdrant/mcp-server-qdrant/) – Implement semantic memory layer on top of the Qdrant vector search engine  
 - [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database  
+
+---
+
+### data analysis
+
+Tools that provide capabilities for data analysis.
+
+- [BigQuery](https://github.com/LucasHild/mcp-server-bigquery) – Enables LLMs to inspect database schemas and execute queries  
+- [Rill Data](https://docs.rilldata.com/explore/mcp) – Interact with Rill Data to query and analyze your data
+- [Druid MCP](https://github.com/iunera/druid-mcp-server) – MCP server for Apache Druid clusters providing data analytics tools and cluster management features.
 
 ---
 
