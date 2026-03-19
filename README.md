@@ -470,11 +470,9 @@ Tools that help query and manage backend databases during development and debugg
 - [DBHub MCP](https://github.com/bytebase/dbhub/) – Universal database MCP server connecting to MySQL, MariaDB, PostgreSQL, and SQL Server  
 - [DevDb](https://github.com/damms005/devdb-vscode) – IDE-based MCP server allowing direct connection to multiple relational databases for querying and management.
 - [DynamoDB Toolbox MCP](https://www.dynamodbtoolbox.com/docs/databases/actions/mcp-toolkit) – Natural language interaction layer for DynamoDB using defined schemas and access patterns.  
-- [Elasticsearch MCP](https://github.com/cr7258/elasticsearch-mcp-server) – Enables AI assistants to interact with Elasticsearch clusters for search and analytics.
 - [D365FO MCP](https://github.com/mafzaal/d365fo-client) – Connects to Microsoft Dynamics 365 Finance & Operations APIs for data access and management.
 - [Firebase MCP](https://github.com/gannonh/firebase-mcp) – Enables interaction with Firebase Authentication, Firestore, and Storage services.
 - [Contentful MCP ](https://github.com/ivo-toby/contentful-mcp) – Manage and update content stored in Contentful CMS spaces.
-- [InfluxDB MCP Server](https://github.com/idoru/influxdb-mcp-server) — Enables querying and managing time-series data stored in InfluxDB databases.
 - [JDBC MCP Server](https://github.com/quarkiverse/quarkus-mcp-servers/tree/main/jdbc) — Universal database connectivity supporting MySQL, PostgreSQL, SQLite, SQL Server, Oracle, and other JDBC-compatible databases.
 - [MariaDB](https://github.com/abel9851/mcp-server-mariadb) — MCP server integration for MariaDB databases.
 - [MCP-Database-Server](https://github.com/executeautomation/mcp-database-server) — Unified interface for SQL Server, SQLite, and PostgreSQL.
@@ -486,8 +484,6 @@ Tools that help query and manage backend databases during development and debugg
 - [PostgreSQL MCP Server](https://github.com/ahmedmustahid/postgres-mcp-server) — Database schema inspection and query execution.
 - [Redis MCP Server](https://github.com/GongRzhe/REDIS-MCP-Server) — Manage Redis caching and key-value operations.
 - [Snowflake](https://github.com/Snowflake-Labs/mcp) — Official MCP server supporting SQL execution, object management, and RBAC controls.
-- [Solr MCP](https://github.com/mjochum64/mcp-solr-search) — Perform search queries on Apache Solr servers.
-- [Teradata](https://github.com/arturborycki/mcp-teradata) — Run analytics tasks and queries on Teradata databases.
 - [TigerGraph](https://github.com/custom-discoveries/TigerGraph_MCP) — Graph database integration for AI agents.
 - [Vertica](https://github.com/nolleh/mcp-vertica) — Database integration with schema inspection and access control.
 - [Trino](https://github.com/tuannvm/mcp-trino) — High-performance distributed query execution.
@@ -503,8 +499,6 @@ Tools that help query and manage backend databases during development and debugg
 - [alkemi-mcp](https://github.com/alkemiai/alkemi-mcp) — Enables natural language queries on Snowflake, BigQuery, and Databricks data products.  
 - [qlik-mcp](https://github.com/jwaxman19/qlik-mcp) — Extracts data from Qlik Cloud API applications, sheets, and visualizations.  
 - [keboola-mcp-server](https://github.com/keboola/keboola-mcp-server) — Provides access to Keboola Connection platform storage APIs for data extraction.
-- [kaggle-mcp](https://github.com/arrismo/kaggle-mcp) — Provides tools to download and analyze datasets from the Kaggle platform.  
-- [kaggle-mcp-server](https://github.com/KrishnaPramodParupudi/kaggle-mcp-server) — MCP server implementation for browsing Kaggle competitions, leaderboards, models, and kernels.
 
 ---
 
@@ -768,7 +762,8 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [ArXiv MCP (blazickjp)](https://github.com/blazickjp/arxiv-mcp-server) — MCP interface for searching and reading research papers from arXiv.  
 - [PubMed MCP (andybrandt)](https://github.com/andybrandt/mcp-simple-pubmed) — Provides tools to search and read medical and life sciences research papers from PubMed.  
 - [PapersWithCode MCP](https://github.com/hbg/mcp-paperswithcode) — Enables searching machine learning research papers and associated code implementations through the PapersWithCode API.
-- [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database  
+- [Milvus MCP](https://github.com/zilliztech/mcp-server-milvus) – Search and interact with data in Milvus vector database
+- [Solr MCP](https://github.com/mjochum64/mcp-solr-search) — Perform search queries on Apache Solr servers.
 
 ---
 
@@ -783,6 +778,15 @@ Tools that provide ways to optimize your retrieval layers or memory layers.
 
 ---
 
+### ML datasets
+
+Tools that provide ML datasets and capabilities to analyze them.
+
+- [kaggle-mcp](https://github.com/arrismo/kaggle-mcp) — Provides tools to download and analyze datasets from the Kaggle platform.  
+- [kaggle-mcp-server](https://github.com/KrishnaPramodParupudi/kaggle-mcp-server) — MCP server implementation for browsing Kaggle competitions, leaderboards, models, and kernels.
+
+---
+
 ### data analysis
 
 Tools that provide capabilities for data analysis.
@@ -790,6 +794,9 @@ Tools that provide capabilities for data analysis.
 - [BigQuery](https://github.com/LucasHild/mcp-server-bigquery) – Enables LLMs to inspect database schemas and execute queries  
 - [Rill Data](https://docs.rilldata.com/explore/mcp) – Interact with Rill Data to query and analyze your data
 - [Druid MCP](https://github.com/iunera/druid-mcp-server) – MCP server for Apache Druid clusters providing data analytics tools and cluster management features.
+- [Elasticsearch MCP](https://github.com/cr7258/elasticsearch-mcp-server) – Enables AI assistants to interact with Elasticsearch clusters for search and analytics.
+- [InfluxDB MCP Server](https://github.com/idoru/influxdb-mcp-server) — Enables querying and managing time-series data stored in InfluxDB databases.
+- [Teradata](https://github.com/arturborycki/mcp-teradata) — Run analytics tasks and queries on Teradata databases.
 
 ---
 
