@@ -1,6 +1,6 @@
-# 🚀 Full Stack Dev Stack (Ubuntu + KiloCode)
+# 🚀 Full-stack Dev Stack (Ubuntu + VS Code + KiloCode)
 
-This profile provides a ready-to-use full stack development environment using coding agents.
+This profile provides a ready-to-use full-stack development environment for coding agents using MCP tools.
 
 Instead of installing tools one by one, just copy the MCP configuration and start working.
 
@@ -8,10 +8,10 @@ Instead of installing tools one by one, just copy the MCP configuration and star
 
 ## ⚡ What You Get
 
-* Pre-configured MCP tools for full stack workflows
-* Works with KiloCode agent
-* Quick setup (copy-paste based)
-* Optional clean environment using Docker
+- Pre-configured MCP tools for full-stack workflows  
+- Works seamlessly with VS Code + KiloCode extension  
+- Quick setup — copy, paste, and start  
+- Optional: You can also run this setup inside Docker for a clean and isolated environment  
 
 ---
 
@@ -19,11 +19,13 @@ Instead of installing tools one by one, just copy the MCP configuration and star
 
 ### Step 1: Install Coding Agent
 
-Install your coding agent (KiloCode) on your system.
+Install KiloCode extension for Visual Studio Code.
 
 ---
 
 ### Step 2: Add MCP Configuration
+
+#### 2.1 Create MCP File
 
 Create a file in your project:
 
@@ -31,59 +33,76 @@ Create a file in your project:
 mcp.json
 ```
 
-Copy and paste the following:
+**For Beginner Only**
+
+- Open your project folder in VS Code  
+- In the file explorer, click **New File**  
+- Name the file exactly: `mcp.json`  
+- Make sure it is created in the root of your project  
+
+---
+
+#### 2.2 Copy MCP Configuration
+
+Copy and paste the following configuration:
 
 ```json
 {
   "mcpServers": {
-    "filesystem": {
+    "raygun": {
       "command": "npx",
-      "args": ["@modelcontextprotocol/server-filesystem"]
+      "args": ["raygun-mcp"]
     },
-    "git": {
+    "continue": {
       "command": "npx",
-      "args": ["@modelcontextprotocol/server-git"]
+      "args": ["continue-mcp"]
     },
-    "http": {
+    "figma-context": {
       "command": "npx",
-      "args": ["@modelcontextprotocol/server-fetch"]
+      "args": ["figma-context-mcp"]
+    },
+    "lldb": {
+      "command": "npx",
+      "args": ["lldb-mcp"]
+    },
+    "code-assistant": {
+      "command": "npx",
+      "args": ["code-assistant"]
     }
   }
 }
 ```
 
-> You can modify or extend tools based on your needs.
+**For Beginner Only**
+
+- Open the `mcp.json` file in VS Code  
+- Paste the above code inside it  
+- Press `Ctrl + S` to save  
+- Ensure the file is inside your project folder  
 
 ---
 
 ### Step 3: Start Your Agent
 
-Run your coding agent.
+Start KiloCode inside VS Code — it will automatically load MCP tools from `mcp.json`.
 
-It will automatically load all MCP tools from `mcp.json`.
+**For Beginner Only**
 
----
-
-## 🧪 How to Use
-
-Open your project and use prompts like:
-
-* Analyze this codebase
-* Fix this issue
-* Generate API
-* Improve performance
-* Debug errors
+- Open your project in VS Code  
+- Make sure `mcp.json` file is present  
+- Open KiloCode extension  
+- Start or reload the agent  
+- The agent will read `mcp.json` and connect all tools  
 
 ---
 
-## 🧹 Cleanup
+## 🚀 Start Using
 
-If you don’t want this setup:
+Now you can start using prompts like:
 
-* Remove `mcp.json`
-* Or delete MCP entries
-
-This setup is temporary and disposable.
+- Analyze this codebase  
+- Fix bugs  
+- Generate APIs  
 
 ---
 
