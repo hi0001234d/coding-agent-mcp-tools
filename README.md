@@ -511,6 +511,7 @@ Tools that help track, analyze, and optimize development and infrastructure cost
 - [Cloud Cost MCP](https://github.com/jasonwilbur/cloud-cost-mcp) — Provides MCP tools to compare real-time pricing across major cloud providers such as AWS, Azure, GCP, and OCI to support infrastructure cost planning.
 - [OCI Pricing MCP](https://github.com/jasonwilbur/oci-pricing-mcp) — Provides MCP tools to access and analyze Oracle Cloud Infrastructure pricing data for infrastructure planning and cost evaluation.
 - [llmkit](https://github.com/smigolsmigol/llmkit) — Provides tools for tracking AI API usage costs and managing budgets.
+- [AWS Cost Explorer](https://github.com/aarora79/aws-cost-explorer-mcp-server) – Optimize your AWS spend using an MCP server
 
 ---
 
@@ -621,7 +622,9 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [engram](https://github.com/tstockham96/engram) — Intelligent agent memory system that provides semantic recall and context-aware memory management, enabling agents to efficiently store and reuse long-term information.  
 - [memora](https://github.com/agentic-mcp-tools/memora) — Persistent agent memory platform offering structured memory management with knowledge graph visualization and cloud storage synchronization.  
 - [contextstream](https://www.npmjs.com/package/@contextstream/mcp-server) — Universal persistent memory platform providing tools for semantic code search, impact analysis, and decision tracking.  
-- [In-Memoria](https://github.com/pi22by7/In-Memoria) — Hybrid TypeScript and Rust–based memory system that enables coding assistants to maintain cumulative context memory and learn patterns over time.  
+- [In-Memoria](https://github.com/pi22by7/In-Memoria) — Hybrid TypeScript and Rust–based memory system that enables coding assistants to maintain cumulative context memory and learn patterns over time.
+- [Parallel Task MCP](https://github.com/parallel-web/task-mcp) – Initiate Deep Research and Batch Tasks 
+- [ActivityPub MCP](https://github.com/cameronrye/activitypub-mcp) – Enables LLMs to interact with Fediverse via ActivityPub protocol  
 
 ---
 
@@ -629,19 +632,12 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 
 Tools that help track application performance, logs, and system activity.
 
+- [Downdetector MCP](https://github.com/domdomegg/downdetector-mcp) – Retrieves service status and outage information for real-time availability monitoring.  
 - [PostHog MCP](https://github.com/PostHog/mcp) – MCP server for accessing PostHog analytics, feature flags, and error tracking through AI tools 
-- [Langfuse MCP](https://github.com/langfuse/mcp-server-langfuse) – Monitor and debug LLM applications with observability tools  
-- [Logfire MCP](https://github.com/pydantic/logfire-mcp) – Access OpenTelemetry traces and metrics  
 - [Mixpanel MCP](https://docs.mixpanel.com/docs/features/mcp) – Query product analytics data via natural language  
 - [Microsoft Clarity MCP](https://github.com/microsoft/clarity-mcp-server) – Retrieve behavioral analytics insights  
 - [PagerDuty](https://github.com/PagerDuty/pagerduty-mcp-server) – Interact with your PagerDuty account, manage incidents, services, schedules, and more directly from your MCP-enabled client  
 - [Powerdrill](https://github.com/powerdrillai/powerdrill-mcp) – MCP server providing smart AI data analysis and insights  
-- [Parallel Task MCP](https://github.com/parallel-web/task-mcp) – Initiate Deep Research and Batch Tasks 
-- [ActivityPub MCP](https://github.com/cameronrye/activitypub-mcp) – Enables LLMs to interact with Fediverse via ActivityPub protocol  
-- [AWS Cost Explorer](https://github.com/aarora79/aws-cost-explorer-mcp-server) – Optimize your AWS spend using an MCP server
-- [Downdetector MCP](https://github.com/domdomegg/downdetector-mcp) – Retrieves service status and outage information for real-time availability monitoring.  
-- [FDIC BankFind MCP](https://github.com/clafollett/fdic-bank-find-mcp-server) – Provides structured banking data from FDIC APIs for financial monitoring and analysis.
-- [Federal Reserve Economic Data MCP](https://github.com/stefanoamorelli/fred-mcp-server) – Access to macroeconomic datasets from the FRED database.
 - [Descope MCP](https://github.com/descope-sample-apps/descope-mcp-server) – Manage users and audit logs through Descope identity platform integration.
 - [Graylog MCP Server](https://github.com/Pranavj17/mcp-server-graylog) — Enables AI assistants to query and analyze logs stored in Graylog monitoring systems.
 - [Kibana MCP Server](https://github.com/TocharianOU/mcp-server-kibana.git) — Allows monitoring and log analysis through integration with Kibana dashboards.
@@ -655,16 +651,13 @@ Tools that help track application performance, logs, and system activity.
 - [SystemSage](https://github.com/Tarusharma1/SystemSage) — Cross-platform system monitoring and management.
 - [sslmon](https://github.com/firesh/sslmon-mcp) — Monitor domain registration and SSL certificate validity.
 - [WaveGuardClient](https://github.com/gpartin/WaveGuardClient) — Physics-based anomaly detection system that uses GPU acceleration to detect infrastructure and system anomalies.  
-- [renoun-mcp](https://github.com/98lukehall/renoun-mcp) — Provides structural observability for AI conversations and system workflows, tracking loops and state transitions.
-- [box-mcp-server-remote](https://github.com/box/mcp-server-box-remote/) — Official MCP integration for securely accessing, searching, and managing Box cloud storage content.  
-- [mcp-gdrive](https://github.com/isaacphi/mcp-gdrive) — Integration for reading Google Drive files and editing Google Sheets through MCP.
+
 - [Datadog MCP (TANTIOPE)](https://github.com/TANTIOPE/datadog-mcp-server) — Provides access to Datadog observability data for log search, APM trace filtering, and cross-correlation between logs and metrics.  
 - [dynatrace-mcp](https://github.com/dynatrace-oss/dynatrace-mcp) — Connects with the Dynatrace observability platform to analyze anomalies, events, and distributed traces.  
 - [VictoriaMetrics MCP](https://github.com/VictoriaMetrics-Community/mcp-victoriametrics) — Integrates with VictoriaMetrics monitoring APIs to query metrics and analyze monitoring data.  
 - [edgedelta-mcp-server](https://github.com/edgedelta/edgedelta-mcp-server) — Provides tools for analyzing logs and events to understand system behavior and identify issues.  
 - [zabbix-mcp-server](https://github.com/mpeirone/zabbix-mcp-server) — Integrates with the Zabbix monitoring system to access hosts, triggers, and infrastructure monitoring data.  
 - [fortimonitor-mcp-server](https://github.com/gjenkins20/unofficial-fortimonitor-mcp-server) — Provides monitoring tools for infrastructure tracking, outage detection, and notification management.  
-- [mcp-monitor](https://github.com/seekrays/mcp-monitor) — Exposes real-time system metrics such as CPU, memory, disk, and network usage for LLM agents.
 - [Axiom MCP](https://github.com/axiomhq/mcp-server-axiom) – Query and analyze logs, traces, and observability data using MCP
 
 ---
@@ -785,6 +778,8 @@ Tools that provide capabilities for data analysis.
 - [Elasticsearch MCP](https://github.com/cr7258/elasticsearch-mcp-server) – Enables AI assistants to interact with Elasticsearch clusters for search and analytics.
 - [InfluxDB MCP Server](https://github.com/idoru/influxdb-mcp-server) — Enables querying and managing time-series data stored in InfluxDB databases.
 - [Teradata](https://github.com/arturborycki/mcp-teradata) — Run analytics tasks and queries on Teradata databases.
+- [FDIC BankFind MCP](https://github.com/clafollett/fdic-bank-find-mcp-server) – Provides structured banking data from FDIC APIs for financial monitoring and analysis.
+- [Federal Reserve Economic Data MCP](https://github.com/stefanoamorelli/fred-mcp-server) – Access to macroeconomic datasets from the FRED database.
 
 ---
 
@@ -915,6 +910,8 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [lara-mcp](https://github.com/translated/lara-mcp) — Integrates with the Lara Translate API to provide context-aware translations and automatic language detection.
 - [liveblocks-mcp-server](https://github.com/liveblocks/liveblocks-mcp-server) — Create and modify rooms, threads, and comments in Liveblocks.
 - [Plus AI](https://plusai.com/features/mcp) – MCP server for automatically generating professional PowerPoint and Google Slides presentations using the Plus AI presentation API  
+- [box-mcp-server-remote](https://github.com/box/mcp-server-box-remote/) — Official MCP integration for securely accessing, searching, and managing Box cloud storage content.  
+- [mcp-gdrive](https://github.com/isaacphi/mcp-gdrive) — Integration for reading Google Drive files and editing Google Sheets through MCP.
 
 ---
 
@@ -1235,6 +1232,10 @@ Tools that help monitor, trace, and analyze MCP servers and AI agent behavior fo
 - [AgentOps](https://github.com/AgentOps-AI/agentops) – Monitor, trace, and debug AI agent executions with observability tools  
 - [Netdata MCP](https://github.com/netdata/netdata/blob/master/src/web/mcp/README.md) – Discovery, exploration, reporting and root cause analysis using observability data 
 - [langfuse-mcp (avivsinai)](https://github.com/avivsinai/langfuse-mcp) — Provides debugging tools for querying LLM application traces, analyzing exceptions, and inspecting sessions.
+- [Langfuse MCP](https://github.com/langfuse/mcp-server-langfuse) – Monitor and debug LLM applications with observability tools
+- [Logfire MCP](https://github.com/pydantic/logfire-mcp) – Access OpenTelemetry traces and metrics  
+- [renoun-mcp](https://github.com/98lukehall/renoun-mcp) — Provides structural observability for AI conversations and system workflows, tracking loops and state transitions.
+- [mcp-monitor](https://github.com/seekrays/mcp-monitor) — Exposes real-time system metrics such as CPU, memory, disk, and network usage for LLM agents.
 
 ---
 
