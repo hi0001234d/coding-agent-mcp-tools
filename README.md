@@ -145,6 +145,8 @@ Tools that help developers and AI agents analyze large repositories and understa
 - [large-file-mcp](https://github.com/willianpinho/large-file-mcp) — Provides a server for efficiently exploring large files with smart chunking, navigation, and regex-based search capabilities.   
 - [git-context-mcp](https://github.com/TamiShaks-2/git-context-mcp) — Analyzes local Git repositories to generate a structured code map and identify risk hotspots.
 - [mcp-git-ingest](https://github.com/adhikasp/mcp-git-ingest) — Reads and analyzes GitHub repositories to provide full context for AI agents.
+- [Sourcerer](https://github.com/st3v3nmw/sourcerer-mcp) — Semantic code search and navigation MCP for efficient code exploration.
+- [CodeCortex](https://github.com/rushikeshmore/CodeCortex) — Transforms codebases into structured knowledge formats with symbol indexing and dependency graphs for optimized context retrieval.
 
 ---
 
@@ -624,7 +626,8 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [contextstream](https://www.npmjs.com/package/@contextstream/mcp-server) — Universal persistent memory platform providing tools for semantic code search, impact analysis, and decision tracking.  
 - [In-Memoria](https://github.com/pi22by7/In-Memoria) — Hybrid TypeScript and Rust–based memory system that enables coding assistants to maintain cumulative context memory and learn patterns over time.
 - [Parallel Task MCP](https://github.com/parallel-web/task-mcp) – Initiate Deep Research and Batch Tasks 
-- [ActivityPub MCP](https://github.com/cameronrye/activitypub-mcp) – Enables LLMs to interact with Fediverse via ActivityPub protocol  
+- [ActivityPub MCP](https://github.com/cameronrye/activitypub-mcp) – Enables LLMs to interact with Fediverse via ActivityPub protocol
+- [claude-skills-mcp](https://github.com/K-Dense-AI/claude-skills-mcp) — Intelligent discovery system that allows models to search and use Claude agent skills.
 
 ---
 
@@ -678,7 +681,6 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [Basic Memory](https://github.com/basicmachines-co/basic-memory) – Local knowledge system that builds a semantic graph from markdown files for persistent AI memory.
 - [Cognee MCP](https://github.com/topoteretes/cognee/tree/main/cognee-mcp) – GraphRAG memory server with ingestion, processing, and search capabilities  
 - [Context Portal](https://github.com/GreatScottyMac/context-portal) – Project knowledge graph and memory database for AI assistants, designed for Retrieval Augmented Generation with structured project data.
-- [Extended Memory MCP](https://github.com/ssmirnovpro/extended-memory-mcp) – Persistent memory system for AI assistants with tagging, importance scoring, and long-term knowledge storage.
 - [Context Crystallizer](https://github.com/hubertciebiada/context-crystallizer) – Converts large repositories into structured AI-friendly knowledge representations for improved retrieval.
 - [GitMCP](https://github.com/idosal/git-mcp) — Generic remote MCP server that allows AI assistants to connect with any GitHub repository or documentation for contextual knowledge retrieval.
 - [Glean MCP Server](https://github.com/longyi1207/glean-mcp-server) — Provides enterprise knowledge search and conversational access using the Glean API.
@@ -689,14 +691,11 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [mcp-local-rag](https://github.com/nkapila6/mcp-local-rag) — Local RAG server with document embeddings and web search.
 - [Langflow-DOC-QA-SERVER](https://github.com/GongRzhe/Langflow-DOC-QA-SERVER) — Document Q&A system with Langflow backend.
 - [LlamaCloud](https://github.com/run-llama/mcp-server-llamacloud) — Access managed vector indexes for AI retrieval.
-- [lucene-mcp-server](https://github.com/VivekKumarNeu/MCP-Lucene-Server) — High-performance document indexing using Apache Lucene.
 - [Minima](https://github.com/dmayboroda/minima) — Lightweight RAG system for local files.
 - [RAG Local MCP](https://github.com/renl/mcp-rag-local) — Store and retrieve text passages locally using semantic search.
 - [RAG Web Browser MCP](https://github.com/apify/mcp-server-rag-web-browser) — Perform web search and scraping for RAG pipelines.
 - [py-mcp-qdrant-rag](https://github.com/amornpan/py-mcp-qdrant-rag) — Implement RAG pipelines using Qdrant vector DB.
 - [Pinecone MCP Server](https://github.com/sirmews/mcp-pinecone) — Vector DB integration for semantic search and RAG workflows.
-- [Source to Knowledge Base](https://github.com/vezlo/src-to-kb) — Convert source code repositories into searchable knowledge bases with AI-powered semantic search.
-- [Sourcerer](https://github.com/st3v3nmw/sourcerer-mcp) — Semantic code search and navigation MCP for efficient code exploration.
 - [Stitch AI](https://github.com/StitchAI/stitch-ai-mcp/) — Knowledge management system with memory spaces and contextual retrieval.
 - [Zettelkasten](https://github.com/joshylchen/zettelkasten) — AI-powered knowledge management supporting structured notes and semantic linking.
 - [Wren Engine](https://github.com/Canner/wren-engine) — Semantic engine for MCP clients providing structured knowledge retrieval.
@@ -704,30 +703,22 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [OpenZIM MCP](https://github.com/cameronrye/openzim-mcp) — Provides MCP tools to access ZIM archive datasets, enabling AI agents to retrieve offline knowledge collections.
 - [ragmap](https://github.com/khalidsaidi/ragmap) — Registry and routing layer to discover retrieval-enabled MCP servers using structured constraints.
 - [PersonalizationMCP](https://github.com/YangLiangwei/PersonalizationMCP) — Aggregates personal data sources to enable contextual retrieval and personalization.
-- [claude-skills-mcp](https://github.com/K-Dense-AI/claude-skills-mcp) — Intelligent discovery system that allows models to search and use Claude agent skills.
 - [biothings-mcp](https://github.com/longevity-genie/biothings-mcp) — Interact with the BioThings API to retrieve data related to genes, genetic variants, and drugs.
 - [opengenes-mcp](https://github.com/longevity-genie/opengenes-mcp) — Database interface for accessing gene datasets for aging and longevity research.
 - [synergy-age-mcp](https://github.com/longevity-genie/synergy-age-mcp) — Interface for accessing genetic interaction datasets from the SynergyAge database.
-- [encode-toolkit](https://github.com/ammawla/encode-toolkit) — Toolkit for searching and analyzing ENCODE genomic datasets.
-- [ChatSpatial](https://github.com/cafferychen777/ChatSpatial) — Server to support analysis workflows with spatial transcriptomics datasets.
-- [onekgpd-mcp](https://github.com/dnaerys/onekgpd-mcp) — Provides real-time access to the 1000 Genomes Project dataset.
-- [ucsc-genome-mcp](https://github.com/hlydecker/ucsc-genome-mcp) — Interact with the UCSC Genome Browser API to retrieve genome and chromosome data.
-- [gget-mcp](https://github.com/longevity-genie/gget-mcp) — Toolkit for bioinformatics queries and genomics data analysis.
 - [dbt-mcp (Official)](https://github.com/dbt-labs/dbt-mcp) — Integrates with dbt Core/Cloud to access project metadata, model information, and semantic layer queries.  
 - [dbt-docs-mcp](https://github.com/mattijsdp/dbt-docs-mcp) — Provides dbt-core (OSS) users with model- and column-level lineage and documentation access.  
 - [bonnard-cli](https://github.com/meal-inc/bonnard-cli) — Agent-first semantic layer that simplifies data interaction.    
 - [keyneg-mcp](https://github.com/Osseni94/keyneg-mcp) — Enterprise-grade sentiment analysis and keyword extraction with 95+ labels.  
 - [oyemi-mcp](https://github.com/Osseni94/oyemi-mcp) — Provides semantic word encoding and similarity analysis using a 145K+ word lexicon.  
-- [zaturn](https://github.com/kdqed/zaturn) — Connects multiple data sources (SQL, CSV, Parquet) and provides structured data context for AI agents to perform analysis and generate insights.
 - [finbrain-mcp](https://github.com/ahmetsbilgin/finbrain-mcp) — Integrates alternative financial datasets with LLM workflows to provide contextual financial insights and knowledge retrieval.  
 - [shareseer-mcp-server](https://github.com/shareseer/shareseer-mcp-server) — Server for retrieving SEC filings, corporate financial reports, and insider trading datasets in a structured format.
-- [CodeCortex](https://github.com/rushikeshmore/CodeCortex) — Transforms codebases into structured knowledge formats with symbol indexing and dependency graphs for optimized context retrieval.  
 - [mcp-obsidian](https://github.com/bitbonsai/mcp-obsidian) — Integrates with Obsidian vaults to provide read and write access to team documentation and internal knowledge notes.  
 - [easy-obsidian-mcp](https://github.com/louis030195/easy-obsidian-mcp) — Provides structured access to Obsidian-based knowledge repositories, integrating internal documentation into AI workflows.   
 - [project-tessera](https://github.com/besslframework-stack/project-tessera) — Local workspace memory system that stores documents and session logs in a vector-based index for efficient knowledge retrieval.
 - [us-legal-mcp](https://github.com/JamesANZ/us-legal-mcp) — Server for searching legal databases and legislation documents to retrieve structured legal information.  
 - [idapixl-web-research-mcp](https://github.com/idapixl/idapixl-web-research-mcp) — Research automation tools that collect information from multiple sources and generate structured research summaries.
-- [NotebookLM MCP Secure](https://github.com/Pantheon-Security/notebooklm-mcp-secure) — Secure integration with Google NotebookLM for retrieving structured information from documents and knowledge sources.  
+- [NotebookLM MCP Secure](https://github.com/Pantheon-Security/notebooklm-mcp-secure) — Secure integration with Google NotebookLM for retrieving structured information from documents and knowledge sources. 
 - [Vectara MCP](https://github.com/vectara/vectara-mcp) — Enables trusted knowledge search and retrieval workflows using Vectara’s retrieval-augmented generation APIs.  
 - [CustomGPT MCP](https://github.com/poll-the-people/customgpt-mcp) — Integrates with the CustomGPT knowledge platform to support document-based question answering and retrieval workflows.
 - [Nexus](https://github.com/adawalli/nexus) — AI-powered search server that uses Perplexity Sonar models to return search results with source citations.  
@@ -758,20 +749,13 @@ Tools that provide ways to optimize your retrieval layers or memory layers.
 
 ---
 
-### ML datasets
+### ML datasets & data analysis 
 
-Tools that provide ML datasets and capabilities to work with them.
+Tools that provide ML datasets and capabilities for data analysis.
 
 - [kaggle-mcp](https://github.com/arrismo/kaggle-mcp) — Provides tools to download and analyze datasets from the Kaggle platform.  
 - [kaggle-mcp-server](https://github.com/KrishnaPramodParupudi/kaggle-mcp-server) — MCP server implementation for browsing Kaggle competitions, leaderboards, models, and kernels.
 - [label-studio-mcp-server](https://github.com/HumanSignal/label-studio-mcp-server) — Provides an AI-friendly interface to manage and automate Label Studio projects and data labeling tasks.  
-
----
-
-### data analysis
-
-Tools that provide capabilities for data analysis.
-
 - [BigQuery](https://github.com/LucasHild/mcp-server-bigquery) – Enables LLMs to inspect database schemas and execute queries  
 - [Rill Data](https://docs.rilldata.com/explore/mcp) – Interact with Rill Data to query and analyze your data
 - [Druid MCP](https://github.com/iunera/druid-mcp-server) – MCP server for Apache Druid clusters providing data analytics tools and cluster management features.
@@ -780,6 +764,12 @@ Tools that provide capabilities for data analysis.
 - [Teradata](https://github.com/arturborycki/mcp-teradata) — Run analytics tasks and queries on Teradata databases.
 - [FDIC BankFind MCP](https://github.com/clafollett/fdic-bank-find-mcp-server) – Provides structured banking data from FDIC APIs for financial monitoring and analysis.
 - [Federal Reserve Economic Data MCP](https://github.com/stefanoamorelli/fred-mcp-server) – Access to macroeconomic datasets from the FRED database.
+- [encode-toolkit](https://github.com/ammawla/encode-toolkit) — Toolkit for searching and analyzing ENCODE genomic datasets.
+- [ChatSpatial](https://github.com/cafferychen777/ChatSpatial) — Server to support analysis workflows with spatial transcriptomics datasets.
+- [onekgpd-mcp](https://github.com/dnaerys/onekgpd-mcp) — Provides real-time access to the 1000 Genomes Project dataset.
+- [ucsc-genome-mcp](https://github.com/hlydecker/ucsc-genome-mcp) — Interact with the UCSC Genome Browser API to retrieve genome and chromosome data.
+- [gget-mcp](https://github.com/longevity-genie/gget-mcp) — Toolkit for bioinformatics queries and genomics data analysis.
+- [zaturn](https://github.com/kdqed/zaturn) — Connects multiple data sources (SQL, CSV, Parquet) and provides structured data context for AI agents to perform analysis and generate insights.
 
 ---
 
