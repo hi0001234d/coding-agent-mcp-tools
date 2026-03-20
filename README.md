@@ -628,6 +628,8 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [Parallel Task MCP](https://github.com/parallel-web/task-mcp) – Initiate Deep Research and Batch Tasks 
 - [ActivityPub MCP](https://github.com/cameronrye/activitypub-mcp) – Enables LLMs to interact with Fediverse via ActivityPub protocol
 - [claude-skills-mcp](https://github.com/K-Dense-AI/claude-skills-mcp) — Intelligent discovery system that allows models to search and use Claude agent skills.
+- [Enhance Prompt MCP](https://github.com/FelixFoster/mcp-enhance-prompt) – Improves prompt quality and clarity for AI assistant interactions.
+- [ScriptFlow MCP](https://github.com/yanmxa/scriptflow-mcp) — Convert repetitive AI interactions into reusable automation scripts.
 
 ---
 
@@ -662,6 +664,7 @@ Tools that help track application performance, logs, and system activity.
 - [zabbix-mcp-server](https://github.com/mpeirone/zabbix-mcp-server) — Integrates with the Zabbix monitoring system to access hosts, triggers, and infrastructure monitoring data.  
 - [fortimonitor-mcp-server](https://github.com/gjenkins20/unofficial-fortimonitor-mcp-server) — Provides monitoring tools for infrastructure tracking, outage detection, and notification management.  
 - [Axiom MCP](https://github.com/axiomhq/mcp-server-axiom) – Query and analyze logs, traces, and observability data using MCP
+- [KYC-mcp-server](https://github.com/vishnurudra-ai/KYC-mcp-server) — System diagnostics for operating systems.
 
 ---
 
@@ -785,12 +788,9 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [CSV Editor MCP](https://github.com/santoshray02/csv-editor) – CSV processing tool supporting data manipulation, validation, and analysis for large datasets.
 - [Current Time UTC MCP](https://github.com/jairampatel/currenttimeutc-mcp) – Provides accurate UTC time and timezone conversions.
 - [Cursor MCP Installer](https://github.com/matthewdcage/cursor-mcp-installer) – Simplifies installation and configuration of MCP servers within the Cursor IDE.
-- [Enhance Prompt MCP](https://github.com/FelixFoster/mcp-enhance-prompt) – Improves prompt quality and clarity for AI assistant interactions.
 - [Everything Search MCP](https://github.com/mamertofabian/mcp-everything-search) – Fast cross-platform file search capabilities for local systems.
 - [Excel MCP](https://github.com/haris-musa/excel-mcp-server) – Provides Excel spreadsheet operations including reading, writing, formatting, and chart creation.
 - [Excel to JSON MCP](https://github.com/he-yang/excel-to-json-mcp) – Converts Excel and CSV data into structured JSON format for data processing workflows.
-- [Email MCP](https://github.com/Shy2593666979/mcp-server-email) – Enables sending emails and managing attachments through multiple email providers.
-- [Email SMTP MCP](https://github.com/egyptianego17/email-mcp-server) – Lightweight SMTP server allowing AI agents to send emails with attachments.
 - [Frankfurter MCP](https://github.com/anirbanbasu/frankfurtermcp) – Currency exchange data access using the Frankfurter API.
 - [Coin API MCP](https://github.com/longmans/coin_api_mcp) – Provides cryptocurrency market data from CoinMarketCap including prices, rankings, and metrics.
 - [CoinMarketCap MCP](https://github.com/shinzo-labs/coinmarketcap-mcp) – Full API integration for accessing cryptocurrency market data and exchange statistics.
@@ -805,10 +805,8 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [it-tools MCP](https://github.com/wrenchpilot/it-tools-mcp) — Provides a collection of developer utilities including encoding, decoding, and format conversion tools.
 - [Large File MCP](https://github.com/willianpinho/large-file-mcp) — Efficient handling of large files with streaming and caching.
 - [mcp-grep](https://github.com/erniebrodeur/mcp-grep) — Pattern search and directory scanning.
-- [KYC-mcp-server](https://github.com/vishnurudra-ai/KYC-mcp-server) — System diagnostics for operating systems.
 - [Matlab-MCP-Tools](https://github.com/neuromechanist/matlab-mcp-tools) — Execute MATLAB scripts via MCP.
 - [Random Number MCP](https://github.com/zazencodes/random-number-mcp) — Generate random numbers and values using Python libraries.
-- [ScriptFlow MCP](https://github.com/yanmxa/scriptflow-mcp) — Convert repetitive AI interactions into reusable automation scripts.
 - [QuickChart MCP](https://github.com/GongRzhe/Quickchart-MCP-Server) — Generate charts dynamically using QuickChart APIs.
 - [Solver](https://github.com/szeider/mcp-solver) — Solve constraint satisfaction and optimization problems.
 - [Stockfish](https://github.com/sonirico/mcp-stockfish) — Connect AI models to the Stockfish chess engine.
@@ -819,7 +817,6 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [Yahoo Finance](https://github.com/AgentX-ai/yahoo-finance-server) — Access stock market data and analytics.
 - [PayMCP](https://github.com/blustAI/paymcp) — Payment integration layer for exposing MCP tools as paid API endpoints.
 - [A2A-MCP Java Bridge](https://github.com/vishalmysore/a2ajava) — Annotate Java methods to expose MCP servers or A2A-discoverable actions.
-- [AiMCP](https://www.aimcp.info) — Collection of MCP clients and servers to discover and select MCP tools.
 - [Awesome Crypto MCP Servers by badkk](https://github.com/badkk/awesome-crypto-mcp-servers) — Curated list of crypto-focused MCP servers.
 - [Awesome MCP Servers by appcypher](https://github.com/appcypher/awesome-mcp-servers) — Curated MCP server collection for reference.
 - [Awesome MCP Servers by punkpeye](https://github.com/punkpeye/awesome-mcp-servers) — Curated MCP server list with website and references.
@@ -829,6 +826,10 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [Install This MCP](https://installthismcp.com) — Guides and tools to reduce MCP installation friction.
 - [Klavis AI](https://www.klavis.ai) — Open Source MCP infra with hosted MCP servers and clients for Slack/Discord.
 - [MCP Badges](https://github.com/mcpx-dev/mcp-badges) — Tool to create badges highlighting MCP projects.
+
+
+
+
 - [MCPProxy](https://github.com/smart-mcp-proxy/mcpproxy-go) — Local app for accessing multiple MCP servers with discovery and sandboxing.
 - [MCPRepository.com](https://mcprepository.com/) — Repository indexing MCP servers for easy discovery.
 - [mcp-cli](https://github.com/wong2/mcp-cli) — Command-line inspector for MCP tools and servers.
@@ -1057,6 +1058,8 @@ Tools that deal specifically with email, messaging, or communication platforms.
 - [twitter-mcp](https://github.com/kunallunia/twitter-mcp) — Provides tools to access Twitter timelines, hashtags, and conversation streams.  
 - [bluesky-social-mcp](https://github.com/gwbischof/bluesky-social-mcp) — MCP server for interacting with the Bluesky social network to access posts and activity streams.
 - [freshdesk-mcp](https://github.com/effytech/freshdesk-mcp) — Connects with the Freshdesk support platform to automate ticket management, support workflows, and service operations.
+- [Email MCP](https://github.com/Shy2593666979/mcp-server-email) – Enables sending emails and managing attachments through multiple email providers.
+- [Email SMTP MCP](https://github.com/egyptianego17/email-mcp-server) – Lightweight SMTP server allowing AI agents to send emails with attachments.
 
 ---
 
