@@ -629,8 +629,7 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 
 Tools that help track application performance, logs, and system activity.
 
-- [PostHog MCP](https://github.com/PostHog/mcp) – MCP server for accessing PostHog analytics, feature flags, and error tracking through AI tools :contentReference[oaicite:0]{index=0}  
-- [Axiom MCP](https://github.com/axiomhq/mcp-server-axiom) – Query and analyze logs, traces, and observability data using MCP
+- [PostHog MCP](https://github.com/PostHog/mcp) – MCP server for accessing PostHog analytics, feature flags, and error tracking through AI tools 
 - [Langfuse MCP](https://github.com/langfuse/mcp-server-langfuse) – Monitor and debug LLM applications with observability tools  
 - [Logfire MCP](https://github.com/pydantic/logfire-mcp) – Access OpenTelemetry traces and metrics  
 - [Mixpanel MCP](https://docs.mixpanel.com/docs/features/mcp) – Query product analytics data via natural language  
@@ -666,6 +665,7 @@ Tools that help track application performance, logs, and system activity.
 - [zabbix-mcp-server](https://github.com/mpeirone/zabbix-mcp-server) — Integrates with the Zabbix monitoring system to access hosts, triggers, and infrastructure monitoring data.  
 - [fortimonitor-mcp-server](https://github.com/gjenkins20/unofficial-fortimonitor-mcp-server) — Provides monitoring tools for infrastructure tracking, outage detection, and notification management.  
 - [mcp-monitor](https://github.com/seekrays/mcp-monitor) — Exposes real-time system metrics such as CPU, memory, disk, and network usage for LLM agents.
+- [Axiom MCP](https://github.com/axiomhq/mcp-server-axiom) – Query and analyze logs, traces, and observability data using MCP
 
 ---
 
