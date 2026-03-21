@@ -854,6 +854,10 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [Open-Sourced MCP Servers Directory](https://github.com/chatmcp/mcp-directory) — Curated MCP server list for easy discovery.
 - [OpenTools](https://opentools.com) — Open registry to find, install, and build with MCP servers.
 - [Programmatic MCP Prototype](https://github.com/domdomegg/programmatic-mcp-prototype) — Experimental agent prototype for tool composition and execution via MCP.
+
+
+
+
 - [PulseMCP](https://www.pulsemcp.com) — Community hub & newsletter for discovering MCP servers and news.
 - [r/mcp](https://www.reddit.com/r/mcp) — Reddit community for MCP discussion.
 - [MCP.ing](https://mcp.ing/) — MCP services search and community discovery.
