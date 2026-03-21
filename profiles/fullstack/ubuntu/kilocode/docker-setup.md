@@ -1,4 +1,4 @@
-## 🐳 Optional: Docker (Clean Environment)
+## 🐳 Run in Docker (Clean & Isolated Environment)
 
 Docker provides a fully isolated environment where you can run your coding agent and MCP tools without affecting your system.
 
