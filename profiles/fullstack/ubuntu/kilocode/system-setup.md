@@ -85,6 +85,10 @@ Now you can start using prompts like:
 - Fix bugs  
 - Generate APIs  
 
----
-
-[Looking for curated profiles for advanced use cases and real-world workflows?](./curated-profiles.md)
+<p align="center">
+  <strong>
+    <a href="./curated-profiles.md">
+      Looking for curated profiles for advanced use cases and real-world workflows?
+    </a>
+  </strong>
+</p>
