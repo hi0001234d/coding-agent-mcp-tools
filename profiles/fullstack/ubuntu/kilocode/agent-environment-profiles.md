@@ -22,11 +22,11 @@ Select how you want to run this development environment:
 <p align="center">
 
 <a href="./system-setup.md">
-  <img src="https://img.shields.io/badge/🖥️%20LOCAL%20ENVIRONMENT-Fullstack%20Dev%20Stack-6C63FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🖥️%20RUN%20ON%20YOUR%20SYSTEM-6C63FF?style=for-the-badge" />
 </a>
 
 <a href="./docker-setup.md">
-  <img src="https://img.shields.io/badge/🐳%20DOCKER%20ENVIRONMENT-Clean%20%26%20Isolated-E91E63?style=for-the-badge&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/🐳%20RUN%20IN%20DOCKER-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
 </a>
 
 </p>
@@ -35,8 +35,8 @@ Select how you want to run this development environment:
 
 ### 🧠 Which should you choose?
 
-- 🖥️ **Run on Your System:** Best for beginners, quick and simple setup  
-- 🐳 **Run in Docker:** Runs in an isolated container on your system, ideal for clean and safe testing  
+- 🖥️ **RUN ON YOUR SYSTEM** — Simple and quick setup directly on your computer, best for beginners and daily development  
+- 🐳 **RUN IN DOCKER** — Runs in an isolated container on your system, ideal for clean environments, testing, and experimentation  
 
 ---
 
