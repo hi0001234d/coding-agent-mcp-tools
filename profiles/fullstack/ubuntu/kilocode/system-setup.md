@@ -30,25 +30,17 @@ mcp.json
 ```json
 {
   "mcpServers": {
-    "raygun": {
+    "llama-index": {
       "command": "npx",
-      "args": ["raygun-mcp"]
+      "args": ["-y", "@llamaindex/mcp-server"]
     },
-    "continue": {
+    "codebase-memory": {
       "command": "npx",
-      "args": ["continue-mcp"]
+      "args": ["-y", "codebase-memory-mcp"]
     },
-    "figma-context": {
+    "basic-memory": {
       "command": "npx",
-      "args": ["figma-context-mcp"]
-    },
-    "lldb": {
-      "command": "npx",
-      "args": ["lldb-mcp"]
-    },
-    "code-assistant": {
-      "command": "npx",
-      "args": ["code-assistant"]
+      "args": ["-y", "basic-memory-mcp"]
     }
   }
 }
