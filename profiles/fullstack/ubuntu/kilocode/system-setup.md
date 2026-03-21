@@ -1,7 +1,5 @@
 # 🖥️ Run on Your System (Direct Setup)
 
----
-
 ## ⚙️ Setup
 
 ### Step 1: Install Coding Agent
@@ -79,10 +77,14 @@ Start KiloCode inside VS Code — it will automatically load MCP tools from `mcp
 
 ---
 
-## 🚀 Start Using
+## ✅ Start Using
 
 Now you can start using prompts like:
 
 - Analyze this codebase  
 - Fix bugs  
 - Generate APIs  
+
+---
+
+[Looking for curated profiles for advanced use cases and real-world workflows?](./curated-profiles.md)
