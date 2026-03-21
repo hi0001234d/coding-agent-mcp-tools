@@ -18,7 +18,7 @@ Instead of installing tools one by one, just copy the MCP configuration and star
 <h2 align="center">🧭 Choose Your Environment</h2>
 
 <p align="center">
-Select how you want to run this development environment:
+Select how you want to run this development environment
 </p>
 
 <p align="center">
@@ -33,10 +33,15 @@ Select how you want to run this development environment:
 
 </p>
 
-### Which should you choose?
+<h3 align="center">Which should you choose?</h3>
 
-- **Run on Your System** — Simple and quick setup directly on your computer, best for beginners and daily development 
-- **Run in Docker** — Runs in an isolated container on your system, ideal for clean environments, testing, and experimentation
+<p align="center">
+<b>Run on Your System</b> — Simple and quick setup directly on your computer, best for beginners and daily development
+</p>
+
+<p align="center">
+<b>Run in Docker</b> — Runs in an isolated container on your system, ideal for clean environments, testing, and experimentation
+</p>
 
 ---
 
