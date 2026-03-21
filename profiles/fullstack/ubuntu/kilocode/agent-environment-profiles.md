@@ -36,7 +36,8 @@ Select how you want to run this development environment:
 ### Which should you choose?
 
 <p align="center">
-<b>Run on Your System</b> — Simple and quick setup directly on your computer, best for beginners and daily development  
+<b>Run on Your System</b> — Simple and quick setup directly on your computer, best for beginners and daily development 
+<br> 
 <b>Run in Docker</b> — Runs in an isolated container on your system, ideal for clean environments, testing, and experimentation  
 </p>
 
