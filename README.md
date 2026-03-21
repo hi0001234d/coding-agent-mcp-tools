@@ -673,6 +673,8 @@ Tools that help track application performance, logs, and system activity.
 Tools that provide helpful actions or utilities for the SEO, SMM etc.
 
 - [PostIdentity](https://github.com/PostIdentity/mcp-server) – Generate AI-powered social media posts from any AI assistant. Manage identities, create posts, track referrals, and browse marketplace templates
+- [citedy-seo-agent](https://github.com/Citedy/citedy-seo-agent) — Offers tools for SEO content generation, competitor analysis, and online trend discovery.
+- [AEO CLI](https://github.com/hanselhansel/aeo-cli) — Audits URLs to check AI crawler readiness (e.g., robots.txt, llms.txt) and provides a structured evaluation score.
 
 ---
 
@@ -854,10 +856,6 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [Open-Sourced MCP Servers Directory](https://github.com/chatmcp/mcp-directory) — Curated MCP server list for easy discovery.
 - [OpenTools](https://opentools.com) — Open registry to find, install, and build with MCP servers.
 - [Programmatic MCP Prototype](https://github.com/domdomegg/programmatic-mcp-prototype) — Experimental agent prototype for tool composition and execution via MCP.
-
-
-
-
 - [PulseMCP](https://www.pulsemcp.com) — Community hub & newsletter for discovering MCP servers and news.
 - [r/mcp](https://www.reddit.com/r/mcp) — Reddit community for MCP discussion.
 - [MCP.ing](https://mcp.ing/) — MCP services search and community discovery.
@@ -896,8 +894,6 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [stadiamaps-mcp-server](https://github.com/stadiamaps/stadiamaps-mcp-server-ts) — Provides address lookup, routing, and static map generation using the Stadia Maps API.  
 - [mcp-server-iplocate](https://github.com/iplocate/mcp-server-iplocate) — Interface for retrieving IP address geolocation and network information.  
 - [mcp-server-ipinfo](https://github.com/briandconnelly/mcp-server-ipinfo) — Integrates with the IPInfo API to access geolocation and network metadata.
-- [citedy-seo-agent](https://github.com/Citedy/citedy-seo-agent) — Offers tools for SEO content generation, competitor analysis, and online trend discovery.
-- [AEO CLI](https://github.com/hanselhansel/aeo-cli) — Audits URLs to check AI crawler readiness (e.g., robots.txt, llms.txt) and provides a structured evaluation score.
 - [lara-mcp](https://github.com/translated/lara-mcp) — Integrates with the Lara Translate API to provide context-aware translations and automatic language detection.
 - [liveblocks-mcp-server](https://github.com/liveblocks/liveblocks-mcp-server) — Create and modify rooms, threads, and comments in Liveblocks.
 - [Plus AI](https://plusai.com/features/mcp) – MCP server for automatically generating professional PowerPoint and Google Slides presentations using the Plus AI presentation API  
