@@ -15,6 +15,31 @@ Instead of installing tools one by one, just copy the MCP configuration and star
 
 ---
 
+## 🧭 Choose Your Environment
+
+Select how you want to run this development environment:
+
+<p align="center">
+
+<a href="./system-setup.md">
+  <img src="https://img.shields.io/badge/🖥️%20Run%20on%20Your%20System-Easy%20%26%20Direct-blue?style=for-the-badge" />
+</a>
+
+<a href="./docker-setup.md">
+  <img src="https://img.shields.io/badge/🐳%20Run%20in%20Docker-Clean%20%26%20Isolated-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+</a>
+
+</p>
+
+---
+
+### 🧠 Which should you choose?
+
+- 🖥️ **Run on Your System:** Best for beginners, quick and simple setup  
+- 🐳 **Run in Docker:** Runs in an isolated container on your system, ideal for clean and safe testing  
+
+---
+
 ## ⚙️ Setup
 
 ### Step 1: Install Coding Agent
