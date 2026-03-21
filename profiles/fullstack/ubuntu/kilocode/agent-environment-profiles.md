@@ -22,11 +22,11 @@ Select how you want to run this development environment:
 <p align="center">
 
 <a href="./system-setup.md">
-  <img src="https://img.shields.io/badge/🖥️%20Run%20on%20Your%20System-Easy%20%26%20Direct-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🖥️%20LOCAL%20ENVIRONMENT-Fullstack%20Dev%20Stack-6C63FF?style=for-the-badge" />
 </a>
 
 <a href="./docker-setup.md">
-  <img src="https://img.shields.io/badge/🐳%20Run%20in%20Docker-Clean%20%26%20Isolated-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/🐳%20DOCKER%20ENVIRONMENT-Clean%20%26%20Isolated-E91E63?style=for-the-badge&logo=docker&logoColor=white" />
 </a>
 
 </p>
