@@ -40,5 +40,5 @@ Select how you want to run this development environment
 </p>
 
 <p align="center">
-<b>Run in Docker</b> — Runs in an isolated container on your system, ideal for clean environments, testing, and experimentation
+<b>Run in Docker</b> — Still runs on your system, but inside an isolated container, making it ideal for clean environments, testing, and experimentation
 </p>

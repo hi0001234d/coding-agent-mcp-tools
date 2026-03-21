@@ -1,9 +1,5 @@
 # 🖥️ Run on Your System (Direct Setup)
 
-This setup runs directly on your local machine using VS Code and the KiloCode extension.
-
-It is the simplest and fastest way to get started, especially for beginners.
-
 ---
 
 ## ⚙️ Setup
