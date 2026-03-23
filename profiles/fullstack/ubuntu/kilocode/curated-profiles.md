@@ -11,7 +11,7 @@
 </a>
 
 <a href="#">
-  <img src="https://img.shields.io/badge/🐞%20TEST%20%26%20DEBUG%20AUTOMATION-FF9800?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🐞%20TEST%20%26%20DEBUG%20AUTOMATION-1E3A8A?style=for-the-badge" />
 </a>
 
 <a href="#">
