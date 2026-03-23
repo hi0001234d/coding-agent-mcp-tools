@@ -18,8 +18,17 @@ If Docker is not installed on your system, install it using the following comman
 
 ```bash
 sudo apt update
+```
+
+```bash
 sudo apt install docker.io -y
+```
+
+```bash
 sudo systemctl start docker
+```
+
+```bash
 sudo systemctl enable docker
 ```
 
