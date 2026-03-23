@@ -621,6 +621,7 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [payclaw-mcp](https://github.com/payclaw/mcp-server) — System for issuing virtual payment cards and managing automated payment workflows.  
 - [lightning-enable-mcp](https://github.com/refined-element/lightning-enable-mcp) — Integration for creating invoices and processing payments on the Bitcoin Lightning Network.  
 - [agentpay-server](https://github.com/joepangallo/mcp-server-agentpay) — Payment gateway designed for autonomous systems, supporting pay-per-call billing and payment integrations.
+- [comet-mcp](https://github.com/hanzili/comet-mcp) — Connects with the Perplexity Comet browser to enable agentic web browsing and deep research.  
 - [engram](https://github.com/tstockham96/engram) — Intelligent agent memory system that provides semantic recall and context-aware memory management, enabling agents to efficiently store and reuse long-term information.  
 - [memora](https://github.com/agentic-mcp-tools/memora) — Persistent agent memory platform offering structured memory management with knowledge graph visualization and cloud storage synchronization.  
 - [contextstream](https://www.npmjs.com/package/@contextstream/mcp-server) — Universal persistent memory platform providing tools for semantic code search, impact analysis, and decision tracking.  
@@ -630,6 +631,7 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [claude-skills-mcp](https://github.com/K-Dense-AI/claude-skills-mcp) — Intelligent discovery system that allows models to search and use Claude agent skills.
 - [Enhance Prompt MCP](https://github.com/FelixFoster/mcp-enhance-prompt) – Improves prompt quality and clarity for AI assistant interactions.
 - [ScriptFlow MCP](https://github.com/yanmxa/scriptflow-mcp) — Convert repetitive AI interactions into reusable automation scripts.
+- [StripFeed](https://github.com/StripFeed/mcp-server) — Extracts content from URLs and converts it into token-efficient Markdown format.
 
 ---
 
@@ -675,6 +677,12 @@ Tools that provide helpful actions or utilities for the SEO, SMM etc.
 - [PostIdentity](https://github.com/PostIdentity/mcp-server) – Generate AI-powered social media posts from any AI assistant. Manage identities, create posts, track referrals, and browse marketplace templates
 - [citedy-seo-agent](https://github.com/Citedy/citedy-seo-agent) — Offers tools for SEO content generation, competitor analysis, and online trend discovery.
 - [AEO CLI](https://github.com/hanselhansel/aeo-cli) — Audits URLs to check AI crawler readiness (e.g., robots.txt, llms.txt) and provides a structured evaluation score.
+- [kwrds.ai](https://github.com/mkotsollaris/kwrds_ai_mcp) — Keyword research and SERP data analysis.
+- [Serper MCP](https://github.com/garylab/serper-mcp-server) — Perform Google search queries and retrieve structured search results.
+- [SearXNG MCP](https://github.com/ihor-sokoliuk/mcp-searxng) — Perform web searches through the SearXNG metasearch engine.
+- [SearXNG Public MCP](https://github.com/pwilkin/mcp-searxng-public) — Access public SearXNG instances with fallback search support.
+- [macrocosmos-mcp](https://github.com/macrocosm-os/macrocosmos-mcp) — Provides access to real-time social content search and filtering across platforms such as X, Reddit, and YouTube.  
+- [scrapebadger-mcp](https://github.com/scrape-badger/scrapebadger-mcp) — API integration for accessing profiles, posts, and trend-related data from social platforms.
 
 ---
 
@@ -775,6 +783,22 @@ Tools that provide ML datasets and capabilities for data analysis.
 - [ucsc-genome-mcp](https://github.com/hlydecker/ucsc-genome-mcp) — Interact with the UCSC Genome Browser API to retrieve genome and chromosome data.
 - [gget-mcp](https://github.com/longevity-genie/gget-mcp) — Toolkit for bioinformatics queries and genomics data analysis.
 - [zaturn](https://github.com/kdqed/zaturn) — Connects multiple data sources (SQL, CSV, Parquet) and provides structured data context for AI agents to perform analysis and generate insights.
+- [DataCite MCP](https://github.com/QuentinCody/datacite-mcp-server) – Provides access to research datasets and scholarly publication metadata through DataCite APIs.
+- [DPLP MCP](https://github.com/szeider/mcp-dblp) – Enables search across the DBLP computer science bibliography database.
+- [Entrez MCP](https://github.com/QuentinCody/entrez-mcp-server) – Provides access to biomedical databases including PubMed and gene information.
+- [Dataset Viewer MCP](https://github.com/privetin/dataset-viewer) – Allows browsing and analysis of Hugging Face datasets with filtering and statistics features.
+- [Data Exploration MCP](https://github.com/reading-plus-ai/mcp-server-data-exploration) – Autonomous exploration tool for analyzing CSV datasets and generating insights.
+- [Data4Library MCP](https://github.com/isnow890/data4library-mcp) – Access public library data including book search and loan information.
+- [Discogs MCP](https://github.com/cswkim/discogs-mcp-server) – Connects to Discogs API for accessing music collection and marketplace data.
+- [Congress.gov MCP](https://github.com/AshwinSundar/congress_gov_mcp) – Provides access to legislative data from the U.S. Congress API.
+- [Dappier MCP](https://github.com/DappierAI/dappier-mcp) – Connects AI assistants to real-time web data including news, finance, and sports.
+- [Dune Analytics MCP](https://github.com/kukapay/dune-analytics-mcp) – Access blockchain analytics data and queries from Dune Analytics.
+- [Wikidata MCP](https://github.com/zzaebok/mcp-wikidata) — Access structured Wikidata knowledge through search and SPARQL queries.
+- [Wikidata SPARQL](https://github.com/QuentinCody/wikidata-sparql-mcp-server) — Execute semantic queries against Wikidata knowledge graph endpoints.
+- [World Bank Data API](https://github.com/anshumax/world_bank_mcp_server) — Retrieve global economic indicators and statistics from the World Bank platform.
+- [USA Spending MCP Server](https://github.com/thsmale/usaspending-mcp-server) — Explore and analyze government spending datasets through MCP tools.
+- [USPTO](https://github.com/riemannzeta/patent_mcp_server) — Access patent and trademark datasets from the USPTO open data API.
+- [apollo-io-mcp](https://github.com/louis030195/apollo-io-mcp) — Provides tools to search and enrich prospects from large B2B contact datasets for sales intelligence workflows.
 
 ---
 
@@ -899,10 +923,11 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [Plus AI](https://plusai.com/features/mcp) – MCP server for automatically generating professional PowerPoint and Google Slides presentations using the Plus AI presentation API  
 - [box-mcp-server-remote](https://github.com/box/mcp-server-box-remote/) — Official MCP integration for securely accessing, searching, and managing Box cloud storage content.  
 - [mcp-gdrive](https://github.com/isaacphi/mcp-gdrive) — Integration for reading Google Drive files and editing Google Sheets through MCP.
+- [Whois MCP](https://github.com/bharathvaj-ganesan/whois-mcp) — Performs WHOIS lookups for domains, IPs, and network identifiers.
 
 ---
 
-### Web Scraping / Data Extraction
+### Web Crawling / Data Extraction
 
 Tools that help AI agents search the web, crawl websites, and extract structured data from online sources.
 
@@ -914,51 +939,26 @@ Tools that help AI agents search the web, crawl websites, and extract structured
 - [Baidu AI Search](https://github.com/baidubce/app-builder/tree/master/python/mcp_server/ai_search) – Provides web search capabilities using Baidu Cloud AI Search services.
 - [Defuddle Fetch MCP](https://github.com/domdomegg/defuddle-fetch-mcp-server) – Fetch and convert web pages into structured markdown for easier data extraction.
 - [Fetch MCP](https://github.com/zcaceres/fetch-mcp) – Flexible content fetching server supporting HTML, JSON, Markdown, and plaintext.
-- [DataCite MCP](https://github.com/QuentinCody/datacite-mcp-server) – Provides access to research datasets and scholarly publication metadata through DataCite APIs.
-- [DPLP MCP](https://github.com/szeider/mcp-dblp) – Enables search across the DBLP computer science bibliography database.
-- [Entrez MCP](https://github.com/QuentinCody/entrez-mcp-server) – Provides access to biomedical databases including PubMed and gene information.
-- [Dataset Viewer MCP](https://github.com/privetin/dataset-viewer) – Allows browsing and analysis of Hugging Face datasets with filtering and statistics features.
-- [Data Exploration MCP](https://github.com/reading-plus-ai/mcp-server-data-exploration) – Autonomous exploration tool for analyzing CSV datasets and generating insights.
-- [Data4Library MCP](https://github.com/isnow890/data4library-mcp) – Access public library data including book search and loan information.
-- [Discogs MCP](https://github.com/cswkim/discogs-mcp-server) – Connects to Discogs API for accessing music collection and marketplace data.
-- [Congress.gov MCP](https://github.com/AshwinSundar/congress_gov_mcp) – Provides access to legislative data from the U.S. Congress API.
-- [Dappier MCP](https://github.com/DappierAI/dappier-mcp) – Connects AI assistants to real-time web data including news, finance, and sports.
-- [Dune Analytics MCP](https://github.com/kukapay/dune-analytics-mcp) – Access blockchain analytics data and queries from Dune Analytics.
 - [Google Custom Search MCP](https://github.com/adenot/mcp-google-search) — Retrieves Google search results programmatically through the Google Custom Search API.
 - [Google Maps MCP Server](https://github.com/Mastan1301/google_maps_mcp) — Accesses location information and places data using Google Maps and Places API.
 - [Job Searcher MCP Server](https://github.com/0xDAEF0F/job-searchoor) — Retrieve and filter job listings based on keywords, time range, and remote work preferences.
 - [JobsWithGPT MCP Server](https://github.com/jobswithgpt/mcp) — Job search engine MCP integration with access to large-scale job listings database.
-- [kwrds.ai](https://github.com/mkotsollaris/kwrds_ai_mcp) — Keyword research and SERP data analysis.
 - [market-fiyati](https://github.com/mtcnbzks/market-fiyati-mcp-server) — Grocery price search and comparison.
 - [LunarCrush Remote MCP](https://github.com/lunarcrush/mcp-server) — Social metrics and crypto data analysis.
 - [mcp-youtube-extract](https://github.com/sinjab/mcp_youtube_extract) — Extract video information and transcripts from YouTube with intelligent fallback logic.
 - [scrapling-fetch](https://github.com/cyberchitta/scrapling-fetch-mcp) — Extract text content from websites with automation protection support.
-- [Serper MCP](https://github.com/garylab/serper-mcp-server) — Perform Google search queries and retrieve structured search results.
-- [SearXNG MCP](https://github.com/ihor-sokoliuk/mcp-searxng) — Perform web searches through the SearXNG metasearch engine.
-- [SearXNG Public MCP](https://github.com/pwilkin/mcp-searxng-public) — Access public SearXNG instances with fallback search support.
 - [Web Search MCP](https://github.com/mrkrsl/web-search-mcp) — Provides full web search capabilities and page extraction for AI systems.
-- [Whois MCP](https://github.com/bharathvaj-ganesan/whois-mcp) — Performs WHOIS lookups for domains, IPs, and network identifiers.
 - [Wikipedia MCP](https://github.com/Rudra-ravi/wikipedia-mcp) — Search and retrieve Wikipedia articles using standardized MCP tools.
-- [Wikidata MCP](https://github.com/zzaebok/mcp-wikidata) — Access structured Wikidata knowledge through search and SPARQL queries.
-- [Wikidata SPARQL](https://github.com/QuentinCody/wikidata-sparql-mcp-server) — Execute semantic queries against Wikidata knowledge graph endpoints.
-- [World Bank Data API](https://github.com/anshumax/world_bank_mcp_server) — Retrieve global economic indicators and statistics from the World Bank platform.
-- [USA Spending MCP Server](https://github.com/thsmale/usaspending-mcp-server) — Explore and analyze government spending datasets through MCP tools.
-- [USPTO](https://github.com/riemannzeta/patent_mcp_server) — Access patent and trademark datasets from the USPTO open data API.
 - [Bilibili MCP JS](https://github.com/34892002/bilibili-mcp-js) — Provides MCP tools to search and retrieve content information from the Bilibili platform.
 - [agent-scraper-mcp](https://github.com/aparajithn/agent-scraper-mcp) — Provides AI agents with web scraping, content extraction, and link extraction capabilities.  
 - [ashra-mcp](https://github.com/getrupt/ashra-mcp) — Extract structured JSON data from any website based on a prompt.  
-- [comet-mcp](https://github.com/hanzili/comet-mcp) — Connects with the Perplexity Comet browser to enable agentic web browsing and deep research.  
 - [freshcontext-mcp](https://github.com/PrinceGabriel-lgtm/freshcontext-mcp) — Provides real-time web intelligence, including a “freshness” timestamp for each result.
-- [apollo-io-mcp](https://github.com/louis030195/apollo-io-mcp) — Provides tools to search and enrich prospects from large B2B contact datasets for sales intelligence workflows.
 - [Idea Reality MCP](https://github.com/mnemox-ai/idea-reality-mcp) — Scans platforms like GitHub, npm, and Product Hunt to provide ecosystem insights and validate new project ideas.  
 - [BrowserAI-Dev](https://github.com/BrowseAI-HQ/BrowserAI-Dev) — Provides research-focused browsing tools to gather structured research results and referenced information from web sources.
 - [Read Website Fast](https://github.com/just-every/mcp-read-website-fast) — Converts web pages into clean Markdown format for efficient content analysis by AI agents.  
 - [MinerU MCP](https://github.com/linxule/mineru-mcp) — Converts PDFs, images, and PPTX files into structured text output using OCR for AI processing.  
-- [StripFeed](https://github.com/StripFeed/mcp-server) — Extracts content from URLs and converts it into token-efficient Markdown format.
 - [reddit-research-mcp](https://github.com/king-of-the-grackles/reddit-research-mcp) — Provides tools to analyze discussions and trends from Reddit communities using semantic search.  
 - [reddit-mcp-buddy](https://github.com/karanb192/reddit-mcp-buddy) — Simple interface for browsing Reddit posts, performing searches, and analyzing community activity.  
-- [macrocosmos-mcp](https://github.com/macrocosm-os/macrocosmos-mcp) — Provides access to real-time social content search and filtering across platforms such as X, Reddit, and YouTube.  
-- [scrapebadger-mcp](https://github.com/scrape-badger/scrapebadger-mcp) — API integration for accessing profiles, posts, and trend-related data from social platforms.
 
 ---
 
