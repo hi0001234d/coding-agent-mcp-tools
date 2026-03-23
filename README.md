@@ -82,6 +82,66 @@ Tools in this repository are organized by common development workflows. Many of 
 
 ---
 
+### Development Tools
+
+Tools that integrate with development environments to support coding workflows and project planning.
+
+- [Codex MCP Tool](https://github.com/x51xxx/codex-mcp-tool) — Connects IDE environments with the Codex CLI to help coding agents analyze and edit code within development workflows.
+- [StacksFinder MCP](https://github.com/hoklims/stacksfinder-mcp) — Recommends and evaluates technology stacks based on project requirements to support development planning.
+- [mcp-server-openai-bridge](https://github.com/jaspertvdm/mcp-server-openai-bridge) — Bridge that connects MCP environments with OpenAI models such as GPT-4 and GPT-4o.
+- [mcp-server-ollama-bridge](https://github.com/jaspertvdm/mcp-server-ollama-bridge) — Bridge to run local LLM models through the Ollama environment.
+- [mcp-server-gemini-bridge](https://github.com/jaspertvdm/mcp-server-gemini-bridge) — Bridge to access Google Gemini models through MCP.
+- [Grok-MCP](https://github.com/merterbak/Grok-MCP) — MCP server that integrates xAI Grok models with agent tools and file capabilities.
+- [browser-use-rs](https://github.com/BB-fat/browser-use-rs) — Lightweight browser automation server written in Rust with zero dependencies.  
+- [mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) — Automates browser interactions (web navigation, data extraction) in the cloud.  
+- [DOMShell](https://github.com/apireno/DOMShell) — Maps Chrome’s Accessibility Tree to a virtual filesystem, allowing browsing using filesystem commands (ls, cd).  
+- [gomcp](https://github.com/lightpanda-io/gomcp) — Ultra-fast headless browser server written in Go (Lightpanda).  
+- [iwdp-mcp](https://github.com/nnemirovsky/iwdp-mcp) — Supports iOS Safari debugging via ios-webkit-debug-proxy and full WebKit Inspector Protocol.  
+- [chrome-mcp-secure](https://github.com/Pantheon-Security/chrome-mcp-secure) — Security-hardened Chrome automation with post-quantum encryption and memory scrubbing.  
+- [pagemap](https://github.com/Retio-ai/Retio-pagemap) — Compresses large HTML content so AI agents can understand full pages using fewer tokens.
+- [mcp-server-terminal](https://github.com/aybelatchane/mcp-server-terminal) — Works like Playwright for terminals; provides a Terminal State Tree representation for interacting with TUI/CLI applications.  
+- [mcp-console-automation](https://github.com/ooples/mcp-console-automation) — Provides 40 AI-driven console automation tools including session management and background jobs.  
+- [iterm-mcp](https://github.com/ferrislucas/iterm-mcp) — Gives access to iTerm, allowing AI agents to observe terminal activity and ask questions about the environment.  
+- [persistproc](https://github.com/irskep/persistproc) — Controls long-running processes such as web servers, including start, stop, and log reading.  
+- [augments-mcp-server](https://github.com/augmnt/augments-mcp-server) — Provides real-time access to documentation for 90+ frameworks, including React and Next.js.  
+- [rust-docs-mcp-server](https://github.com/Govcraft/rust-docs-mcp-server) — Up-to-date Rust crates documentation with semantic search context.  
+- [faf-mcp](https://github.com/Wolfe-Jam/faf-mcp) — Universal persistent project context (Project DNA) for tools like Cursor, VS Code, and Claude.  
+- [RulesetMCP](https://github.com/n8daniels/RulesetMCP) — Queries project-specific rule files to keep AI grounded in coding standards.  
+- [agent-utils-mcp](https://github.com/aparajithn/agent-utils-mcp) — Swiss-army-knife tool for JSON validation, regex testing, and Markdown conversion. 
+- [stella-mcp](https://github.com/bradleylab/stella-mcp) — Toolset for reading, validating, and saving Stella system dynamics simulation models (.stmx files).  
+- [networkx-mcp-server](https://github.com/Bright-L01/networkx-mcp-server) — Integrates NetworkX for graph analysis and visualization, including centrality algorithms and community detection tools.  
+- [optuna-mcp](https://github.com/optuna/optuna-mcp) — Official Optuna integration for orchestrating hyperparameter optimization workflows with AI agents.  
+- [fermat-mcp](https://github.com/abhiphile/fermat-mcp) — Unified server providing symbolic algebra (SymPy), numerical computing (NumPy), and data visualization (Matplotlib).
+- [jupyter-notebook-mcp](https://github.com/jjsantos01/jupyter-notebook-mcp) — Enables AI assistants to directly interact with and control Jupyter Notebooks.  
+- [MCPR](https://github.com/phisanti/MCPR) — Allows AI agents to participate in interactive coding sessions for the R programming language.  
+- [jupyter-mcp-server](https://github.com/datalayer/jupyter-mcp-server) — Provides a Model Context Protocol server implementation for Jupyter environments.
+- [homebrew-mcp](https://github.com/jeannier/homebrew-mcp) — Automation interface for installing, managing, and troubleshooting macOS Homebrew packages.
+- [systemr-python](https://github.com/System-R-AI/systemr-python) — Provides tools for managing trading workflows, including risk evaluation, position sizing, and automated trading strategy support.  
+- [metatrader-mcp-server](https://github.com/ariadng/metatrader-mcp-server) — Interface for integrating with the MetaTrader 5 platform to manage trading automation workflows.  
+- [ccxt-mcp-server](https://github.com/doggybee/mcp-server-ccxt) — Integration for accessing real-time market data and managing trading operations across multiple cryptocurrency exchanges.
+- [godot-mcp-pro](https://github.com/youichi-uda/godot-mcp-pro) — Provides advanced development tools for the Godot game engine, including scene editing, runtime debugging, scripting, and shader management features.  
+- [better-godot-mcp](https://github.com/n24q02m/better-godot-mcp) — Enables structured interaction with the Godot 4.x engine, allowing management of physics systems, navigation, signals, and input mapping workflows.  
+- [mcp-unity](https://github.com/CoderGamester/mcp-unity) — Interface for integrating with the Unity3D game engine to automate game development workflows and editor interactions.  
+- [Unity-MCP](https://github.com/IvanMurzak/Unity-MCP) — MCP integration for the Unity game engine, enabling AI agents to interact with the Unity editor and runtime environment.
+- [gis-mcp-server](https://github.com/matbel91765/gis-mcp-server) — Provides geospatial workflow tools including geocoding, routing, elevation, and spatial analysis. Supports formats such as Shapefile, GeoJSON, and GeoPackage.  
+- [QGIS MCP](https://github.com/jjsantos01/qgis_mcp) — Integrates with QGIS Desktop to load GIS layers and manage projects through prompts.  
+- [geoserver-mcp](https://github.com/mahdin75/geoserver-mcp) — Connects with the GeoServer REST API to manage geospatial datasets and map services.
+- [tiktok-ads-mcp-server](https://github.com/AdsMCP/tiktok-ads-mcp-server) — Integrates with the TikTok Ads API to manage marketing campaigns and analyze performance metrics.  
+- [google-ads-mcp-server](https://github.com/gomarble-ai/google-ads-mcp-server) — Provides integration with the Google Ads platform for accessing and managing advertising campaign data.  
+- [facebook-ads-mcp-server](https://github.com/gomarble-ai/facebook-ads-mcp-server) — Enables programmatic access to Facebook Ads data and automates campaign management workflows.
+- [Saga MCP](https://github.com/spranab/saga-mcp) — Project tracking system for AI agents supporting a Projects → Epics → Tasks hierarchy, task dependencies, and activity logging.  
+- [PM Copilot](https://github.com/dkships/pm-copilot) — Generates prioritized product plans from support tickets and feature requests, helping with business metric–driven planning workflows.
+- [Deep Research MCP](https://github.com/pminervini/deep-research-mcp) — MCP interface for executing detailed technical research tasks with web search, research workflows, and code interpreter integration.
+- [SemanticAPI](https://github.com/peter-j-thompson/semanticapi-mcp) — Provides discovery tools to search capabilities across 700+ APIs, find endpoints, and set up integrations using natural language.
+- [jira-mcp](https://github.com/nguyenvanduocit/jira-mcp) — A Go-based connector that helps agents interact with Jira for issue management, sprint planning, and workflow transitions.
+- [mcp-atlassian](https://github.com/sooperset/mcp-atlassian) — Integrates with Atlassian platforms such as Confluence and Jira (Cloud/Server) to manage documentation, content creation, and issue workflows.
+- [mcp-jira-server](https://github.com/tom28881/mcp-jira-server) — A feature-rich MCP server with 20+ specialized tools for Jira, including batch operations, attachment handling, and sprint management.
+- [bugherd-mcp](https://github.com/Berckan/bugherd-mcp) — Provides integration with the BugHerd platform to track bugs, filter tasks, and access comments within development workflows.
+- [yandex-tracker-mcp](https://github.com/aikts/yandex-tracker-mcp) — Integration for retrieving issues, queues, and user information from Yandex Tracker.
+- [weblate-mcp](https://github.com/mmntm/weblate-mcp) — Integrates with the Weblate translation management system to manage projects, translation workflows, and format transformations.
+
+---
+
 ### Debugging
 
 Tools that help investigate failures, analyze logs, trace issues, and understand runtime behavior.
@@ -959,66 +1019,6 @@ Tools that help AI agents search the web, crawl websites, and extract structured
 - [MinerU MCP](https://github.com/linxule/mineru-mcp) — Converts PDFs, images, and PPTX files into structured text output using OCR for AI processing.  
 - [reddit-research-mcp](https://github.com/king-of-the-grackles/reddit-research-mcp) — Provides tools to analyze discussions and trends from Reddit communities using semantic search.  
 - [reddit-mcp-buddy](https://github.com/karanb192/reddit-mcp-buddy) — Simple interface for browsing Reddit posts, performing searches, and analyzing community activity.  
-
----
-
-### Development Tools
-
-Tools that integrate with development environments to support coding workflows and project planning.
-
-- [Codex MCP Tool](https://github.com/x51xxx/codex-mcp-tool) — Connects IDE environments with the Codex CLI to help coding agents analyze and edit code within development workflows.
-- [StacksFinder MCP](https://github.com/hoklims/stacksfinder-mcp) — Recommends and evaluates technology stacks based on project requirements to support development planning.
-- [mcp-server-openai-bridge](https://github.com/jaspertvdm/mcp-server-openai-bridge) — Bridge that connects MCP environments with OpenAI models such as GPT-4 and GPT-4o.
-- [mcp-server-ollama-bridge](https://github.com/jaspertvdm/mcp-server-ollama-bridge) — Bridge to run local LLM models through the Ollama environment.
-- [mcp-server-gemini-bridge](https://github.com/jaspertvdm/mcp-server-gemini-bridge) — Bridge to access Google Gemini models through MCP.
-- [Grok-MCP](https://github.com/merterbak/Grok-MCP) — MCP server that integrates xAI Grok models with agent tools and file capabilities.
-- [browser-use-rs](https://github.com/BB-fat/browser-use-rs) — Lightweight browser automation server written in Rust with zero dependencies.  
-- [mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) — Automates browser interactions (web navigation, data extraction) in the cloud.  
-- [DOMShell](https://github.com/apireno/DOMShell) — Maps Chrome’s Accessibility Tree to a virtual filesystem, allowing browsing using filesystem commands (ls, cd).  
-- [gomcp](https://github.com/lightpanda-io/gomcp) — Ultra-fast headless browser server written in Go (Lightpanda).  
-- [iwdp-mcp](https://github.com/nnemirovsky/iwdp-mcp) — Supports iOS Safari debugging via ios-webkit-debug-proxy and full WebKit Inspector Protocol.  
-- [chrome-mcp-secure](https://github.com/Pantheon-Security/chrome-mcp-secure) — Security-hardened Chrome automation with post-quantum encryption and memory scrubbing.  
-- [pagemap](https://github.com/Retio-ai/Retio-pagemap) — Compresses large HTML content so AI agents can understand full pages using fewer tokens.
-- [mcp-server-terminal](https://github.com/aybelatchane/mcp-server-terminal) — Works like Playwright for terminals; provides a Terminal State Tree representation for interacting with TUI/CLI applications.  
-- [mcp-console-automation](https://github.com/ooples/mcp-console-automation) — Provides 40 AI-driven console automation tools including session management and background jobs.  
-- [iterm-mcp](https://github.com/ferrislucas/iterm-mcp) — Gives access to iTerm, allowing AI agents to observe terminal activity and ask questions about the environment.  
-- [persistproc](https://github.com/irskep/persistproc) — Controls long-running processes such as web servers, including start, stop, and log reading.  
-- [augments-mcp-server](https://github.com/augmnt/augments-mcp-server) — Provides real-time access to documentation for 90+ frameworks, including React and Next.js.  
-- [rust-docs-mcp-server](https://github.com/Govcraft/rust-docs-mcp-server) — Up-to-date Rust crates documentation with semantic search context.  
-- [faf-mcp](https://github.com/Wolfe-Jam/faf-mcp) — Universal persistent project context (Project DNA) for tools like Cursor, VS Code, and Claude.  
-- [RulesetMCP](https://github.com/n8daniels/RulesetMCP) — Queries project-specific rule files to keep AI grounded in coding standards.  
-- [agent-utils-mcp](https://github.com/aparajithn/agent-utils-mcp) — Swiss-army-knife tool for JSON validation, regex testing, and Markdown conversion. 
-- [stella-mcp](https://github.com/bradleylab/stella-mcp) — Toolset for reading, validating, and saving Stella system dynamics simulation models (.stmx files).  
-- [networkx-mcp-server](https://github.com/Bright-L01/networkx-mcp-server) — Integrates NetworkX for graph analysis and visualization, including centrality algorithms and community detection tools.  
-- [optuna-mcp](https://github.com/optuna/optuna-mcp) — Official Optuna integration for orchestrating hyperparameter optimization workflows with AI agents.  
-- [fermat-mcp](https://github.com/abhiphile/fermat-mcp) — Unified server providing symbolic algebra (SymPy), numerical computing (NumPy), and data visualization (Matplotlib).
-- [jupyter-notebook-mcp](https://github.com/jjsantos01/jupyter-notebook-mcp) — Enables AI assistants to directly interact with and control Jupyter Notebooks.  
-- [MCPR](https://github.com/phisanti/MCPR) — Allows AI agents to participate in interactive coding sessions for the R programming language.  
-- [jupyter-mcp-server](https://github.com/datalayer/jupyter-mcp-server) — Provides a Model Context Protocol server implementation for Jupyter environments.
-- [homebrew-mcp](https://github.com/jeannier/homebrew-mcp) — Automation interface for installing, managing, and troubleshooting macOS Homebrew packages.
-- [systemr-python](https://github.com/System-R-AI/systemr-python) — Provides tools for managing trading workflows, including risk evaluation, position sizing, and automated trading strategy support.  
-- [metatrader-mcp-server](https://github.com/ariadng/metatrader-mcp-server) — Interface for integrating with the MetaTrader 5 platform to manage trading automation workflows.  
-- [ccxt-mcp-server](https://github.com/doggybee/mcp-server-ccxt) — Integration for accessing real-time market data and managing trading operations across multiple cryptocurrency exchanges.
-- [godot-mcp-pro](https://github.com/youichi-uda/godot-mcp-pro) — Provides advanced development tools for the Godot game engine, including scene editing, runtime debugging, scripting, and shader management features.  
-- [better-godot-mcp](https://github.com/n24q02m/better-godot-mcp) — Enables structured interaction with the Godot 4.x engine, allowing management of physics systems, navigation, signals, and input mapping workflows.  
-- [mcp-unity](https://github.com/CoderGamester/mcp-unity) — Interface for integrating with the Unity3D game engine to automate game development workflows and editor interactions.  
-- [Unity-MCP](https://github.com/IvanMurzak/Unity-MCP) — MCP integration for the Unity game engine, enabling AI agents to interact with the Unity editor and runtime environment.
-- [gis-mcp-server](https://github.com/matbel91765/gis-mcp-server) — Provides geospatial workflow tools including geocoding, routing, elevation, and spatial analysis. Supports formats such as Shapefile, GeoJSON, and GeoPackage.  
-- [QGIS MCP](https://github.com/jjsantos01/qgis_mcp) — Integrates with QGIS Desktop to load GIS layers and manage projects through prompts.  
-- [geoserver-mcp](https://github.com/mahdin75/geoserver-mcp) — Connects with the GeoServer REST API to manage geospatial datasets and map services.
-- [tiktok-ads-mcp-server](https://github.com/AdsMCP/tiktok-ads-mcp-server) — Integrates with the TikTok Ads API to manage marketing campaigns and analyze performance metrics.  
-- [google-ads-mcp-server](https://github.com/gomarble-ai/google-ads-mcp-server) — Provides integration with the Google Ads platform for accessing and managing advertising campaign data.  
-- [facebook-ads-mcp-server](https://github.com/gomarble-ai/facebook-ads-mcp-server) — Enables programmatic access to Facebook Ads data and automates campaign management workflows.
-- [Saga MCP](https://github.com/spranab/saga-mcp) — Project tracking system for AI agents supporting a Projects → Epics → Tasks hierarchy, task dependencies, and activity logging.  
-- [PM Copilot](https://github.com/dkships/pm-copilot) — Generates prioritized product plans from support tickets and feature requests, helping with business metric–driven planning workflows.
-- [Deep Research MCP](https://github.com/pminervini/deep-research-mcp) — MCP interface for executing detailed technical research tasks with web search, research workflows, and code interpreter integration.
-- [SemanticAPI](https://github.com/peter-j-thompson/semanticapi-mcp) — Provides discovery tools to search capabilities across 700+ APIs, find endpoints, and set up integrations using natural language.
-- [jira-mcp](https://github.com/nguyenvanduocit/jira-mcp) — A Go-based connector that helps agents interact with Jira for issue management, sprint planning, and workflow transitions.
-- [mcp-atlassian](https://github.com/sooperset/mcp-atlassian) — Integrates with Atlassian platforms such as Confluence and Jira (Cloud/Server) to manage documentation, content creation, and issue workflows.
-- [mcp-jira-server](https://github.com/tom28881/mcp-jira-server) — A feature-rich MCP server with 20+ specialized tools for Jira, including batch operations, attachment handling, and sprint management.
-- [bugherd-mcp](https://github.com/Berckan/bugherd-mcp) — Provides integration with the BugHerd platform to track bugs, filter tasks, and access comments within development workflows.
-- [yandex-tracker-mcp](https://github.com/aikts/yandex-tracker-mcp) — Integration for retrieving issues, queues, and user information from Yandex Tracker.
-- [weblate-mcp](https://github.com/mmntm/weblate-mcp) — Integrates with the Weblate translation management system to manage projects, translation workflows, and format transformations.
 
 ---
 
