@@ -126,16 +126,12 @@ exit
 
 ### Remove container
 
+💡 This will completely remove this setup.  
+Use this when you no longer need this profile, as it cleans up everything created for this environment.
+
 ```bash
 docker rm kilocode-container
 ```
-
-### Optional: Remove all stopped containers
-
-```bash
-docker container prune
-```
-
 ---
 
 ## ✅ Result
