@@ -1,4 +1,4 @@
-<h2 align="center">🧩 Curated Agent Environment Profiles for Advanced Use Cases</h2>
+<h2 align="center">🧩 Curated Agent Environment Profiles for Specific Use Cases</h2>
 
 <p align="center">
 
