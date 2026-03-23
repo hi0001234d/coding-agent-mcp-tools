@@ -12,14 +12,27 @@ Docker provides a fully isolated environment where you can run your coding agent
 
 ## ⚙️ Docker Setup
 
-### Step 1: Run Docker Container
+### Step 1: Install Docker
+
+If Docker is not installed on your system, install it using the following commands:
+
+```bash
+sudo apt update
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+---
+
+### Step 2: Run Docker Container
 
 Open your terminal inside your project folder, then run:
 
 ```bash
 docker run -it --name kilocode-container \
-  -v $(pwd):/workspace \
-  -w /workspace \
+  -v $(pwd):/your-project-root \
+  -w /your-project-root \
   node:20 \
   bash
 ```
@@ -28,19 +41,15 @@ docker run -it --name kilocode-container \
 
 ### 🔍 What this does
 
-- `-v $(pwd):/workspace` → Your current project folder is mounted inside the container  
-- `-w /workspace` → Container starts inside your project folder  
+- `-v $(pwd):/your-project-root` → Your current project folder is mounted inside the container    
+- `-w /your-project-root` → Container starts inside your project folder  
 - `node:20` → Official Node.js v20 environment (required to run KiloCode and MCP tools)  
-- `bash` → Opens terminal inside the container  
-
-👉 **So basically:**  
-You are running a temporary Node.js environment with your project inside it.
 
 ---
 
-### Step 2: Add MCP Configuration
+### Step 3: Add MCP Configuration
 
-#### 2.1 Create MCP File
+#### 3.1 Create MCP File
 
 ```
 mcp.json
@@ -51,7 +60,7 @@ mcp.json
 
 ---
 
-#### 2.2 Copy MCP Configuration
+#### 3.2 Copy MCP Configuration
 
 ```json
 {
@@ -82,7 +91,7 @@ mcp.json
 
 Now you are inside a clean container.
 
-### Step 3: Verify Project
+### Step 4: Verify Project
 
 ```bash
 ls
@@ -92,7 +101,7 @@ You should see your project files (including `mcp.json`).
 
 ---
 
-### Step 4: Install KiloCode CLI
+### Step 5: Install KiloCode CLI
 
 ```bash
 npm install -g kilocode
@@ -100,7 +109,7 @@ npm install -g kilocode
 
 ---
 
-### Step 5: Start KiloCode
+### Step 6: Start KiloCode
 
 ```bash
 kilocode
@@ -108,7 +117,7 @@ kilocode
 
 ---
 
-### Step 6: MCP Auto Loads
+### Step 7: MCP Auto Loads
 
 - KiloCode reads `mcp.json` from your project  
 - All MCP tools start automatically  
