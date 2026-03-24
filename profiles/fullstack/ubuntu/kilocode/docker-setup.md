@@ -69,7 +69,25 @@ mcp.json
 
 ---
 
-#### 3.2 Copy MCP Configuration
+#### 3.2 Add MCP Configuration (Using Editor)
+
+Now edit the file using any editor you prefer.
+
+👉 **Using terminal (vi editor):**
+
+```bash
+vi mcp.json
+```
+
+👉 **Or open using GUI editor (example: gedit):**
+
+```bash
+gedit mcp.json
+```
+
+---
+
+Paste the following content inside the file:
 
 ```json
 {
@@ -90,9 +108,7 @@ mcp.json
 }
 ```
 
-- Open `mcp.json`  
-- Paste the above code  
-- Save the file  
+💡 Save the file after pasting.
 
 ---
 
