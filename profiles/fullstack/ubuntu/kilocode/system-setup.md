@@ -55,7 +55,16 @@ mcp.json
 
 ---
 
-### Step 3: Start Your Agent
+### Step 3: Create or Modify Agent Configuration
+
+Create or update `agent.md` in your project root.
+
+- If the file already exists → modify it  
+- If not → create a new file named `agent.md`  
+
+---
+
+### Step 4: Start Your Agent
 
 Start KiloCode inside VS Code — it will automatically load MCP tools from `mcp.json`.
 
@@ -71,11 +80,13 @@ Start KiloCode inside VS Code — it will automatically load MCP tools from `mcp
 
 ## ✅ Start Using
 
-Now you can start using prompts like:
+Now you can start using your setup with:
 
-- Analyze this codebase  
-- Fix bugs  
-- Generate APIs  
+### 📚 RAG-based workflows  
+Upload your documentation, project notes, or references and let the agent retrieve and use them intelligently while answering or modifying code.
+
+### 🤖 Agent-driven development  
+Work directly with your project codebase using MCP tools and agent rules defined in `agent.md`. The agent uses memory and retrieval to understand context, assist in tasks, and help you move faster with minimal setup and low overhead. 
 
 <p align="center">
   <strong>
