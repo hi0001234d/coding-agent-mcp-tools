@@ -176,7 +176,7 @@ docker rm kilocode-container
 
 <p align="center">
   <strong>
-    <a href="./curated-profiles.md">
+    <a href="">
       Looking for curated profiles for advanced use cases and real-world workflows?
     </a>
   </strong>
