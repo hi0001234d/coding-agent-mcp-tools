@@ -68,7 +68,7 @@ mcp.json
 
 ---
 
-#### 3.2 Add MCP Configuration (Using Editor)
+#### 3.2 Add MCP Configuration (Using Text Editor)
 
 Now edit the file using any editor you prefer.
 
