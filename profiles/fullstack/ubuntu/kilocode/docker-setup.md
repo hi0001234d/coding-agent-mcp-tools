@@ -173,3 +173,11 @@ docker rm kilocode-container
 - Clean isolated environment  
 - No impact on your system  
 - Easy to test and remove  
+
+<p align="center">
+  <strong>
+    <a href="./curated-profiles.md">
+      Looking for curated profiles for advanced use cases and real-world workflows?
+    </a>
+  </strong>
+</p>
