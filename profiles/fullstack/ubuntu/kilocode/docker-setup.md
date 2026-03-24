@@ -143,7 +143,8 @@ kilocode
 
 ## 📝 Note
 
-- After running the `kilocode` command (Step 6), KiloCode reads `mcp.json` and starts all MCP tools automatically  
+- After running the `kilocode` command, MCP tools will start when you give your first prompt (e.g., `"Give me a broad overview of my project code"`)  
+- KiloCode reads `mcp.json` and loads the tools based on your configuration    
 - Everything runs inside Docker only  
 - It may take a few minutes on first run, as MCP tools need to initialize 
 
