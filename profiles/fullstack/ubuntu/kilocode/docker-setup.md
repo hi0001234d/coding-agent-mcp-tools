@@ -60,12 +60,11 @@ docker run -it --name kilocode-container \
 
 #### 3.1 Create MCP File
 
+Create a file named `mcp.json` in your project root.
+
 ```
 mcp.json
 ```
-
-- Create a file named `mcp.json`  
-- Make sure it is in your project root  
 
 ---
 
@@ -108,7 +107,7 @@ Paste the following content inside the file:
 }
 ```
 
-💡 Save the file after pasting.
+👉 Save the file after pasting.
 
 ---
 
@@ -142,11 +141,11 @@ kilocode
 
 ---
 
-### Step 7: MCP Auto Loads
+## 📝 Note
 
-- KiloCode reads `mcp.json` from your project  
-- All MCP tools start automatically  
+- KiloCode reads `mcp.json` and starts all MCP tools automatically  
 - Everything runs inside Docker only  
+- It may take a few minutes on first run, as MCP tools need to initialize 
 
 ---
 
