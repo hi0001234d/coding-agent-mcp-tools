@@ -108,9 +108,7 @@ Create or update `agent.md` in your project root.
 Use MCP tools to retrieve, process, and build context from project-specific data.
 
 - Always check the `docs/` directory before answering or making changes.
-
 - **codebase-memory MCP** → Understand and recall codebase structure, files, and relationships.
-
 - **basic-memory MCP** →  
   - Store and recall important context across tasks.  
   - Observe processed documentation and extract useful context when needed.  
@@ -131,9 +129,7 @@ The `docs/` folder acts as the primary knowledge source. Documentation placed he
 
 - Use the `docs/` folder only for documentation, flows, and reference material.
 - Do NOT store strict architectural rules or critical constraints inside `docs/`.
-
 - All important rules, architecture decisions, and constraints MUST be defined in this `agent.md`.
-
 - Follow `agent.md` as the source of truth for behavior and decision-making.
 ```
 
