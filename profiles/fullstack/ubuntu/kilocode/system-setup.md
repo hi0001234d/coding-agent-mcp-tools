@@ -62,6 +62,40 @@ Create or update `agent.md` in your project root.
 - If the file already exists → modify it  
 - If not → create a new file named `agent.md`  
 
+#### `agent.md` example (based on your MCP setup):
+
+```md
+# Agent Configuration
+
+## RAG (Retrieval-Augmented Generation)
+
+Use the available MCP tools to enhance responses with project-specific knowledge.
+
+- **llama-index MCP** → Use llama-index MCP to index and query documentation from the `docs/` folder.
+- Always read and retrieve relevant context from the `docs/` directory before answering or making changes.
+- **codebase-memory MCP** → Use codebase-memory MCP to understand and recall codebase structure and context.
+- **basic-memory MCP** → Use basic-memory MCP for lightweight memory and quick context storage.
+
+The `docs/` folder is the primary place for project documentation, notes, flows, and references.
+
+---
+
+## Agent Behavior
+
+- Always try to understand the full codebase before making changes.
+- Use RAG (`docs/`) + memory tools to maintain context across tasks.
+- Prefer safe and explainable changes over blind code generation.
+- Assist in debugging, refactoring, and extending existing systems.
+
+---
+
+## Important Guidelines
+
+- Store documentation, flows, and reference material inside the `docs/` folder.
+- Do NOT store strict rules, architectural constraints, or critical instructions inside `docs/`.
+- Define all important rules and constraints inside this `agent.md` file.
+```
+
 ---
 
 ### Step 4: Start Your Agent
