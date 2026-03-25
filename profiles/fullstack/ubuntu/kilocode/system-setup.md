@@ -10,7 +10,44 @@ Install **KiloCode extension for Visual Studio Code.**
 
 ### Step 2: Add MCP Configuration
 
-#### 2.1 Create MCP File (Create a file in your project)
+### 2.1 Install Required MCP Tools
+
+#### Install Codebase Memory MCP
+
+Run the following commands in your terminal:
+
+```
+git clone https://github.com/DeusData/codebase-memory-mcp.git
+cd codebase-memory-mcp
+
+scripts/build.sh
+
+mv build/c/codebase-memory-mcp ~/.local/bin/
+chmod +x ~/.local/bin/codebase-memory-mcp
+
+codebase-memory-mcp --version
+```
+
+---
+
+#### Install Basic Memory MCP
+
+Run the following commands in your terminal:
+
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+echo 'export TMPDIR=/tmp' >> ~/.bashrc
+source ~/.bashrc
+
+uv tool install basic-memory
+
+basic-memory --version
+```
+
+---
+
+#### 2.2 Create MCP File (Create a file in your project)
 
 ```
 mcp.json
@@ -25,22 +62,21 @@ mcp.json
 
 ---
 
-#### 2.2 Copy MCP Configuration (Copy and paste the following configuration)
+#### 2.3 Copy MCP Configuration (Copy and paste the following configuration)
 
 ```json
 {
   "mcpServers": {
-    "llama-index": {
-      "command": "npx",
-      "args": ["-y", "@llamaindex/mcp-server"]
-    },
     "codebase-memory": {
-      "command": "npx",
-      "args": ["-y", "codebase-memory-mcp"]
+      "command": "/home/your-user/.local/bin/codebase-memory-mcp"
     },
     "basic-memory": {
-      "command": "npx",
-      "args": ["-y", "basic-memory-mcp"]
+      "command": "/home/your-user/.local/share/uv/tools/basic-memory/bin/basic-memory",
+      "args": [
+        "mcp",
+        "--path",
+        "/path/to/your/data"
+      ]
     }
   }
 }
@@ -71,7 +107,6 @@ Create or update `agent.md` in your project root.
 
 Use the available MCP tools to enhance responses with project-specific knowledge.
 
-- llama-index MCP → Use llama-index MCP to index and query documentation from the `docs/` folder.
 - Always read and retrieve relevant context from the `docs/` directory before answering or making changes.
 - codebase-memory MCP → Use codebase-memory MCP to understand and recall codebase structure and context.
 - basic-memory MCP → Use basic-memory MCP for lightweight memory and quick context storage.
