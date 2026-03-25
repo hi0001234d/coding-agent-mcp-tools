@@ -68,14 +68,14 @@ mcp.json
 {
   "mcpServers": {
     "codebase-memory": {
-      "command": "/home/your-user/.local/bin/codebase-memory-mcp"
+      "command": "/home/your-user-dir/.local/bin/codebase-memory-mcp"
     },
     "basic-memory": {
-      "command": "/home/your-user/.local/share/uv/tools/basic-memory/bin/basic-memory",
+      "command": "/home/your-user-dir/.local/share/uv/tools/basic-memory/bin/basic-memory",
       "args": [
         "mcp",
         "--path",
-        "/path/to/your/data"
+        "your-project-root/docs"
       ]
     }
   }
