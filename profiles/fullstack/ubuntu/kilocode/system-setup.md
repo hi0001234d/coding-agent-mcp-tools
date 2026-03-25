@@ -101,30 +101,40 @@ Create or update `agent.md` in your project root.
 #### Add the following content to your agent.md:
 
 ```md
-# Agent Configuration
+# Knowledge & Memory Configuration
 
-## RAG (Retrieval-Augmented Generation)
+## Documentation Retrieval & Context Building
 
-Use the available MCP tools to enhance responses with project-specific knowledge.
+Use MCP tools to retrieve, process, and build context from project-specific data.
 
-- Always read and retrieve relevant context from the `docs/` directory before answering or making changes.
-- codebase-memory MCP → Use codebase-memory MCP to understand and recall codebase structure and context.
-- basic-memory MCP → Use basic-memory MCP for lightweight memory and quick context storage.
+- Always check the `docs/` directory before answering or making changes.
 
-The `docs/` folder is the primary place for project documentation, notes, flows, and references.
+- **codebase-memory MCP** → Understand and recall codebase structure, files, and relationships.
 
-## Agent Behavior
+- **basic-memory MCP** →  
+  - Store and recall important context across tasks.  
+  - Observe processed documentation and extract useful context when needed.  
+  - Help maintain continuity based on user prompts and previous interactions.
 
-- Always try to understand the full codebase before making changes.
-- Use RAG (`docs/`) + memory tools to maintain context across tasks.
-- Prefer safe and explainable changes over blind code generation.
+The `docs/` folder acts as the primary knowledge source. Documentation placed here will be processed and used to generate better, context-aware responses.
+
+
+## Agent Behavior & Decision Making
+
+- Always understand the codebase and available context before making changes.
+- Combine documentation (`docs/`) + memory (MCP) to form decisions.
+- Prefer safe, incremental, and explainable changes.
+- Avoid assumptions when context is missing — retrieve or ask instead.
 - Assist in debugging, refactoring, and extending existing systems.
 
-## Important Guidelines
+## Rules & Constraints (Strict Instructions)
 
-- Store documentation, flows, and reference material inside the `docs/` folder.
-- Do NOT store strict rules, architectural constraints, or critical instructions inside `docs/`.
-- Define all important rules and constraints inside this `agent.md` file.
+- Use the `docs/` folder only for documentation, flows, and reference material.
+- Do NOT store strict architectural rules or critical constraints inside `docs/`.
+
+- All important rules, architecture decisions, and constraints MUST be defined in this `agent.md`.
+
+- Follow `agent.md` as the source of truth for behavior and decision-making.
 ```
 
 ---
@@ -152,6 +162,12 @@ Upload your documentation, project notes, or references and let the agent retrie
 
 - **Agent-driven development**  
 Give prompts like “analyze this codebase”, “fix this bug”, or “add a new feature”. The agent will use MCP tools automatically to understand your project, maintain context, and assist you during development.
+
+## Notes
+
+- Use the `docs/` folder to enable RAG by adding documentation and references  
+- Do not store strict architectural rules or constraints inside `docs/`  
+- Always define important rules and constraints inside `agent.md`  
 
 <p align="center">
   <strong>
