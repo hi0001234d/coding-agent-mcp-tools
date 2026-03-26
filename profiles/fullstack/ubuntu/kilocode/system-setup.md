@@ -14,19 +14,73 @@ Install **KiloCode extension for Visual Studio Code.**
 
 #### Install Codebase Memory MCP
 
-Run the following commands in your terminal:
+### Step 1: Install Required Dependencies (If Not Installed)
 
+If your system does not have required build tools, run:
+
+```bash
+sudo apt install zlib1g-dev
+sudo apt install gcc
 ```
+
+These are required to build the `codebase-memory-mcp` tool.
+
+> If already installed, you can skip this step.
+
+---
+
+### Step 2: Clone and Build the Tool
+
+Run the following commands:
+
+```bash
 git clone https://github.com/DeusData/codebase-memory-mcp.git
 cd codebase-memory-mcp
 
 scripts/build.sh
+```
 
+---
+
+### Step 3: Move Binary to System Path
+
+```bash
 mv build/c/codebase-memory-mcp ~/.local/bin/
 chmod +x ~/.local/bin/codebase-memory-mcp
+```
+
+---
+
+### Step 4: Verify Installation
+
+```bash
+codebase-memory-mcp --version
+```
+
+---
+
+### ⚠️ If You Face `.local/bin` Issues
+
+If `.local/bin` directory does not exist or command is not found, follow these steps:
+
+```bash
+mkdir -p ~/.local/bin
+
+mv build/c/codebase-memory-mcp ~/.local/bin/
+
+chmod +x ~/.local/bin/codebase-memory-mcp
+
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
 
 codebase-memory-mcp --version
 ```
+
+This ensures:
+
+* Binary is stored in correct location
+* Path is properly set
+* Command works globally
 
 ---
 
@@ -44,6 +98,17 @@ uv tool install basic-memory
 
 basic-memory --version
 ```
+---
+
+### Find Basic Memory MCP Path
+
+```bash
+which basic-memory
+```
+
+This command returns the full path where `basic-memory` is installed.
+
+Use this path directly in your `mcp.json` configuration.
 
 ---
 
