@@ -14,7 +14,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
 #### Install Codebase Memory MCP
 
-### Step 1: Install Required Dependencies (If Not Installed)
+#### Step 1: Install Required Dependencies (If Not Installed)
 
 If your system does not have required build tools, run:
 
@@ -27,9 +27,7 @@ These are required to build the `codebase-memory-mcp` tool.
 
 > If already installed, you can skip this step.
 
----
-
-### Step 2: Clone and Build the Tool
+#### Step 2: Clone and Build the Tool
 
 Run the following commands:
 
@@ -40,26 +38,20 @@ cd codebase-memory-mcp
 scripts/build.sh
 ```
 
----
-
-### Step 3: Move Binary to System Path
+#### Step 3: Move Binary to System Path
 
 ```bash
 mv build/c/codebase-memory-mcp ~/.local/bin/
 chmod +x ~/.local/bin/codebase-memory-mcp
 ```
 
----
-
-### Step 4: Verify Installation
+#### Step 4: Verify Installation
 
 ```bash
 codebase-memory-mcp --version
 ```
 
----
-
-### ⚠️ If You Face `.local/bin` Issues
+#### ⚠️ If You Face `.local/bin` Issues
 
 If `.local/bin` directory does not exist or command is not found, follow these steps:
 
@@ -98,9 +90,8 @@ uv tool install basic-memory
 
 basic-memory --version
 ```
----
 
-### Find Basic Memory MCP Path
+#### Find Basic Memory MCP Path
 
 ```bash
 which basic-memory
