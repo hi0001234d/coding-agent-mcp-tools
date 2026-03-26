@@ -181,12 +181,14 @@ The `docs/` folder acts as the primary knowledge source. Documentation placed he
 - Avoid assumptions when context is missing — retrieve or ask instead.
 - Assist in debugging, refactoring, and extending existing systems.
 
-## Rules & Constraints (Strict Instructions)
+## User-Defined Constraints
 
-- Use the `docs/` folder only for documentation, flows, and reference material.
-- Do NOT store strict architectural rules or critical constraints inside `docs/`.
-- All important rules, architecture decisions, and constraints MUST be defined in this `agent.md`.
-- Follow `agent.md` as the source of truth for behavior and decision-making.
+This section is used to define project-specific rules, constraints, and architectural decisions.
+
+- Add any strict rules, limitations, or important instructions here.  
+- These constraints will be treated as the source of truth by the agent.  
+- The agent will read and follow all rules defined in this section during execution.
+- Examples include API limits, architecture rules, naming conventions, and restricted changes.
 ```
 
 ---
@@ -210,7 +212,13 @@ Start KiloCode inside VS Code — it will automatically load MCP tools from `mcp
 Now you can start using your setup with:
 
 - **RAG-based workflows**  
-Upload your documentation, project notes, or references and let the agent retrieve and use them intelligently while answering or modifying code.
+Add your documentation, project notes, flows, and architecture details inside the `docs/` folder so the agent can read and use them while answering queries or modifying code.
+
+  - You can include architecture explanations, system flows, and feature-level details in text format.
+  - If you have diagrams (flowcharts, architecture diagrams, etc.), convert them into text (Markdown) before adding them. You can use AI tools like ChatGPT or Gemini — upload your diagram image and use the prompt provided below.
+  ```text
+  Convert this diagram into a clear Markdown explanation with step-by-step flow and components.
+  ```
 
 - **Agent-driven development**  
 Give prompts like “analyze this codebase”, “fix this bug”, or “add a new feature”. The agent will use MCP tools automatically to understand your project, maintain context, and assist you during development.
@@ -219,7 +227,8 @@ Give prompts like “analyze this codebase”, “fix this bug”, or “add a n
 
 - Use the `docs/` folder to enable RAG by adding documentation and references  
 - Do not store strict architectural rules or constraints inside `docs/`  
-- Always define important rules and constraints inside `agent.md`  
+- Always define important rules and constraints, and decisions inside `agent.md` 
+- Use the User-Defined Constraints section in agent.md to control agent behavior when needed. 
 
 <p align="center">
   <strong>
