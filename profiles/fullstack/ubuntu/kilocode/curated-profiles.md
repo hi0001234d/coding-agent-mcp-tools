@@ -14,6 +14,10 @@
   <img src="https://img.shields.io/badge/🐞%20TEST%20%26%20DEBUG%20AUTOMATION-1E3A8A?style=for-the-badge" />
 </a>
 
+</p>
+
+<p align="center">
+
 <a href="#">
   <img src="https://img.shields.io/badge/💬%20CUSTOMER%20SUPPORT%20OPTIMIZATION-9C27B0?style=for-the-badge" />
 </a>
