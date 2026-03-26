@@ -14,92 +14,92 @@ Install **KiloCode extension for Visual Studio Code.**
 
 #### Install Codebase Memory MCP
 
-#### Step 1: Install Required Dependencies (If Not Installed)
+  #### Step 1: Install Required Dependencies (If Not Installed)
 
-If your system does not have required build tools, run:
+  If your system does not have required build tools, run:
 
-```bash
-sudo apt install zlib1g-dev
-sudo apt install gcc
-```
+  ```bash
+  sudo apt install zlib1g-dev
+  sudo apt install gcc
+  ```
 
-These are required to build the `codebase-memory-mcp` tool.
+  These are required to build the `codebase-memory-mcp` tool.
 
-> If already installed, you can skip this step.
+  > If already installed, you can skip this step.
 
-#### Step 2: Clone and Build the Tool
+  #### Step 2: Clone and Build the Tool
 
-Run the following commands:
+  Run the following commands:
 
-```bash
-git clone https://github.com/DeusData/codebase-memory-mcp.git
-cd codebase-memory-mcp
+  ```bash
+  git clone https://github.com/DeusData/codebase-memory-mcp.git
+  cd codebase-memory-mcp
 
-scripts/build.sh
-```
+  scripts/build.sh
+  ```
 
-#### Step 3: Move Binary to System Path
+  #### Step 3: Move Binary to System Path
 
-```bash
-mv build/c/codebase-memory-mcp ~/.local/bin/
-chmod +x ~/.local/bin/codebase-memory-mcp
-```
+  ```bash
+  mv build/c/codebase-memory-mcp ~/.local/bin/
+  chmod +x ~/.local/bin/codebase-memory-mcp
+  ```
 
-#### Step 4: Verify Installation
+  #### Step 4: Verify Installation
 
-```bash
-codebase-memory-mcp --version
-```
+  ```bash
+  codebase-memory-mcp --version
+  ```
 
-#### ⚠️ If You Face `.local/bin` Issues
+  #### ⚠️ If You Face `.local/bin` Issues
 
-If `.local/bin` directory does not exist or command is not found, follow these steps:
+  If `.local/bin` directory does not exist or command is not found, follow these steps:
 
-```bash
-mkdir -p ~/.local/bin
+  ```bash
+  mkdir -p ~/.local/bin
 
-mv build/c/codebase-memory-mcp ~/.local/bin/
+  mv build/c/codebase-memory-mcp ~/.local/bin/
 
-chmod +x ~/.local/bin/codebase-memory-mcp
+  chmod +x ~/.local/bin/codebase-memory-mcp
 
-echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
+  echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+  source ~/.bashrc
 
-codebase-memory-mcp --version
-```
+  codebase-memory-mcp --version
+  ```
 
-This ensures:
+  This ensures:
 
-* Binary is stored in correct location
-* Path is properly set
-* Command works globally
+  * Binary is stored in correct location
+  * Path is properly set
+  * Command works globally
 
 ---
 
 #### Install Basic Memory MCP
 
-Run the following commands in your terminal:
+  Run the following commands in your terminal:
 
-```
-curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+  curl -LsSf https://astral.sh/uv/install.sh | sh
 
-echo 'export TMPDIR=/tmp' >> ~/.bashrc
-source ~/.bashrc
+  echo 'export TMPDIR=/tmp' >> ~/.bashrc
+  source ~/.bashrc
 
-uv tool install basic-memory
+  uv tool install basic-memory
 
-basic-memory --version
-```
+  basic-memory --version
+  ```
 
-#### Find Basic Memory MCP Path
+  #### Find Basic Memory MCP Path
 
-```bash
-which basic-memory
-```
+  ```bash
+  which basic-memory
+  ```
 
-This command returns the full path where `basic-memory` is installed.
+  This command returns the full path where `basic-memory` is installed.
 
-Use this path directly in your `mcp.json` configuration.
+  Use this path directly in your `mcp.json` configuration.
 
 ---
 
