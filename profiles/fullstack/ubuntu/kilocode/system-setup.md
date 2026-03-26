@@ -228,7 +228,7 @@ Give prompts like “analyze this codebase”, “fix this bug”, or “add a n
 - Use the `docs/` folder to enable RAG by adding documentation and references  
 - Do not store strict architectural rules or constraints inside `docs/`  
 - Always define important rules and constraints, and decisions inside `agent.md` 
-- Use the User-Defined Constraints section in agent.md to control agent behavior when needed. 
+- Use the **User-Defined Constraints** section in `agent.md` to control agent behavior when needed. 
 
 <p align="center">
   <strong>
