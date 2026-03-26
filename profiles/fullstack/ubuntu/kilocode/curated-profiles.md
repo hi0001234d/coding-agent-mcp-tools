@@ -18,4 +18,8 @@
   <img src="https://img.shields.io/badge/💬%20CUSTOMER%20SUPPORT%20OPTIMIZATION-9C27B0?style=for-the-badge" />
 </a>
 
+<a href="#">
+  <img src="https://img.shields.io/badge/🔒%20FULLY%20LOCAL-FF5722?style=for-the-badge" />
+</a>
+
 </p>
