@@ -25,7 +25,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
         These are required to build the `codebase-memory-mcp` tool.
 
-        > If already installed, you can skip this step.
+        - > If already installed, you can skip this step.
 
         - **Step 2: Clone and Build the Tool**
 
