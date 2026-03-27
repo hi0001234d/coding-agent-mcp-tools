@@ -25,7 +25,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
         These are required to build the `codebase-memory-mcp` tool.
 
-        - > If already installed, you can skip this step.
+        > If already installed, you can skip this step.
 
         - **Step 2: Clone and Build the Tool**
 
@@ -143,12 +143,15 @@ mcp.json
 }
 ```
 
-**For Beginner Only**
+        - **For Beginner Only**
 
-- Open the **`mcp.json`** file in VS Code  
-- Paste the above code inside it  
-- Press **`Ctrl + S`** to save  
-- Ensure the file is inside your project folder  
+          - Open the **`mcp.json`** file in VS Code
+
+          - Paste the above code inside it  
+
+          - Press **`Ctrl + S`** to save  
+
+          - Ensure the file is inside your project folder  
 
 ---
 
@@ -202,13 +205,17 @@ This section is used to define project-specific rules, constraints, and architec
 
 Start KiloCode inside VS Code — it will automatically load MCP tools from `mcp.json`.
 
-**For Beginner Only**
+        - **For Beginner Only**
 
-- Open your project in VS Code  
-- Make sure `mcp.json` file is present  
-- Open KiloCode extension  
-- Start or reload the agent  
-- The agent will read `mcp.json` and connect all tools  
+          - Open your project in VS Code  
+
+          - Make sure `mcp.json` file is present
+
+          - Open KiloCode extension  
+
+          - Start or reload the agent  
+
+          - The agent will read `mcp.json` and connect all tools  
 
 ---
 
