@@ -80,7 +80,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
           Run the following commands in your terminal:
 
-          ```
+```
           curl -LsSf https://astral.sh/uv/install.sh | sh
 
           echo 'export TMPDIR=/tmp' >> ~/.bashrc
@@ -93,7 +93,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
           #### Find Basic Memory MCP Path
 
-          ```bash
+  ```bash
           which basic-memory
   ```
 
