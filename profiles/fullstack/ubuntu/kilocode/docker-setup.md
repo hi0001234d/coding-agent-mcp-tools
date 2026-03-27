@@ -162,7 +162,7 @@ services:
 
 ---
 
-# Step 4: Add Sample Data
+### Step 4: Add Sample Data
 
 ```bash
 echo "this is example file." > docs/test.md
@@ -170,7 +170,7 @@ echo "this is example file." > docs/test.md
 
 ---
 
-# Step 5: Start MCP Servers
+### Step 5: Start MCP Servers
 
 ```bash
 docker compose up -d --build
@@ -178,7 +178,7 @@ docker compose up -d --build
 
 ---
 
-# Step 6: Verify Containers
+### Step 6: Verify Containers
 
 ```bash
 docker ps
@@ -191,7 +191,7 @@ You should see:
 
 ---
 
-# Step 7: Check Logs
+### Step 7: Check Logs
 
 ```bash
 docker logs mcp_codebase_memory
