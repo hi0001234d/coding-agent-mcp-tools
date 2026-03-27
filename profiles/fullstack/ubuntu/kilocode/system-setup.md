@@ -111,12 +111,15 @@ Install **KiloCode extension for Visual Studio Code.**
 mcp.json
 ```
 
-**For Beginner Only**
+        - **For Beginner Only**
 
-- Open your project folder in VS Code  
-- In the file explorer, click **New File**  
-- Name the file exactly: `mcp.json`  
-- Make sure it is created in the **root of your project**  
+        - Open your project folder in VS Code  
+
+        - In the file explorer, click **New File**  
+
+        - Name the file exactly: `mcp.json` 
+ 
+        - Make sure it is created in the **root of your project**  
 
 ---
 
