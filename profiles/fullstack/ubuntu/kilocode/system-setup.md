@@ -78,6 +78,8 @@ Install **KiloCode extension for Visual Studio Code.**
 
 #### Install Basic Memory MCP
 
+  <div style="margin-left: 40px;">
+
   Run the following commands in your terminal:
 
   ```
@@ -90,8 +92,11 @@ Install **KiloCode extension for Visual Studio Code.**
 
   basic-memory --version
   ```
+  </div>
 
   #### Find Basic Memory MCP Path
+
+ <div style="margin-left: 40px;">
 
   ```bash
   which basic-memory
@@ -101,6 +106,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
   Use this path directly in your `mcp.json` configuration.
 
+ </div>
 ---
 
 #### 2.2 Create MCP File (Create a file in your project)
