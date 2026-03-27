@@ -91,17 +91,16 @@ Paste the following content inside the file:
 ```json
 {
   "mcpServers": {
-    "llama-index": {
-      "command": "npx",
-      "args": ["-y", "@llamaindex/mcp-server"]
-    },
     "codebase-memory": {
-      "command": "npx",
-      "args": ["-y", "codebase-memory-mcp"]
+      "command": "/home/your-user-dir/.local/bin/codebase-memory-mcp"
     },
     "basic-memory": {
-      "command": "npx",
-      "args": ["-y", "basic-memory-mcp"]
+      "command": "/home/your-user-dir/.local/share/uv/tools/basic-memory/bin/basic-memory",
+      "args": [
+        "mcp",
+        "--path",
+        "your-project-root/docs"
+      ]
     }
   }
 }
