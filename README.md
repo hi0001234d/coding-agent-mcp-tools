@@ -62,14 +62,14 @@ The idea is to make trying different stacks fast, simple, and disposable — so 
 
 | Profile →<br>----------<br>Agent ↓  | Full-stack Dev Stack | Designer Stack | Codebase Navigation | Large Codebase Memory | Cost Optimized Debugging |
 |--------------------|-------------|------------|--------------|----------|-------------|
-| Claude             | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
-| Codex              | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
-| Cursor             | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
-| Windsor            | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
-| OpenCode           | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows](<br>[Mac]</div> | - | - | - |
-| Cline              | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
-| Roo Code           | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
-| Kilo Code          | <div align="center">[Ubuntu](./profiles/fullstack/ubuntu/kilocode/agent-environment-profiles.md)<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
+| Claude             | - | - | - | - | - |
+| Codex              | - | - | - | - | - |
+| Cursor             | - | - | - | - | - |
+| Windsor            | - | - | - | - | - |
+| OpenCode           | - | - | - | - | - |
+| Cline              | - | - | - | - | - |
+| Roo Code           | - | - | - | - | - |
+| Kilo Code          | <div align="center">[Ubuntu](./profiles/fullstack/ubuntu/kilocode/agent-environment-profiles.md)<br>[Windows]<br>[Mac]</div> | - | - | - | - |
 <div align="center">
   <a href="./navigation.md"><b>I don’t understand what profile I need?</b></a>
 </div>
