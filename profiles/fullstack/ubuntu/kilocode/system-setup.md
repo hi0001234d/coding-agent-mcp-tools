@@ -78,7 +78,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
 #### Install Basic Memory MCP
 
-    - Run the following commands in your terminal:
+    - **Run the following commands in your terminal:**
 
 ```
     curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -91,7 +91,7 @@ Install **KiloCode extension for Visual Studio Code.**
     basic-memory --version
 ```
 
-    - Find Basic Memory MCP Path
+    - **Find Basic Memory MCP Path**
 
 ```bash
     which basic-memory
