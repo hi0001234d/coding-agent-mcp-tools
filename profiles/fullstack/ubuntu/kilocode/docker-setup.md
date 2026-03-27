@@ -32,6 +32,13 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
+#### Add user to Docker group (IMPORTANT)
+
+```bash
+sudo usermod -aG docker $USER
+```
+    - **Note:** After this, logout and login again to apply changes.
+
 ---
 
 ### Step 2: Run Docker Container
@@ -92,15 +99,12 @@ Paste the following content inside the file:
 {
   "mcpServers": {
     "codebase-memory": {
-      "command": "/home/your-user-dir/.local/bin/codebase-memory-mcp"
+      "command": "docker",
+      "args": ["exec", "-i", "mcp_codebase_memory", "codebase-memory-mcp"]
     },
     "basic-memory": {
-      "command": "/home/your-user-dir/.local/share/uv/tools/basic-memory/bin/basic-memory",
-      "args": [
-        "mcp",
-        "--path",
-        "your-project-root/docs"
-      ]
+      "command": "docker",
+      "args": ["exec", "-i", "mcp_basic_memory", "basic-memory", "mcp", "--path", "/data/docs"]
     }
   }
 }
