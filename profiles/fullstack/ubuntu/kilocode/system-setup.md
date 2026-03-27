@@ -70,9 +70,9 @@ Install **KiloCode extension for Visual Studio Code.**
 
         This ensures:
 
-        * Binary is stored in correct location
-        * Path is properly set
-        * Command works globally
+* Binary is stored in correct location
+* Path is properly set
+* Command works globally
 
 ---
 
