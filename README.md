@@ -69,7 +69,7 @@ The idea is to make trying different stacks fast, simple, and disposable — so 
 | OpenCode           | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows](<br>[Mac]</div> | - | - | - |
 | Cline              | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
 | Roo Code           | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
-| Kilo Code          | <div align="center">[Ubuntu](./profiles/fullstack/ubuntu/kilocode/agent-environment-profiles.md)<br>[Windows](./profiles/fullstack/windows/kilocode/agent-environment-profiles.md)<br>[Mac](./profiles/fullstack/mac/kilocode/agent-environment-profiles.md)</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
+| Kilo Code          | <div align="center">[Ubuntu](./profiles/fullstack/ubuntu/kilocode/agent-environment-profiles.md)<br>[Windows]<br>[Mac]</div> | <div align="center">[Ubuntu]<br>[Windows]<br>[Mac]</div> | - | - | - |
 <div align="center">
   <a href="./navigation.md"><b>I don’t understand what profile I need?</b></a>
 </div>
