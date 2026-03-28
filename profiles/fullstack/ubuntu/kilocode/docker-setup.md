@@ -141,7 +141,7 @@ Create a Dockerfile inside each folder:
 
         - **3. Add docker-compose.yml**
 
-        Create a `docker-compose.yml` file in your main project root directory:
+        Create a **`docker-compose.yml`** file in your main project root directory:
 
 ```yaml
         services:

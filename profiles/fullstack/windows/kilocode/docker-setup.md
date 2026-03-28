@@ -36,7 +36,7 @@ docker compose version
 
 ### Step 3: Create Required Folders
 
-Project structure:
+Place files like this:
 
 ```
 mcp-project/
@@ -61,69 +61,69 @@ mkdir mcp/codebase-memory, mcp/basic-memory, docs
 
 Create the following files using VS Code.
 
-#### 1. Codebase Memory MCP (`mcp/codebase-memory/Dockerfile`)
+        - **1. Codebase Memory MCP (`mcp/codebase-memory/Dockerfile`)**
 
 ```dockerfile
-FROM ubuntu:22.04
+        FROM ubuntu:22.04
 
-WORKDIR /app
+        WORKDIR /app
 
-RUN apt update && apt install -y \
-    git \
-    gcc \
-    libglib2.0-dev \
-    build-essential
+        RUN apt update && apt install -y \
+            git \
+            gcc \
+            libglib2.0-dev \
+            build-essential
 
-RUN git clone https://github.com/DeusData/codebase-memory-mcp.git
+        RUN git clone https://github.com/DeusData/codebase-memory-mcp.git
 
-WORKDIR /app/codebase-memory-mcp
+        WORKDIR /app/codebase-memory-mcp
 
-RUN chmod +x scripts/build.sh && scripts/build.sh
+        RUN chmod +x scripts/build.sh && scripts/build.sh
 
-RUN find . -type f -name "codebase-memory-mcp" -exec mv {} /usr/local/bin/codebase-memory-mcp \;
+        RUN find . -type f -name "codebase-memory-mcp" -exec mv {} /usr/local/bin/codebase-memory-mcp \;
 
-CMD ["codebase-memory-mcp"]
+        CMD ["codebase-memory-mcp"]
 ```
 
 
-#### 2. Basic Memory MCP (`mcp/basic-memory/Dockerfile`)
+        - **2. Basic Memory MCP (`mcp/basic-memory/Dockerfile`)**
 
 ```dockerfile
-FROM python:3.11
+        FROM python:3.11
 
-WORKDIR /app
+        WORKDIR /app
 
-RUN apt update && apt install -y curl
+        RUN apt update && apt install -y curl
 
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+        RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
-ENV PATH="/root/.local/bin:$PATH"
+        ENV PATH="/root/.local/bin:$PATH"
 
-RUN uv tool install basic-memory
+        RUN uv tool install basic-memory
 
-CMD ["basic-memory", "mcp", "--path", "/data/docs"]
+        CMD ["basic-memory", "mcp", "--path", "/data/docs"]
 ```
 
 
-#### 3. Add docker-compose.yml
+        - **3. Add docker-compose.yml**
 
-Create this file in your `mcp-project` root:
+        Create a **`docker-compose.yml`** file in your main project root directory:
 
 ```yaml
-services:
-  codebase-memory:
-    build: ./mcp/codebase-memory
-    container_name: mcp_codebase_memory
-    stdin_open: true
-    tty: true
+        services:
+          codebase-memory:
+            build: ./mcp/codebase-memory
+            container_name: mcp_codebase_memory
+            stdin_open: true
+            tty: true
 
-  basic-memory:
-    build: ./mcp/basic-memory
-    container_name: mcp_basic_memory
-    volumes:
-      - ./docs:/data/docs
-    stdin_open: true
-    tty: true
+          basic-memory:
+            build: ./mcp/basic-memory
+            container_name: mcp_basic_memory
+            volumes:
+              - ./docs:/data/docs
+            stdin_open: true
+            tty: true
 ```
 
 ---
@@ -163,12 +163,15 @@ docker logs mcp_basic_memory
 
 #### 8.1 Add MCP Configuration (Using Text Editor)
 
-**⚠️ If Kilo Code is not installed, follow the steps below:**
+        - **⚠️ If Kilo Code is not installed, follow the steps below:**
 
-1. Install the Kilo Code extension in VS Code and open its Settings
-2. Go to Agent Behaviour → MCP Server
-3. Click Edit Project MCP and add the provided MCP configuration
-4. Save and verify the status turns green (connected successfully) 
+        - 1. Install the Kilo Code extension in VS Code and open its Settings
+
+        - 2. Go to Agent Behaviour → MCP Server
+
+        - 3. Click Edit Project MCP and add the provided MCP configuration
+
+        - 4. Save and verify the status turns green (connected successfully) 
 
 ---
 
