@@ -93,7 +93,7 @@ mkdir docs
 
 Create a Dockerfile inside each folder:
 
-        - #### 1. Codebase Memory MCP (mcp/codebase-memory/Dockerfile)
+        - **1. Codebase Memory MCP (mcp/codebase-memory/Dockerfile)**
 
 ```dockerfile
         FROM ubuntu:22.04
@@ -119,7 +119,7 @@ Create a Dockerfile inside each folder:
         CMD ["codebase-memory-mcp"]
 ```
 
-        - #### 2. Basic Memory MCP (`mcp/basic-memory/Dockerfile`)
+        - **2. Basic Memory MCP (`mcp/basic-memory/Dockerfile`)**
 
 ```dockerfile
         FROM python:3.11
@@ -139,7 +139,7 @@ Create a Dockerfile inside each folder:
         CMD ["basic-memory", "mcp", "--path", "/data/docs"]
 ```
 
-        - #### 3. Add docker-compose.yml
+        - **3. Add docker-compose.yml**
 
         Create a `docker-compose.yml` file in your main project root directory:
 
@@ -213,6 +213,7 @@ docker logs mcp_basic_memory
         3. Click Edit Project MCP and add the provided MCP configuration
 
         4. Save and verify the status turns green (connected successfully)
+
 ---
 
 Paste the following content inside the file:
