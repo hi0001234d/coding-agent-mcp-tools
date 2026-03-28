@@ -54,6 +54,8 @@ Install **KiloCode extension for Visual Studio Code.**
 
         - **⚠️ If You Face `.local/bin` Issues**
 
+        If `.local/bin` directory does not exist or command is not found, follow these steps:
+
 ```bash
         mkdir -p ~/.local/bin
 
@@ -77,7 +79,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
 ---
 
-##### Install Basic Memory MCP
+#### Install Basic Memory MCP
 
         - **Run the following commands in your terminal:**
 
@@ -102,7 +104,7 @@ Install **KiloCode extension for Visual Studio Code.**
 
 ---
 
-#### 2.2 Create MCP File
+#### 2.2 Create MCP File (Create a file in your project)
 
 ```
 mcp.json
@@ -120,7 +122,7 @@ mcp.json
 
 ---
 
-#### 2.3 Copy MCP Configuration
+#### 2.3 Copy MCP Configuration (Copy and paste the following configuration)
 
 ```json
 {
