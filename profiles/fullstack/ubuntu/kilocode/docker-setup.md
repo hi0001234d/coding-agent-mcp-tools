@@ -204,7 +204,7 @@ docker logs mcp_basic_memory
 
 #### 8.1 Add MCP Configuration (Using Text Editor)
 
-        - **! If Kilo Code is not installed, follow the steps below:**
+        - **⚠️ If Kilo Code is not installed, follow the steps below:**
 
         1. Install the Kilo Code extension in VS Code and open its Settings
 
