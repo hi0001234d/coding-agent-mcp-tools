@@ -14,7 +14,7 @@ Install KiloCode extension for Visual Studio Code.
 
 #### Install Codebase Memory MCP
 
-        - **2.1.1 Install Required Dependencies (If Not Installed)**
+        - **2.1.1: Install Required Dependencies (If Not Installed)**
 
         If your Windows system does not have required build tools, install them using PowerShell:
 
@@ -29,7 +29,7 @@ Install KiloCode extension for Visual Studio Code.
         > If already installed, you can skip this step.
 
 
-        - **2.1.2 Clone and Build the Tool**
+        - **2.1.2: Clone and Build the Tool**
 
         Run the following commands in PowerShell:
 
@@ -39,7 +39,7 @@ Install KiloCode extension for Visual Studio Code.
         scripts/build.sh
 ```
 
-        - **2.1.3 Move Binary to System Path**
+        - **2.1.3: Move Binary to System Path**
 
 ```powershell
         # Create a local bin folder in your user profile if it doesn't exist
@@ -48,7 +48,7 @@ Install KiloCode extension for Visual Studio Code.
         move build\c\codebase-memory-mcp.exe $HOME\.local\bin\
 ```
 
-        - **2.1.4 Verify Installation**
+        - **2.1.4: Verify Installation**
 
 ```powershell
         codebase-memory-mcp --version
