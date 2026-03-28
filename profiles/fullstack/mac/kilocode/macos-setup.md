@@ -1,4 +1,4 @@
-# 🖥️ Run on Your Windows (Direct Setup)
+# 🖥️ Run on Your macOS (Direct Setup)
 
 ## ⚙️ Setup
 
@@ -16,71 +16,76 @@ Install **KiloCode extension for Visual Studio Code.**
 
         - **2.1.1: Install Required Dependencies (If Not Installed)**
 
-        If your Windows system does not have required build tools, install them using PowerShell:
+        If your system does not have required build tools, install them using:
 
-```powershell
-        # Windows equivalent of build-essentials
-        winget install -e --id Kitware.CMake
-        winget install -e --id GitHub.Git
+```bash
+        # Install required build tools (using Homebrew recommended)
+        brew install gcc zlib git
 ```
-
-        These are required to build the `codebase-memory-mcp` tool.
 
         > If already installed, you can skip this step.
 
 
         - **2.1.2: Clone and Build the Tool**
 
-        Run the following commands in PowerShell:
+        Run the following commands:
 
 ```bash
         git clone https://github.com/DeusData/codebase-memory-mcp.git
         cd codebase-memory-mcp
+
         scripts/build.sh
 ```
 
         - **2.1.3: Move Binary to System Path**
 
-```powershell
-        # Create a local bin folder in your user profile if it doesn't exist
-        mkdir -p $HOME\.local\bin
+```bash
+        mkdir -p ~/.local/bin
 
-        move build\c\codebase-memory-mcp.exe $HOME\.local\bin\
+        mv build/c/codebase-memory-mcp ~/.local/bin/
+        chmod +x ~/.local/bin/codebase-memory-mcp
 ```
 
         - **2.1.4: Verify Installation**
 
-```powershell
+```bash
         codebase-memory-mcp --version
 ```
 
-        - **⚠️ If You Face Path Issues**
+        - **⚠️ If You Face `.local/bin` Issues**
 
-```powershell
-        mkdir -p $HOME\.local\bin
+```bash
+        mkdir -p ~/.local/bin
 
-        $oldPath = [Environment]::GetEnvironmentVariable("Path", "User")
-        [Environment]::SetEnvironmentVariable("Path", "$oldPath;$HOME\.local\bin", "User")
+        mv build/c/codebase-memory-mcp ~/.local/bin/
+        chmod +x ~/.local/bin/codebase-memory-mcp
+
+        # For macOS (Zsh is default terminal)
+        echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.zshrc
+        source ~/.zshrc
+
+        codebase-memory-mcp --version
 ```
 
         This ensures:
 
-        - Binary is stored in correct location 
+        - Binary is stored in correct location
 
-        - Path is properly set for Windows  
+        - Path is properly set
 
-        - Command works globally  
+        - Command works globally
 
 ---
 
-#### Install Basic Memory MCP
+##### Install Basic Memory MCP
 
-        - **Run the following commands in PowerShell:**
+        - **Run the following commands in your terminal:**
 
-```powershell
-        powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```bash
+        curl -LsSf https://astral.sh/uv/install.sh | sh
 
-        $env:TMPDIR = "$env:TEMP"
+        echo 'export TMPDIR=/tmp' >> ~/.zshrc
+        source ~/.zshrc
 
         uv tool install basic-memory
 
@@ -89,17 +94,15 @@ Install **KiloCode extension for Visual Studio Code.**
 
         - **Find Basic Memory MCP Path**
 
-```powershell
-        (Get-Command basic-memory).Source
+```bash
+        which basic-memory
 ```
-
-        This command returns the full path where `basic-memory.exe` is installed on Windows.
 
         Use this path directly in your `mcp.json` configuration.
 
 ---
 
-#### 2.2 Create MCP File (Create a file in your project)
+#### 2.2 Create MCP File
 
 ```
 mcp.json
@@ -109,7 +112,7 @@ mcp.json
 
           - Open your project folder in VS Code  
 
-          - In the file explorer, click **New File** 
+          - In the file explorer, click **New File**  
 
           - Name the file exactly: `mcp.json`  
 
@@ -117,20 +120,20 @@ mcp.json
 
 ---
 
-#### 2.3 Copy MCP Configuration (Copy and paste the following configuration)
+#### 2.3 Copy MCP Configuration
 
 ```json
 {
   "mcpServers": {
     "codebase-memory": {
-      "command": "C:/Users/your-user-dir/.local/bin/codebase-memory-mcp.exe"
+      "command": "/Users/your-user-dir/.local/bin/codebase-memory-mcp"
     },
     "basic-memory": {
-      "command": "C:/Users/your-user-dir/AppData/Roaming/uv/tools/basic-memory/bin/basic-memory.exe",
+      "command": "/Users/your-user-dir/.local/share/uv/tools/basic-memory/bin/basic-memory",
       "args": [
         "mcp",
         "--path",
-        "C:/your-project-root/docs"
+        "your-project-root/docs"
       ]
     }
   }
@@ -141,9 +144,9 @@ mcp.json
 
           - Open the **`mcp.json`** file in VS Code  
 
-          - Paste the above code inside it (update paths with your Windows username)  
+          - Paste the above code inside it  
 
-          - Press **`Ctrl + S`** to save  
+          - Press **`Cmd + S`** to save  
 
           - Ensure the file is inside your project folder  
 
