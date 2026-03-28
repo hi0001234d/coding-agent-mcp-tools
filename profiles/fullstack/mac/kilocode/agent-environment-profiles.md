@@ -9,7 +9,8 @@ Instead of installing tools one by one, just copy the MCP configuration and star
 ## ⚡ What You Get
 
 - **Pre-configured MCP tools** for full-stack workflows on macOS  
-- **Works seamlessly with VS Code + KiloCode extension** - **Quick setup** — copy, paste, and start  
+- **Works seamlessly with VS Code + KiloCode extension** 
+- **Quick setup** — copy, paste, and start  
 - **Optional:** You can also run this setup inside Docker for a clean and isolated environment  
 
 ---
