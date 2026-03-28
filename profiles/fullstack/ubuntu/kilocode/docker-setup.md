@@ -93,7 +93,7 @@ mkdir docs
 
 Create a Dockerfile inside each folder:
 
-        - **1. Codebase Memory MCP (mcp/codebase-memory/Dockerfile)**
+        - **1. Codebase Memory MCP (`mcp/codebase-memory/Dockerfile`)**
 
 ```dockerfile
         FROM ubuntu:22.04
