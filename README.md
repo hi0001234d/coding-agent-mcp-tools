@@ -270,7 +270,7 @@ Tools that help capture screenshots, generate visuals, and analyze images or vid
 - [Talk To Figma via Claude](https://github.com/gaganmanku96/talk-with-figma-claude) — Create and modify Figma designs using natural language.
 - [Storybook](https://github.com/stefanoamorelli/storybook-mcp-server) — Interact with Storybook component libraries for UI testing.
 - [SnapRender MCP](https://github.com/User0856/snaprender-mcp) — Provides MCP tools to capture website screenshots, helping coding agents and developers create visual previews and documentation during development workflows.
-- [AntV Chart MCP](https://github.com/antv/mcp-server-chart) — Provides MCP integration for generating visual charts and graphs using the AntV data visualization library.
+- [AntV Chart MCP](https://github.com/antvis/mcp-server-chart) — Provides MCP integration for generating visual charts and graphs using the AntV data visualization library.
 - [Manim MCP](https://github.com/abhiemj/manim-mcp-server) — Provides MCP integration with the Manim library to generate mathematical and educational animations for visualization and documentation purposes.
 - [excalidraw-architect-mcp](https://github.com/BV-Venky/excalidraw-architect-mcp) — Tool for generating software architecture diagrams with auto-layout and 50+ technology mappings.
 - [Webpage Screenshot MCP](https://github.com/ananddtyagi/webpage-screenshot-mcp) — MCP server for capturing webpage screenshots during UI development or documentation review.

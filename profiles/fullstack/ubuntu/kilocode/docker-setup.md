@@ -32,187 +32,57 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
-#### Add user to Docker group (IMPORTANT)
-
-```bash
-sudo usermod -aG docker $USER
-```
-    - **Note:** After this, logout and login again to apply changes.
-
 ---
 
-### Step 2: Install Docker Compose (v2)
+### Step 2: Run Docker Container
+
+Open your terminal inside your project folder, then run:
 
 ```bash
-sudo mkdir -p /usr/local/lib/docker/cli-plugins
-```
-
-```bash
-sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 \
--o /usr/local/lib/docker/cli-plugins/docker-compose
-```
-
-```bash
-sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+docker run -it --name kilocode-container \
+  -v $(pwd):/your-project-root \
+  -w /your-project-root \
+  node:20 \
+  bash
 ```
 
 ---
 
-### Verify
+### 🔍 What this does
 
-```bash
-docker compose version
+- `-v $(pwd):/your-project-root` → Your current project folder is mounted inside the container    
+- `-w /your-project-root` → Container starts inside your project folder  
+- `node:20` → Official Node.js v20 environment (required to run KiloCode and MCP tools)  
+
+---
+
+### Step 3: Add MCP Configuration
+
+#### 3.1 Create MCP File
+
+Create a file named `mcp.json` in your project root.
+
+```
+mcp.json
 ```
 
 ---
 
-### Step 3: Create required folders
+#### 3.2 Add MCP Configuration (Using Text Editor)
 
-#### Add files from this repository
+Now edit the file using any editor you prefer.
 
-Place files like this:
-
-```
-docker_proj/
-├── docker-compose.yml
-├── mcp/
-│   ├── codebase-memory/
-│   │   └── Dockerfile
-│   └── basic-memory/
-│       └── Dockerfile
-├── docs/
-```
+👉 **Using terminal (vi editor):**
 
 ```bash
-mkdir -p mcp/codebase-memory
-mkdir -p mcp/basic-memory
-mkdir docs
+vi mcp.json
 ```
 
-#### Add Dockerfiles
-
-Create a Dockerfile inside each folder:
-
-        - **1. Codebase Memory MCP (`mcp/codebase-memory/Dockerfile`)**
-
-```dockerfile
-        FROM ubuntu:22.04
-
-        WORKDIR /app
-
-        RUN apt update && apt install -y \
-            git \
-            gcc \
-            libglib2.0-dev \
-            build-essential
-
-        RUN git clone https://github.com/DeusData/codebase-memory-mcp.git
-
-        WORKDIR /app/codebase-memory-mcp
-
-        RUN chmod +x scripts/build.sh && scripts/build.sh
-
-        RUN find . -type f -name "codebase-memory-mcp" -exec mv {} /usr/local/bin/codebase-memory-mcp \;
-
-        RUN codebase-memory-mcp --version
-
-        CMD ["codebase-memory-mcp"]
-```
-
-        - **2. Basic Memory MCP (`mcp/basic-memory/Dockerfile`)**
-
-```dockerfile
-        FROM python:3.11
-
-        WORKDIR /app
-
-        RUN apt update && apt install -y curl
-
-        RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-
-        ENV PATH="/root/.local/bin:$PATH"
-
-        RUN uv tool install basic-memory
-
-        RUN basic-memory --version
-
-        CMD ["basic-memory", "mcp", "--path", "/data/docs"]
-```
-
-        - **3. Add docker-compose.yml**
-
-        Create a **`docker-compose.yml`** file in your main project root directory:
-
-```yaml
-        services:
-          codebase-memory:
-            build: ./mcp/codebase-memory
-            container_name: mcp_codebase_memory
-            stdin_open: true
-            tty: true
-
-          basic-memory:
-            build: ./mcp/basic-memory
-            container_name: mcp_basic_memory
-            volumes:
-              - ./docs:/data/docs
-            stdin_open: true
-            tty: true
-```
-
----
-
-### Step 4: Add Sample Data
+👉 **Or open using GUI editor (example: gedit):**
 
 ```bash
-echo "this is example file." > docs/test.md
+gedit mcp.json
 ```
-
----
-
-### Step 5: Start MCP Servers
-
-```bash
-docker compose up -d --build
-```
-
----
-
-### Step 6: Verify Containers
-
-```bash
-docker ps
-```
-
-You should see:
-
-* `mcp_codebase_memory`
-* `mcp_basic_memory`
-
----
-
-### Step 7: Check Logs
-
-```bash
-docker logs mcp_codebase_memory
-docker logs mcp_basic_memory
-```
-
----
-
-### Step 8: Add MCP Configuration
-
-#### 8.1 Add MCP Configuration (Using Text Editor)
-
-        - **⚠️ If Kilo Code is not installed, follow the steps below:**
-
-        1. Install the Kilo Code extension in VS Code and open its Settings
-
-        2. Go to Agent Behaviour → MCP Server
-
-        3. Click Edit Project MCP and add the provided MCP configuration
-
-        4. Save and verify the status turns green (connected successfully)
 
 ---
 
@@ -236,26 +106,62 @@ Paste the following content inside the file:
 👉 Save the file after pasting.
 
 ---
-### Useful Commands
 
-#### Start containers
+## 🚀 Inside Docker (Complete Flow)
 
-```bash
-docker compose up -d
-```
+Now you are inside a clean container.
 
-#### Stop containers
+### Step 4: Verify Project
 
 ```bash
-docker compose down
+ls
 ```
 
-#### Restart containers
+You should see your project files (including `mcp.json`).
+
+---
+
+### Step 5: Install KiloCode CLI
 
 ```bash
-docker compose down && docker compose up -d
+npm install -g kilocode
 ```
 
+---
+
+### Step 6: Start KiloCode
+
+```bash
+kilocode
+```
+
+---
+
+## 📝 Note
+
+- After running the `kilocode` command(Step 6), MCP tools will start when you give your first prompt (e.g., `"Give me a broad overview of my project code"`)  
+- KiloCode reads `mcp.json` and loads the tools based on your configuration    
+- Everything runs inside Docker only  
+- It may take a few minutes on first run, as MCP tools need to initialize 
+
+---
+
+## 🧹 Cleanup
+
+### Exit container
+
+```bash
+exit
+```
+
+### Remove container
+
+💡 This will completely remove this setup.  
+Use this when you no longer need this profile, as it cleans up everything created for this environment.
+
+```bash
+docker rm kilocode-container
+```
 ---
 
 ## ✅ Result

@@ -16,6 +16,10 @@ Docker provides a fully isolated environment on Windows where you can run your c
 
 ### Step 1: Install Docker Desktop
 
+- **Update WSL (Crucial for Fresh Windows)**: Open PowerShell as Administrator and run:
+```powershell
+wsl --update
+```
 - Download [**Docker Desktop for Windows**](https://www.docker.com/products/docker-desktop/)  
 - Run the installer  
 - Ensure **"Use WSL 2 instead of Hyper-V"** is checked (Recommended)  
@@ -92,6 +96,10 @@ Create the following files using VS Code.
         FROM python:3.11
 
         WORKDIR /app
+
+        # Required for data persistence
+        RUN mkdir -p /data/docs
+        ENV BASIC_MEMORY_HOME=/data
 
         RUN apt update && apt install -y curl
 
