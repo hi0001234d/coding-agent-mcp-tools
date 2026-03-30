@@ -21,25 +21,40 @@ Install **KiloCode extension for Visual Studio Code.**
 ```powershell
         # Windows equivalent of build-essentials
         winget install -e --id Kitware.CMake
-        winget install -e --id GitHub.Git
+        winget install -e --id Git.Git
+        winget install -e --id MSYS2.MSYS2
 ```
 
         These are required to build the `codebase-memory-mcp` tool.
 
         > If already installed, you can skip this step.
 
+        - **2.1.2: Setup MSYS2 MINGW64 Environment**
 
-        - **2.1.2: Clone and Build the Tool**
+        To compile the tool, you must install the GCC compiler and Make inside MSYS2:
 
-        Run the following commands in PowerShell:
+        1. Search for **"MSYS2 MINGW64"** in your Windows Start Menu and open it  
+
+        2. Run the following command inside the MSYS2 MINGW64 terminal:
+
+```bash
+        pacman -S --noconfirm mingw-w64-x86_64-gcc make
+```
+
+        - **2.1.3: Clone and Build the Tool**
+
+        **IMPORTANT:** Run these commands **ONLY inside the MSYS2 MINGW64 terminal** (not PowerShell):
 
 ```bash
         git clone https://github.com/DeusData/codebase-memory-mcp.git
         cd codebase-memory-mcp
+
+        # Build the tool using the build script
+        chmod +x scripts/build.sh
         scripts/build.sh
 ```
 
-        - **2.1.3: Move Binary to System Path**
+        - **2.1.4: Move Binary to System Path**
 
 ```powershell
         # Create a local bin folder in your user profile if it doesn't exist
@@ -48,7 +63,7 @@ Install **KiloCode extension for Visual Studio Code.**
         move build\c\codebase-memory-mcp.exe $HOME\.local\bin\
 ```
 
-        - **2.1.4: Verify Installation**
+        - **2.1.5: Verify Installation**
 
 ```powershell
         codebase-memory-mcp --version
@@ -74,6 +89,14 @@ Install **KiloCode extension for Visual Studio Code.**
 ---
 
 #### Install Basic Memory MCP
+
+        - **⚠️ Prerequisite: Visual C++ Build Tools**
+
+        Windows requires **Visual C++ Build Tools** to compile dependencies like **`py-rust-stemmers`**.
+
+        1. Download: **Microsoft C++ Build Tools**
+
+        2. During installation, select: **"Desktop development with C++"**
 
         - **Run the following commands in PowerShell:**
 
