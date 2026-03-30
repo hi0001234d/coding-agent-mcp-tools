@@ -1053,7 +1053,7 @@ Tools that deal specifically with email, messaging, or communication platforms.
 - [facebook-mcp-server](https://github.com/HagaiHen/facebook-mcp-server) — Integrates with Facebook Pages to manage posts, comments, and engagement data.  
 - [twitter-mcp](https://github.com/kunallunia/twitter-mcp) — Provides tools to access Twitter timelines, hashtags, and conversation streams.  
 - [bluesky-social-mcp](https://github.com/gwbischof/bluesky-social-mcp) — MCP server for interacting with the Bluesky social network to access posts and activity streams.
-- [freshdesk-mcp](https://github.com/effytech/freshdesk-mcp) — Connects with the Freshdesk support platform to automate ticket management, support workflows, and service operations.
+- [freshdesk-mcp](https://github.com/effytech/freshdesk_mcp) — Connects with the Freshdesk support platform to automate ticket management, support workflows, and service operations.
 - [Email MCP](https://github.com/Shy2593666979/mcp-server-email) – Enables sending emails and managing attachments through multiple email providers.
 - [Email SMTP MCP](https://github.com/egyptianego17/email-mcp-server) – Lightweight SMTP server allowing AI agents to send emails with attachments.
 
