@@ -1,181 +1,352 @@
 # 🖥️ Run on Your System (Direct Setup)
 
-## ⚙️ Setup
+## ⚡ One-Command Setup
 
-### Step 1: Install Coding Agent
-
-Install **KiloCode extension for Visual Studio Code.**
+We’ve simplified the entire setup into a single script.
 
 ---
 
-### Step 2: Add MCP Configuration
+## ⚡ Quick Setup (Copy & Run)
 
-### 2.1 Install Required MCP Tools
+### 🚀 Step 1: Go to Your Project Folder
 
-#### Install Codebase Memory MCP
-
-        - **2.1.1: Install Required Dependencies (If Not Installed)**
-
-        If your system does not have required build tools, run:
+- Go to your project folder (project root).
+- The script file will be created inside this folder.
 
 ```bash
-        sudo apt install zlib1g-dev
-        sudo apt install gcc
+cd /path/to/your/project
 ```
-
-        These are required to build the `codebase-memory-mcp` tool.
-
-        > If already installed, you can skip this step.
-
-        - **2.1.2: Clone and Build the Tool**
-
-        Run the following commands:
-
-```bash
-        git clone https://github.com/DeusData/codebase-memory-mcp.git
-        cd codebase-memory-mcp
-
-        scripts/build.sh
-```
-
-        - **2.1.3: Move Binary to System Path**
-
-```bash
-        mv build/c/codebase-memory-mcp ~/.local/bin/
-        chmod +x ~/.local/bin/codebase-memory-mcp
-```
-
-        - **2.1.4: Verify Installation**
-
-```bash
-        codebase-memory-mcp --version
-```
-
-        - **⚠️ If You Face `.local/bin` Issues**
-
-        If `.local/bin` directory does not exist or command is not found, follow these steps:
-
-```bash
-        mkdir -p ~/.local/bin
-
-        mv build/c/codebase-memory-mcp ~/.local/bin/
-
-        chmod +x ~/.local/bin/codebase-memory-mcp
-
-        echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
-        source ~/.bashrc
-
-        codebase-memory-mcp --version
-```
-
-        This ensures:
-
-        - Binary is stored in correct location
-
-        - Path is properly set
-
-        - Command works globally
 
 ---
 
-#### Install Basic Memory MCP
+### 🚀 Step 2: Create Setup Script File
 
-        - **Run the following commands in your terminal:**
-
-```
-        curl -LsSf https://astral.sh/uv/install.sh | sh
-
-        echo 'export TMPDIR=/tmp' >> ~/.bashrc
-        source ~/.bashrc
-
-        uv tool install basic-memory
-
-        basic-memory --version
-```
-
-        - **Find Basic Memory MCP Path**
+Create a new file named `setup-mcp-tools.sh` in this folder.
 
 ```bash
-        which basic-memory
+nano setup-mcp-tools.sh
 ```
-
-        This command returns the full path where `basic-memory` is installed.
-
-        Use this path directly in your `mcp.json` configuration.
 
 ---
 
-#### 2.2 Create MCP File (Create a file in your project)
+### 📋 Step 3: Add Setup Script Code
 
-```
-mcp.json
-```
+Copy the full script from below, paste it into the file, and save it.
 
-        - **For Beginner Only**
+```bash
+#!/bin/bash
 
-          - Open your project folder in VS Code  
+# ============================================================
+#  MCP Tools Installer + KiloCode Project-Level MCP Setup
+#  
+#  Installs: codebase-memory-mcp, basic-memory
+#  Configures: <project-root>/.kilocode/mcp.json
+#  Creates:    <project-root>/agent.md
+#
+#  Usage:
+#    cd /path/to/your/project
+#    bash setup-mcp-tools.sh
+#
+#  OR with project path argument:
+#    bash setup-mcp-tools.sh /path/to/your/project
+# ============================================================
 
-          - In the file explorer, click **New File**  
+# NOTE: No "set -e" — we handle errors manually so script never dies mid-way
 
-          - Name the file exactly: `mcp.json` 
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m'
 
-          - Make sure it is created in the **root of your project**  
+log_info()  { echo -e "${GREEN}[✔] $1${NC}"; }
+log_warn()  { echo -e "${YELLOW}[⚠] $1${NC}"; }
+log_error() { echo -e "${RED}[✘] $1${NC}"; }
+log_ask()   { echo -e "${CYAN}[?] $1${NC}"; }
 
----
+echo ""
+echo "============================================"
+echo "  MCP Tools Installer + KiloCode Setup"
+echo "============================================"
+echo ""
 
-#### 2.3 Copy MCP Configuration (Copy and paste the following configuration)
+# --------------------------------------------------
+# 0. Detect paths
+# --------------------------------------------------
+USER_HOME="$HOME"
+USERNAME="$(whoami)"
 
-```json
+if [ -n "$1" ]; then
+    PROJECT_ROOT="${1/#\~/$USER_HOME}"
+else
+    PROJECT_ROOT="$(pwd)"
+fi
+
+if [ "$PROJECT_ROOT" = "$USER_HOME" ] || [ "$PROJECT_ROOT" = "/" ]; then
+    log_error "Don't run this from home (~) or root (/) directory!"
+    log_ask "Either cd into your project folder first, or pass project path as argument:"
+    echo ""
+    echo "  bash setup-mcp-tools.sh /home/$USERNAME/projects/my-app"
+    echo ""
+    exit 1
+fi
+
+log_info "User:         $USERNAME"
+log_info "Home:         $USER_HOME"
+echo -e "${BOLD}${CYAN}[->] Project:     $PROJECT_ROOT${NC}"
+echo ""
+
+read -p "  Is this your project root? (y/n): " CONFIRM
+if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
+    log_ask "Enter your project root path:"
+    read -p "  Project Root: " PROJECT_ROOT
+    PROJECT_ROOT="${PROJECT_ROOT/#\~/$USER_HOME}"
+fi
+
+if [ ! -d "$PROJECT_ROOT" ]; then
+    log_warn "'$PROJECT_ROOT' does not exist."
+    read -p "  Create it? (y/n): " CREATE_DIR
+    if [[ "$CREATE_DIR" =~ ^[Yy]$ ]]; then
+        mkdir -p "$PROJECT_ROOT"
+        log_info "Created: $PROJECT_ROOT"
+    else
+        log_error "Project root does not exist. Exiting."
+        exit 1
+    fi
+fi
+
+DOCS_PATH="$PROJECT_ROOT/docs"
+mkdir -p "$DOCS_PATH"
+log_info "Docs directory: $DOCS_PATH"
+
+# --------------------------------------------------
+# 1. Ensure ~/.local/bin exists and is in PATH
+# --------------------------------------------------
+mkdir -p "$USER_HOME/.local/bin"
+
+if [[ ":$PATH:" != *":$USER_HOME/.local/bin:"* ]]; then
+    echo 'export PATH=$HOME/.local/bin:$PATH' >> "$USER_HOME/.bashrc"
+    export PATH="$USER_HOME/.local/bin:$PATH"
+    log_info "Added ~/.local/bin to PATH"
+else
+    log_info "~/.local/bin already in PATH"
+fi
+
+# --------------------------------------------------
+# 2. Install Codebase Memory MCP
+# --------------------------------------------------
+echo ""
+echo "--------------------------------------------"
+echo "  Step 1: Installing codebase-memory-mcp"
+echo "--------------------------------------------"
+
+SKIP_CM=false
+CODEBASE_MEMORY_PATH="$USER_HOME/.local/bin/codebase-memory-mcp"
+
+if [ -f "$CODEBASE_MEMORY_PATH" ]; then
+    log_warn "codebase-memory-mcp already installed"
+    read -p "  Reinstall? (y/n): " REINSTALL_CM
+    if [[ ! "$REINSTALL_CM" =~ ^[Yy]$ ]]; then
+        log_info "Skipping — using existing binary"
+        SKIP_CM=true
+    fi
+fi
+
+if [ "$SKIP_CM" != true ]; then
+    log_info "Installing build dependencies (gcc-11 to avoid GCC-13 ICE bug)..."
+    sudo apt update -qq
+    sudo apt install -y -qq zlib1g-dev gcc-11 g++-11 git > /dev/null 2>&1
+    log_info "Build dependencies installed"
+
+    TEMP_DIR=$(mktemp -d)
+
+    # ── Git clone with retry (shallow clone — fast & corruption-free) ──
+    log_info "Cloning codebase-memory-mcp..."
+    CLONE_OK=false
+    for ATTEMPT in 1 2 3; do
+        rm -rf "$TEMP_DIR/codebase-memory-mcp"
+        git clone --depth=1 https://github.com/DeusData/codebase-memory-mcp.git "$TEMP_DIR/codebase-memory-mcp" 2>&1
+        EXIT_CODE=$?
+        if [ $EXIT_CODE -eq 0 ]; then
+            CLONE_OK=true
+            log_info "Clone successful (attempt $ATTEMPT)"
+            break
+        else
+            log_warn "Clone attempt $ATTEMPT failed (exit $EXIT_CODE), retrying..."
+        fi
+        sleep 2
+    done
+
+    if [ "$CLONE_OK" != true ]; then
+        log_error "Failed to clone codebase-memory-mcp after 3 attempts!"
+        log_warn "Skipping codebase-memory-mcp — rest of setup will continue."
+        CODEBASE_MEMORY_PATH=""
+    else
+        cd "$TEMP_DIR/codebase-memory-mcp"
+
+        # ── GCC-13 ICE fix ──────────────────────────────────
+        sed -i 's/\bcc=gcc\b/cc=gcc-11/g'   scripts/build.sh
+        sed -i 's/\bcxx=g++\b/cxx=g++-11/g' scripts/build.sh
+        log_info "Patched build.sh: gcc -> gcc-11"
+        # ────────────────────────────────────────────────────
+
+        log_info "Building..."
+        if bash scripts/build.sh; then
+            mv build/c/codebase-memory-mcp "$CODEBASE_MEMORY_PATH"
+            chmod +x "$CODEBASE_MEMORY_PATH"
+            log_info "Installed: $CODEBASE_MEMORY_PATH"
+        else
+            log_error "Build failed! Skipping codebase-memory-mcp."
+            CODEBASE_MEMORY_PATH=""
+        fi
+
+        cd "$USER_HOME"
+    fi
+
+    rm -rf "$TEMP_DIR"
+fi
+
+# --------------------------------------------------
+# 3. Install Basic Memory MCP
+# --------------------------------------------------
+echo ""
+echo "--------------------------------------------"
+echo "  Step 2: Installing basic-memory"
+echo "--------------------------------------------"
+
+if ! command -v uv &> /dev/null; then
+    log_info "Installing uv..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    [ -f "$USER_HOME/.local/bin/env" ] && source "$USER_HOME/.local/bin/env"
+    [ -f "$USER_HOME/.cargo/env" ]     && source "$USER_HOME/.cargo/env"
+    export PATH="$USER_HOME/.local/bin:$PATH"
+    log_info "uv installed"
+else
+    log_info "uv already installed"
+fi
+
+if ! grep -q 'export TMPDIR=/tmp' "$USER_HOME/.bashrc" 2>/dev/null; then
+    echo 'export TMPDIR=/tmp' >> "$USER_HOME/.bashrc"
+fi
+export TMPDIR=/tmp
+
+# ── Force install/reinstall basic-memory ────────────────────
+log_info "Installing basic-memory via uv (force)..."
+uv tool install --force basic-memory 2>&1 | tail -5
+
+# ── Reliable path detection using uv tool dir ───────────────
+BASIC_MEMORY_PATH=""
+
+# Method 1: uv tool dir command (most reliable)
+UV_TOOL_DIR=$(uv tool dir 2>/dev/null)
+if [ -n "$UV_TOOL_DIR" ] && [ -f "$UV_TOOL_DIR/basic-memory/bin/basic-memory" ]; then
+    BASIC_MEMORY_PATH="$UV_TOOL_DIR/basic-memory/bin/basic-memory"
+    log_info "Found via uv tool dir: $BASIC_MEMORY_PATH"
+fi
+
+# Method 2: Standard uv tools path
+if [ -z "$BASIC_MEMORY_PATH" ]; then
+    CANDIDATE="$USER_HOME/.local/share/uv/tools/basic-memory/bin/basic-memory"
+    if [ -f "$CANDIDATE" ]; then
+        BASIC_MEMORY_PATH="$CANDIDATE"
+        log_info "Found at standard path: $BASIC_MEMORY_PATH"
+    fi
+fi
+
+# Method 3: which (if uv added it to PATH)
+if [ -z "$BASIC_MEMORY_PATH" ]; then
+    CANDIDATE=$(which basic-memory 2>/dev/null || echo "")
+    if [ -n "$CANDIDATE" ]; then
+        BASIC_MEMORY_PATH="$CANDIDATE"
+        log_info "Found via which: $BASIC_MEMORY_PATH"
+    fi
+fi
+
+# Method 4: find fallback
+if [ -z "$BASIC_MEMORY_PATH" ]; then
+    CANDIDATE=$(find "$USER_HOME/.local" -name "basic-memory" -type f 2>/dev/null | head -1)
+    if [ -n "$CANDIDATE" ]; then
+        BASIC_MEMORY_PATH="$CANDIDATE"
+        log_info "Found via find: $BASIC_MEMORY_PATH"
+    fi
+fi
+
+if [ -z "$BASIC_MEMORY_PATH" ]; then
+    log_error "Could not find basic-memory binary after install!"
+    log_warn "Using default path — fix manually in mcp.json if needed"
+    BASIC_MEMORY_PATH="$USER_HOME/.local/share/uv/tools/basic-memory/bin/basic-memory"
+else
+    log_info "basic-memory ready: $BASIC_MEMORY_PATH"
+fi
+
+# --------------------------------------------------
+# 4. Configure Project-Level KiloCode MCP
+# --------------------------------------------------
+echo ""
+echo "--------------------------------------------"
+echo "  Step 3: Project-Level KiloCode mcp.json"
+echo "--------------------------------------------"
+
+PROJECT_KILOCODE_DIR="$PROJECT_ROOT/.kilocode"
+PROJECT_MCP_JSON="$PROJECT_KILOCODE_DIR/mcp.json"
+mkdir -p "$PROJECT_KILOCODE_DIR"
+
+if [ -f "$PROJECT_MCP_JSON" ]; then
+    BACKUP="$PROJECT_MCP_JSON.backup.$(date +%Y%m%d_%H%M%S)"
+    cp "$PROJECT_MCP_JSON" "$BACKUP"
+    log_warn "Backup: $BACKUP"
+fi
+
+# Build mcpServers block — skip codebase-memory if install failed
+if [ -n "$CODEBASE_MEMORY_PATH" ]; then
+    CM_BLOCK="    \"codebase-memory\": {
+      \"command\": \"$CODEBASE_MEMORY_PATH\",
+      \"args\": []
+    },"
+else
+    CM_BLOCK="    // codebase-memory-mcp: install failed — run setup again to retry"
+    log_warn "codebase-memory-mcp not added to mcp.json (install failed)"
+fi
+
+cat > "$PROJECT_MCP_JSON" << MCPJSON
 {
   "mcpServers": {
-    "codebase-memory": {
-      "command": "/home/your-user-dir/.local/bin/codebase-memory-mcp"
-    },
+$CM_BLOCK
     "basic-memory": {
-      "command": "/home/your-user-dir/.local/share/uv/tools/basic-memory/bin/basic-memory",
+      "command": "$BASIC_MEMORY_PATH",
       "args": [
         "mcp",
         "--path",
-        "your-project-root/docs"
+        "$DOCS_PATH"
       ]
     }
   }
 }
-```
+MCPJSON
 
-        - **For Beginner Only**
+log_info "Written: $PROJECT_MCP_JSON"
 
-          - Open the **`mcp.json`** file in VS Code
+# --------------------------------------------------
+# 5. Create or Update agent.md
+# --------------------------------------------------
+echo ""
+echo "--------------------------------------------"
+echo "  Step 4: Creating agent.md"
+echo "--------------------------------------------"
 
-          - Paste the above code inside it  
-
-          - Press **`Ctrl + S`** to save  
-
-          - Ensure the file is inside your project folder  
-
----
-
-### Step 3: Create or Modify Agent Configuration
-
-Create or update `agent.md` in your project root.
-
-- If the file already exists → modify it  
-- If not → create a new file named `agent.md`  
-
-#### Add the following content to your agent.md:
-
-```md
-# Knowledge & Memory Configuration
+AGENT_MD="$PROJECT_ROOT/agent.md"
+AGENT_MD_CONTENT='# Knowledge & Memory Configuration
 
 ## Documentation Retrieval & Context Building
 
 Use MCP tools to retrieve, process, and build context from project-specific data.
 
 - Always check the `docs/` directory before answering or making changes.
-- **codebase-memory MCP** → Understand and recall codebase structure, files, and relationships.
-- **basic-memory MCP** →  
-  - Store and recall important context across tasks.  
-  - Observe processed documentation and extract useful context when needed.  
+- **codebase-memory MCP** -> Understand and recall codebase structure, files, and relationships.
+- **basic-memory MCP** ->
+  - Store and recall important context across tasks.
+  - Observe processed documentation and extract useful context when needed.
   - Help maintain continuity based on user prompts and previous interactions.
 
 The `docs/` folder acts as the primary knowledge source. Documentation placed here will be processed and used to generate better, context-aware responses.
@@ -193,29 +364,122 @@ The `docs/` folder acts as the primary knowledge source. Documentation placed he
 
 This section is used to define project-specific rules, constraints, and architectural decisions.
 
-- Add any strict rules, limitations, or important instructions here.  
-- These constraints will be treated as the source of truth by the agent.  
+- Add any strict rules, limitations, or important instructions here.
+- These constraints will be treated as the source of truth by the agent.
 - The agent will read and follow all rules defined in this section during execution.
 - Examples include API limits, architecture rules, naming conventions, and restricted changes.
+'
+
+if [ -f "$AGENT_MD" ]; then
+    log_warn "agent.md already exists at: $AGENT_MD"
+    read -p "  Overwrite it? (y=overwrite / n=skip): " OVERWRITE_AGENT
+    if [[ "$OVERWRITE_AGENT" =~ ^[Yy]$ ]]; then
+        BACKUP_AGENT="$AGENT_MD.backup.$(date +%Y%m%d_%H%M%S)"
+        cp "$AGENT_MD" "$BACKUP_AGENT"
+        log_warn "Backup: $BACKUP_AGENT"
+        printf '%s' "$AGENT_MD_CONTENT" > "$AGENT_MD"
+        log_info "Overwritten: $AGENT_MD"
+    else
+        log_info "Skipping — existing agent.md kept as-is"
+    fi
+else
+    printf '%s' "$AGENT_MD_CONTENT" > "$AGENT_MD"
+    log_info "Created: $AGENT_MD"
+fi
+
+# --------------------------------------------------
+# 6. Show results
+# --------------------------------------------------
+echo ""
+echo "--------------------------------------------"
+echo -e "  ${BOLD}Generated: $PROJECT_MCP_JSON${NC}"
+echo "--------------------------------------------"
+echo ""
+cat "$PROJECT_MCP_JSON"
+
+echo ""
+echo "============================================"
+echo -e "  ${GREEN}${BOLD}Setup Complete!${NC}"
+echo "============================================"
+echo ""
+echo "  Project Structure:"
+echo "    $PROJECT_ROOT/"
+echo "    +-- .kilocode/"
+echo "    |   +-- mcp.json    <- MCP config (auto-generated)"
+echo "    +-- docs/            <- Your project docs go here"
+echo "    +-- agent.md         <- Agent behavior config (auto-generated)"
+echo "    +-- ...              <- Your project files"
+echo ""
+echo "  Binaries:"
+if [ -n "$CODEBASE_MEMORY_PATH" ]; then
+echo "    * codebase-memory-mcp -> $CODEBASE_MEMORY_PATH"
+else
+echo "    * codebase-memory-mcp -> [FAILED — run setup again]"
+fi
+echo "    * basic-memory        -> $BASIC_MEMORY_PATH"
+echo ""
+echo "  Next Steps:"
+echo "    1. source ~/.bashrc"
+echo "    2. Open this project folder in VS Code / KiloCode"
+echo "    3. Add your project docs to: $DOCS_PATH"
+echo "    4. Edit agent.md -> 'User-Defined Constraints' section with your project rules"
+echo "    5. MCP servers auto-connect!"
+echo ""
 ```
 
 ---
 
-### Step 4: Start Your Agent
+### ▶️ Step 4: Run Script
 
-Start KiloCode inside VS Code — it will automatically load MCP tools from `mcp.json`.
+If the script already exists in your project:
 
-        - **For Beginner Only**
+```bash
+cd /path/to/your/project
+bash setup-mcp-tools.sh
+```
 
-          - Open your project in VS Code  
+👉 Or pass your project path directly:
 
-          - Make sure `mcp.json` file is present
+```bash
+bash setup-mcp-tools.sh /path/to/your/project
+```
 
-          - Open KiloCode extension  
+---
 
-          - Start or reload the agent  
+## 📁 Project Structure After Setup
 
-          - The agent will read `mcp.json` and connect all tools  
+After running the setup script, your project will be structured like this:
+
+```
+your-project/
+│
+├── .kilocode/
+│   └── mcp.json
+│
+├── docs/
+│
+├── agent.md
+│
+└── your project files...
+```
+
+---
+
+## 🚀 Start Your Agent
+
+Open your project in VS Code and start KiloCode — everything will connect automatically.
+
+---
+
+## ⚙️ Agent Configuration
+
+`agent.md` file is automatically created.
+
+👉 Use this file to:
+
+* Define project rules
+* Add constraints
+* Control agent behavior
 
 ---
 
