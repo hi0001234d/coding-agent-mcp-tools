@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__idea-reality__idea_check",
+      "Bash(curl -s \"https://api.github.com/repos/Wolfe-Jam/faf-mcp/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/doobidoo/MCP-Context-Provider/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/pi22by7/In-Memoria/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/tstockham96/engram/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/agentic-mcp-tools/memora/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/alibaizhanov/mengram/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/kael-bit/engram-rs/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/basicmachines-co/basic-memory/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/topoteretes/cognee/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/GreatScottyMac/context-portal/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/StitchAI/stitch-ai-mcp/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/besslframework-stack/project-tessera/commits?per_page=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/rember/rember-mcp/commits?per_page=1\")",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.multiplayer.app)",
+      "WebFetch(domain:docs.ragie.ai)",
+      "WebFetch(domain:docs.cognee.ai)",
+      "WebFetch(domain:ragie.ai)",
+      "WebFetch(domain:www.ragie.ai)",
+      "WebFetch(domain:docs.vectara.com)",
+      "WebFetch(domain:chroma.dev)",
+      "WebFetch(domain:langflow.org)",
+      "WebFetch(domain:docs.langflow.org)",
+      "WebFetch(domain:www.vectara.com)",
+      "WebFetch(domain:www.getlanding.ai)",
+      "WebFetch(domain:vectara.com)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "idea-reality"
+  ]
+}
