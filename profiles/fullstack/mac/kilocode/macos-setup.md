@@ -19,6 +19,21 @@ Install **KiloCode extension for Visual Studio Code.**
         If your system does not have required build tools, install them using:
 
 ```bash
+        # Install Xcode Command Line Tools (required for gcc, git, make)
+        xcode-select --install
+
+        > A popup will appear — click "Install" and wait for it to finish.
+        > If already installed, you will see: "command line tools are already installed"
+
+        # Install Homebrew (if not installed)
+        brew -v
+        # If "command not found", install Homebrew:
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+        > Apple Silicon Mac (M1/M2/M3) only** — after Homebrew install, run:
+        > echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+        > source ~/.zshrc
+        > Intel Mac users can skip this.
         # Install required build tools (using Homebrew recommended)
         brew install gcc zlib git
 ```
@@ -107,7 +122,7 @@ Install **KiloCode extension for Visual Studio Code.**
 #### 2.2 Create MCP File (Create a file in your project)
 
 ```
-mcp.json
+.kilocode/mcp.json
 ```
 
         - **For Beginner Only**
@@ -131,7 +146,7 @@ mcp.json
       "command": "/Users/your-user-dir/.local/bin/codebase-memory-mcp"
     },
     "basic-memory": {
-      "command": "/Users/your-user-dir/.local/share/uv/tools/basic-memory/bin/basic-memory",
+      "command": "/Users/your-user-dir/.local/bin/basic-memory",
       "args": [
         "mcp",
         "--path",
@@ -144,13 +159,13 @@ mcp.json
 
         - **For Beginner Only**
 
-          - Open the **`mcp.json`** file in VS Code  
+          - Open the **`.kilocode/mcp.json`** file in VS Code  
 
           - Paste the above code inside it  
 
           - Press **`Cmd + S`** to save  
 
-          - Ensure the file is inside your project folder  
+          - Ensure the file is inside your project `.kilocode/` folder  
 
 ---
 
@@ -202,13 +217,13 @@ This section is used to define project-specific rules, constraints, and architec
 
 ### Step 4: Start Your Agent
 
-Start KiloCode inside VS Code — it will automatically load MCP tools from `mcp.json`.
+Start KiloCode inside VS Code — it will automatically load MCP tools from `.kilocode/mcp.json`.
 
         - **For Beginner Only**
 
           - Open your project in VS Code  
 
-          - Make sure `mcp.json` file is present  
+          - Make sure `.kilocode/mcp.json` file is present  
 
           - Open KiloCode extension  
 
