@@ -8,13 +8,20 @@ We’ve simplified the entire setup into a single script.
 
 ## ⚡ Quick Setup (Copy & Run)
 
-### 🚀 Step 1: Go to Your Project Folder
+### 🚀 Step 1: Go to Setup Directory (NOT Project Root)
 
-- Go to your project folder (project root).
-- The script file will be created inside this folder.
+- Go to your home directory or a setup folder (NOT your project folder).
+- This script is for development environment setup.
 
 ```bash
-cd /path/to/your/project
+cd ~
+```
+
+(Optional – Recommended)
+
+```bash
+mkdir -p ~/setup-scripts
+cd ~/setup-scripts
 ```
 
 ---
