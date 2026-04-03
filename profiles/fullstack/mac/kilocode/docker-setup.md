@@ -19,12 +19,19 @@ Docker provides a fully isolated environment on macOS where you can run your cod
 If Docker is not installed on your system, install it using the following commands:
 
 ```bash
-# 1.1 Install Homebrew (if not installed)
+# 1.1 Install Xcode Command Line Tools (required)
+xcode-select --install
+```
+
+```bash
+# 1.2 Install Homebrew (if not installed)
+brew -v
+# If "command not found", install Homebrew:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 ```bash
-# 1.2 Install Docker Desktop
+# 1.3 Install Docker Desktop
 brew install --cask docker
 ```
 
@@ -111,6 +118,9 @@ mkdir docs
         FROM python:3.11
 
         WORKDIR /app
+
+        RUN mkdir -p /data/docs
+        ENV BASIC_MEMORY_HOME=/data
 
         RUN apt update && apt install -y curl
 
