@@ -118,7 +118,7 @@ EOF
 ```
 
 👉 Paste the above command into your project terminal and press Enter.
-This will automatically create the `docker-compose.yml` file.
+This will automatically create the **`docker-compose.yml`** file.
 
 
 ## 🚀 Run Docker Services
