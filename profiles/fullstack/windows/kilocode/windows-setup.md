@@ -1,189 +1,226 @@
-# 🖥️ Run on Your Windows (Direct Setup)
+# 🖥️ Run on Your System (Windows Direct Setup)
 
-## ⚙️ Setup
+## ⚡ One-Command Setup
 
-### Step 1: Install Coding Agent
-
-Install **KiloCode extension for Visual Studio Code.**
+We’ve simplified the entire setup into a single PowerShell script.
 
 ---
 
-### Step 2: Add MCP Configuration
+## ⚡ Quick Setup (Copy & Run)
 
-### 2.1 Install Required MCP Tools
+### 🚀 Step 1: Go to Setup Directory (NOT Project Root)
 
-#### Install Codebase Memory MCP
-
-        - **2.1.1: Install Required Dependencies (If Not Installed)**
-
-        If your Windows system does not have required build tools, install them using PowerShell:
+Go to your home directory or a setup folder (NOT your project folder).  
+This script is for development environment setup.
 
 ```powershell
-        # Windows equivalent of build-essentials
-        winget install -e --id Kitware.CMake
-        winget install -e --id Git.Git
-        winget install -e --id MSYS2.MSYS2
+cd ~
+
+# (Optional – Recommended)
+mkdir setup-scripts
+cd setup-scripts
 ```
-
-        These are required to build the `codebase-memory-mcp` tool.
-
-        > If already installed, you can skip this step.
-
-        - **2.1.2: Setup MSYS2 MINGW64 Environment**
-
-        To compile the tool, you must install the GCC compiler and Make inside MSYS2:
-
-        1. Search for **"MSYS2 MINGW64"** in your Windows Start Menu and open it  
-
-        2. Run the following command inside the MSYS2 MINGW64 terminal:
-
-```bash
-        pacman -S --noconfirm mingw-w64-x86_64-gcc make
-```
-
-        - **2.1.3: Clone and Build the Tool**
-
-        **IMPORTANT:** Run these commands **ONLY inside the MSYS2 MINGW64 terminal** (not PowerShell):
-
-```bash
-        git clone https://github.com/DeusData/codebase-memory-mcp.git
-        cd codebase-memory-mcp
-
-        # Build the tool using the build script
-        chmod +x scripts/build.sh
-        scripts/build.sh
-```
-
-        - **2.1.4: Move Binary to System Path**
-
-```powershell
-        # Create a local bin folder in your user profile if it doesn't exist
-        mkdir -p $HOME\.local\bin
-
-        move build\c\codebase-memory-mcp.exe $HOME\.local\bin\
-```
-
-        - **2.1.5: Verify Installation**
-
-```powershell
-        codebase-memory-mcp --version
-```
-
-        - **⚠️ If You Face Path Issues**
-
-```powershell
-        mkdir -p $HOME\.local\bin
-
-        $oldPath = [Environment]::GetEnvironmentVariable("Path", "User")
-        [Environment]::SetEnvironmentVariable("Path", "$oldPath;$HOME\.local\bin", "User")
-```
-
-        This ensures:
-
-        - Binary is stored in correct location 
-
-        - Path is properly set for Windows  
-
-        - Command works globally  
 
 ---
 
-#### Install Basic Memory MCP
+### 🚀 Step 2: Create Setup Script File
 
-        - **⚠️ Prerequisite: Visual C++ Build Tools**
-
-        Windows requires **Visual C++ Build Tools** to compile dependencies like **`py-rust-stemmers`**.
-
-        1. Download: **Microsoft C++ Build Tools**
-
-        2. During installation, select: **"Desktop development with C++"**
-
-        - **Run the following commands in PowerShell:**
+Create a new file named `setup-mcp-tools.ps1` in this folder.
 
 ```powershell
-        powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-
-        $env:TMPDIR = "$env:TEMP"
-
-        uv tool install basic-memory
-
-        basic-memory --version
+notepad setup-mcp-tools.ps1
 ```
-
-        - **Find Basic Memory MCP Path**
-
-```powershell
-        (Get-Command basic-memory).Source
-```
-
-        This command returns the full path where `basic-memory.exe` is installed on Windows.
-
-        Use this path directly in your `mcp.json` configuration.
 
 ---
 
-#### 2.2 Create MCP File (Create a file in your project)
+### 🚀 Step 3: Add Setup Script Code
 
-```
-mcp.json
-```
+Copy the full script below, paste it into the file, save, and close it.
 
-        - **For Beginner Only**
+```powershell
+# ============================================================
+#  MCP Tools Installer + KiloCode Project-Level MCP Setup (WINDOWS)
+#
+#  Installs: codebase-memory-mcp, basic-memory
+#  Configures: <project-root>\.kilocode\mcp.json
+#  Creates:    <project-root>\agent.md
+# ============================================================
 
-          - Open your project folder in VS Code  
+$ErrorActionPreference = "Continue"
 
-          - In the file explorer, click **New File** 
+# Colors for output
+function Log-Info($msg)  { Write-Host "[✔] $msg" -ForegroundColor Green }
+function Log-Warn($msg)  { Write-Host "[⚠] $msg" -ForegroundColor Yellow }
+function Log-Error($msg) { Write-Host "[✘] $msg" -ForegroundColor Red }
 
-          - Name the file exactly: `mcp.json`  
+Write-Host "`n============================================"
+Write-Host "  MCP Tools Installer + KiloCode Setup"
+Write-Host "============================================`n"
 
-          - Make sure it is created in the **root of your project**  
+# --------------------------------------------------
+# 0. Detect paths
+# --------------------------------------------------
+$USER_HOME = $HOME
+$PROJECT_ROOT = if ($args[0]) { Resolve-Path $args[0] } else { Get-Location }
 
----
+Write-Host "[->] Project Path: $PROJECT_ROOT" -ForegroundColor Cyan
+$confirm = Read-Host "  Is this your project root? (y/n)"
+if ($confirm -ne 'y') {
+    $PROJECT_ROOT = Read-Host "  Enter full project path"
+}
 
-#### 2.3 Copy MCP Configuration (Copy and paste the following configuration)
+if (!(Test-Path $PROJECT_ROOT)) {
+    $create = Read-Host "  '$PROJECT_ROOT' does not exist. Create it? (y/n)"
+    if ($create -eq 'y') {
+        New-Item -ItemType Directory -Path $PROJECT_ROOT -Force | Out-Null
+        Log-Info "Created: $PROJECT_ROOT"
+    } else {
+        Log-Error "Project root does not exist. Exiting."
+        exit
+    }
+}
 
-```json
+$DOCS_PATH = Join-Path $PROJECT_ROOT "docs"
+if (!(Test-Path $DOCS_PATH)) { New-Item -ItemType Directory -Path $DOCS_PATH | Out-Null }
+Log-Info "Docs directory: $DOCS_PATH"
+
+# --------------------------------------------------
+# 1. Install codebase-memory-mcp
+# --------------------------------------------------
+Write-Host "`n--------------------------------------------"
+Write-Host "  Step 1: Installing codebase-memory-mcp"
+Write-Host "--------------------------------------------"
+
+$LOCAL_BIN = Join-Path $USER_HOME ".local\bin"
+if (!(Test-Path $LOCAL_BIN)) { New-Item -ItemType Directory -Path $LOCAL_BIN | Out-Null }
+
+$CM_EXE_PATH = Join-Path $LOCAL_BIN "codebase-memory-mcp.exe"
+$SKIP_CM = $false
+
+if (Test-Path $CM_EXE_PATH) {
+    Log-Warn "codebase-memory-mcp already installed"
+    $reinstall = Read-Host "  Reinstall? (y/n)"
+    if ($reinstall -ne 'y') {
+        Log-Info "Skipping — using existing binary"
+        $SKIP_CM = $true
+    }
+}
+
+if (-not $SKIP_CM) {
+    # Check for Git
+    if (!(Get-Command git -ErrorAction SilentlyContinue)) {
+        Log-Error "Git is not installed. Please install Git first."
+        $CODEBASE_MEMORY_PATH = ""
+    } else {
+        $TEMP_DIR = Join-Path $env:TEMP ([Guid]::NewGuid().ToString())
+        New-Item -ItemType Directory -Path $TEMP_DIR | Out-Null
+        
+        Log-Info "Cloning codebase-memory-mcp..."
+        git clone --depth=1 https://github.com/DeusData/codebase-memory-mcp.git "$TEMP_DIR\codebase-memory-mcp"
+        
+        # Note: Windows build requires MSVC/Visual Studio Build Tools. 
+        # If 'cmake' and 'cl.exe' are not found, we warn the user.
+        if (Get-Command cmake -ErrorAction SilentlyContinue) {
+            Log-Info "Building with CMake..."
+            Push-Location "$TEMP_DIR\codebase-memory-mcp"
+            # Windows build steps (Assuming standard CMake workflow)
+            if (!(Test-Path "build")) { New-Item -ItemType Directory -Path "build" | Out-Null }
+            cd build
+            cmake ..
+            cmake --build . --config Release
+            if (Test-Path "Release\codebase-memory-mcp.exe") {
+                Move-Item "Release\codebase-memory-mcp.exe" $CM_EXE_PATH -Force
+                Log-Info "Installed: $CM_EXE_PATH"
+                $CODEBASE_MEMORY_PATH = $CM_EXE_PATH
+            } else {
+                Log-Error "Build failed (Executable not found)."
+                $CODEBASE_MEMORY_PATH = ""
+            }
+            Pop-Location
+        } else {
+            Log-Warn "CMake not found. Skipping build. Please download pre-built binary if available."
+            $CODEBASE_MEMORY_PATH = ""
+        }
+    }
+} else {
+    $CODEBASE_MEMORY_PATH = $CM_EXE_PATH
+}
+
+# --------------------------------------------------
+# 2. Install basic-memory
+# --------------------------------------------------
+Write-Host "`n--------------------------------------------"
+Write-Host "  Step 2: Installing basic-memory"
+Write-Host "--------------------------------------------"
+
+if (!(Get-Command uv -ErrorAction SilentlyContinue)) {
+    Log-Info "Installing uv..."
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+    $env:Path += ";$USER_HOME\.local\bin"
+}
+
+Log-Info "Installing basic-memory via uv..."
+& uv tool install --force basic-memory
+
+# Reliable path detection
+$BASIC_MEMORY_PATH = "$USER_HOME\AppData\Roaming\uv\tools\basic-memory\Scripts\basic-memory.exe"
+if (!(Test-Path $BASIC_MEMORY_PATH)) {
+    $BASIC_MEMORY_PATH = (Get-Command basic-memory -ErrorAction SilentlyContinue).Source
+}
+
+if (-not $BASIC_MEMORY_PATH) {
+    Log-Error "Could not find basic-memory binary!"
+    $BASIC_MEMORY_PATH = "basic-memory.exe"
+} else {
+    Log-Info "basic-memory ready: $BASIC_MEMORY_PATH"
+}
+
+# --------------------------------------------------
+# 3. Configure Project-Level KiloCode mcp.json
+# --------------------------------------------------
+Write-Host "`n--------------------------------------------"
+Write-Host "  Step 3: Project-Level KiloCode mcp.json"
+Write-Host "--------------------------------------------"
+
+$KILOCODE_DIR = Join-Path $PROJECT_ROOT ".kilocode"
+if (!(Test-Path $KILOCODE_DIR)) { New-Item -ItemType Directory -Path $KILOCODE_DIR | Out-Null }
+
+$MCP_JSON = Join-Path $KILOCODE_DIR "mcp.json"
+
+$CM_BLOCK = if ($CODEBASE_MEMORY_PATH) {
+    "    `"codebase-memory`": { `"command`": `"$($CODEBASE_MEMORY_PATH -replace '\\', '\\')`", `"args`": [] },"
+} else {
+    "    // codebase-memory-mcp: install failed or skipped"
+}
+
+$JSON_CONTENT = @"
 {
   "mcpServers": {
-    "codebase-memory": {
-      "command": "C:/Users/your-user-dir/.local/bin/codebase-memory-mcp.exe"
-    },
+$CM_BLOCK
     "basic-memory": {
-      "command": "C:/Users/your-user-dir/AppData/Roaming/uv/tools/basic-memory/bin/basic-memory.exe",
+      "command": "$($BASIC_MEMORY_PATH -replace '\\', '\\')",
       "args": [
         "mcp",
         "--path",
-        "C:/your-project-root/docs"
+        "$($DOCS_PATH -replace '\\', '\\')"
       ]
     }
   }
 }
-```
+"@
 
-        - **For Beginner Only**
+$JSON_CONTENT | Out-File -FilePath $MCP_JSON -Encoding utf8
+Log-Info "Written: $MCP_JSON"
 
-          - Open the **`mcp.json`** file in VS Code  
+# --------------------------------------------------
+# 4. Create agent.md
+# --------------------------------------------------
+Write-Host "`n--------------------------------------------"
+Write-Host "  Step 4: Creating agent.md"
+Write-Host "--------------------------------------------"
 
-          - Paste the above code inside it (update paths with your Windows username)  
-
-          - Press **`Ctrl + S`** to save  
-
-          - Ensure the file is inside your project folder  
-
----
-
-### Step 3: Create or Modify Agent Configuration
-
-Create or update `agent.md` in your project root.
-
-- If the file already exists → modify it  
-- If not → create a new file named `agent.md`  
-
----
-
-#### Add the following content to your `agent.md`:
-
-```md
+$AGENT_MD_PATH = Join-Path $PROJECT_ROOT "agent.md"
+$AGENT_CONTENT = @"
 # Knowledge & Memory Configuration
 
 ## Documentation Retrieval & Context Building
@@ -191,13 +228,14 @@ Create or update `agent.md` in your project root.
 Use MCP tools to retrieve, process, and build context from project-specific data.
 
 - Always check the `docs/` directory before answering or making changes.
-- codebase-memory MCP → Understand and recall codebase structure, files, and relationships.
-- basic-memory MCP →  
-  - Store and recall important context across tasks.  
-  - Observe processed documentation and extract useful context when needed.  
+- **codebase-memory MCP** -> Understand and recall codebase structure, files, and relationships.
+- **basic-memory MCP** ->
+  - Store and recall important context across tasks.
+  - Observe processed documentation and extract useful context when needed.
   - Help maintain continuity based on user prompts and previous interactions.
 
 The `docs/` folder acts as the primary knowledge source. Documentation placed here will be processed and used to generate better, context-aware responses.
+
 
 ## Agent Behavior & Decision Making
 
@@ -211,28 +249,73 @@ The `docs/` folder acts as the primary knowledge source. Documentation placed he
 
 This section is used to define project-specific rules, constraints, and architectural decisions.
 
-- Add any strict rules, limitations, or important instructions here.  
-- These constraints will be treated as the source of truth by the agent.  
+- Add any strict rules, limitations, or important instructions here.
+- These constraints will be treated as the source of truth by the agent.
 - The agent will read and follow all rules defined in this section during execution.
+- Examples include API limits, architecture rules, naming conventions, and restricted changes.
+"@
+
+if (Test-Path $AGENT_MD_PATH) {
+    $overwrite = Read-Host "  agent.md already exists. Overwrite? (y/n)"
+    if ($overwrite -eq 'y') {
+        $AGENT_CONTENT | Out-File -FilePath $AGENT_MD_PATH -Encoding utf8
+        Log-Info "Overwritten: $AGENT_MD_PATH"
+    }
+} else {
+    $AGENT_CONTENT | Out-File -FilePath $AGENT_MD_PATH -Encoding utf8
+    Log-Info "Created: $AGENT_MD_PATH"
+}
+
+Write-Host "`n============================================"
+Write-Host "  Setup Complete! (Windows)" -ForegroundColor Green
+Write-Host "============================================`n"
+Log-Info "Project Structure: $PROJECT_ROOT"
+Log-Info "MCP Config: $MCP_JSON"
 ```
 
 ---
 
-### Step 4: Start Your Agent
+### 🚀 Step 4: Run Script
 
-Start KiloCode inside VS Code — it will automatically load MCP tools from `mcp.json`.
+Open PowerShell and run (replace with your project path):
 
-        - **For Beginner Only**
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
-          - Open your project in VS Code  
+.\setup-mcp-tools.ps1 "C:\path\to\your\project"
+```
 
-          - Make sure `mcp.json` file is present  
+---
 
-          - Open KiloCode extension  
+## 📁 Project Structure After Setup
 
-          - Start or reload the agent
+```plaintext
+your-project/
+│
+├── .kilocode/
+│   └── mcp.json
+├── docs/
+├── agent.md
+└── your project files...
+```
 
-          - The agent will read `mcp.json` and connect all tools  
+---
+
+## 🚀 Start Your Agent
+
+Open your project in VS Code and start KiloCode — everything will connect automatically.
+
+---
+
+## ⚙️ Agent Configuration
+
+`agent.md` file is automatically created.
+
+👉 Use this file to:
+
+* Define project rules
+* Add constraints
+* Control agent behavior
 
 ---
 
@@ -247,7 +330,7 @@ Add your documentation, project notes, flows, and architecture details inside th
   - If you have diagrams (flowcharts, architecture diagrams, etc.), convert them into text (Markdown) before adding them. You can use AI tools like ChatGPT or Gemini — upload your diagram image and use the prompt provided below.
   ```text
   Convert this diagram into a clear Markdown explanation with step-by-step flow and components.
-  ``` 
+  ```
 
 - **Agent-driven development**  
 Give prompts like “analyze this codebase”, “fix this bug”, or “add a new feature”. The agent will use MCP tools automatically to understand your project, maintain context, and assist you during development.
@@ -257,4 +340,4 @@ Give prompts like “analyze this codebase”, “fix this bug”, or “add a n
 - Use the `docs/` folder to enable RAG by adding documentation and references  
 - Do not store strict architectural rules or constraints inside `docs/`  
 - Always define important rules and constraints, and decisions inside `agent.md` 
-- Use the **User-Defined Constraints** section in `agent.md` to control agent behavior when needed.   
+- Use the **User-Defined Constraints** section in `agent.md` to control agent behavior when needed.  

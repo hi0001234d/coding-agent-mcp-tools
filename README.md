@@ -692,6 +692,28 @@ Tools that help connect AI models, agents, and developer tooling for faster work
 - [ScriptFlow MCP](https://github.com/yanmxa/scriptflow-mcp) — Convert repetitive AI interactions into reusable automation scripts.
 - [StripFeed](https://github.com/StripFeed/mcp-server) — Extracts content from URLs and converts it into token-efficient Markdown format.
 - [optuna-mcp](https://github.com/optuna/optuna-mcp) — Official Optuna integration for orchestrating hyperparameter optimization workflows with AI agents.  
+- [openapi-mcp](https://github.com/ckanthony/openapi-mcp) — Generates MCP tools directly from existing OpenAPI documentation, allowing agents to interact with APIs automatically.
+- [openapi-to-mcp](https://github.com/ouvreboite/openapi-to-mcp) — Converts APIs into MCP tools with support for OAuth2 authentication and secure integrations.
+- [outsource-mcp](https://github.com/gwbischof/outsource-mcp) — Allows one AI agent to delegate specific tasks to other specialized AI models such as OpenAI or Gemini.
+- [make-mcp-server](https://github.com/integromat/make-mcp-server) — Converts Make (Integromat) automation scenarios into AI agent-callable tools.
+- [mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge) — Exposes curated GraphQL queries as modular MCP tools for structured data access.
+
+---
+
+### Observability Tools for MCP Servers
+
+Tools that help monitor, trace, and analyze MCP servers and AI agent behavior for better debugging and system visibility.
+
+- [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector) (MCP) – Observability and telemetry data collection for MCP 
+- [Inspector](https://github.com/modelcontextprotocol/inspector) – Debugging and observability tool for MCP servers
+- [Grafana](https://github.com/grafana/grafana) (MCP) – Analytics and visualization platform for MCP observability data 
+- [AgentOps](https://github.com/AgentOps-AI/agentops) – Monitor, trace, and debug AI agent executions with observability tools  
+- [Netdata MCP](https://github.com/netdata/netdata/blob/master/src/web/mcp/README.md) – Discovery, exploration, reporting and root cause analysis using observability data 
+- [langfuse-mcp (avivsinai)](https://github.com/avivsinai/langfuse-mcp) — Provides debugging tools for querying LLM application traces, analyzing exceptions, and inspecting sessions.
+- [Langfuse MCP](https://github.com/langfuse/mcp-server-langfuse) – Monitor and debug LLM applications with observability tools
+- [Logfire MCP](https://github.com/pydantic/logfire-mcp) – Access OpenTelemetry traces and metrics  
+- [renoun-mcp](https://github.com/98lukehall/renoun-mcp) — Provides structural observability for AI conversations and system workflows, tracking loops and state transitions.
+- [mcp-monitor](https://github.com/seekrays/mcp-monitor) — Exposes real-time system metrics such as CPU, memory, disk, and network usage for LLM agents.
 
 ---
 
@@ -718,7 +740,6 @@ Tools that help track application performance, logs, and system activity.
 - [SystemSage](https://github.com/Tarusharma1/SystemSage) — Cross-platform system monitoring and management.
 - [sslmon](https://github.com/firesh/sslmon-mcp) — Monitor domain registration and SSL certificate validity.
 - [WaveGuardClient](https://github.com/gpartin/WaveGuardClient) — Physics-based anomaly detection system that uses GPU acceleration to detect infrastructure and system anomalies.  
-
 - [Datadog MCP (TANTIOPE)](https://github.com/TANTIOPE/datadog-mcp-server) — Provides access to Datadog observability data for log search, APM trace filtering, and cross-correlation between logs and metrics.  
 - [dynatrace-mcp](https://github.com/dynatrace-oss/dynatrace-mcp) — Connects with the Dynatrace observability platform to analyze anomalies, events, and distributed traces.  
 - [VictoriaMetrics MCP](https://github.com/VictoriaMetrics-Community/mcp-victoriametrics) — Integrates with VictoriaMetrics monitoring APIs to query metrics and analyze monitoring data.  
@@ -727,6 +748,7 @@ Tools that help track application performance, logs, and system activity.
 - [fortimonitor-mcp-server](https://github.com/gjenkins20/unofficial-fortimonitor-mcp-server) — Provides monitoring tools for infrastructure tracking, outage detection, and notification management.  
 - [Axiom MCP](https://github.com/axiomhq/mcp-server-axiom) – Query and analyze logs, traces, and observability data using MCP
 - [KYC-mcp-server](https://github.com/vishnurudra-ai/KYC-mcp-server) — System diagnostics for operating systems.
+- [netskope-mcp](https://github.com/johnneerdael/netskope-mcp) — Provides access to information about private access environments and security components managed by Netskope.
 
 ---
 
@@ -808,6 +830,7 @@ Tools that provide persistent memory and knowledge storage capabilities for AI a
 - [Ragie](https://github.com/ragieai/ragie-mcp-server/) – Retrieve context from your Ragie (RAG) knowledge base connected to integrations like Google Drive, Notion, JIRA and more
 - [Chroma MCP](https://github.com/privetin/chroma) – Vector database server for semantic document search and metadata filtering
 - [Context-portal MCP](https://github.com/GreatScottyMac/context-portal) – Build project-specific memory graphs for RAG applications   
+- [Yuque-MCP-Server](https://github.com/HenryHaoson/Yuque-MCP-Server) — Integrates with Yuque to manage documentation and interact with knowledge bases.
 
 ---
 
@@ -984,6 +1007,14 @@ Tools that help simplify and automate utility tasks in development workflows.
 - [box-mcp-server-remote](https://github.com/box/mcp-server-box-remote/) — Official MCP integration for securely accessing, searching, and managing Box cloud storage content.  
 - [mcp-gdrive](https://github.com/isaacphi/mcp-gdrive) — Integration for reading Google Drive files and editing Google Sheets through MCP.
 - [Whois MCP](https://github.com/bharathvaj-ganesan/whois-mcp) — Performs WHOIS lookups for domains, IPs, and network identifiers.
+- [webmin-mcp-server](https://github.com/gjenkins20/webmin-mcp-server) — Integrates with Webmin to manage Linux server services, users, storage, and system configurations.
+- [Google-Workspace-MCP-Server](https://github.com/giuseppe-coco/Google-Workspace-MCP-Server) — Provides seamless interaction with Google Workspace services including Gmail, Google Drive, and Google Calendar.
+- [quip-mcp](https://github.com/bug-breeder/quip-mcp) — Enables lifecycle management of Quip documents with features such as smart search and comment management.
+- [UnMarkdown](https://github.com/UnMarkdown/mcp-server) — Converts Markdown content into professional formats suitable for platforms like Google Docs, Microsoft Word, and Slack.
+- [toggl-mcp](https://github.com/louis030195/toggl-mcp) — Integrates with Toggl Track to provide time tracking capabilities for project billing and productivity monitoring.
+- [temporal-cortex/mcp](https://github.com/temporal-cortex/mcp) — Middleware for scheduling and booking that integrates with Google Calendar, Outlook, and CalDAV, featuring two-phase commit booking and deterministic datetime resolution.
+- [calendar-mcp](https://github.com/wyattjoh/calendar-mcp) — A specialized server for accessing and managing macOS Calendar events.
+- [jobgpt-mcp-server](https://github.com/6figr-com/jobgpt-mcp-server) — Provides 34 tools for job search workflows, including tailored resume generation and job application tracking.
 
 ---
 
@@ -1113,72 +1144,19 @@ Tools focused on analyzing and understanding existing infrastructure environment
 
 ---
 
-### API Integration & System Interoperability
-
-Tools that enable AI agents to integrate with existing APIs and external systems.
-
-- [openapi-mcp](https://github.com/ckanthony/openapi-mcp) — Generates MCP tools directly from existing OpenAPI documentation, allowing agents to interact with APIs automatically.
-- [openapi-to-mcp](https://github.com/ouvreboite/openapi-to-mcp) — Converts APIs into MCP tools with support for OAuth2 authentication and secure integrations.
-- [netskope-mcp](https://github.com/johnneerdael/netskope-mcp) — Provides access to information about private access environments and security components managed by Netskope.
-
----
-
-
-### Multi-Agent Coordination & Delegation
-
-Tools that enable multiple AI agents to collaborate, delegate tasks, and coordinate workflows.
-
-- [outsource-mcp](https://github.com/gwbischof/outsource-mcp) — Allows one AI agent to delegate specific tasks to other specialized AI models such as OpenAI or Gemini.
-
----
-
-### System Administration
-
-Tools designed for Linux and server administration tasks.
-
-- [webmin-mcp-server](https://github.com/gjenkins20/webmin-mcp-server) — Integrates with Webmin to manage Linux server services, users, storage, and system configurations.
-
----
-
 ### Task & Project Management Systems
 
 Tools that integrate with task management and project workflow platforms.
 
-- [kanboard-mcp](https://github.com/bivex/kanboard-mcp) — A Go-based server that converts natural language commands into Kanboard API actions.
-- [better-notion-mcp](https://github.com/n24q02m/better-notion-mcp) — Markdown-first Notion integration with tiered documentation, designed to reduce token usage by up to ~77%.
 - [mcp-orchestro](https://github.com/khaoss85/mcp-orchestro) — A Trello-like visual Kanban board for Claude Code with over 60 MCP tools for workflow management.
 - [claudia](https://github.com/yuvalsuede/claudia) — AI-native task management system supporting hierarchical tasks, dependencies, and multi-agent coordination.
 - [huly-mcp](https://github.com/dearlordylord/huly-mcp) — Integration for the Huly project management platform to query issues and update tasks.
-
----
-
-### Workspace & Productivity Suite
-
-Tools designed to improve everyday productivity by integrating with document systems, collaboration tools, and time tracking platforms.
-
-- [Google-Workspace-MCP-Server](https://github.com/giuseppe-coco/Google-Workspace-MCP-Server) — Provides seamless interaction with Google Workspace services including Gmail, Google Drive, and Google Calendar.
-- [quip-mcp](https://github.com/bug-breeder/quip-mcp) — Enables lifecycle management of Quip documents with features such as smart search and comment management.
-- [UnMarkdown](https://github.com/UnMarkdown/mcp-server) — Converts Markdown content into professional formats suitable for platforms like Google Docs, Microsoft Word, and Slack.
-- [toggl-mcp](https://github.com/louis030195/toggl-mcp) — Integrates with Toggl Track to provide time tracking capabilities for project billing and productivity monitoring.
-
----
-
-### Scheduling & Calendar Integration
-
-Tools that help manage scheduling, calendar events, and time-based workflows across different platforms.
-
-- [temporal-cortex/mcp](https://github.com/temporal-cortex/mcp) — Middleware for scheduling and booking that integrates with Google Calendar, Outlook, and CalDAV, featuring two-phase commit booking and deterministic datetime resolution.
 - [reclaim-mcp-server](https://github.com/universalamateur/reclaim-mcp-server) — Integrates with Reclaim.ai and provides 40 tools for managing tasks, habits, and focus time.
-- [calendar-mcp](https://github.com/wyattjoh/calendar-mcp) — A specialized server for accessing and managing macOS Calendar events.
-
----
-
-### Career & CRM Tools
-
-Tools focused on career management, job search automation, and personal relationship management.
-
-- [jobgpt-mcp-server](https://github.com/6figr-com/jobgpt-mcp-server) — Provides 34 tools for job search workflows, including tailored resume generation and job application tracking.
 - [keepsake-mcp](https://github.com/nicolascroce/keepsake-mcp) — Personal CRM system with 42 tools for managing contacts, tracking interactions, and organizing notes.
+- [plane-mcp-server](https://github.com/kelvin6365/plane-mcp-server) — Enables AI agents to manage projects and issues within the Plane project management platform.
+- [mcp-linear](https://github.com/tacticlaunch/mcp-linear) — Provides integration with the Linear project management system for managing issues and workflows.
+- [better-notion-mcp](https://github.com/n24q02m/better-notion-mcp) — Markdown-first Notion integration with tiered documentation, designed to reduce token usage by up to ~77%.
+- [kanboard-mcp](https://github.com/bivex/kanboard-mcp) — A Go-based server that converts natural language commands into Kanboard API actions.
 
 ---
 
@@ -1189,42 +1167,6 @@ Tools for visualizing existing system logic, architecture, and workflows to impr
 - [plantuml_web](https://github.com/2niuhe/plantuml_web) — Provides PlantUML syntax validation and diagram generation to visualize complex system architectures and workflows.
 - [ai-vision-mcp](https://github.com/tan-yong-sheng/ai-vision-mcp) — Multimodal AI vision server that supports UI/UX evaluation, visual regression testing, and interface understanding.
 - [screenpipe](https://github.com/mediar-ai/screenpipe) — Local-first system for capturing screen and audio data with semantic search and historical analysis capabilities.
-
----
-
-### Developer Productivity & Automation
-
-Tools designed to streamline developer workflows and expose automation tools that AI agents can interact with.
-
-- [make-mcp-server](https://github.com/integromat/make-mcp-server) — Converts Make (Integromat) automation scenarios into AI agent-callable tools.
-- [mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge) — Exposes curated GraphQL queries as modular MCP tools for structured data access.
-
----
-
-### Project & Knowledge Management
-
-Tools that support team collaboration, project coordination, and integration with documentation or knowledge base systems.
-
-- [plane-mcp-server](https://github.com/kelvin6365/plane-mcp-server) — Enables AI agents to manage projects and issues within the Plane project management platform.
-- [Yuque-MCP-Server](https://github.com/HenryHaoson/Yuque-MCP-Server) — Integrates with Yuque to manage documentation and interact with knowledge bases.
-- [mcp-linear](https://github.com/tacticlaunch/mcp-linear) — Provides integration with the Linear project management system for managing issues and workflows.
-
----
-
-### Observability Tools for MCP Servers
-
-Tools that help monitor, trace, and analyze MCP servers and AI agent behavior for better debugging and system visibility.
-
-- [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector) (MCP) – Observability and telemetry data collection for MCP 
-- [Inspector](https://github.com/modelcontextprotocol/inspector) – Debugging and observability tool for MCP servers
-- [Grafana](https://github.com/grafana/grafana) (MCP) – Analytics and visualization platform for MCP observability data 
-- [AgentOps](https://github.com/AgentOps-AI/agentops) – Monitor, trace, and debug AI agent executions with observability tools  
-- [Netdata MCP](https://github.com/netdata/netdata/blob/master/src/web/mcp/README.md) – Discovery, exploration, reporting and root cause analysis using observability data 
-- [langfuse-mcp (avivsinai)](https://github.com/avivsinai/langfuse-mcp) — Provides debugging tools for querying LLM application traces, analyzing exceptions, and inspecting sessions.
-- [Langfuse MCP](https://github.com/langfuse/mcp-server-langfuse) – Monitor and debug LLM applications with observability tools
-- [Logfire MCP](https://github.com/pydantic/logfire-mcp) – Access OpenTelemetry traces and metrics  
-- [renoun-mcp](https://github.com/98lukehall/renoun-mcp) — Provides structural observability for AI conversations and system workflows, tracking loops and state transitions.
-- [mcp-monitor](https://github.com/seekrays/mcp-monitor) — Exposes real-time system metrics such as CPU, memory, disk, and network usage for LLM agents.
 
 ---
 

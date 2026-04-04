@@ -146,6 +146,24 @@ kilocode
 
 ---
 
+## ✅ Start Using
+
+Now you can start using your setup with:
+
+- **RAG-based workflows**  
+Add your documentation, project notes, flows, and architecture details inside the `docs/` folder so the agent can read and use them while answering queries or modifying code.
+
+  - You can include architecture explanations, system flows, and feature-level details in text format.
+  - If you have diagrams (flowcharts, architecture diagrams, etc.), convert them into text (Markdown) before adding them. You can use AI tools like ChatGPT or Gemini — upload your diagram image and use the prompt provided below.
+  ```text
+  Convert this diagram into a clear Markdown explanation with step-by-step flow and components.
+  ```
+
+- **Agent-driven development**  
+Give prompts like “analyze this codebase”, “fix this bug”, or “add a new feature”. The agent will use MCP tools automatically to understand your project, maintain context, and assist you during development.
+
+---
+
 ## 🧹 Cleanup
 
 ### Exit container
