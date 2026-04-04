@@ -58,8 +58,8 @@ docker run -it --name kilocode-container \
 
 ### Step 3: Setup MCP (One Command - Recommended)
 
-Run the following command in your project terminal:
-
+👉 Paste the below command into your project terminal and press Enter.
+This will automatically create the **`docker-compose.yml`** file.
 
 ```bash
 cat > docker-compose.yml << 'EOF'
@@ -116,9 +116,6 @@ services:
     restart: unless-stopped
 EOF
 ```
-
-👉 Paste the above command into your project terminal and press Enter.
-This will automatically create the **`docker-compose.yml`** file.
 
 
 ## 🚀 Run Docker Services
