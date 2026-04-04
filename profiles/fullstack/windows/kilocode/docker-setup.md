@@ -49,10 +49,9 @@ docker run -it --name kilocode-container `
 
 Inside the container terminal (which is now a bash shell), paste and run this command:
 
-```bash
-cat > docker-compose.yml << 'EOF'
+```powershell
+$composeContent = @"
 services:
-
   mcp_setup:
     container_name: mcp_setup
     image: alpine
@@ -62,7 +61,7 @@ services:
       sh -c '
         mkdir -p /project/.kilocode /project/docs &&
         printf "{\"mcpServers\":{\"codebase-memory\":{\"command\":\"docker\",\"args\":[\"exec\",\"-i\",\"mcp_codebase_memory\",\"codebase-memory-mcp\"],\"disabled\":false,\"alwaysAllow\":[]},\"basic-memory\":{\"command\":\"docker\",\"args\":[\"exec\",\"-i\",\"mcp_basic_memory\",\"basic-memory\",\"mcp\",\"--path\",\"/data/docs\"],\"disabled\":false,\"alwaysAllow\":[]}}}" > /project/.kilocode/mcp.json &&
-        echo "mcp.json generated!"
+        echo \"mcp.json generated!\"
       '
     restart: "no"
 
@@ -92,7 +91,7 @@ services:
       dockerfile_inline: |
         FROM python:3.12-slim
         RUN pip install --no-cache-dir uv && uv tool install basic-memory
-        ENV PATH="/root/.local/bin:$PATH"
+        ENV PATH="/root/.local/bin:`$PATH"
         ENV TMPDIR=/tmp
         RUN mkdir -p /data/docs
         WORKDIR /data
@@ -102,7 +101,10 @@ services:
       - ./docs:/data/docs
     stdin_open: true
     restart: unless-stopped
-EOF
+"@
+
+$composeContent | Out-File -FilePath docker-compose.yml -Encoding utf8
+Write-Host "docker-compose.yml generated successfully!"
 ```
 
 👉 This will automatically create the **`docker-compose.yml`** file inside your project.

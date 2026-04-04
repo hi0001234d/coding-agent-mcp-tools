@@ -45,9 +45,8 @@ docker run -it --name kilocode-container \
 Inside the container terminal (bash), paste and run this command:
 
 ```bash
-cat > docker-compose.yml << 'EOF'
+cat << 'EOF' > docker-compose.yml
 services:
-
   mcp_setup:
     container_name: mcp_setup
     image: alpine
@@ -98,6 +97,8 @@ services:
     stdin_open: true
     restart: unless-stopped
 EOF
+
+echo "docker-compose.yml has been created for Mac!"
 ```
 
 👉 This will automatically create the **`docker-compose.yml`** file.
