@@ -1,238 +1,222 @@
 # 🐳 Run in Docker (Windows - Clean & Isolated Environment)
 
-Docker provides a fully isolated environment on Windows where you can run your coding agent and MCP tools without cluttering your system with Linux-based dependencies.
+Docker provides a fully isolated environment on Windows where you can run your coding agent and MCP tools without affecting your host system.
 
 ---
 
-### ✅ Use it if you want:
-
-- A clean setup  
+## ✅ Use it if you want:
+- A clean setup on Windows  
 - To test multiple profiles  
 - A disposable environment  
 
 ---
 
-## ⚙️ Docker Setup for Windows
+## ⚙️ Docker Setup
 
 ### Step 1: Install Docker Desktop
 
-- **Update WSL (Crucial for Fresh Windows)**: Open PowerShell as Administrator and run:
-```powershell
-wsl --update
-```
-- Download [**Docker Desktop for Windows**](https://www.docker.com/products/docker-desktop/)  
-- Run the installer  
-- Ensure **"Use WSL 2 instead of Hyper-V"** is checked (Recommended)  
-- Restart your system after installation  
-- Launch Docker Desktop and wait for **Engine Running (Green icon)**  
+If Docker is not installed on your system:
+
+1. Download and install [**Docker Desktop for Windows**](https://www.docker.com/products/docker-desktop/):  
+2. During installation, ensure the **WSL 2 backend** option is selected.
+3. Restart your computer if prompted and ensure Docker Desktop is running.
 
 ---
 
-### Step 2: Verify Installation
+### Step 2: Run Docker Container
 
-Open PowerShell or Command Prompt:
-
-```powershell
-docker compose version
-```
-
----
-
-### Step 3: Create Required Folders
-
-Place files like this:
-
-```
-mcp-project/
-├── docker-compose.yml
-├── mcp/
-│   ├── codebase-memory/
-│   │   └── Dockerfile
-│   └── basic-memory/
-│       └── Dockerfile
-├── docs/
-```
-
-Create folders using PowerShell:
+Open **PowerShell** inside your project folder, then run:
 
 ```powershell
-mkdir mcp/codebase-memory, mcp/basic-memory, docs
+docker run -it --name kilocode-container `
+  -v ${PWD}:/your-project-root `
+  -w /your-project-root `
+  node:20 `
+  bash
 ```
 
 ---
 
-### Step 4: Add Dockerfiles
+### 🔍 What this does
 
-Create the following files using VS Code.
-
-        - **1. Codebase Memory MCP (`mcp/codebase-memory/Dockerfile`)**
-
-```dockerfile
-        FROM ubuntu:22.04
-
-        WORKDIR /app
-
-        RUN apt update && apt install -y \
-            git \
-            gcc \
-            libglib2.0-dev \
-            build-essential
-
-        RUN git clone https://github.com/DeusData/codebase-memory-mcp.git
-
-        WORKDIR /app/codebase-memory-mcp
-
-        RUN chmod +x scripts/build.sh && scripts/build.sh
-
-        RUN find . -type f -name "codebase-memory-mcp" -exec mv {} /usr/local/bin/codebase-memory-mcp \;
-
-        CMD ["codebase-memory-mcp"]
-```
-
-
-        - **2. Basic Memory MCP (`mcp/basic-memory/Dockerfile`)**
-
-```dockerfile
-        FROM python:3.11
-
-        WORKDIR /app
-
-        # Required for data persistence
-        RUN mkdir -p /data/docs
-        ENV BASIC_MEMORY_HOME=/data
-
-        RUN apt update && apt install -y curl
-
-        RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-
-        ENV PATH="/root/.local/bin:$PATH"
-
-        RUN uv tool install basic-memory
-
-        CMD ["basic-memory", "mcp", "--path", "/data/docs"]
-```
-
-
-        - **3. Add docker-compose.yml**
-
-        Create a **`docker-compose.yml`** file in your main project root directory:
-
-```yaml
-        services:
-          codebase-memory:
-            build: ./mcp/codebase-memory
-            container_name: mcp_codebase_memory
-            stdin_open: true
-            tty: true
-
-          basic-memory:
-            build: ./mcp/basic-memory
-            container_name: mcp_basic_memory
-            volumes:
-              - ./docs:/data/docs
-            stdin_open: true
-            tty: true
-```
+- `-v $(pwd):/your-project-root` → Your current project folder is mounted inside the container    
+- `-w /your-project-root` → Container starts inside your project folder  
+- `node:20` → Official Node.js v20 environment (required to run KiloCode and MCP tools)  
 
 ---
 
-### Step 5: Start MCP Servers
+### Step 3: Setup MCP (One Command - Recommended)
 
-Open PowerShell inside your project folder:
+Inside the container terminal (which is now a bash shell), paste and run this command:
 
-```powershell
+```bash
+cat > docker-compose.yml << 'EOF'
+services:
+
+  mcp_setup:
+    container_name: mcp_setup
+    image: alpine
+    volumes:
+      - .:/project
+    command: >
+      sh -c '
+        mkdir -p /project/.kilocode /project/docs &&
+        printf "{\"mcpServers\":{\"codebase-memory\":{\"command\":\"docker\",\"args\":[\"exec\",\"-i\",\"mcp_codebase_memory\",\"codebase-memory-mcp\"],\"disabled\":false,\"alwaysAllow\":[]},\"basic-memory\":{\"command\":\"docker\",\"args\":[\"exec\",\"-i\",\"mcp_basic_memory\",\"basic-memory\",\"mcp\",\"--path\",\"/data/docs\"],\"disabled\":false,\"alwaysAllow\":[]}}}" > /project/.kilocode/mcp.json &&
+        echo "mcp.json generated!"
+      '
+    restart: "no"
+
+  mcp_codebase_memory:
+    container_name: mcp_codebase_memory
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM ubuntu:24.04
+        ENV DEBIAN_FRONTEND=noninteractive
+        RUN apt update && apt install -y curl tar && rm -rf /var/lib/apt/lists/*
+        RUN curl -fsSL https://github.com/DeusData/codebase-memory-mcp/releases/latest/download/codebase-memory-mcp-linux-amd64.tar.gz \
+            | tar xz && \
+            mv codebase-memory-mcp /usr/local/bin/ && \
+            chmod +x /usr/local/bin/codebase-memory-mcp
+        WORKDIR /project
+        ENTRYPOINT ["codebase-memory-mcp"]
+    volumes:
+      - .:/project
+    stdin_open: true
+    restart: unless-stopped
+
+  mcp_basic_memory:
+    container_name: mcp_basic_memory
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM python:3.12-slim
+        RUN pip install --no-cache-dir uv && uv tool install basic-memory
+        ENV PATH="/root/.local/bin:$PATH"
+        ENV TMPDIR=/tmp
+        RUN mkdir -p /data/docs
+        WORKDIR /data
+        ENTRYPOINT ["basic-memory"]
+        CMD ["mcp", "--path", "/data/docs"]
+    volumes:
+      - ./docs:/data/docs
+    stdin_open: true
+    restart: unless-stopped
+EOF
+```
+
+👉 This will automatically create the **`docker-compose.yml`** file inside your project.
+
+## 🚀 Run Docker Services
+
+After creating the file, run:
+
+```bash
 docker compose up -d --build
 ```
 
----
-
-### Step 6: Verify Containers
-
-```powershell
-docker ps
-```
-
-You should see:
-
-- `mcp_codebase_memory`  
-- `mcp_basic_memory`  
+👉 This command will build and start all the required containers.
 
 ---
 
-### Step 7: Check Logs
+## 🚀 Inside Docker (Complete Flow)
+
+Now you are inside a clean container.
+
+### Step 4: Verify Project
 
 ```bash
-docker logs mcp_codebase_memory
-docker logs mcp_basic_memory
+ls
 ```
----
 
-### Step 8: Add MCP Configuration
+You should see your project files like this.
 
-#### 8.1 Add MCP Configuration (Using Text Editor)
-
-        - **⚠️ If Kilo Code is not installed, follow the steps below:**
-
-        - 1. Install the Kilo Code extension in VS Code and open its Settings
-
-        - 2. Go to Agent Behaviour → MCP Server
-
-        - 3. Click Edit Project MCP and add the provided MCP configuration
-
-        - 4. Save and verify the status turns green (connected successfully) 
+```
+your-project/
+├── .kilocode/ -> #folder will be created
+│   └── mcp.json -> #file will be generated (MCP configuration)
+├── docs/ -> #folder will be created (used by basic-memory)
+├── docker-compose.yml
+```
 
 ---
 
-Paste the following content inside the file:
+### Step 5: Install KiloCode CLI
 
-```json
-{
-  "mcpServers": {
-    "codebase-memory": {
-      "command": "docker",
-      "args": ["exec", "-i", "mcp_codebase_memory", "codebase-memory-mcp"]
-    },
-    "basic-memory": {
-      "command": "docker",
-      "args": ["exec", "-i", "mcp_basic_memory", "basic-memory", "mcp", "--path", "/data/docs"]
-    }
-  }
-}
+```bash
+npm install -g @kilocode/cli
 ```
-
-👉 Save the file after pasting.
 
 ---
-### Useful Commands
 
-#### Start containers
+### Step 6: Start KiloCode
 
-```powershell
-docker compose up -d
+```bash
+kilocode
 ```
 
-#### Stop containers:
+After starting KiloCode, run the following command inside the CLI:
 
-```powershell
-docker compose down
+```bash 
+/status
 ```
 
-#### Restart containers
+You should see MCP servers listed like:
+
+* codebase-memory
+* basic-memory
+
+👉 This confirms that both MCP services are successfully installed and connected.
+
+---
+
+## 📝 Note
+
+- After running the `kilocode` command(Step 6), MCP tools will start when you give your first prompt (e.g., `"Give me a broad overview of my project code"`)  
+- KiloCode reads `mcp.json` and loads the tools based on your configuration    
+- Everything runs inside Docker only  
+- It may take a few minutes on first run, as MCP tools need to initialize 
+
+---
+
+## ✅ Start Using
+
+Now you can start using your setup with:
+
+- **RAG-based workflows**  
+Add your documentation, project notes, flows, and architecture details inside the `docs/` folder so the agent can read and use them while answering queries or modifying code.
+
+  - You can include architecture explanations, system flows, and feature-level details in text format.
+  - If you have diagrams (flowcharts, architecture diagrams, etc.), convert them into text (Markdown) before adding them. You can use AI tools like ChatGPT or Gemini — upload your diagram image and use the prompt provided below.
+  ```text
+  Convert this diagram into a clear Markdown explanation with step-by-step flow and components.
+  ```
+
+- **Agent-driven development**  
+Give prompts like “analyze this codebase”, “fix this bug”, or “add a new feature”. The agent will use MCP tools automatically to understand your project, maintain context, and assist you during development.
+
+---
+
+## 🧹 Cleanup
+
+### Exit container
 
 ```powershell
-docker compose restart
+exit
 ```
 
-#### Remove containers completely:
+### Remove container
+
+💡 This will completely remove this setup.  
+Use this when you no longer need this profile, as it cleans up everything created for this environment.
 
 ```powershell
-docker compose down -v
+docker rm -f kilocode-container
 ```
-
 ---
 
 ## ✅ Result
 
-- Clean isolated environment  
+- Clean isolated environment on Windows 
 - No impact on your system  
-- Easy to test and remove  
+- Easy to test and remove 
