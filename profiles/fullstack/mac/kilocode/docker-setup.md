@@ -25,6 +25,7 @@ Open your **Terminal** inside your project folder, then run:
 ```bash
 docker run -it --name kilocode-container \
   -v $(pwd):/your-project-root \
+  -v /var/run/docker.sock:/var/run/docker.sock \
   -w /your-project-root \
   node:20 \
   bash
@@ -34,15 +35,29 @@ docker run -it --name kilocode-container \
 
 ### 🔍 What this does
 
-- `-v $(pwd):/your-project-root` → Your current project folder is mounted inside the container    
+- `-v $(pwd):/your-project-root` → Your current project folder is mounted inside the container  
+- `-v /var/run/docker.sock:/var/run/docker.sock` → Allows the container to communicate with the host's Docker engine (required for MCP tools to connect via `docker exec`)  
 - `-w /your-project-root` → Container starts inside your project folder  
 - `node:20` → Official Node.js v20 environment (required to run KiloCode and MCP tools)  
 
 ---
 
-### Step 3: Setup MCP (One Command - Recommended)
+### Step 3: Install Docker CLI Inside Container
 
-Inside the container terminal (bash), paste and run this command:
+Inside the container terminal (bash), run:
+
+```
+apt-get update && apt-get install -y docker.io
+```
+
+> This installs the Docker CLI so the container can run `docker exec` commands to communicate with MCP containers.
+
+---
+
+### Step 4: Setup MCP (One Command - Recommended)
+
+👉 Paste the below command into your project terminal and press Enter.
+This will automatically create the **`docker-compose.yml`** file.
 
 ```bash
 cat << 'EOF' > docker-compose.yml
@@ -101,14 +116,22 @@ EOF
 echo "docker-compose.yml has been created for Mac!"
 ```
 
-👉 This will automatically create the **`docker-compose.yml`** file.
-
 ## 🚀 Run Docker Services
 
-After creating the file, run:
+👉 After creating the file, **exit the container first**, then run from your Mac terminal:
+
+```
+exit
+```
 
 ```bash
 docker compose up -d --build
+```
+
+Then re-enter the container:
+
+```
+docker start -i kilocode-container
 ```
 
 👉 This command will build and start all the required containers.
@@ -119,7 +142,7 @@ docker compose up -d --build
 
 Now you are inside a clean container.
 
-### Step 4: Verify Project
+### Step 5: Verify Project
 
 ```bash
 ls
@@ -137,7 +160,7 @@ your-project/
 
 ---
 
-### Step 5: Install KiloCode CLI
+### Step 6: Install KiloCode CLI
 
 ```bash
 npm install -g @kilocode/cli
@@ -145,7 +168,7 @@ npm install -g @kilocode/cli
 
 ---
 
-### Step 6: Start KiloCode
+### Step 7: Start KiloCode
 
 ```bash
 kilocode

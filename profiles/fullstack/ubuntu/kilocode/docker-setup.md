@@ -120,7 +120,9 @@ EOF
 
 ## 🚀 Run Docker Services
 
-After creating the file, run:
+👉 The above command (Step 3) will automatically create the docker-compose.yml file in your project.
+
+After the file is created, run:
 
 ```bash
 docker compose up -d --build
