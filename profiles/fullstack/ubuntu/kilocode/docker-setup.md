@@ -56,54 +56,79 @@ docker run -it --name kilocode-container \
 
 ---
 
-### Step 3: Add MCP Configuration
+### Step 3: Setup MCP (One Command - Recommended)
 
-#### 3.1 Create MCP File
-
-Create a file named `mcp.json` in your project root.
-
-```
-mcp.json
-```
-
----
-
-#### 3.2 Add MCP Configuration (Using Text Editor)
-
-Now edit the file using any editor you prefer.
-
-👉 **Using terminal (vi editor):**
+👉 Paste the below command into your project terminal and press Enter.
+This will automatically create the **`docker-compose.yml`** file.
 
 ```bash
-vi mcp.json
+cat > docker-compose.yml << 'EOF'
+services:
+
+  mcp_setup:
+    container_name: mcp_setup
+    image: alpine
+    volumes:
+      - .:/project
+    command: >
+      sh -c '
+        mkdir -p /project/.kilocode /project/docs &&
+        printf "{\"mcpServers\":{\"codebase-memory\":{\"command\":\"docker\",\"args\":[\"exec\",\"-i\",\"mcp_codebase_memory\",\"codebase-memory-mcp\"],\"disabled\":false,\"alwaysAllow\":[]},\"basic-memory\":{\"command\":\"docker\",\"args\":[\"exec\",\"-i\",\"mcp_basic_memory\",\"basic-memory\",\"mcp\",\"--path\",\"/data/docs\"],\"disabled\":false,\"alwaysAllow\":[]}}}" > /project/.kilocode/mcp.json &&
+        echo "mcp.json generated!"
+      '
+    restart: "no"
+
+  mcp_codebase_memory:
+    container_name: mcp_codebase_memory
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM ubuntu:24.04
+        ENV DEBIAN_FRONTEND=noninteractive
+        RUN apt update && apt install -y curl tar && rm -rf /var/lib/apt/lists/*
+        RUN curl -fsSL https://github.com/DeusData/codebase-memory-mcp/releases/latest/download/codebase-memory-mcp-linux-amd64.tar.gz \
+            | tar xz && \
+            mv codebase-memory-mcp /usr/local/bin/ && \
+            chmod +x /usr/local/bin/codebase-memory-mcp
+        WORKDIR /project
+        ENTRYPOINT ["codebase-memory-mcp"]
+    volumes:
+      - .:/project
+    stdin_open: true
+    restart: unless-stopped
+
+  mcp_basic_memory:
+    container_name: mcp_basic_memory
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM python:3.12-slim
+        RUN pip install --no-cache-dir uv && uv tool install basic-memory
+        ENV PATH="/root/.local/bin:$PATH"
+        ENV TMPDIR=/tmp
+        RUN mkdir -p /data/docs
+        WORKDIR /data
+        ENTRYPOINT ["basic-memory"]
+        CMD ["mcp", "--path", "/data/docs"]
+    volumes:
+      - ./docs:/data/docs
+    stdin_open: true
+    restart: unless-stopped
+EOF
 ```
 
-👉 **Or open using GUI editor (example: gedit):**
+
+## 🚀 Run Docker Services
+
+👉 The above command (Step 3) will automatically create the docker-compose.yml file in your project.
+
+After the file is created, run:
 
 ```bash
-gedit mcp.json
+docker compose up -d --build
 ```
 
----
-
-Paste the following content inside the file:
-
-```json
-{
-  "mcpServers": {
-    "codebase-memory": {
-      "command": "docker",
-      "args": ["exec", "-i", "mcp_codebase_memory", "codebase-memory-mcp"]
-    },
-    "basic-memory": {
-      "command": "docker",
-      "args": ["exec", "-i", "mcp_basic_memory", "basic-memory", "mcp", "--path", "/data/docs"]
-    }
-  }
-}
-```
-
-👉 Save the file after pasting.
+👉 This command will build and start all the required containers.
 
 ---
 
@@ -117,14 +142,22 @@ Now you are inside a clean container.
 ls
 ```
 
-You should see your project files (including `mcp.json`).
+You should see your project files like this.
+
+```
+your-project/
+├── .kilocode/ -> #folder will be created
+│   └── mcp.json -> #file will be generated (MCP configuration)
+├── docs/ -> #folder will be created (used by basic-memory)
+├── docker-compose.yml
+```
 
 ---
 
 ### Step 5: Install KiloCode CLI
 
 ```bash
-npm install -g kilocode
+npm install -g @kilocode/cli
 ```
 
 ---
@@ -134,6 +167,19 @@ npm install -g kilocode
 ```bash
 kilocode
 ```
+
+After starting KiloCode, run the following command inside the CLI:
+
+```bash 
+/status
+```
+
+You should see MCP servers listed like:
+
+* codebase-memory
+* basic-memory
+
+👉 This confirms that both MCP services are successfully installed and connected.
 
 ---
 
