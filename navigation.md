@@ -26,8 +26,4 @@
   <img src="https://img.shields.io/badge/🐞%20Cost%20Optimized%20Debugging-DC2626?style=for-the-badge&logoColor=white">
 </a>
 
-<a href="./profiles/nodejs-react/ubuntu/kilocode/agent-environment-profiles.md">
-  <img src="https://img.shields.io/badge/%E2%9A%9B%EF%B8%8F%20AI%20Vibe%20Coding%20Setup-38BDF8?style=for-the-badge&logoColor=white">
-</a>
-
 </p>
