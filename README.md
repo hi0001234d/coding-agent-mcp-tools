@@ -61,7 +61,7 @@ The idea is to make trying different stacks fast, simple, and disposable — so 
 ## 🚀 Choose Your Profile
 
 | Profile →<br>----------<br>Agent ↓  | Full-stack Dev Stack | Designer Stack | Codebase Navigation | Large Codebase Memory | Cost Optimized Debugging | AI Vibe Coding Setup |
-|--------------------|-------------|------------|--------------|----------|-------------|
+|--------------------|-------------|------------|--------------|----------|-------------|-------------|
 | Claude             | - | - | - | - | - | - |
 | Codex              | - | - | - | - | - | - |
 | Cursor             | - | - | - | - | - | - |
