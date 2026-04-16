@@ -8,7 +8,6 @@ A Node.js CLI tool that automates the publishing, validation, and management of 
 
 - **Maintainers** who need to publish new Agent Environment Profiles (combinations of coding agents, MCP tools, and OS-specific configurations) without manually copying files, updating the README table, and editing navigation docs.
 - **Contributors** who are adding new agent or OS support can use this tool to validate and integrate their additions cleanly into the existing profile structure.
-- **Developers** who are not yet using AI coding agents but want to get started — in a future feature, the tool will offer a runtime option to generate a profile interactively, making it accessible without any manual setup.
 
 ## Inspiration & References
 
@@ -20,22 +19,21 @@ The core repo curates coding agents and MCP tools that help developers debug, un
 
 ## Goals
 
-- Automate the full profile lifecycle: **validate** (check content integrity), **update README** (keep the profile matrix table current), **update navigation** (maintain the navigation guide), and **publish** (copy from base-profiles to public).
-- Auto-detect new agents from the base-profiles folder — no config changes needed when a new agent is added.
-- Provide clear status reporting so maintainers can see at a glance what's published and what's pending.
+- Automate the full profile lifecycle: **Validate** profile content against a standard format — catching syntax errors, indentation issues, missing sections, and readability problems that human contributors introduce manually. If a base profile doesn't meet the standard structure, the tool surfaces a warning before anything moves forward.
+- **Update README, update navigation, and publish** profiles from base-profiles to the public directory — keeping the profile matrix table and navigation guide in sync automatically.
+- Auto-detect new profile from the base-profiles folder — no config changes needed when a new profile is added.
 - Demonstrate spec-driven development as the build methodology, with full planning docs (scope, PRD, specification, checklist) as part of the submission.
 
 ## What "Done" Looks Like
 
 A working CLI (`profile-cli`) with these commands fully operational:
 
-- `validate <stack> [--agent <name>]` — validates profile content, handles syntax and structure checks across all profiles
+- `validate <stack> [--agent <name>]` — checks profile content against the standard format; catches syntax errors, indentation issues, missing sections, and warns if base profile content doesn't meet the expected structure
 - `update-readme <stack>` — updates the README.md profile table
 - `update-nav <stack>` — updates `navigation.md` with profile entries
 - `publish <stack> [--agent <name>]` — copies profiles from base-profiles to public `profiles/` directory
 - `all <stack> [--agent <name>]` — runs the full pipeline (validate → readme → nav → publish)
 - `status` — shows publish status across all stacks and agents
-- `list` — lists available stacks with detected agents
 
 Clean console output with color-coded feedback, error handling, and actionable next-step suggestions after each pipeline run.
 
@@ -50,6 +48,6 @@ Clean console output with color-coded feedback, error handling, and actionable n
 
 - **Runtime:** Node.js (>=18.0.0), zero external dependencies — uses only Node built-ins (`fs`, `path`).
 - **Architecture:** Command router (`index.js`) dispatches to handler modules (`publish.js`, `validate.js`, `update-readme.js`, `update-nav.js`, `status.js`), with shared config (`config.js`) and utilities (`utils.js`).
-- **Agent detection:** Auto-scans `base-profiles/<stack>/` directories for agent folders — adding a new agent folder is all that's needed to support it.
+- **Profile structure:** Profiles are organized stack-first — each stack (`nodejs-react`, `php-laravel`) is the top-level unit, with agents and OS variants nested within. The CLI resolves profiles by traversing this stack → agent → OS hierarchy.
 - **Stack config:** Each stack defines its name, expected files, OS variants, README column key, and key tool decisions.
-- **Already in progress:** The CLI structure and core modules exist in `cli/`. The hackathon build phase focuses on completing, hardening, and documenting the tool using the spec-driven development process.
+- **Already in progress:** Initial groundwork for the CLI exists in `cli/` and was started before the hackathon. The hackathon is the opportunity to follow a proper spec-driven process end-to-end: scope, PRD, specification, checklist, and then a clean build.
