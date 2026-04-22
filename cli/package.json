@@ -1,0 +1,30 @@
+{
+  "name": "profile-publisher-cli",
+  "version": "1.0.0",
+  "description": "CLI tool to publish, validate, and manage Agent Environment Profiles",
+  "main": "src/index.js",
+  "bin": {
+    "profile-cli": "./bin/profile-cli.js"
+  },
+  "scripts": {
+    "start": "node bin/profile-cli.js",
+    "publish:nodejs": "node bin/profile-cli.js publish nodejs-react",
+    "publish:php": "node bin/profile-cli.js publish php-laravel",
+    "validate:nodejs": "node bin/profile-cli.js validate nodejs-react",
+    "validate:php": "node bin/profile-cli.js validate php-laravel",
+    "publish-all": "node bin/profile-cli.js all nodejs-react && node bin/profile-cli.js all php-laravel",
+    "status": "node bin/profile-cli.js status"
+  },
+  "keywords": [
+    "mcp",
+    "coding-agents",
+    "ai-vibe-coding",
+    "profile-publisher",
+    "devtools"
+  ],
+  "author": "smit",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

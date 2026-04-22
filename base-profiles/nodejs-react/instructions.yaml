@@ -1,0 +1,68 @@
+# ── Stack Identity ────────────────────────────────────────────────
+name: "Node.js + React/Next.js"
+readme_header: "AI Vibe Coding Setup"
+readme_column_key: "nodejs-react"
+
+# ── OS Variants ───────────────────────────────────────────────────
+os_variants:
+  - ubuntu
+  - mac
+  - windows
+
+# ── 9 Sections (each becomes a .md file) ─────────────────────────
+sections:
+  - agent-environment-profiles
+  - system-setup
+  - docker-setup
+  - project-memory
+  - debug-automation
+  - curated-profiles
+  - optimize-tokens
+  - customer-support
+  - fully-local
+
+# ── MCP Tool Slots ───────────────────────────────────────────────
+tool_slots:
+  slot1:
+    tool: "mcp-language-server"
+    reason: "Go binary, no Neo4j, TypeScript LSP"
+  slot2:
+    tool: "Semgrep"
+    reason: "Best free static analysis for Node.js/TypeScript"
+  slot3:
+    tool: "Basic Memory"
+    reason: "AGPL free, local-first persistent memory"
+  slot4:
+    tool: "Figma Context MCP"
+    reason: "Design-to-code, optional, disabled:true in Docker"
+
+# ── Validation Rules ─────────────────────────────────────────────
+validation:
+  agent-environment-profiles:
+    must_contain:
+      - "Choose Your Setup"
+      - "system-setup.md"
+      - "docker-setup.md"
+  system-setup:
+    must_contain_by_os:
+      ubuntu: ["bash", "mcp.json"]
+      mac: ["brew", ".zshrc", "mcp.json"]
+      windows: ["PowerShell", "winget", "mcp.json"]
+  docker-setup:
+    must_contain:
+      - "docker"
+      - "golang:1.23-bookworm"
+      - "python:3.12-slim"
+      - "alpine"
+  project-memory:
+    must_contain: ["memory", "amnesia"]
+  debug-automation:
+    must_contain: ["debug", "Day 2"]
+  curated-profiles:
+    must_contain: ["profile"]
+  optimize-tokens:
+    must_contain: ["token"]
+  customer-support:
+    must_contain: ["Figma"]
+  fully-local:
+    must_contain: ["local"]
