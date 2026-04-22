@@ -1,4 +1,4 @@
-SSS# Profile Publisher CLI — Product Requirements
+# ProfileForge CLI — Product Requirements
 
 ## Problem Statement
 
@@ -89,7 +89,7 @@ Maintainers and contributors of `coding-agent-mcp-tools` manage an expanding mat
 ### Epic: Full Pipeline
 
 - As a **maintainer**, I want to run the full pipeline in one command so that I don't have to chain commands manually.
-  - [ ] Running `all nodejs-react` executes: validate → update-readme → update-nav → publish, in that order
+  - [ ] Running `all nodejs-react` executes: validate → publish → update-readme → update-nav, in that order
   - [ ] Running `all nodejs-react --agent claude` scopes the entire pipeline to that agent only
   - [ ] If `validate` fails, the pipeline stops immediately — readme, nav, and publish do not run
   - [ ] If any step after validate fails, the pipeline stops at that step with a clear error stating which step failed and why

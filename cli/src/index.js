@@ -1,5 +1,5 @@
 /**
- * Profile Publisher CLI — Main entry point
+ * ProfileForge CLI — Main entry point
  *
  * Routes commands to their handlers.
  * Agents are AUTO-DETECTED from base-profiles.
@@ -24,7 +24,7 @@ const { status } = require('./status');
 const { log, logError, logBold, logSuccess, logInfo, COLORS } = require('./utils');
 
 const USAGE = `
-${COLORS.bold}Profile Publisher CLI${COLORS.reset}
+${COLORS.bold}ProfileForge CLI${COLORS.reset}
 Publish, validate, and manage Agent Environment Profiles.
 Agents are auto-detected from base-profiles — no config changes needed.
 

@@ -1,4 +1,4 @@
-# Profile Publisher CLI — Scope
+# ProfileForge CLI — Scope
 
 ## Idea
 

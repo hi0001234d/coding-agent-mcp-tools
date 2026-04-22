@@ -1,5 +1,5 @@
 {
-  "name": "profile-publisher-cli",
+  "name": "profileforge-cli",
   "version": "1.0.0",
   "description": "CLI tool to publish, validate, and manage Agent Environment Profiles",
   "main": "src/index.js",
@@ -19,7 +19,7 @@
     "mcp",
     "coding-agents",
     "ai-vibe-coding",
-    "profile-publisher",
+    "profileforge",
     "devtools"
   ],
   "author": "smit",

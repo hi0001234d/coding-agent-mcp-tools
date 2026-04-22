@@ -10,6 +10,14 @@
 - **Energy/style:** Direct and efficient — prefers Gujarati (Roman script) explanations, concrete examples, and concise output.
 - **Folder note:** Curriculum is running inside the existing `coding-agent-mcp-tools` repo (not a fresh empty folder) — planning docs live alongside existing CLI tool code.
 
+## /prd
+
+- **Run mode:** Review pass — PRD already existed from a prior session. No new interview conducted.
+- **Fixes applied:** Corrected `SSS#` typo on line 1; corrected pipeline order in Full Pipeline epic from `validate → readme → nav → publish` to `validate → publish → readme → nav` (readme/nav must reflect published state and must run after publish — consistent with spec.md and resolved open question).
+- **PRD quality:** Comprehensive. All 5 epics have user stories, acceptance criteria, and testable acceptance checks. Non-goals are explicit and correctly scoped. Open questions are tracked with resolution status.
+- **Deepening rounds:** 0 — no new gaps surfaced. Existing PRD was built from a rich prior session.
+- **Next:** CLI code already exists in `cli/src/`. Next step is `/checklist` to produce the build checklist before starting `/build`.
+
 ## /scope
 
 - **Idea evolution:** Hiren came in with a clear, existing project — no brainstorming needed. The CLI tool already exists in `cli/` with core modules built. Scope was about articulating what it does and framing it for hackathon submission.

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Profile Publisher CLI
+ * ProfileForge CLI
  *
  * Publishes Agent Environment Profiles from base-profiles (source of truth)
  * to the public profiles/ directory. Validates content, updates README table,
