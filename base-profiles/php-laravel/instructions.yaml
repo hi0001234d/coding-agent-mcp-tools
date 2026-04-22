@@ -1,0 +1,69 @@
+# ── Stack Identity ────────────────────────────────────────────────
+name: "PHP + Laravel/WP"
+readme_header: "PHP + Laravel/WP — AI Vibe Coding Setup"
+readme_column_key: "php-laravel"
+
+# ── OS Variants ───────────────────────────────────────────────────
+os_variants:
+  - ubuntu
+  - mac
+  - windows
+
+# ── 9 Sections (each becomes a .md file) ─────────────────────────
+sections:
+  - agent-environment-profiles
+  - system-setup
+  - docker-setup
+  - project-memory
+  - debug-automation
+  - curated-profiles
+  - optimize-tokens
+  - customer-support
+  - fully-local
+
+# ── MCP Tool Slots ───────────────────────────────────────────────
+tool_slots:
+  slot1:
+    tool: "mcp-language-server + phpactor"
+    reason: "MIT open-source PHP LSP"
+  slot2:
+    tool: "Semgrep"
+    reason: "PHP security rules included"
+  slot3:
+    tool: "Basic Memory"
+    reason: "AGPL free, local-first"
+  slot4:
+    tool: "laravel/boost"
+    reason: "Official Laravel MCP, opt-in only"
+  slot5:
+    tool: "WordPress/mcp-adapter"
+    reason: "WP MCP, opt-in only"
+
+# ── Validation Rules ─────────────────────────────────────────────
+validation:
+  agent-environment-profiles:
+    must_contain:
+      - "Choose Your Setup"
+      - "system-setup.md"
+      - "docker-setup.md"
+  system-setup:
+    must_contain_by_os:
+      ubuntu: ["bash", "mcp.json"]
+      mac: ["brew", ".zshrc", "mcp.json"]
+      windows: ["PowerShell", "winget", "mcp.json"]
+  docker-setup:
+    must_contain:
+      - "docker"
+      - "phpactor"
+  project-memory:
+    must_contain: ["memory", "amnesia"]
+  debug-automation:
+    must_contain: ["debug", "Day 2"]
+  curated-profiles:
+    must_contain: ["profile"]
+  optimize-tokens:
+    must_contain: ["token"]
+  customer-support:
+    must_contain: ["Laravel"]
+  fully-local:
+    must_contain: ["local"]
