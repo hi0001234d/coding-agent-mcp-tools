@@ -18,6 +18,8 @@
 const { STACKS, AGENT_DISPLAY_NAMES } = require('./config');
 const { publish } = require('./publish');
 const { validate } = require('./validate');
+
+let validatePassedThisSession = false;
 const { updateReadme } = require('./update-readme');
 const { updateNav } = require('./update-nav');
 const { status } = require('./status');
@@ -68,14 +70,23 @@ function parseArgs(args) {
 function getStack(stackName) {
   if (!stackName) {
     logError('Stack name required. Available: ' + Object.keys(STACKS).join(', '));
-    return null;
+    process.exit(2);
   }
   const stack = STACKS[stackName];
   if (!stack) {
     logError(`Unknown stack: "${stackName}". Available: ${Object.keys(STACKS).join(', ')}`);
-    return null;
+    process.exit(2);
   }
   return stack;
+}
+
+function validateAgent(stack, agentName) {
+  if (!agentName) return; // no filter = all agents, always valid
+  const knownAgents = stack.agents;
+  if (!knownAgents.includes(agentName)) {
+    logError(`Unknown agent: "${agentName}". Known agents: ${knownAgents.join(', ') || '(none detected in base-profiles)'}`);
+    process.exit(2);
+  }
 }
 
 function listStacks() {
@@ -104,19 +115,20 @@ function runAll(stack, filterAgent) {
   logBold(`  Agents: ${agentLabel}`);
   logBold(`${'='.repeat(60)}`);
 
-  // Step 1: Publish
-  logBold('\n--- Step 1/4: Publish ---');
+  // Step 1: Validate
+  logBold('\n--- Step 1/4: Validate ---');
+  const valResult = validate(stack, filterAgent);
+  if (!valResult.success) {
+    logError('\nValidation failed. Fix issues before publishing.');
+    return false;
+  }
+  validatePassedThisSession = true;
+
+  // Step 2: Publish
+  logBold('\n--- Step 2/4: Publish ---');
   const pubResult = publish(stack, filterAgent);
   if (!pubResult.success) {
     logError('\nPublish failed. Stopping pipeline.');
-    return false;
-  }
-
-  // Step 2: Validate
-  logBold('\n--- Step 2/4: Validate ---');
-  const valResult = validate(stack, filterAgent);
-  if (!valResult.success) {
-    logError('\nValidation failed. Fix issues before continuing.');
     return false;
   }
 
@@ -162,13 +174,22 @@ function run(args) {
 
   switch (command) {
     case 'publish': {
+      if (!validatePassedThisSession) {
+        logError('Profiles not validated. Run validate first.');
+        process.exit(1);
+      }
       const stack = getStack(stackName);
       if (stack) publish(stack, agent);
       break;
     }
     case 'validate': {
       const stack = getStack(stackName);
-      if (stack) validate(stack, agent);
+      if (stack) {
+        validateAgent(stack, agent);
+        const result = validate(stack, agent);
+        if (result.success) validatePassedThisSession = true;
+        else process.exit(1);
+      }
       break;
     }
     case 'update-readme': {
