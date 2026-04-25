@@ -18,6 +18,7 @@
 const { STACKS, AGENT_DISPLAY_NAMES } = require('./config');
 const { publish } = require('./publish');
 const { validate } = require('./validate');
+const { generate } = require('./generate');
 
 let validatePassedThisSession = false;
 const { updateReadme } = require('./update-readme');
@@ -34,6 +35,7 @@ ${COLORS.cyan}Usage:${COLORS.reset}
   profile-cli <command> [stack] [--agent <name>]
 
 ${COLORS.cyan}Commands:${COLORS.reset}
+  generate <stack>       Generate profile files from instructions.yaml (writes to base-profiles/)
   publish <stack>        Copy profiles from base-profiles to public profiles/
   validate <stack>       Validate published profile files
   update-readme <stack>  Update README.md profile table with stack column
@@ -52,10 +54,12 @@ ${COLORS.cyan}Available Stacks:${COLORS.reset}
   php-laravel            PHP + Laravel/WP
 
 ${COLORS.cyan}Examples:${COLORS.reset}
-  profile-cli publish nodejs-react              # Publish ALL agents
-  profile-cli publish nodejs-react --agent cline  # Publish only cline
-  profile-cli all php-laravel                   # Full pipeline, all agents
-  profile-cli status                            # See what's published
+  profile-cli generate nodejs-react --agent kilocode  # Generate files from instructions.yaml
+  profile-cli generate php-laravel --agent cline      # Generate for a specific agent
+  profile-cli publish nodejs-react                    # Publish ALL agents
+  profile-cli publish nodejs-react --agent cline      # Publish only cline
+  profile-cli all php-laravel                         # Full pipeline, all agents
+  profile-cli status                                  # See what's published
 `;
 
 function parseArgs(args) {
@@ -149,7 +153,6 @@ function runAll(stack, filterAgent) {
   }
 
   // Final summary
-  const totalFiles = pubResult.copied + pubResult.skipped;
   logBold(`\n${'='.repeat(60)}`);
   logSuccess(`Pipeline complete for ${stack.name}!`);
   log(`  Agents: ${agents.join(', ')}`);
@@ -173,13 +176,21 @@ function run(args) {
   }
 
   switch (command) {
+    case 'generate': {
+      const stack = getStack(stackName);
+      const result = generate(stack, agent);
+      if (!result.success) process.exit(1);
+      break;
+    }
     case 'publish': {
+      const stack = getStack(stackName);
+      validateAgent(stack, agent);
       if (!validatePassedThisSession) {
         logError('Profiles not validated. Run validate first.');
         process.exit(1);
       }
-      const stack = getStack(stackName);
-      if (stack) publish(stack, agent);
+      const result = publish(stack, agent);
+      if (!result.success) process.exit(1);
       break;
     }
     case 'validate': {
@@ -194,17 +205,26 @@ function run(args) {
     }
     case 'update-readme': {
       const stack = getStack(stackName);
-      if (stack) updateReadme(stack);
+      if (stack) {
+        const result = updateReadme(stack);
+        if (!result.success) process.exit(1);
+      }
       break;
     }
     case 'update-nav': {
       const stack = getStack(stackName);
-      if (stack) updateNav(stack);
+      if (stack) {
+        const result = updateNav(stack);
+        if (!result.success) process.exit(1);
+      }
       break;
     }
     case 'all': {
       const stack = getStack(stackName);
-      if (stack) runAll(stack, agent);
+      if (stack) {
+        validateAgent(stack, agent);
+        if (!runAll(stack, agent)) process.exit(1);
+      }
       break;
     }
     case 'status':
@@ -216,6 +236,7 @@ function run(args) {
     default:
       logError(`Unknown command: "${command}"`);
       log(USAGE);
+      process.exit(2);
   }
 }
 
