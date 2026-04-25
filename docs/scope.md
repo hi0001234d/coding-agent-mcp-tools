@@ -28,11 +28,12 @@ The core repo curates coding agents and MCP tools that help developers debug, un
 
 A working CLI (`profile-cli`) with these commands fully operational:
 
+- `generate <stack> --agent <name>` — reads `instructions.yaml` from `base-profiles/<stack>/` and generates all 9 profile markdown files for every OS variant into `base-profiles/<stack>/<os>/<agent>/`; must be run before `all` when adding a new agent
 - `validate <stack> [--agent <name>]` — checks profile content against the standard format; catches syntax errors, indentation issues, missing sections, and warns if base profile content doesn't meet the expected structure
 - `update-readme <stack>` — updates the README.md profile table
 - `update-nav <stack>` — updates `navigation.md` with profile entries
 - `publish <stack> [--agent <name>]` — copies profiles from base-profiles to public `profiles/` directory
-- `all <stack> [--agent <name>]` — runs the full pipeline (validate → readme → nav → publish)
+- `all <stack> [--agent <name>]` — runs the full pipeline (validate → publish → readme → nav)
 - `status` — shows publish status across all stacks and agents
 
 Clean console output with color-coded feedback, error handling, and actionable next-step suggestions after each pipeline run.
@@ -41,13 +42,13 @@ Clean console output with color-coded feedback, error handling, and actionable n
 
 - **No web UI or dashboard** — this is a CLI-only tool. Keeping it terminal-native matches the developer audience.
 - **No automated git commits or pushes** — the CLI publishes and validates, but the human reviews and commits. Safety first.
-- **No profile content authoring** — the CLI manages existing profiles; it does not generate new profile content from scratch.
+- **No interactive content editing** — `generate` writes files from `instructions.yaml` templates. It does not open an editor or prompt for content field-by-field.
 - **No package registry publishing (npm)** — the tool runs locally from the repo. Distribution is out of scope for the hackathon.
 
 ## Loose Implementation Notes
 
 - **Runtime:** Node.js (>=18.0.0), zero external dependencies — uses only Node built-ins (`fs`, `path`).
 - **Architecture:** Command router (`index.js`) dispatches to handler modules (`publish.js`, `validate.js`, `update-readme.js`, `update-nav.js`, `status.js`), with shared config (`config.js`) and utilities (`utils.js`).
-- **Profile structure:** Profiles are organized stack-first — each stack (`nodejs-react`, `php-laravel`) is the top-level unit, with agents and OS variants nested within. The CLI resolves profiles by traversing this stack → agent → OS hierarchy.
+- **Profile structure:** Profiles are organized stack-first — each stack (`nodejs-react`, `php-laravel`) is the top-level unit, with agents and OS variants nested within. The CLI resolves profiles by traversing this stack → OS → agent hierarchy.
 - **Stack config:** Each stack defines its name, expected files, OS variants, README column key, and key tool decisions.
 - **Already in progress:** Initial groundwork for the CLI exists in `cli/` and was started before the hackathon. The hackathon is the opportunity to follow a proper spec-driven process end-to-end: scope, PRD, specification, checklist, and then a clean build.

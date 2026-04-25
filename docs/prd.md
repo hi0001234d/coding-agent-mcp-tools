@@ -8,6 +8,21 @@ Maintainers and contributors of `coding-agent-mcp-tools` manage an expanding mat
 
 ## User Stories
 
+### Epic: Profile Generation
+
+- As a **maintainer**, I want to generate all profile files for a new agent from `instructions.yaml` so that I don't have to write 27 markdown files by hand.
+  - [ ] Running `generate nodejs-react --agent kilocode` creates 9 section files × 3 OS variants = 27 files under `base-profiles/nodejs-react/<os>/kilocode/`
+  - [ ] The command reads `base-profiles/<stack>/instructions.yaml` to get: stack name, os_variants, sections list, and tool_slots
+  - [ ] If a file already exists it is overwritten; if it does not exist it is created — directories are created automatically
+  - [ ] If `--agent` is not passed and no agents are detected in base-profiles, the command fails with: `No agents detected. Pass --agent <name> to generate for a specific agent.` and exits with code 1
+  - [ ] On completion, prints a summary of files written and a next-step hint: `Next: run profile-cli all <stack> --agent <name> to validate + publish`
+
+- As a **maintainer**, I want generate to work for a brand-new agent that has no existing files so that I can bootstrap a profile from zero.
+  - [ ] `generate` does not call `validateAgent()` — it must not block on the agent being absent from the filesystem before generation
+  - [ ] After generate runs, `status` shows the agent's files as `unpublished` (they exist in base-profiles but not yet in profiles/)
+
+---
+
 ### Epic: Profile Validation
 
 - As a **maintainer**, I want to validate a profile before publishing it so that I catch formatting issues before they reach the public directory.
@@ -22,7 +37,7 @@ Maintainers and contributors of `coding-agent-mcp-tools` manage an expanding mat
   - [ ] Validation failure blocks any further action — nothing moves forward until all checked profiles pass
 
 - As a **contributor**, I want validation to tell me exactly what is wrong so that I can fix it without guessing.
-  - [ ] Each error message names the full profile path (`base-profiles/nodejs-react/claude/ubuntu/agent-environment-profiles.md`), the section, and the specific problem
+  - [ ] Each error message names the full profile path (`base-profiles/nodejs-react/ubuntu/claude/agent-environment-profiles.md`), the section, and the specific problem
   - [ ] Multiple errors in one profile are all reported together — not just the first one
   - [ ] If a base profile is an empty file, validation reports "Empty profile — no content to validate" and exits with code 1
 
@@ -36,16 +51,16 @@ Maintainers and contributors of `coding-agent-mcp-tools` manage an expanding mat
 ### Epic: Profile Publishing
 
 - As a **maintainer**, I want to publish profiles from base-profiles to the public profiles directory so that the live repo stays in sync with the source of truth.
-  - [ ] Running `publish nodejs-react` copies all profiles under that stack — every agent and every OS variant — to `profiles/`, preserving the full stack → agent → OS directory structure
+  - [ ] Running `publish nodejs-react` copies all profiles under that stack — every agent and every OS variant — to `profiles/`, preserving the full stack → OS → agent directory structure
   - [ ] Running `publish nodejs-react --agent claude` copies all OS variants for Claude under that stack
-  - [ ] Published path mirrors source path: `base-profiles/nodejs-react/claude/ubuntu/agent-environment-profiles.md` → `profiles/nodejs-react/claude/ubuntu/agent-environment-profiles.md`
+  - [ ] Published path mirrors source path: `base-profiles/nodejs-react/ubuntu/claude/agent-environment-profiles.md` → `profiles/nodejs-react/ubuntu/claude/agent-environment-profiles.md`
   - [ ] The tool discovers profiles to publish by traversing `base-profiles/` — no hardcoded list
   - [ ] If `profiles/` or any subdirectory in the path does not exist, the tool creates it before copying
   - [ ] If a profile already exists in `profiles/`, it is overwritten without prompting
-  - [ ] Each successfully published profile prints a confirmation line with the full path: `✓ Published: profiles/nodejs-react/claude/ubuntu/agent-environment-profiles.md`
+  - [ ] Each successfully published profile prints a confirmation line with the full path: `✓ Published: profiles/nodejs-react/ubuntu/claude/agent-environment-profiles.md`
 
 - As a **maintainer**, I want publish to stop and warn me if the source profile doesn't exist so that I don't publish a blank or missing file.
-  - [ ] If the source file is missing, print: `Source not found: base-profiles/nodejs-react/claude/ubuntu/agent-environment-profiles.md`
+  - [ ] If the source file is missing, print: `Source not found: base-profiles/nodejs-react/ubuntu/claude/agent-environment-profiles.md`
   - [ ] Exit with code 1 — do not partially publish and silently continue
 
 - As a **maintainer**, I want publish to block if a profile hasn't passed validation so that invalid profiles never reach the public directory.
@@ -106,7 +121,7 @@ Maintainers and contributors of `coding-agent-mcp-tools` manage an expanding mat
 ### Epic: Status Visibility
 
 - As a **maintainer**, I want to see the publish status of all profiles at a glance so that I know what's live and what's pending.
-  - [ ] Running `status` lists every profile discovered in `base-profiles/` by traversing the full stack → agent → OS hierarchy — no hardcoded list
+  - [ ] Running `status` lists every profile discovered in `base-profiles/` by traversing the stack → OS → agent filesystem hierarchy — no hardcoded list
   - [ ] Output is grouped by stack, then agent, then OS variant
   - [ ] Each profile shows one of three states: `published`, `unpublished`, `out of sync` (base-profile is newer than published version)
   - [ ] Published profiles show the full path to the published file
@@ -118,6 +133,13 @@ Maintainers and contributors of `coding-agent-mcp-tools` manage an expanding mat
 ## What We're Building
 
 Everything below must be complete and working at the end of the build:
+
+**`generate <stack> --agent <name>`**
+- Reads `base-profiles/<stack>/instructions.yaml` — fails clearly if missing
+- Generates 9 section files × 3 OS variants into `base-profiles/<stack>/<os>/<agent>/`
+- Overwrites existing files; creates missing directories
+- Does NOT call validateAgent — safe to run for a brand-new agent with no existing files
+- Exit 0 on success, exit 1 if no agent can be resolved or if instructions.yaml is missing
 
 **`validate <stack> [--agent <name>]`**
 - Traverses `base-profiles/` to discover all matching profiles — no hardcoded list
@@ -131,7 +153,7 @@ Everything below must be complete and working at the end of the build:
 **`publish <stack> [--agent <name>]`**
 - Blocks with exit 1 if validate has not passed in the current session
 - Traverses `base-profiles/` to discover profiles — no hardcoded list
-- Copies to `profiles/` preserving full stack → agent → OS directory structure
+- Copies to `profiles/` preserving full stack → OS → agent directory structure
 - Creates missing directories before copying
 - Overwrites existing published profiles silently
 - Exit 0 on success, exit 1 on blocked or missing source
@@ -181,7 +203,7 @@ Everything below must be complete and working at the end of the build:
 
 - **No web UI or dashboard.** This is CLI-only. The target user is a developer in a terminal.
 - **No automated git commits or pushes.** The CLI publishes and validates. The human reviews and commits. The tool never touches git.
-- **No profile content authoring.** The CLI manages existing profiles. It does not generate profile content from scratch.
+- **No interactive content editing.** `generate` produces files from `instructions.yaml` templates. It does not prompt the user for content field-by-field or open an editor.
 - **No npm package publishing.** The tool runs locally from within the repo. Distribution is out of scope.
 - **No real-time file watching.** The CLI is invoked manually per operation — it is not a daemon or watcher process.
 

@@ -34,6 +34,7 @@ bin/profile-cli.js          ← shebang entry, passes process.argv to index.js
      ▼
 src/index.js                ← parses args, routes to command handlers
      │
+     ├── generate()         ← reads instructions.yaml, writes 9 files × 3 OS to base-profiles/
      ├── validate()         ← reads base-profiles/, checks content
      ├── publish()          ← copies base-profiles/ → profiles/
      ├── updateReadme()     ← updates README.md profile table
@@ -50,29 +51,33 @@ src/index.js                ← parses args, routes to command handlers
 
 ```
 coding-agent-mcp-tools/          ← REPO_ROOT
-├── base-profiles/               ← source (read-only to CLI)
+├── base-profiles/               ← written by generate, read by validate/publish/status
 │   ├── nodejs-react/
-│   │   └── <agent>/
-│   │       ├── ubuntu/
-│   │       │   └── agent-environment-profiles.md
-│   │       ├── mac/
-│   │       │   └── agent-environment-profiles.md
-│   │       └── windows/
-│   │           └── agent-environment-profiles.md
+│   │   ├── instructions.yaml   ← stack definition; source of truth for generate
+│   │   ├── ubuntu/
+│   │   │   └── <agent>/
+│   │   │       └── (9 .md section files)
+│   │   ├── mac/
+│   │   │   └── <agent>/
+│   │   │       └── (9 .md section files)
+│   │   └── windows/
+│   │       └── <agent>/
+│   │           └── (9 .md section files)
 │   └── php-laravel/
-│       └── <agent>/
-│           └── <os>/
-│               └── agent-environment-profiles.md
-├── profiles/                    ← target (written by publish)
-│   └── (mirrors base-profiles/ structure exactly)
+│       ├── instructions.yaml
+│       └── <os>/
+│           └── <agent>/
+│               └── (9 .md section files)
+├── profiles/                    ← target (written by publish, mirrors base-profiles/ structure)
+│   └── <stack>/<os>/<agent>/(9 .md section files)
 ├── README.md                    ← updated by update-readme
 └── navigation.md                ← updated by update-nav
 ```
 
-**Profile path pattern:** `<root>/base-profiles/<stack>/<agent>/<os>/agent-environment-profiles.md`
-**Published path pattern:** `<root>/profiles/<stack>/<agent>/<os>/agent-environment-profiles.md`
+**Profile path pattern:** `<root>/base-profiles/<stack>/<os>/<agent>/<section>.md`
+**Published path pattern:** `<root>/profiles/<stack>/<os>/<agent>/<section>.md`
 
-Hierarchy is: **stack → agent → OS**. Every path in the codebase follows this order.
+Hierarchy is: **stack → OS → agent**. Every path in the codebase follows this order.
 
 ---
 
@@ -148,6 +153,7 @@ A final summary line always prints regardless of outcome.
 ### run(args)
 
 Switch on `command`:
+- `generate` → `generate(stack, agent)` — no `validateAgent()` call; must be bootstrapping-safe
 - `validate` → `validate(stack, agent)`
 - `publish` → `publish(stack, agent)`
 - `update-readme` → `updateReadme(stack)`
@@ -230,32 +236,40 @@ const STACKS = {
 
 ### detectAgents(stackKey)
 
-Traverses `base-profiles/<stack>/` and returns agent names that exist across all OS variants.
+Traverses `base-profiles/<stack>/<os>/` for each OS variant and returns agent names present in all three.
 
 ```
 base-profiles/nodejs-react/
-  claude/ubuntu/  claude/mac/  claude/windows/  → 'claude' included
-  cline/ubuntu/   cline/mac/                    → 'cline' excluded (missing windows)
+  ubuntu/claude/  mac/claude/  windows/claude/  → 'claude' included
+  ubuntu/cline/   mac/cline/                    → 'cline' excluded (missing windows)
 ```
 
-Only agents present in ALL three OS variants are returned. Agents missing any OS variant are excluded from processing.
+Only agents present in ALL three OS variant directories are returned.
 
 ```js
 function detectAgents(stackKey) {
-  const stackDir = path.join(REPO_ROOT, 'base-profiles', stackKey);
-  if (!fs.existsSync(stackDir)) return [];
+  const stackSourceBase = path.join(REPO_ROOT, 'base-profiles', stackKey);
+  if (!fs.existsSync(stackSourceBase)) return [];
 
-  // Read top-level agent directories
-  const agents = fs.readdirSync(stackDir).filter(entry =>
-    fs.statSync(path.join(stackDir, entry)).isDirectory()
-  );
+  // Collect agent subdirs from each OS directory
+  const agentsPerOS = {};
+  for (const os of OS_VARIANTS) {
+    const osDir = path.join(stackSourceBase, os);
+    if (!fs.existsSync(osDir)) continue;
+    agentsPerOS[os] = fs.readdirSync(osDir).filter(entry =>
+      fs.statSync(path.join(osDir, entry)).isDirectory()
+    );
+  }
 
-  // Only include agents present in ALL OS variants
-  return agents.filter(agent =>
-    OS_VARIANTS.every(os =>
-      fs.existsSync(path.join(stackDir, agent, os))
-    )
-  ).sort();
+  const osKeys = Object.keys(agentsPerOS);
+  if (osKeys.length === 0) return [];
+
+  // Intersect: only agents present in ALL OS dirs
+  let common = agentsPerOS[osKeys[0]];
+  for (let i = 1; i < osKeys.length; i++) {
+    common = common.filter(a => agentsPerOS[osKeys[i]].includes(a));
+  }
+  return common.sort();
 }
 ```
 
@@ -285,6 +299,66 @@ Stack-specific rules override or extend base rules where needed (e.g., `php-lara
 
 ---
 
+## Component: src/generate.js
+
+Generates all 9 profile markdown files for a given agent from `instructions.yaml`. Writes to `base-profiles/`.
+PRD ref: `prd.md > Profile Generation`
+
+### Behavior
+
+```
+generate(stack, filterAgent)
+  → cfg = readInstructions(stack.readmeColumnKey)
+      reads base-profiles/<stack>/instructions.yaml
+      if missing: logError, return { success: false }
+
+  → agents = filterAgent ? [filterAgent] : stack.agents
+  → if agents.length === 0:
+      logWarn 'No agents detected. Pass --agent <name> to generate for a specific agent.'
+      return { success: false }
+
+  For each agent:
+    aDir = AGENT_DIRS[agentName] || '.{agentName}'   ← e.g. '.kilocode', '.cline'
+    For each os in cfg.os_variants:
+      targetDir = base-profiles/<stack>/<os>/<agent>/
+      For each section in cfg.sections:
+        content = GENERATORS[section](stackKey, agentName, aDir, os, cfg)
+        writeFile(targetDir/<section>.md, content)   ← mkdirSync recursive + writeFileSync
+        log UPDATE if file existed, ✓ if new
+
+  Print summary: X files written, Y errors
+  Hint: 'Next: run profile-cli all <stack> [--agent <name>] to validate + publish'
+  Return { success: errors.length === 0, written: int, errors: [{ os, agentName, section, error }] }
+```
+
+### Section generators
+
+Nine generator functions, one per entry in `EXPECTED_FILES`. Each takes `(stackKey, agentName, aDir, os, cfg)` and returns the full markdown string for that file.
+
+| Section file | Key data sourced from instructions.yaml |
+|---|---|
+| agent-environment-profiles.md | `cfg.name`, `cfg.tool_slots` (slot count + tool table) |
+| system-setup.md | Stack-specific shell scripts, branched per OS (ubuntu/mac/windows) |
+| docker-setup.md | Stack-specific Docker Compose config and service images |
+| project-memory.md | Shared content — amnesia problem, Basic Memory mcp.json setup |
+| debug-automation.md | Shared content — Day 2 Problem, debug workflow |
+| curated-profiles.md | Shared content — 5 workflow profiles |
+| optimize-tokens.md | Shared content — token optimization strategies |
+| customer-support.md | Stack-specific — Figma for nodejs-react, Laravel for php-laravel |
+| fully-local.md | Shared content — Ollama + local model setup |
+
+### Bootstrapping constraint
+
+`generate` must NOT be preceded by `validateAgent()` in `index.js`. `validateAgent` checks that the agent already exists in `stack.agents` (populated by `detectAgents` scanning the filesystem). A brand-new agent has no files yet, so `detectAgents` returns `[]` and `validateAgent` exits with code 2 before `generate` runs. `generate` handles the empty-agent case internally.
+
+### Return contract
+
+```js
+{ success: bool, written: int, errors: [{ os, agentName, section, error }] }
+```
+
+---
+
 ## Component: src/validate.js
 
 Pre-publish content gate. Reads `base-profiles/` (source). Never touches `profiles/`.
@@ -299,7 +373,7 @@ validate(stack, filterAgent)
 
   For each agent:
     For each OS variant:
-      filePath = base-profiles/<stack>/<agent>/<os>/agent-environment-profiles.md
+      filePath = base-profiles/<stack>/<os>/<agent>/<section>.md
 
       Check 1 — File exists
         FAIL: logError with full path, push to failures[]
@@ -367,15 +441,15 @@ publish(stack, filterAgent)
 
   For each agent:
     For each OS variant:
-      sourceDir = base-profiles/<stack>/<agent>/<os>/
-      targetDir = profiles/<stack>/<agent>/<os>/
+      sourceDir = base-profiles/<stack>/<os>/<agent>/
+      targetDir = profiles/<stack>/<os>/<agent>/
 
       if sourceDir missing: logWarn 'Source missing — skipping [os]', continue
 
       fs.mkdirSync(targetDir, { recursive: true })   ← creates full path
 
-      src = sourceDir/agent-environment-profiles.md
-      dest = targetDir/agent-environment-profiles.md
+      src = sourceDir/<section>.md
+      dest = targetDir/<section>.md
 
       if src missing: logWarn 'Source file not found', push error, continue
 
@@ -406,8 +480,8 @@ updateReadme(stack)
   → if README.md not writable: logError, return { success: false }
 
   Discover published profiles:
-    traverse profiles/<stack>/<agent>/<os>/ via directory walk
-    build list of { agent, os } pairs that are published
+    traverse profiles/<stack>/<os>/<agent>/ via directory walk
+    build list of { os, agent } pairs that are published
 
   Read README.md
   Locate profile matrix table (identified by stack.readmeHeader)
@@ -438,7 +512,7 @@ updateNav(stack)
   → if navigation.md does not exist: logError 'navigation.md not found — create it first', return { success: false }
 
   Discover published profiles:
-    traverse profiles/<stack>/<agent>/<os>/
+    traverse profiles/<stack>/<os>/<agent>/
 
   Read navigation.md
   For each agent-os pair:
@@ -469,16 +543,18 @@ status()
 
     For each agent:
       For each OS variant:
-        sourceFile = base-profiles/<stack>/<agent>/<os>/agent-environment-profiles.md
-        targetFile = profiles/<stack>/<agent>/<os>/agent-environment-profiles.md
+        sourceDir = base-profiles/<stack>/<os>/<agent>/
+        targetDir = profiles/<stack>/<os>/<agent>/
 
-        if targetFile missing:              → state = 'unpublished'
-        if content matches sourceFile:      → state = 'published'
-        if content differs from sourceFile: → state = 'out of sync'
+        if targetDir has 0 files:              → state = 'NOT PUBLISHED'
+        if targetDir has fewer than expected:  → state = 'PARTIAL'
+        if any file content differs:           → state = 'OUT OF SYNC'
+        if all files present and identical:    → state = 'PUBLISHED'
 
-        Print: [agent] [os] → state + hint
+        Print: [os] → state (source count / expected | target status)
 
-  Grouping: stack → agent → OS
+  Display grouping: stack → agent (outer loop) → OS (inner loop)
+  Filesystem path:  stack → OS → agent
 ```
 
 ### Three states
@@ -534,7 +610,7 @@ All functions write to `console.log`. No `console.error` — output stays on std
   sourceBase: string,     // abs path to base-profiles/<stack>/
   targetBase: string,     // abs path to profiles/<stack>/
   osVariants: string[],   // ['ubuntu', 'mac', 'windows']
-  expectedFiles: string[],// files expected in each <agent>/<os>/ directory
+  expectedFiles: string[],// files expected in each <os>/<agent>/ directory
   readmeHeader: string,   // table column header in README.md
   readmeColumnKey: string,// key for identifying this stack's table section
   agents: string[],       // getter — result of detectAgents() at call time
@@ -553,11 +629,11 @@ All functions write to `console.log`. No `console.error` — output stays on std
 
 ### Profile path resolution
 
-Given any (stack, agent, os) triple, the path is always:
+Given any (stack, os, agent, section) tuple, the path is always:
 
 ```
-source: REPO_ROOT/base-profiles/<stack>/<agent>/<os>/agent-environment-profiles.md
-target: REPO_ROOT/profiles/<stack>/<agent>/<os>/agent-environment-profiles.md
+source: REPO_ROOT/base-profiles/<stack>/<os>/<agent>/<section>.md
+target: REPO_ROOT/profiles/<stack>/<os>/<agent>/<section>.md
 ```
 
 No exceptions. No alternate path formats.
@@ -586,28 +662,26 @@ coding-agent-mcp-tools/
 │   ├── src/
 │   │   ├── index.js              # arg parser, command router, runAll pipeline
 │   │   ├── config.js             # STACKS, detectAgents(), REPO_ROOT, OS_VARIANTS
+│   │   ├── generate.js           # generate command — reads instructions.yaml, writes base-profiles/
 │   │   ├── validate.js           # validate command — reads base-profiles, checks content
 │   │   ├── publish.js            # publish command — copies base-profiles/ → profiles/
 │   │   ├── update-readme.js      # update-readme command — updates README.md table
 │   │   ├── update-nav.js         # update-nav command — updates navigation.md
 │   │   ├── status.js             # status command — compares source vs published
+│   │   ├── parse-yaml.js         # minimal YAML parser (zero-dep) used by generate
 │   │   └── utils.js              # COLORS, log/logSuccess/logError/logWarn/logInfo/logBold
 │   └── package.json              # name, bin entry, engines: node>=18, zero deps
-├── base-profiles/                # source profiles — read-only to CLI
+├── base-profiles/                # written by generate; read by validate, publish, status
 │   ├── nodejs-react/
-│   │   └── <agent>/
-│   │       ├── ubuntu/
-│   │       │   └── agent-environment-profiles.md
-│   │       ├── mac/
-│   │       │   └── agent-environment-profiles.md
-│   │       └── windows/
-│   │           └── agent-environment-profiles.md
+│   │   ├── instructions.yaml    # stack definition — source of truth for generate
+│   │   ├── ubuntu/<agent>/(9 .md files)
+│   │   ├── mac/<agent>/(9 .md files)
+│   │   └── windows/<agent>/(9 .md files)
 │   └── php-laravel/
-│       └── <agent>/
-│           └── <os>/
-│               └── agent-environment-profiles.md
-├── profiles/                     # published output — written by publish command
-│   └── (mirrors base-profiles/ structure exactly)
+│       ├── instructions.yaml
+│       └── <os>/<agent>/(9 .md files)
+├── profiles/                     # published output — written by publish, mirrors base-profiles/ structure
+│   └── <stack>/<os>/<agent>/(9 .md files)
 ├── docs/
 │   ├── learner-profile.md
 │   ├── scope.md
@@ -622,6 +696,32 @@ coding-agent-mcp-tools/
 
 ## Data Flow
 
+### generate flow
+
+```
+profile-cli generate nodejs-react --agent kilocode
+
+index.js: parseArgs → { command: 'generate', stack: 'nodejs-react', agent: 'kilocode' }
+index.js: getStack('nodejs-react') → STACKS['nodejs-react']
+index.js: generate(stack, 'kilocode')   ← NO validateAgent call
+
+generate.js:
+  cfg = readInstructions('nodejs-react')
+    reads base-profiles/nodejs-react/instructions.yaml
+  agents = ['kilocode']
+  for agent 'kilocode':
+    aDir = '.kilocode'
+    for os 'ubuntu':
+      targetDir = base-profiles/nodejs-react/ubuntu/kilocode/
+      for each of 9 sections: generate content → write <section>.md
+    for os 'mac': (same)
+    for os 'windows': (same)
+  print summary: 27 files written
+  hint: 'Next: run profile-cli all nodejs-react --agent kilocode'
+
+index.js: process.exit(0) or process.exit(1)
+```
+
 ### validate flow
 
 ```
@@ -635,8 +735,8 @@ validate.js:
   agents = ['claude']
   for agent 'claude':
     for os 'ubuntu':
-      read base-profiles/nodejs-react/claude/ubuntu/agent-environment-profiles.md
-      → check exists, not empty, sections present
+      read base-profiles/nodejs-react/ubuntu/claude/<section>.md
+      → check exists, not empty, required keywords present
       → log PASS/FAIL per check
     for os 'mac': (same)
     for os 'windows': (same)
@@ -657,11 +757,11 @@ index.js: checks validatePassedThisSession === false
 
 (if validate was run first in same session:)
 publish.js:
-  agents = detectAgents('nodejs-react')  ← traverses base-profiles/nodejs-react/
+  agents = detectAgents('nodejs-react')  ← scans base-profiles/nodejs-react/<os>/ dirs
   for each agent:
     for each os:
-      src = base-profiles/nodejs-react/<agent>/<os>/agent-environment-profiles.md
-      dest = profiles/nodejs-react/<agent>/<os>/agent-environment-profiles.md
+      src  = base-profiles/nodejs-react/<os>/<agent>/<section>.md
+      dest = profiles/nodejs-react/<os>/<agent>/<section>.md
       fs.mkdirSync(destDir, { recursive: true })
       if identical: skip
       else: copyFileSync
@@ -691,9 +791,9 @@ runAll(stack, null):
 
   Final summary:
     [validate]  ✓
-    [publish]   ✓  12 copied, 0 unchanged
-    [readme]    ✓  8 profiles synced
-    [nav]       ✓  8 entries synced
+    [publish]   ✓  27 copied, 0 unchanged
+    [readme]    ✓  profiles synced
+    [nav]       ✓  entries synced
     Next steps: review → git add → git commit
 ```
 

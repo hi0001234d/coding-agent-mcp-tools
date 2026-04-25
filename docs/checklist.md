@@ -40,7 +40,13 @@
   Acceptance: (a) `validate unknown-stack` exits 2 with correct message. (b) `validate nodejs-react --agent unknown` exits 2. (c) `publish nodejs-react` without prior validate exits 1. (d) `validate nodejs-react` on an empty profile exits 1.
   Verify: Run each error scenario above and confirm the exact error message and exit code (`echo $?`).
 
-- [ ] **6. Submit to Devpost**
+- [x] **6. Wire generate command in index.js**
+  Spec ref: `spec.md > Component: src/generate.js`
+  What was built: (a) Added `const { generate } = require('./generate')` import to index.js. (b) Added `case 'generate'` to the run() switch — calls `generate(stack, agent)` directly, with no `validateAgent()` call so it works for brand-new agents that have no files yet. (c) Updated USAGE string and examples to include the generate command.
+  Acceptance: `profile-cli generate nodejs-react --agent kilocode` reads instructions.yaml and writes 27 files (9 sections × 3 OS) to base-profiles/. Works even when base-profiles/ contains only instructions.yaml.
+  Verify: Run `node cli/bin/profile-cli.js generate nodejs-react --agent kilocode` — must complete with 27 files written. Run `node cli/bin/profile-cli.js status` — kilocode must show as `unpublished`. Then run `node cli/bin/profile-cli.js all nodejs-react --agent kilocode` — must complete all 4 steps.
+
+- [ ] **7. Submit to Devpost**
   Spec ref: `prd.md > What We're Building`
   What to build: Prepare the Devpost submission. Write project name ("ProfileForge CLI"), tagline, and description using scope.md and prd.md. Add built-with tags (Node.js, Markdown). Take terminal screenshots of `status`, `validate`, and `all` commands running. Link the GitHub repo. Upload planning docs as artifacts.
   Acceptance: Devpost submission is live with name, tagline, description, built-with, screenshots, and repo link. Green "Submitted" badge visible.
