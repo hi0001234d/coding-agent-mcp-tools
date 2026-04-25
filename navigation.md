@@ -26,4 +26,12 @@
   <img src="https://img.shields.io/badge/🐞%20Cost%20Optimized%20Debugging-DC2626?style=for-the-badge&logoColor=white">
 </a>
 
+<a href="./profiles/nodejs-react/ubuntu/kilocode/agent-environment-profiles.md">
+  <img src="https://img.shields.io/badge/%E2%9A%9B%EF%B8%8F%20AI%20Vibe%20Coding%20Setup-38BDF8?style=for-the-badge&logoColor=white">
+</a>
+
+<a href="./profiles/php-laravel/ubuntu/kilocode/agent-environment-profiles.md">
+  <img src="https://img.shields.io/badge/%F0%9F%90%98%20PHP%20%2B%20Laravel%2FWP%20%E2%80%94%20AI%20Vibe%20Coding%20Setup-8B5CF6?style=for-the-badge&logoColor=white">
+</a>
+
 </p>

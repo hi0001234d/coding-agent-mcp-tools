@@ -18,6 +18,22 @@
 - **Deepening rounds:** 0 — no new gaps surfaced. Existing PRD was built from a rich prior session.
 - **Next:** CLI code already exists in `cli/src/`. Next step is `/checklist` to produce the build checklist before starting `/build`.
 
+## /build
+
+- **Build mode:** Autonomous — single invocation, all items dispatched and verified.
+- **Items completed:** 5 of 6 pre-Devpost items verified and committed. Item 6 (Devpost submission) is the remaining manual step.
+- **Checklist revised:** No — all items were already in a state where the implementation matched or the fixes were straightforward.
+- **Key finding that changed the plan:** The spec described `agent/os` path hierarchy, but the actual filesystem (and config.js) uses `os/agent` hierarchy via a sibling submodule (`coding-agent-mcp-tools-submodule`). validate.js was already using the correct `sourceBase` and path order. Items 1 and 3 were effectively done; item 5 had two real bugs.
+- **Item 5 fix (the only real code change):** `index.js` was not calling `validateAgent()` before `validate()`, so unknown `--agent` names produced exit 0 instead of exit 2. Also, `process.exit(1)` was missing when validate failed standalone, so failures silently exited 0.
+- **Verification summary:**
+  - validate nodejs-react: 27/27 checks pass
+  - publish gate: blocks with exit 1 without prior validate ✓
+  - full pipeline (all nodejs-react --agent kilocode): all 4 steps pass ✓
+  - status: kilocode PUBLISHED for ubuntu/mac/windows ✓
+  - error paths: unknown-stack exits 2, unknown-agent exits 2, publish-without-validate exits 1 ✓
+- **No checkpoint issues:** Learner did not flag any problems. Build ran clean.
+- **Next:** Item 6 — Devpost submission (manual, content drafted below in submission artifact).
+
 ## /scope
 
 - **Idea evolution:** Hiren came in with a clear, existing project — no brainstorming needed. The CLI tool already exists in `cli/` with core modules built. Scope was about articulating what it does and framing it for hackathon submission.

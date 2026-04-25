@@ -60,16 +60,16 @@ The idea is to make trying different stacks fast, simple, and disposable — so 
 
 ## 🚀 Choose Your Profile
 
-| Profile →<br>----------<br>Agent ↓  | Full-stack Dev Stack | Designer Stack | Codebase Navigation | Large Codebase Memory | Cost Optimized Debugging |
-|--------------------|-------------|------------|--------------|----------|-------------|
-| Claude             | - | - | - | - | - |
-| Codex              | - | - | - | - | - |
-| Cursor             | - | - | - | - | - |
-| Windsor            | - | - | - | - | - |
-| OpenCode           | - | - | - | - | - |
-| Cline              | - | - | - | - | - |
-| Roo Code           | - | - | - | - | - |
-| Kilo Code          | <div align="center">[Ubuntu](./profiles/fullstack/ubuntu/kilocode/agent-environment-profiles.md)<br>[Windows](./profiles/fullstack/windows/kilocode/agent-environment-profiles.md)<br>[Mac](./profiles/fullstack/mac/kilocode/agent-environment-profiles.md)</div> | - | - | - | - |
+| Profile →<br>----------<br>Agent ↓  | Full-stack Dev Stack | Designer Stack | Codebase Navigation | Large Codebase Memory | Cost Optimized Debugging | | AI Vibe Coding Setup | PHP + Laravel/WP — AI Vibe Coding Setup |
+|--------------------|-------------|------------|--------------|----------|-------------|--------------------------|
+| Claude             | - | - | - | - | - || - | - |
+| Codex              | - | - | - | - | - || - | - |
+| Cursor             | - | - | - | - | - || - | - |
+| Windsor            | - | - | - | - | - || - | - |
+| OpenCode           | - | - | - | - | - || - | - |
+| Cline              | - | - | - | - | - || - | - |
+| Roo Code           | - | - | - | - | - || - | - |
+| Kilo Code          | <div align="center">[Ubuntu](./profiles/fullstack/ubuntu/kilocode/agent-environment-profiles.md)<br>[Windows](./profiles/fullstack/windows/kilocode/agent-environment-profiles.md)<br>[Mac](./profiles/fullstack/mac/kilocode/agent-environment-profiles.md)</div> | - | - | - | - || <div align="center">[Ubuntu](./profiles/nodejs-react/ubuntu/kilocode/agent-environment-profiles.md)<br>[Windows](./profiles/nodejs-react/windows/kilocode/agent-environment-profiles.md)<br>[Mac](./profiles/nodejs-react/mac/kilocode/agent-environment-profiles.md)</div> | <div align="center">[Ubuntu](./profiles/php-laravel/ubuntu/kilocode/agent-environment-profiles.md)<br>[Windows](./profiles/php-laravel/windows/kilocode/agent-environment-profiles.md)<br>[Mac](./profiles/php-laravel/mac/kilocode/agent-environment-profiles.md)</div> |
 <div align="center">
   <a href="./navigation.md"><b>I don’t understand what profile I need?</b></a>
 </div>
