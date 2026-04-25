@@ -40,11 +40,26 @@ function status() {
         const targetCount = countFiles(targetDir);
         const expected = stack.expectedFiles.length;
 
-        const targetStatus = targetCount === expected ? 'PUBLISHED' :
-          targetCount === 0 ? 'NOT PUBLISHED' : `PARTIAL (${targetCount}/${expected})`;
+        let targetStatus;
+        let icon;
 
-        const icon = targetCount === expected ? 'DONE' :
-          targetCount > 0 ? 'PART' : 'TODO';
+        if (targetCount === 0) {
+          targetStatus = 'NOT PUBLISHED';
+          icon = 'TODO';
+        } else if (targetCount < expected) {
+          targetStatus = `PARTIAL (${targetCount}/${expected})`;
+          icon = 'PART';
+        } else {
+          // All files present — now check if any content differs from source
+          const outOfSync = stack.expectedFiles.some((file) => {
+            const src = path.join(sourceDir, file);
+            const dest = path.join(targetDir, file);
+            if (!fs.existsSync(src) || !fs.existsSync(dest)) return false;
+            return fs.readFileSync(src, 'utf8') !== fs.readFileSync(dest, 'utf8');
+          });
+          targetStatus = outOfSync ? 'OUT OF SYNC' : 'PUBLISHED';
+          icon = outOfSync ? 'SYNC' : 'DONE';
+        }
 
         log(`      ${icon}  [${os.padEnd(7)}] Source: ${sourceCount}/${expected} | Target: ${targetStatus}`);
       }

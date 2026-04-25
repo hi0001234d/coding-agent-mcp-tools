@@ -106,11 +106,28 @@ function detectAgents(stackKey) {
   return (agentsCache[stackKey] = commonAgents.sort());
 }
 
+// OS-aware setup file name (must match OS_SETUP_FILES in generate.js)
+const SETUP_FILE_BY_OS = {
+  ubuntu:  'system-setup.md',
+  mac:     'macos-setup.md',
+  windows: 'windows-setup.md',
+};
+
+function getExpectedFiles(os) {
+  const setupFile = SETUP_FILE_BY_OS[os] || 'system-setup.md';
+  return EXPECTED_FILES.map(f => f === 'system-setup.md' ? setupFile : f);
+}
+
 // Common validation rules shared by all stacks (base checks)
 const BASE_VALIDATION_RULES = {
   'agent-environment-profiles.md': {
-    mustContain: ['Choose Your Setup', 'system-setup.md', 'docker-setup.md'],
-    description: 'Entry point — title, intro, 2 setup links, 5 advanced buttons',
+    mustContain: ['Choose Your Environment', 'docker-setup.md'],
+    mustContainByOS: {
+      ubuntu:  ['system-setup.md'],
+      mac:     ['macos-setup.md'],
+      windows: ['windows-setup.md'],
+    },
+    description: 'Entry point — OS title, environment chooser badges, tool list, advanced workflow links',
   },
   'system-setup.md': {
     mustContainByOS: {
@@ -220,4 +237,5 @@ const STACKS = {
 module.exports = {
   STACKS, OS_VARIANTS, EXPECTED_FILES, ALL_AGENTS,
   AGENT_DISPLAY_NAMES, REPO_ROOT, SUBMODULE_ROOT, detectAgents,
+  getExpectedFiles, SETUP_FILE_BY_OS,
 };

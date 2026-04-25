@@ -12,11 +12,8 @@ function updateNav(stack) {
   log(`\nUpdating navigation.md for ${stack.name}...\n`);
 
   if (!fs.existsSync(navPath)) {
-    logWarn('navigation.md not found. Creating new file.');
-    const content = buildNavEntry(stack);
-    fs.writeFileSync(navPath, content, 'utf8');
-    logSuccess('Created navigation.md with profile entry.');
-    return { success: true, created: true };
+    logError('navigation.md not found — create it first.');
+    return { success: false };
   }
 
   let content = fs.readFileSync(navPath, 'utf8');
@@ -53,20 +50,16 @@ function buildNavBadge(stack) {
   const emoji = stack.readmeColumnKey === 'nodejs-react' ? '⚛️' : '🐘';
   const label = encodeURIComponent(`${emoji} ${stack.readmeHeader}`);
 
+  // Link to the first detected agent's ubuntu profile, or the stack directory if none detected
+  const agents = stack.agents;
+  const href = agents.length > 0
+    ? `./${profilePath}/ubuntu/${agents[0]}/agent-environment-profiles.md`
+    : `./${profilePath}/`;
+
   return [
-    `<a href="./${profilePath}/ubuntu/${stack.agent}/agent-environment-profiles.md">`,
+    `<a href="${href}">`,
     `  <img src="https://img.shields.io/badge/${label}-${badgeColor}?style=for-the-badge&logoColor=white">`,
     `</a>`,
-  ].join('\n');
-}
-
-function buildNavEntry(stack) {
-  return [
-    `<h2 align="center">Choose Your Profile</h2>`,
-    ``,
-    `<p align="center">`,
-    buildNavBadge(stack),
-    `</p>`,
   ].join('\n');
 }
 

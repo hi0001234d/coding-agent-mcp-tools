@@ -9,6 +9,7 @@
 const fs = require('fs');
 const path = require('path');
 const { log, logSuccess, logError, logWarn, logInfo, logBold } = require('./utils');
+const { getExpectedFiles } = require('./config');
 
 function publish(stack, filterAgent) {
   const agents = filterAgent ? [filterAgent] : stack.agents;
@@ -50,8 +51,8 @@ function publish(stack, filterAgent) {
       fs.mkdirSync(targetDir, { recursive: true });
       logInfo(`    [${os}] → ${path.relative(process.cwd(), targetDir)}`);
 
-      // Copy each expected file
-      for (const file of stack.expectedFiles) {
+      // Copy each expected file (OS-aware filenames)
+      for (const file of getExpectedFiles(os)) {
         const src = path.join(sourceDir, file);
         const dest = path.join(targetDir, file);
 
@@ -84,7 +85,7 @@ function publish(stack, filterAgent) {
   // Summary
   log('');
   const agentCount = agents.length;
-  const totalExpected = agentCount * stack.osVariants.length * stack.expectedFiles.length;
+  const totalExpected = agentCount * stack.osVariants.length * stack.expectedFiles.length; // base count for reference
   if (errors.length === 0) {
     logSuccess(`Published ${stack.name}: ${agentCount} agent(s), ${totalCopied} files copied, ${totalSkipped} unchanged.`);
   } else {

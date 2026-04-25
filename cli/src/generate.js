@@ -41,6 +41,11 @@ function getAgentDir(agentName)     { return AGENT_DIRS[agentName] || `.${agentN
 function getAgentDisplay(agentName) { return AGENT_DISPLAY_NAMES[agentName] || agentName; }
 function toolPurpose(toolName)      { return TOOL_PURPOSES[toolName] || toolName; }
 
+function getSectionFilename(section, os) {
+  if (section === 'system-setup') return OS_SETUP_FILES[os] || 'system-setup.md';
+  return `${section}.md`;
+}
+
 function readInstructions(stackKey) {
   const p = path.join(REPO_ROOT, 'base-profiles', stackKey, 'instructions.yaml');
   if (!fs.existsSync(p)) {
@@ -69,25 +74,49 @@ function genAgentEnvironmentProfiles(stackKey, agentName, aDir, os, cfg) {
     .map(([, info], i) => `| ${i + 1} | ${info.tool} | ${toolPurpose(info.tool)} |`)
     .join('\n');
 
+  const setupFile = OS_SETUP_FILES[os] || 'system-setup.md';
+  const setupBadge = os === 'mac'
+    ? `<a href="./${setupFile}">\n  <img src="https://img.shields.io/badge/🍎%20RUN%20ON%20MACOS-000000?style=for-the-badge&logo=apple&logoColor=white" />\n</a>`
+    : os === 'windows'
+    ? `<a href="./${setupFile}">\n  <img src="https://img.shields.io/badge/🖥️%20RUN%20ON%20WINDOWS-0078D4?style=for-the-badge&logo=windows&logoColor=white" />\n</a>`
+    : `<a href="./${setupFile}">\n  <img src="https://img.shields.io/badge/🖥️%20RUN%20ON%20YOUR%20SYSTEM-6C63FF?style=for-the-badge" />\n</a>`;
+  const setupDesc = os === 'mac'
+    ? `<b>Run on macOS</b> — Optimized setup for Mac (Intel or Apple Silicon), best for native performance and daily development`
+    : os === 'windows'
+    ? `<b>Run on Windows</b> — Simple and quick setup directly on your PC, best for beginners and daily development using PowerShell/CMD`
+    : `<b>Run on Your System</b> — Simple and quick setup directly on your computer, best for beginners and daily development`;
+
   return `# ${cfg.name} — AI Vibe Coding Setup
 
 ${intro}
 
 ---
 
-## ⚡ Choose Your Setup
+<h2 align="center">🧭 Choose Your Environment</h2>
 
-### 🖥️ Run Directly on Your System
-No containers, fastest setup, uses your existing environment.
+<p align="center">
+Select how you want to run this development environment
+</p>
 
-👉 [Run on Your System → system-setup.md](./system-setup.md)
+<p align="center">
 
----
+${setupBadge}
 
-### 🐳 Run in Docker (Clean & Isolated)
-Fully isolated environment. No impact on your system. Easy to remove.
+<a href="./docker-setup.md">
+  <img src="https://img.shields.io/badge/🐳%20RUN%20IN%20DOCKER-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+</a>
 
-👉 [Run in Docker → docker-setup.md](./docker-setup.md)
+</p>
+
+<h3 align="center">Which should you choose?</h3>
+
+<p align="center">
+${setupDesc}
+</p>
+
+<p align="center">
+<b>Run in Docker</b> — Still runs on your system, but inside an isolated container, making it ideal for clean environments, testing, and experimentation
+</p>
 
 ---
 
@@ -1579,50 +1608,35 @@ Each profile is a deep-dive into one specific use case using the tools already i
 
 ---
 
-## 🧠 AI Amnesia Fix
-**Best for**: Teams returning to a project after time away, or long-running projects where context keeps getting lost.
+<h2 align="center">🧩 Curated Agent Environment Profiles for Specific Use Cases</h2>
 
-Sets up persistent memory so your ${display} agent remembers architectural decisions, known-bad patterns, and session summaries across all future work sessions.
+<p align="center">
 
-👉 [Stop AI Amnesia → project-memory.md](./project-memory.md)
+<a href="./optimize-tokens.md">
+  <img src="https://img.shields.io/badge/⚡%20OPTIMIZE%20TOKENS%20%26%20COST-4CAF50?style=for-the-badge" />
+</a>
 
----
+<a href="./project-memory.md">
+  <img src="https://img.shields.io/badge/🧠%20PROJECT%20CONTEXT%20%26%20MEMORY-2196F3?style=for-the-badge" />
+</a>
 
-## 🐛 Day 2 Debug Automation
-**Best for**: Vibe-coded apps that are working but need debugging, maintenance, or extension without breaking existing functionality.
+<a href="./debug-automation.md">
+  <img src="https://img.shields.io/badge/🐞%20TEST%20%26%20DEBUG%20AUTOMATION-1E3A8A?style=for-the-badge" />
+</a>
 
-Automated code review with Semgrep + Language Server navigation so every change is verified before it ships.
+</p>
 
-👉 [Fix the Day 2 Problem → debug-automation.md](./debug-automation.md)
+<p align="center">
 
----
+<a href="./customer-support.md">
+  <img src="https://img.shields.io/badge/💬%20CUSTOMER%20SUPPORT%20OPTIMIZATION-9C27B0?style=for-the-badge" />
+</a>
 
-## ⚡ Optimize Token Usage
-**Best for**: Large codebases where the agent hits token limits or gives vague answers due to insufficient context.
+<a href="./fully-local.md">
+  <img src="https://img.shields.io/badge/🔒%20FULLY%20LOCAL-FF5722?style=for-the-badge" />
+</a>
 
-Techniques for precise context loading — targeted Language Server queries, structured docs/, and selective memory retrieval.
-
-👉 [Optimize Tokens → optimize-tokens.md](./optimize-tokens.md)
-
----
-
-## 🔒 Fully Local Setup
-**Best for**: Privacy-conscious teams, air-gapped environments, or anyone who doesn't want external API calls from their agent tools.
-
-All MCP tools run locally. External integrations (Figma, Laravel Boost, etc.) are disabled.
-
-👉 [Fully Local Setup → fully-local.md](./fully-local.md)
-
----
-
-## 💬 Customer Support Optimization
-**Best for**: Developers building customer-facing features who need to translate requirements directly into code.
-
-Stack-specific workflows for going from customer request to shipped feature efficiently.
-
-👉 [Customer Support Workflow → customer-support.md](./customer-support.md)
-
----
+</p>
 
 <p align="center">
   <strong>
@@ -2041,15 +2055,16 @@ function generate(stack, filterAgent) {
           continue;
         }
 
-        const filePath = path.join(targetDir, `${section}.md`);
+        const sectionFile = getSectionFilename(section, os);
+        const filePath = path.join(targetDir, sectionFile);
         try {
           const content = generator(stack.readmeColumnKey, agentName, aDir, os, cfg);
           const existed = fs.existsSync(filePath);
           writeFile(filePath, content);
           if (existed) {
-            log(`    ${COLORS.cyan}UPDATE${COLORS.reset}: ${section}.md`);
+            log(`    ${COLORS.cyan}UPDATE${COLORS.reset}: ${sectionFile}`);
           } else {
-            log(`    ${COLORS.green}✓${COLORS.reset} ${section}.md`);
+            log(`    ${COLORS.green}✓${COLORS.reset} ${sectionFile}`);
           }
           totalWritten++;
         } catch (err) {

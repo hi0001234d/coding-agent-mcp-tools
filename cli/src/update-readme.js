@@ -2,8 +2,8 @@
  * Update README command — adds/updates the profile table column
  * in the main public README.md.
  *
- * Handles multiple agents — fills in the cell for each agent row
- * that has a published profile in this stack.
+ * Only writes links for agents whose profiles are actually published.
+ * Agents not yet published get a '-' placeholder.
  */
 
 const fs = require('fs');
@@ -35,12 +35,12 @@ function updateReadme(stack) {
     return { success: false };
   }
 
-  // Extract table section (until next --- or non-table line)
+  // Split into before-table, table lines, after-table
   const beforeTable = content.substring(0, tableStart);
   const tableSection = content.substring(tableStart);
   const lines = tableSection.split('\n');
 
-  // Find end of table
+  // Find end of table — first line after row 1 that doesn't start with '|'
   let tableEndIdx = lines.length;
   for (let i = 2; i < lines.length; i++) {
     if (!lines[i].trim().startsWith('|')) {
@@ -50,26 +50,35 @@ function updateReadme(stack) {
   }
 
   const tableLines = lines.slice(0, tableEndIdx);
-  const afterTable = lines.slice(tableEndIdx).join('\n');
+  // Preserve whatever separator exists between table and next section
+  const afterTable = '\n' + lines.slice(tableEndIdx).join('\n');
 
   // Check if column already exists
   if (tableLines[0].includes(stack.readmeHeader)) {
     logInfo(`Column "${stack.readmeHeader}" already exists. Updating agent cells...`);
-    // Update cells for each agent row
     updateExistingColumn(tableLines, stack, agents);
   } else {
-    // Add new column
     addNewColumn(tableLines, stack, agents);
   }
 
-  // Reconstruct
   const newContent = beforeTable + tableLines.join('\n') + afterTable;
   fs.writeFileSync(readmePath, newContent, 'utf8');
 
   logSuccess(`README table updated for ${stack.name}.`);
-  logInfo(`  Agents with links: ${agents.join(', ')}`);
+  logInfo(`  Agents with links: ${agents.filter((a) => isPublished(stack, a)).join(', ') || '(none published yet)'}`);
 
   return { success: true };
+}
+
+/**
+ * Returns true only if the agent's profiles are actually published (all 3 OS).
+ * Prevents writing dead links for unpublished agents.
+ */
+function isPublished(stack, agent) {
+  return stack.osVariants.every((os) => {
+    const dest = path.join(stack.targetBase, os, agent, 'agent-environment-profiles.md');
+    return fs.existsSync(dest);
+  });
 }
 
 function buildCellContent(stack, agent) {
@@ -83,10 +92,16 @@ function buildCellContent(stack, agent) {
   ].join('');
 }
 
+function buildCell(stack, agentKey, agents) {
+  if (agentKey && agents.includes(agentKey) && isPublished(stack, agentKey)) {
+    return ` ${buildCellContent(stack, agentKey)} `;
+  }
+  return ' - ';
+}
+
 function findAgentInRow(row) {
   const displayNames = Object.entries(AGENT_DISPLAY_NAMES);
   for (const [key, name] of displayNames) {
-    // Match against first column content
     const firstCell = row.split('|')[1] || '';
     if (firstCell.trim().toLowerCase().includes(name.toLowerCase())) {
       return key;
@@ -111,17 +126,13 @@ function addNewColumn(tableLines, stack, agents) {
     if (!row.trim().startsWith('|')) break;
 
     const agentKey = findAgentInRow(row);
-    if (agentKey && agents.includes(agentKey)) {
-      const cell = buildCellContent(stack, agentKey);
-      tableLines[i] = row.replace(/\s*\|$/, '') + ` ${cell} |`;
-    } else {
-      tableLines[i] = row.replace(/\s*\|$/, '') + ' - |';
-    }
+    const cell = buildCell(stack, agentKey, agents);
+    tableLines[i] = row.replace(/\s*\|$/, '') + `|${cell}|`;
   }
 }
 
 function updateExistingColumn(tableLines, stack, agents) {
-  // Find column index
+  // Find column index from header
   const headers = tableLines[0].split('|').map((h) => h.trim());
   const colIdx = headers.findIndex((h) => h.includes(stack.readmeHeader));
   if (colIdx === -1) return;
@@ -134,12 +145,10 @@ function updateExistingColumn(tableLines, stack, agents) {
     if (!row.trim().startsWith('|')) break;
 
     const agentKey = findAgentInRow(row);
-    if (agentKey && agents.includes(agentKey)) {
-      const cells = row.split('|');
-      if (cells[colIdx] !== undefined) {
-        cells[colIdx] = ` ${buildCellContent(stack, agentKey)} `;
-        tableLines[i] = cells.join('|');
-      }
+    const cells = row.split('|');
+    if (cells[colIdx] !== undefined) {
+      cells[colIdx] = buildCell(stack, agentKey, agents);
+      tableLines[i] = cells.join('|');
     }
   }
 }

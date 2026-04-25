@@ -12,6 +12,7 @@
 const fs = require('fs');
 const path = require('path');
 const { log, logSuccess, logError, logWarn, logInfo, logBold } = require('./utils');
+const { getExpectedFiles } = require('./config');
 
 function validate(stack, filterAgent) {
   const agents = filterAgent ? [filterAgent] : stack.agents;
@@ -33,20 +34,20 @@ function validate(stack, filterAgent) {
     logBold(`  Agent: ${agent}`);
 
     for (const os of stack.osVariants) {
-      const targetDir = path.join(stack.targetBase, os, agent);
+      const sourceDir = path.join(stack.sourceBase, os, agent);
       log(`    [${os}]`);
 
       // Check directory exists
-      if (!fs.existsSync(targetDir)) {
-        logError(`      Directory missing: ${targetDir}`);
-        failures.push({ agent, os, file: '*', reason: 'Target directory does not exist' });
+      if (!fs.existsSync(sourceDir)) {
+        logError(`      Directory missing: ${sourceDir}`);
+        failures.push({ agent, os, file: '*', reason: 'Source directory does not exist' });
         failed++;
         totalChecks++;
         continue;
       }
 
-      for (const file of stack.expectedFiles) {
-        const filePath = path.join(targetDir, file);
+      for (const file of getExpectedFiles(os)) {
+        const filePath = path.join(sourceDir, file);
         totalChecks++;
 
         // File existence check
@@ -58,7 +59,8 @@ function validate(stack, filterAgent) {
         }
 
         const content = fs.readFileSync(filePath, 'utf8');
-        const rules = stack.validationRules[file];
+        const ruleKey = (file === 'macos-setup.md' || file === 'windows-setup.md') ? 'system-setup.md' : file;
+        const rules = stack.validationRules[ruleKey];
 
         if (!rules) {
           logWarn(`      SKIP: ${file} — no validation rules defined`);
@@ -94,9 +96,9 @@ function validate(stack, filterAgent) {
         let match;
         while ((match = linkPattern.exec(content)) !== null) {
           const linkedFile = match[1];
-          const linkedPath = path.join(targetDir, linkedFile);
+          const linkedPath = path.join(sourceDir, linkedFile);
           if (!fs.existsSync(linkedPath)) {
-            logWarn(`      WARN: ${file} — broken link to ./${linkedFile}`);
+            logError(`      FAIL: ${file} — broken link to ./${linkedFile}`);
             failures.push({ agent, os, file, reason: `Broken relative link: ./${linkedFile}` });
             fileOk = false;
           }
@@ -122,7 +124,7 @@ function validate(stack, filterAgent) {
   // Summary
   log('');
   log(`  Checks: ${totalChecks} total, ${passed} passed, ${failed} failed`);
-  log(`  Agents: ${agents.length} | OS: ${stack.osVariants.length} | Files: ${stack.expectedFiles.length}`);
+  log(`  Agents: ${agents.length} | OS: ${stack.osVariants.length} | Files: ${stack.expectedFiles.length} per OS`);
 
   if (failures.length > 0) {
     log('');
