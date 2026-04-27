@@ -66,7 +66,7 @@ function parseArgs(args) {
   const result = { command: args[0], stack: args[1], agent: null };
   const agentIdx = args.indexOf('--agent');
   if (agentIdx !== -1 && args[agentIdx + 1]) {
-    result.agent = args[agentIdx + 1];
+    result.agent = args[agentIdx + 1].toLowerCase();
   }
   return result;
 }
@@ -111,13 +111,24 @@ function listStacks() {
 }
 
 function runAll(stack, filterAgent) {
-  const agents = filterAgent ? [filterAgent] : stack.agents;
-  const agentLabel = filterAgent || `all (${agents.join(', ')})`;
-
   logBold(`\n${'='.repeat(60)}`);
   logBold(`  Full Pipeline: ${stack.name}`);
-  logBold(`  Agents: ${agentLabel}`);
+  logBold(`  Agent: ${filterAgent || 'all'}`);
   logBold(`${'='.repeat(60)}`);
+
+  // Step 0: Generate
+  logBold('\n--- Step 0/4: Generate ---');
+  const genResult = generate(stack, filterAgent);
+  if (!genResult.success) {
+    logError('\nGenerate failed. Stopping pipeline.');
+    return false;
+  }
+
+  // Validate the agent exists now (after generate created dirs)
+  validateAgent(stack, filterAgent);
+
+  const agents = filterAgent ? [filterAgent] : stack.agents;
+  const agentLabel = filterAgent || `all (${agents.join(', ')})`;
 
   // Step 1: Validate
   logBold('\n--- Step 1/4: Validate ---');
@@ -222,7 +233,6 @@ function run(args) {
     case 'all': {
       const stack = getStack(stackName);
       if (stack) {
-        validateAgent(stack, agent);
         if (!runAll(stack, agent)) process.exit(1);
       }
       break;
