@@ -20,7 +20,6 @@ const { publish } = require('./publish');
 const { validate } = require('./validate');
 const { generate } = require('./generate');
 
-let validatePassedThisSession = false;
 const { updateReadme } = require('./update-readme');
 const { updateNav } = require('./update-nav');
 const { status } = require('./status');
@@ -35,12 +34,12 @@ ${COLORS.cyan}Usage:${COLORS.reset}
   profile-cli <command> [stack] [--agent <name>]
 
 ${COLORS.cyan}Commands:${COLORS.reset}
-  generate <stack>       Generate profile files from instructions.yaml (writes to base-profiles/)
+  generate <stack>       Scaffold profile files from instructions.yaml (only for new agents without existing files)
+  validate <stack>       Validate base-profiles content before publishing
   publish <stack>        Copy profiles from base-profiles to public profiles/
-  validate <stack>       Validate published profile files
   update-readme <stack>  Update README.md profile table with stack column
   update-nav <stack>     Update navigation.md with profile entry
-  all <stack>            Run full pipeline (publish → validate → readme → nav)
+  all <stack>            Run pipeline: validate → publish → update-readme → update-nav
   status                 Show publish status of all stacks + all agents
   list                   List available stacks with detected agents
   help                   Show this help message
@@ -54,12 +53,13 @@ ${COLORS.cyan}Available Stacks:${COLORS.reset}
   php-laravel            PHP + Laravel/WP
 
 ${COLORS.cyan}Examples:${COLORS.reset}
-  profile-cli generate nodejs-react --agent kilocode  # Generate files from instructions.yaml
-  profile-cli generate php-laravel --agent cline      # Generate for a specific agent
+  profile-cli validate nodejs-react                   # Validate base-profiles content
   profile-cli publish nodejs-react                    # Publish ALL agents
-  profile-cli publish nodejs-react --agent cline      # Publish only cline
-  profile-cli all php-laravel                         # Full pipeline, all agents
+  profile-cli publish nodejs-react --agent kilocode   # Publish only kilocode
+  profile-cli all nodejs-react                        # validate → publish → readme → nav
+  profile-cli all php-laravel --agent kilocode        # Same, for one agent
   profile-cli status                                  # See what's published
+  profile-cli generate nodejs-react --agent cline     # Scaffold new agent from instructions.yaml
 `;
 
 function parseArgs(args) {
@@ -112,23 +112,13 @@ function listStacks() {
 
 function runAll(stack, filterAgent) {
   logBold(`\n${'='.repeat(60)}`);
-  logBold(`  Full Pipeline: ${stack.name}`);
+  logBold(`  Pipeline: ${stack.name}`);
   logBold(`  Agent: ${filterAgent || 'all'}`);
   logBold(`${'='.repeat(60)}`);
 
-  // Step 0: Generate
-  logBold('\n--- Step 0/4: Generate ---');
-  const genResult = generate(stack, filterAgent);
-  if (!genResult.success) {
-    logError('\nGenerate failed. Stopping pipeline.');
-    return false;
-  }
-
-  // Validate the agent exists now (after generate created dirs)
-  validateAgent(stack, filterAgent);
+  if (filterAgent) validateAgent(stack, filterAgent);
 
   const agents = filterAgent ? [filterAgent] : stack.agents;
-  const agentLabel = filterAgent || `all (${agents.join(', ')})`;
 
   // Step 1: Validate
   logBold('\n--- Step 1/4: Validate ---');
@@ -137,7 +127,6 @@ function runAll(stack, filterAgent) {
     logError('\nValidation failed. Fix issues before publishing.');
     return false;
   }
-  validatePassedThisSession = true;
 
   // Step 2: Publish
   logBold('\n--- Step 2/4: Publish ---');
@@ -196,8 +185,9 @@ function run(args) {
     case 'publish': {
       const stack = getStack(stackName);
       validateAgent(stack, agent);
-      if (!validatePassedThisSession) {
-        logError('Profiles not validated. Run validate first.');
+      const valResult = validate(stack, agent);
+      if (!valResult.success) {
+        logError('\nValidation failed. Fix issues before publishing.');
         process.exit(1);
       }
       const result = publish(stack, agent);
@@ -209,8 +199,7 @@ function run(args) {
       if (stack) {
         validateAgent(stack, agent);
         const result = validate(stack, agent);
-        if (result.success) validatePassedThisSession = true;
-        else process.exit(1);
+        if (!result.success) process.exit(1);
       }
       break;
     }

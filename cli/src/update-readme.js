@@ -21,12 +21,10 @@ function updateReadme(stack) {
   }
 
   const agents = stack.agents;
-  if (agents.length === 0) {
-    logWarn('No agents detected. Nothing to add to README.');
-    return { success: true };
-  }
 
-  let content = fs.readFileSync(readmePath, 'utf8');
+  // Normalize line endings before any processing — prevents \r from being
+  // embedded mid-row when README.md uses Windows CRLF line endings
+  let content = fs.readFileSync(readmePath, 'utf8').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 
   // Find the profile table
   const tableStart = content.indexOf('| Profile →');
@@ -53,8 +51,16 @@ function updateReadme(stack) {
   // Preserve whatever separator exists between table and next section
   const afterTable = '\n' + lines.slice(tableEndIdx).join('\n');
 
+  const columnExists = tableLines[0].includes(stack.readmeHeader);
+
+  // If no agents and column doesn't exist yet, nothing useful to do
+  if (agents.length === 0 && !columnExists) {
+    logWarn('No agents detected. Nothing to add to README.');
+    return { success: true };
+  }
+
   // Check if column already exists
-  if (tableLines[0].includes(stack.readmeHeader)) {
+  if (columnExists) {
     logInfo(`Column "${stack.readmeHeader}" already exists. Updating agent cells...`);
     updateExistingColumn(tableLines, stack, agents);
   } else {

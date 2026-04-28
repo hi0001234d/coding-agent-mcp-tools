@@ -121,7 +121,7 @@ function getExpectedFiles(os) {
 // Common validation rules shared by all stacks (base checks)
 const BASE_VALIDATION_RULES = {
   'agent-environment-profiles.md': {
-    mustContain: ['Choose Your Environment', 'docker-setup.md'],
+    mustContain: ['Choose Your Setup', 'docker-setup.md'],
     mustContainByOS: {
       ubuntu:  ['system-setup.md'],
       mac:     ['macos-setup.md'],

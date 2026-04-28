@@ -70,8 +70,8 @@ function genAgentEnvironmentProfiles(stackKey, agentName, aDir, os, cfg) {
     ? `Tired of your AI agent repeating the same mistakes every session?\nHit the Day 2 wall — maintaining, debugging, or scaling your vibe-coded Next.js app?\n\nThis profile fixes both. It sets up ${slotCount} MCP tools that give your ${display} agent\npersistent memory, automated code review, and deep TypeScript/Next.js understanding\n— so you stop re-explaining your project and start shipping.`
     : `Tired of your AI agent repeating the same mistakes every session?\nHit the Day 2 wall — maintaining, debugging, or scaling your vibe-coded PHP/Laravel app?\n\nThis profile fixes both. It sets up ${slotCount} MCP tools that give your ${display} agent\npersistent memory, automated code review, and deep PHP/Laravel understanding\n— so you stop re-explaining your project and start shipping.`;
 
-  const toolRows = Object.entries(cfg.tool_slots)
-    .map(([, info], i) => `| ${i + 1} | ${info.tool} | ${toolPurpose(info.tool)} |`)
+  const whatYouGet = Object.entries(cfg.tool_slots)
+    .map(([, info]) => `- **${info.tool}** — ${toolPurpose(info.tool)}`)
     .join('\n');
 
   const setupFile = OS_SETUP_FILES[os] || 'system-setup.md';
@@ -92,7 +92,7 @@ ${intro}
 
 ---
 
-<h2 align="center">🧭 Choose Your Environment</h2>
+<h2 align="center">🧭 Choose Your Setup</h2>
 
 <p align="center">
 Select how you want to run this development environment
@@ -120,35 +120,10 @@ ${setupDesc}
 
 ---
 
-## 🔧 What Gets Installed
+## ⚡ What You Get
 
-| Slot | Tool | Purpose |
-|---|---|---|
-${toolRows}
-
----
-
-## 🚀 Advanced Workflows
-
-<p align="center">
-  <strong><a href="./project-memory.md">🧠 Stop AI Amnesia — Persistent Memory Setup</a></strong>
-</p>
-
-<p align="center">
-  <strong><a href="./debug-automation.md">🐛 Fix the Day 2 Problem — Debug + Review Workflow</a></strong>
-</p>
-
-<p align="center">
-  <strong><a href="./curated-profiles.md">⚡ Curated Profiles for Real-World Workflows</a></strong>
-</p>
-
-<p align="center">
-  <strong><a href="./optimize-tokens.md">💡 Optimize Token Usage for Large Codebases</a></strong>
-</p>
-
-<p align="center">
-  <strong><a href="./fully-local.md">🔒 Fully Local Setup — No API Calls, Privacy-First</a></strong>
-</p>
+${whatYouGet}
+- Optional: Run in Docker for a clean, isolated environment
 `;
 }
 
@@ -1255,6 +1230,62 @@ function genDockerSetup(stackKey, agentName, aDir, os, cfg) {
     ? '> **Figma**: `disabled: true` by default in Docker. Add your API key to `' + aDir + '/mcp.json` to enable.'
     : '> **laravel/boost** and **wordpress-mcp-adapter**: both `disabled: true` by default. Enable in `' + aDir + '/mcp.json` when ready.';
 
+  const osDockerInstall = os === 'mac'
+    ? `## 🍎 Step 1: Install Docker Desktop for Mac
+
+Download and install Docker Desktop for Mac:
+
+- **Apple Silicon (M1/M2/M3):** [Docker Desktop for Mac (Apple Silicon)](https://docs.docker.com/desktop/install/mac-install/)
+- **Intel:** [Docker Desktop for Mac (Intel)](https://docs.docker.com/desktop/install/mac-install/)
+
+After installation, launch Docker Desktop and wait for the whale icon in the menu bar to show "Docker Desktop is running".
+
+\`\`\`bash
+# Verify Docker is running
+docker --version
+docker compose version
+\`\`\`
+
+---`
+    : os === 'windows'
+    ? `## 🖥️ Step 1: Install Docker Desktop for Windows
+
+Download and install Docker Desktop for Windows (requires WSL2 backend):
+
+- [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/)
+
+**Prerequisites:** Enable WSL2 first:
+
+\`\`\`powershell
+wsl --install
+\`\`\`
+
+After installation, launch Docker Desktop and confirm the whale icon in the system tray shows "Docker Desktop is running".
+
+\`\`\`powershell
+# Verify Docker is running
+docker --version
+docker compose version
+\`\`\`
+
+---`
+    : `## 🐧 Step 1: Install Docker (Ubuntu/Debian)
+
+\`\`\`bash
+sudo apt update && sudo apt install -y docker.io docker-compose-plugin
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
+newgrp docker
+\`\`\`
+
+\`\`\`bash
+# Verify Docker is running
+docker --version
+docker compose version
+\`\`\`
+
+---`;
+
   return `# 🐳 Run in Docker (Clean & Isolated Environment)
 
 ## ⚡ One-Command Setup
@@ -1263,9 +1294,11 @@ Run all MCP tools in isolated Docker containers — no system-level installs, no
 
 ---
 
+${osDockerInstall}
+
 ## ⚡ Quick Setup (Copy & Run)
 
-### 🚀 Step 1: Go to Your Project Directory
+### 🚀 Step 2: Go to Your Project Directory
 
 \`\`\`bash
 cd ~/your-project
@@ -1273,7 +1306,7 @@ cd ~/your-project
 
 ---
 
-### 🚀 Step 2: Create Docker Compose File
+### 🚀 Step 3: Create Docker Compose File
 
 \`\`\`bash
 nano docker-compose.yml
@@ -1281,7 +1314,7 @@ nano docker-compose.yml
 
 ---
 
-### 📋 Step 3: Add Docker Compose Configuration
+### 📋 Step 4: Add Docker Compose Configuration
 
 \`\`\`yaml
 services:
@@ -1340,7 +1373,7 @@ ${langServerService}
 
 ---
 
-### ▶️ Step 4: Start Containers
+### ▶️ Step 5: Start Containers
 
 \`\`\`bash
 docker compose up -d
