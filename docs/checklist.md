@@ -46,7 +46,7 @@
   Acceptance: `profile-cli generate nodejs-react --agent kilocode` reads instructions.yaml and writes 27 files (9 sections × 3 OS) to base-profiles/. Works even when base-profiles/ contains only instructions.yaml.
   Verify: Run `node cli/bin/profile-cli.js generate nodejs-react --agent kilocode` — must complete with 27 files written. Run `node cli/bin/profile-cli.js status` — kilocode must show as `unpublished`. Then run `node cli/bin/profile-cli.js all nodejs-react --agent kilocode` — must complete all 4 steps.
 
-- [ ] **7. Submit to Devpost**
+- [x] **7. Submit to Devpost**
   Spec ref: `prd.md > What We're Building`
   What to build: Prepare the Devpost submission. Write project name ("ProfileForge CLI"), tagline, and description using scope.md and prd.md. Add built-with tags (Node.js, Markdown). Take terminal screenshots of `status`, `validate`, and `all` commands running. Link the GitHub repo. Upload planning docs as artifacts.
   Acceptance: Devpost submission is live with name, tagline, description, built-with, screenshots, and repo link. Green "Submitted" badge visible.
