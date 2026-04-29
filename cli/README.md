@@ -1,4 +1,4 @@
-# profile-cli
+# ProfileForge CLI
 
 > Zero-dependency Node.js CLI that automates the full lifecycle of **Agent Environment Profiles** — validate, publish, and keep all documentation in sync across a matrix of AI coding agents, operating systems, and tech stacks.
 
