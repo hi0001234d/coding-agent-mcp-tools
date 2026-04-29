@@ -30,7 +30,7 @@ notepad setup-mcp-tools.ps1
 
 ### 📋 Step 3: Add Setup Script Code
 
-```powershell
+````powershell
 # ============================================================
 #  MCP Tools Installer + KiloCode Project-Level MCP Setup
 #  PHP + Laravel/WP Profile — Windows
@@ -528,7 +528,7 @@ if ($WpDisabled -eq "true") {
 }
 Write-Host "    7. MCP servers auto-connect on first prompt!"
 Write-Host ""
-```
+````
 
 > ⚠️ Security: Your `.kilocode\rules\security.md` is active every session.
 > It enforces 4 rules: no mass assignment, parameterized DB queries only,

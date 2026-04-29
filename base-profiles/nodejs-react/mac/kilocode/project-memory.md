@@ -20,7 +20,7 @@ Open KiloCode and run:
 
 You should see `basic-memory` listed as a connected MCP server.
 
-If it's missing, re-run the setup script from [system-setup.md](./macos-setup.md).
+If it's missing, re-run the setup script from [system-setup.md](./system-setup.md).
 
 ---
 

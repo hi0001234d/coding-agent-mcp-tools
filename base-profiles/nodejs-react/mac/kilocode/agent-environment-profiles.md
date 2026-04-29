@@ -14,7 +14,7 @@ persistent memory, automated code review, and deep TypeScript/Next.js understand
 ### 🖥️ Run Directly on Your System
 No containers, fastest setup, uses your existing environment.
 
-👉 [Run on Your System → system-setup.md](./macos-setup.md)
+👉 [Run on Your System → system-setup.md](./system-setup.md)
 
 ---
 

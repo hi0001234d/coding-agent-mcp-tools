@@ -33,7 +33,7 @@ nano setup-mcp-tools.sh
 
 ### 📋 Step 3: Add Setup Script Code
 
-```bash
+````bash
 #!/bin/bash
 
 # ============================================================
@@ -721,7 +721,7 @@ echo ""
 > It enforces 4 rules: no mass assignment, parameterized DB queries only,
 > no hardcoded secrets, no user-controlled file includes.
 > See .kilocode/rules/security.md for details.
-```
+````
 
 ---
 

@@ -1,7 +1,7 @@
 # ⚡ Curated Profiles — Node.js + React/Next.js
 
 Pre-configured workflows for the most common real-world scenarios.
-Each profile builds on the base setup from [system-setup.md](./windows-setup.md).
+Each profile builds on the base setup from [system-setup.md](./system-setup.md).
 
 ---
 

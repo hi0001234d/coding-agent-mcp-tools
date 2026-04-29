@@ -50,7 +50,7 @@ notepad setup-mcp-tools.ps1
 
 Copy the full script from below, paste it into the file, and save it.
 
-```powershell
+````powershell
 # ============================================================
 #  MCP Tools Installer + KiloCode Project-Level MCP Setup
 #  Node.js + React/Next.js Profile — Windows
@@ -668,7 +668,7 @@ if ($FigmaDisabled -eq "true") {
 }
 Write-Host "    6. MCP servers auto-connect on first prompt!"
 Write-Host ""
-```
+````
 
 > ⚠️ Security: Your `.kilocode\rules\security.md` is active every session.
 > It enforces 3 rules: no hardcoded secrets, parameterized DB queries only,

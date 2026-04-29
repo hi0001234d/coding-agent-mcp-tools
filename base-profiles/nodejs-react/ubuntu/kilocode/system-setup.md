@@ -689,12 +689,11 @@ echo "    5. Optional: add Figma API key to .kilocode/mcp.json to enable Figma M
 fi
 echo "    6. MCP servers auto-connect on first prompt!"
 echo ""
-
-echo ""
-echo "⚠️  Security: Your .kilocode/rules/security.md is active every session."
-echo "    It enforces 3 rules: no hardcoded secrets, parameterized DB queries only,"
-echo "    no direct req.body merges. See .kilocode/rules/security.md for details."
 ````
+
+> ⚠️ Security: Your .kilocode/rules/security.md is active every session.
+> It enforces 3 rules: no hardcoded secrets, parameterized DB queries only,
+> no direct req.body merges. See .kilocode/rules/security.md for details.
 
 ---
 

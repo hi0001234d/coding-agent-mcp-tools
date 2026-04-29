@@ -14,7 +14,7 @@ persistent memory, automated code review, and deep PHP/Laravel understanding
 ### 🖥️ Run Directly on Your System
 No containers, fastest setup, uses your existing PHP environment.
 
-👉 [Run on Your System → system-setup.md](./windows-setup.md)
+👉 [Run on Your System → system-setup.md](./system-setup.md)
 
 ---
 

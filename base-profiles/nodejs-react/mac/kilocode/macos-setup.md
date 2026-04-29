@@ -40,7 +40,7 @@ nano setup-mcp-tools.sh
 
 Copy the full script from below, paste it into the file, and save it.
 
-```bash
+````bash
 #!/bin/bash
 
 # ============================================================
@@ -704,11 +704,11 @@ echo "    5. Optional: add Figma API key to .kilocode/mcp.json to enable Figma M
 fi
 echo "    6. MCP servers auto-connect on first prompt!"
 echo ""
+````
 
 > ⚠️ Security: Your .kilocode/rules/security.md is active every session.
 > It enforces 3 rules: no hardcoded secrets, parameterized DB queries only,
 > no direct req.body merges. See .kilocode/rules/security.md for details.
-```
 
 ---
 
