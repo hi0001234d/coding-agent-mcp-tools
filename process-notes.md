@@ -42,3 +42,10 @@
 - **References that shaped the doc:** Repo README (profile matrix, curated tools list), CLI package.json (commands, scripts), index.js (full command router and pipeline).
 - **Deepening rounds:** 0 — learner requested direct doc generation from existing repo context. Had clear vision, no ambiguity to resolve.
 - **Active shaping:** Learner drove direction fully — specified the format, level of detail, and asked for a submission-quality doc rather than conversational exploration. Efficient and decisive.
+
+## /iterate
+
+- **Entry state:** All 7 checklist items complete including Devpost submission. Full build done.
+- **Iteration started:** 2026-04-28
+- **Working style shift:** Learner is now in free-form mode — no structured interview, direct collaboration.
+- *(Details to be filled as the iteration unfolds.)*
