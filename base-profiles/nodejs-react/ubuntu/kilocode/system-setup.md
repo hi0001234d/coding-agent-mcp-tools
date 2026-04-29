@@ -40,7 +40,7 @@ nano setup-mcp-tools.sh
 
 Copy the full script from below, paste it into the file, and save it.
 
-```bash
+````bash
 #!/bin/bash
 
 # ============================================================
@@ -690,10 +690,11 @@ fi
 echo "    6. MCP servers auto-connect on first prompt!"
 echo ""
 
-> ⚠️ Security: Your .kilocode/rules/security.md is active every session.
-> It enforces 3 rules: no hardcoded secrets, parameterized DB queries only,
-> no direct req.body merges. See .kilocode/rules/security.md for details.
-```
+echo ""
+echo "⚠️  Security: Your .kilocode/rules/security.md is active every session."
+echo "    It enforces 3 rules: no hardcoded secrets, parameterized DB queries only,"
+echo "    no direct req.body merges. See .kilocode/rules/security.md for details."
+````
 
 ---
 
