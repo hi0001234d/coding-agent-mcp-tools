@@ -1,233 +1,362 @@
-# profile-cli
+# ProfileForge CLI — Command Guide
 
-> Zero-dependency Node.js CLI that automates the full lifecycle of **Agent Environment Profiles** — validate, publish, and keep all documentation in sync across a matrix of AI coding agents, operating systems, and tech stacks.
-
----
-
-## What It Does
-
-Managing profiles for **8 coding agents × 3 operating systems × multiple stacks** produces hundreds of markdown files and a README table that goes stale the moment anyone adds a new agent.
-
-`profile-cli` automates the full profile lifecycle in a single pipeline:
-
-| Step | Command | What happens |
-|---|---|---|
-| Validate | `validate` | Pre-publish gate — checks every source profile for required files, mandatory keywords, OS-specific content, relative link resolution, and empty files. Nothing moves forward until all checks pass. |
-| Publish | `publish` | Copies profiles to the public `profiles/` directory. Blocked if validate has not passed in the current session. |
-| Sync README | `update-readme` | Inserts or replaces the stack column in the main README.md profile table. Reflects what is actually published. |
-| Sync nav | `update-nav` | Adds or updates the shields.io badge in `navigation.md`. |
-| Full pipeline | `all` | Runs all four steps in sequence: validate → publish → update-readme → update-nav. Stops on first failure. |
-
-Agent detection is filesystem-driven — no hardcoded list. The CLI scans the source directories and picks up any agent present in **all** OS variants. Add a new agent folder and every command picks it up automatically.
-
----
-
-## How We Built It
-
-Built with **Node.js >=18** and zero external dependencies — no npm install required beyond registering the bin alias.
-
-The architecture is a thin command router (`src/index.js`) that delegates to focused modules:
-
-```
-cli/
-├── bin/
-│   └── profile-cli.js      # shebang entry point
-└── src/
-    ├── index.js             # argument parsing + command router + pipeline
-    ├── config.js            # stack definitions + agent auto-detection
-    ├── publish.js           # file copy with content-diff skip logic + session gate
-    ├── validate.js          # rule-based content validation (pre-publish, read-only)
-    ├── update-readme.js     # README table column management
-    ├── update-nav.js        # navigation.md badge management
-    ├── status.js            # publish status display
-    └── utils.js             # colour-coded log helpers
-```
-
-Stack definitions in `config.js` drive every other module. Each stack declares its source path, target path, OS variants, expected files, validation rules (including OS-specific keyword checks), and README/nav metadata. Everything else derives from that config — so adding a new stack is a single object.
-
-The project was spec-driven: scope, PRD, and technical spec were written before a single line of code. Those docs live in `docs/` and were the direct input to implementation.
-
----
-
-## Challenges We Ran Into
-
-- **Validate as a hard pre-publish gate** — the spec required that publish is unconditionally blocked if validate has not passed in the current session. This meant tracking session state (`validatePassedThisSession`) as a module-level boolean in `index.js`, reset on every new shell invocation. The tradeoff is documented: users who open a new terminal must re-run validate before publish.
-- **Agent detection without a hardcoded list** — agents needed to be discovered dynamically so contributors don't have to touch CLI code to add a new agent. The solution scans all OS variant directories and takes the intersection — only agents present in *all* OS dirs are considered complete and ready to process.
-- **OS-specific validation** — the same profile file needs different mandatory content depending on whether it targets Ubuntu, macOS, or Windows. The `mustContainByOS` rule map in `config.js` handles this without branching in the validation logic itself.
-- **Idempotent documentation updates** — `update-readme` and `update-nav` have to be safe to run repeatedly without duplicating columns or badges. Both commands scan for existing markers before inserting, and update in place when the entry already exists.
-- **Content comparison for publish skip logic** — using file modification time to detect unchanged files is unreliable because git checkout resets timestamps. Content string comparison (`srcContent === destContent`) is used instead, making the publish step genuinely idempotent.
-
----
-
-## Accomplishments
-
-- Validate acts as a real gate — nothing reaches the public directory without passing content checks. Missing files, wrong OS keywords, broken relative links, and empty files are all caught before publish runs.
-- The full pipeline (`all`) chains validate → publish → readme sync → nav sync in one command. What was previously a sequence of manual copy-paste steps and table edits is now a single invocation.
-- `status` gives an instant read across all stacks, agents, and OS variants: published, unpublished, or out of sync — with actionable hints for anything not yet live.
-- Zero dependencies. Works anywhere Node.js >=18 is installed. No setup beyond `npm link`.
-- Writing scope, PRD, and spec before touching code forced every ambiguous decision to be resolved on paper first — particularly the pipeline order and what validate should block vs. warn about.
-
----
-
-## What We Learned
-
-Spec-driven development forces clarity before complexity. Writing a PRD and technical spec before touching code revealed assumptions we didn't know we were making — particularly around pipeline ordering and what "validate" should block versus warn about. The open questions section of the PRD made those decisions explicit before any implementation started.
-
-Dynamic agent detection from the filesystem was the right call from day one. Any approach that required editing a config list every time a contributor added a new agent would have become a maintenance burden immediately.
-
-Content-based file comparison is the correct default for any CLI that operates on files that pass through git. Mtime is unreliable and produces confusing behaviour that's hard to debug.
-
-Keeping validate strictly read-only (it never modifies any file) made it safe to run at any point — as a pre-publish check, as a standalone audit, or as a CI step — without side effects.
-
----
-
-## What's Next
-
-- **More stack support** — Python/Django, Ruby on Rails, Go are natural next targets given the existing agent × OS matrix
-- **`--dry-run` flag** — preview what publish and the full pipeline would change without touching the filesystem
-- **`diff` command** — show a human-readable diff between source profile and published profile before deciding to publish
-- **Interactive prompts** — guided `init` flow for contributors creating a new agent's profiles from scratch, with templating and immediate validation feedback
-- **GitHub Issues integration** — auto-create issues from validation failures so missing or broken profiles become tracked work items
-- **npm publish** — make `profile-cli` installable globally without cloning the repo
-
----
-
-## Requirements
+## Prerequisites
 
 - Node.js >= 18.0.0
-- No other dependencies
+- Run every command from the **repo root**: `coding-agent-mcp-tools/`
 
 ---
 
-## Installation
+## How the pipeline works
 
-```bash
-cd cli
-npm install   # registers the bin alias — nothing to download
-npm link      # makes `profile-cli` available globally
+```
+coding-agent-mcp-tools-submodule/   ← hand-crafted source files (private)
+        │
+        │  sync-cli  (renames system-setup.md → macos-setup.md / windows-setup.md
+        │             + rewrites content links per OS)
+        ▼
+base-profiles/<stack>/<os>/<agent>/   ← sync output — do NOT edit manually
+        │
+        │  generate / publish
+        ▼
+profiles/<stack>/<os>/<agent>/        ← public output committed to this repo
+        │
+        │  update-readme / update-nav
+        ▼
+README.md  navigation.md              ← docs updated automatically
 ```
 
-Or run directly without linking:
+**Rule:** Never edit `base-profiles/` by hand. It is owned by sync-cli. Edit the submodule, run sync-cli, then run the main CLI.
+
+---
+
+## Invoke
 
 ```bash
-node bin/profile-cli.js <command> [stack] [--agent <name>]
+node cli/bin/profile-cli.js <command> [stack] [--agent <name>]
 ```
+
+**Global install (run once from inside `cli/`):**
+```bash
+cd cli && npm link && cd ..
+# then use `profile-cli` instead of `node cli/bin/profile-cli.js`
+```
+
+---
+
+## Stacks
+
+| Key | Name |
+|---|---|
+| `nodejs-react` | Node.js + React/Next.js |
+| `php-laravel` | PHP + Laravel/WP |
+
+## Agents (auto-detected from `base-profiles/`)
+
+Agents are not configured — the CLI scans `base-profiles/<stack>/<os>/` at runtime.
+An agent is only detected when its folder exists in **all three** OS variants (ubuntu, mac, windows).
+
+| Key | Display name |
+|---|---|
+| `kilocode` | Kilo Code |
+| `cline` | Cline |
+| `roo` | Roo Code |
+| `claude` | Claude |
+| `cursor` | Cursor |
+| `codex` | Codex |
+| `opencode` | OpenCode |
+| `windsor` | Windsor |
+
+## OS variants
+
+Every command that touches files always processes all three OS variants together.
+There is no flag to target a single OS.
+
+| OS | Setup file | Shell |
+|---|---|---|
+| `ubuntu` | `system-setup.md` | bash, apt |
+| `mac` | `macos-setup.md` | Homebrew, zsh |
+| `windows` | `windows-setup.md` | PowerShell, winget |
 
 ---
 
 ## Commands
 
-```
-profile-cli <command> [stack] [--agent <name>]
+### `generate` — copy base-profiles → profiles/ (no validation gate)
+
+Reads hand-crafted files from `base-profiles/<stack>/<os>/<agent>/` and copies them to `profiles/<stack>/<os>/<agent>/`. Skips files whose content is already identical to the destination. Does **not** run validation before copying.
+
+One agent on one stack = **27 files** (9 files × 3 OS variants).
+
+```bash
+# One agent, one stack
+node cli/bin/profile-cli.js generate nodejs-react --agent kilocode
+node cli/bin/profile-cli.js generate php-laravel  --agent kilocode
+
+# All detected agents in a stack (no --agent flag)
+node cli/bin/profile-cli.js generate nodejs-react
 ```
 
-| Command | Stack required | Description |
+**Exit codes:** `0` = success, `1` = one or more files missing in source, `2` = unknown stack or agent.
+
+**When to use:** Quick copy when you know the source files are correct. Use `all` instead when you want the validation gate.
+
+---
+
+### `validate` — check base-profiles content
+
+Reads every file in `base-profiles/<stack>/<os>/<agent>/` and checks:
+- File exists and is not empty
+- Required keywords are present per file (e.g. `bash`, `mcp.json` in ubuntu setup)
+- OS-specific keywords fire only for the correct OS variant
+- Relative links (e.g. `./docker-setup.md`) resolve to a file that actually exists
+
+Validate is **strictly read-only** — it never modifies any file.
+
+```bash
+# One agent
+node cli/bin/profile-cli.js validate nodejs-react --agent kilocode
+node cli/bin/profile-cli.js validate php-laravel  --agent kilocode
+
+# All detected agents
+node cli/bin/profile-cli.js validate nodejs-react
+node cli/bin/profile-cli.js validate php-laravel
+```
+
+**Exit codes:** `0` = all checks passed, `1` = one or more files failed, `2` = unknown stack or agent.
+
+**Output:** Prints `PASS` or `FAIL` per file with a reason. Summary line: `N total, N passed, N failed`.
+
+---
+
+### `publish` — validate then copy base-profiles → profiles/
+
+Runs validation internally first. If validation fails, it exits immediately without copying anything. If validation passes, copies from `base-profiles/<stack>/<os>/<agent>/` to `profiles/<stack>/<os>/<agent>/`. Skips files with identical content.
+
+```bash
+# One agent
+node cli/bin/profile-cli.js publish nodejs-react --agent kilocode
+node cli/bin/profile-cli.js publish php-laravel  --agent kilocode
+
+# All detected agents
+node cli/bin/profile-cli.js publish nodejs-react
+```
+
+**Exit codes:** `0` = validation passed and files copied, `1` = validation failed or copy error, `2` = unknown stack or agent.
+
+**Difference from `generate`:** `publish` validates before copying; `generate` copies unconditionally.
+
+---
+
+### `all` — full pipeline: validate → publish → update-readme → update-nav
+
+Runs all four steps in sequence. Stops at the first failure and exits `1`. Does **not** include `generate` — run `generate` (or sync-cli) before `all`.
+
+```bash
+# One agent
+node cli/bin/profile-cli.js all nodejs-react --agent kilocode
+node cli/bin/profile-cli.js all php-laravel  --agent kilocode
+
+# All detected agents
+node cli/bin/profile-cli.js all nodejs-react
+node cli/bin/profile-cli.js all php-laravel
+```
+
+**Exit codes:** `0` = all four steps succeeded, `1` = a step failed, `2` = unknown stack or agent.
+
+**Order of steps:**
+```
+Step 1/4 — validate   (reads base-profiles/)
+Step 2/4 — publish    (copies base-profiles/ → profiles/)
+Step 3/4 — update-readme
+Step 4/4 — update-nav
+```
+
+---
+
+### `update-readme` — update the profile table in README.md
+
+Adds or updates the column for the given stack in the README profile matrix. Reads from `profiles/` to determine which agents are published. Does not accept `--agent`.
+
+```bash
+node cli/bin/profile-cli.js update-readme nodejs-react
+node cli/bin/profile-cli.js update-readme php-laravel
+```
+
+**Exit codes:** `0` = updated (or already up to date), `1` = README.md missing or table marker absent, `2` = unknown stack.
+
+---
+
+### `update-nav` — update navigation.md entries
+
+Adds or updates the badge entry for the given stack in navigation.md. Idempotent — does nothing if the entry already exists. Does not accept `--agent`.
+
+```bash
+node cli/bin/profile-cli.js update-nav nodejs-react
+node cli/bin/profile-cli.js update-nav php-laravel
+```
+
+**Exit codes:** `0` = updated or already present, `1` = navigation.md missing, `2` = unknown stack.
+
+---
+
+### `status` — show publish state of all stacks and agents
+
+Shows what is published vs unpublished for every detected agent across every stack and OS. Takes no arguments.
+
+```bash
+node cli/bin/profile-cli.js status
+```
+
+**Status icons:**
+
+| Icon | Meaning |
+|---|---|
+| `TODO` | No files published for this OS |
+| `PART` | Some files published, not all 9 |
+| `DONE` | All 9 files published, content matches source |
+| `SYNC` | All 9 files exist but content differs from source — run `all` again |
+
+---
+
+### `list` — show detected agents and tool slots per stack
+
+Prints which agents the CLI currently detects from `base-profiles/` and the MCP tool slots configured per stack.
+
+```bash
+node cli/bin/profile-cli.js list
+```
+
+---
+
+## `--agent` flag reference
+
+| Command | Accepts `--agent` | Without `--agent` |
 |---|---|---|
-| `validate` | yes | Pre-publish content gate — checks profiles for correctness. Must pass before publish runs. |
-| `publish` | yes | Copy profiles to `profiles/`. Blocked if validate has not passed this session. |
-| `update-readme` | yes | Add/update stack column in README.md table |
-| `update-nav` | yes | Add/update profile badge in navigation.md |
-| `all` | yes | Full pipeline: validate → publish → update-readme → update-nav |
-| `status` | no | Show publish status across all stacks and agents |
-| `list` | no | List available stacks with detected agents |
-| `help` | no | Show usage information |
-
-`--agent <name>` limits any command to a single agent (e.g. `--agent cline`).
-
-**Exit codes:** `0` success · `1` validation or operation failure · `2` invalid arguments
+| `generate` | Yes | Processes all auto-detected agents |
+| `validate` | Yes | Processes all auto-detected agents |
+| `publish` | Yes | Processes all auto-detected agents |
+| `all` | Yes | Processes all auto-detected agents |
+| `update-readme` | No | Always processes the whole stack |
+| `update-nav` | No | Always processes the whole stack |
+| `status` | No | Always shows everything |
+| `list` | No | Always shows everything |
 
 ---
 
-## Available Stacks
+## Workflows
 
-| Stack ID | Description |
-|---|---|
-| `nodejs-react` | Node.js + React / Next.js |
-| `php-laravel` | PHP + Laravel / WordPress |
+### Standard: publish new or updated profiles
 
----
-
-## Usage Examples
+Use this whenever you want the validation gate before profiles go public.
 
 ```bash
-# See what is and isn't published yet
-profile-cli status
+# 1. Run the full safe pipeline
+node cli/bin/profile-cli.js all nodejs-react --agent kilocode
 
-# Full pipeline for a stack (validate → publish → update docs)
-profile-cli all nodejs-react
-profile-cli all php-laravel
+# 2. Confirm published state
+node cli/bin/profile-cli.js status
 
-# Full pipeline for both stacks
-npm run publish-all
-
-# Validate all agents for a stack before publishing
-profile-cli validate nodejs-react
-
-# Validate a single agent only
-profile-cli validate nodejs-react --agent cline
-
-# Publish after validation passes
-profile-cli publish nodejs-react
-
-# Publish a single agent only
-profile-cli publish nodejs-react --agent cline
-
-# Update README table after a manual profile change
-profile-cli update-readme nodejs-react
-
-# Update navigation badges
-profile-cli update-nav nodejs-react
-
-# List stacks and auto-detected agents
-profile-cli list
+# 3. Commit
+git add profiles/ README.md navigation.md
+git commit -m "publish nodejs-react profiles (kilocode)"
 ```
 
 ---
 
-## npm Scripts
+### After editing submodule source files
+
+The submodule holds the hand-crafted source. After you change files there:
 
 ```bash
-npm run publish:nodejs    # profile-cli publish nodejs-react
-npm run publish:php       # profile-cli publish php-laravel
-npm run validate:nodejs   # profile-cli validate nodejs-react
-npm run validate:php      # profile-cli validate php-laravel
-npm run publish-all       # all nodejs-react && all php-laravel
-npm run status            # profile-cli status
+# 1. Sync submodule → base-profiles (handles OS-specific renames + content links)
+cd ../coding-agent-mcp-tools-submodule
+node sync-cli/bin/sync.js sync
+
+cd ../coding-agent-mcp-tools
+
+# 2. Publish (validate → copy → update README + nav)
+node cli/bin/profile-cli.js all nodejs-react --agent kilocode
+
+# 3. Commit
+git add profiles/ README.md navigation.md
+git commit -m "update nodejs-react profiles (kilocode)"
 ```
 
 ---
 
-## Validation Rules
+### Quick copy without validation (generate)
 
-Each stack defines per-file rules applied during `validate`. Validate is always **read-only** — it never modifies any file.
+Use `generate` only when you are certain the source files are correct — for example, immediately after a sync-cli run that you have already verified.
 
-| Rule | What it checks |
-|---|---|
-| File existence | Every file in `expectedFiles` must be present |
-| `mustContain` | Required keywords must appear (case-insensitive) |
-| `mustContainByOS` | OS-specific keywords: Ubuntu → `bash`, macOS → `brew`, Windows → `PowerShell` |
-| Link resolution | Relative `[text](./file.md)` links must point to files that exist |
-| Empty file | Files with no content are rejected |
+```bash
+node cli/bin/profile-cli.js generate nodejs-react --agent kilocode
+node cli/bin/profile-cli.js generate php-laravel  --agent kilocode
+```
 
-Validate runs to completion and reports **every failure** before exiting — not just the first one. Each error names the full profile path, the file, and the specific problem. In the `all` pipeline, if validate fails the pipeline stops immediately — publish, update-readme, and update-nav do not run.
+`generate` does not update README.md or navigation.md. Run `update-readme` and `update-nav` separately if needed, or just use `all` instead.
 
 ---
 
-## Pipeline Behaviour
+### Publish both stacks for one agent
 
-The `all` command runs four steps in strict order:
+```bash
+node cli/bin/profile-cli.js all nodejs-react --agent kilocode
+node cli/bin/profile-cli.js all php-laravel  --agent kilocode
 
+git add profiles/ README.md navigation.md
+git commit -m "publish nodejs-react + php-laravel profiles (kilocode)"
 ```
-[validate]  → checks all profiles — stops pipeline on any failure
-[publish]   → copies profiles to profiles/ — skips identical files
-[readme]    → updates README.md profile table to reflect published state
-[nav]       → updates navigation.md badges
-```
-
-Each step is prefixed in output (`[validate]`, `[publish]`, `[readme]`, `[nav]`). A final summary always prints regardless of outcome. Publish and the doc sync steps only run if validate passes — invalid profiles never reach the public directory.
 
 ---
 
-## License
+### Publish all detected agents in a stack
 
-MIT
+```bash
+node cli/bin/profile-cli.js all nodejs-react
+
+git add profiles/ README.md navigation.md
+git commit -m "publish nodejs-react profiles (all agents)"
+```
+
+---
+
+### Check what is out of sync before committing
+
+```bash
+node cli/bin/profile-cli.js status
+```
+
+If any OS shows `SYNC`, the published files differ from base-profiles. Re-run `all` for that stack/agent to bring them back in sync.
+
+---
+
+## Files read and written per command
+
+| Command | Reads from | Writes to |
+|---|---|---|
+| `generate` | `base-profiles/<stack>/<os>/<agent>/` | `profiles/<stack>/<os>/<agent>/` |
+| `validate` | `base-profiles/<stack>/<os>/<agent>/` | nothing |
+| `publish` | `base-profiles/<stack>/<os>/<agent>/` | `profiles/<stack>/<os>/<agent>/` |
+| `all` | `base-profiles/` + `profiles/` | `profiles/` + `README.md` + `navigation.md` |
+| `update-readme` | `profiles/<stack>/` | `README.md` |
+| `update-nav` | `profiles/<stack>/` | `navigation.md` |
+| `status` | `base-profiles/` + `profiles/` | nothing |
+| `list` | `base-profiles/` | nothing |
+
+---
+
+## Running the test suite
+
+```bash
+cd cli
+npm install          # first time only
+
+# All tests (sequential — required because e2e and generate tests share the filesystem)
+./node_modules/.bin/jest --runInBand --verbose
+
+# One suite only
+./node_modules/.bin/jest tests/generate.test.js --verbose
+./node_modules/.bin/jest tests/e2e.test.js --runInBand --verbose
+./node_modules/.bin/jest tests/validate.test.js --verbose
+```
