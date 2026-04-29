@@ -13,7 +13,8 @@
     "validate:nodejs": "node bin/profile-cli.js validate nodejs-react",
     "validate:php": "node bin/profile-cli.js validate php-laravel",
     "publish-all": "node bin/profile-cli.js all nodejs-react && node bin/profile-cli.js all php-laravel",
-    "status": "node bin/profile-cli.js status"
+    "status": "node bin/profile-cli.js status",
+    "test": "jest --verbose"
   },
   "keywords": [
     "mcp",
@@ -26,5 +27,12 @@
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": ["**/tests/**/*.test.js"]
   }
 }
