@@ -309,6 +309,7 @@ Tools designed to support long-lived projects and ongoing software maintenance.
 
 Tools that assist with automated testing, validation, and QA workflows.
 
+- [agent-qa](https://vostride.com) – Web, Android and iOS QA via CLI/MCP, with persistent memidex memory and evidence-gated self-improvement.
 - [Playwright MCP](https://github.com/microsoft/playwright-mcp) – Browser automation and testing  
 - [TestSprite](https://www.npmjs.com/package/@testsprite/testsprite-mcp) – End-to-end test automation framework     
 - [LambdaTest MCP](https://www.lambdatest.com/mcp) – Connect AI assistants with automated testing workflows  
